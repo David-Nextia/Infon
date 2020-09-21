@@ -68,11 +68,17 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="12dp"
             android:drawableStart="@drawable/ic_lock_24px"
+            android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
             android:hint="Contraseña"
             android:inputType="textPassword" />
-
+        <TextView
+            android:id="@+id/registerlink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hyperlink"
+            android:gravity="right"/>
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonlogin"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
@@ -84,7 +90,26 @@
 
             />
 
+        <TextView
+            android:id="@+id/avisolink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hyperlinkap"
+            android:gravity="center"/>
+
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:alpha="0"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteY="323dp" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

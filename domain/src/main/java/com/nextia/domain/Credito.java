@@ -8,7 +8,7 @@ public class Credito {
 
     @SerializedName("numeroCredito")
     @Expose
-    private Integer numeroCredito;
+    private Double numeroCredito;
     @SerializedName("tipoCredito")
     @Expose
     private String tipoCredito;
@@ -16,11 +16,11 @@ public class Credito {
     @Expose
     private String estatusCredito;
 
-    public Integer getNumeroCredito() {
+    public Double getNumeroCredito() {
         return numeroCredito;
     }
 
-    public void setNumeroCredito(Integer numeroCredito) {
+    public void setNumeroCredito(Double numeroCredito) {
         this.numeroCredito = numeroCredito;
     }
 

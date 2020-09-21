@@ -15,22 +15,24 @@ import retrofit2.Response;
 import static jdk.nashorn.internal.objects.Global.print;
 
 public class Database {
-    public User DoLogin(UserLogin user){
-
-        User responseUser;
-        responseUser= new User("","",false,new ArrayList<Credito>(),"","","",false,2,"","", new Seguridad(""),new StatusServicio("",""),"");
+    public User DoLogin(String userstr,String password, final OnLoginFinished onLoginFinished){
+        UserLogin user = new UserLogin(userstr,password);
+        final User responseUser= new User();
+        //responseUser= new User("","",false,new ArrayList<Credito>(),"","","",false,2,"","", new Seguridad(""),new StatusServicio("",""),"");
         Call<User> doLoginJS =RetrofitService.getApiService().doLoginJson(user);
         doLoginJS.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
-                int I;
-                //print(response.body().getEmailPersonal());
+                if(response.body().getEmailPersonal()!=""){
+               onLoginFinished.OnSuccess(response.body());}
+                else{
+                   // onLoginFinished.OnError(response.body().getStatusServicio().getMensaje());
+                }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                int I;
-//                print("hey");
+                onLoginFinished.OnError("jeje");
             }
         });
 

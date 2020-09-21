@@ -10,7 +10,7 @@ public class User {
 
     @SerializedName("nss")
     @Expose
-    private Integer nss;
+    private Double nss;
     @SerializedName("nombre")
     @Expose
     private String nombre;
@@ -55,11 +55,15 @@ public class User {
 
     }
 
-    public Integer getNss() {
+    public User() {
+
+    }
+
+    public Double getNss() {
         return nss;
     }
 
-    public void setNss(Integer nss) {
+    public void setNss(Double nss) {
         this.nss = nss;
     }
 
