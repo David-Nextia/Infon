@@ -7,6 +7,7 @@ import android.view.Menu;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.nextia.micuentainfonavit.domain.user.User;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
