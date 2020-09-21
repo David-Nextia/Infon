@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/mci-android.iml" filepath="$PROJECT_DIR$/mci-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" group="Mi_cuenta_infonavit" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Mi cuenta infonavit/app" />
     </modules>
   </component>
 </project>
