@@ -8,9 +8,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.transition.Transition;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -34,6 +38,7 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+        //Animation fade1 = AnimationUtils.loadAnimation(this, R.id.startrans);
         setButton(this);
     }
 
@@ -47,8 +52,8 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
 
         loginbtn.setEnabled(false);
-        email.setText("aclara106@yopmail.com");
-        password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
+        //password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

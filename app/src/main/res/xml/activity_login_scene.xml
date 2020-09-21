@@ -3,10 +3,11 @@
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
-        motion:constraintSetEnd="@+id/start_c"
+        motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
-        motion:duration="2000"
-        motion:autoTransition="animateToEnd">
+        motion:autoTransition="animateToEnd"
+        motion:duration="3000"
+      >
         <KeyFrameSet>
             <KeyAttribute
                 motion:motionTarget="@+id/register_form"
@@ -68,10 +69,4 @@
             android:alpha="0"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
-    <Transition
-        android:id="@+id/transition2"
-        motion:constraintSetStart="@+id/start_c"
-        motion:constraintSetEnd="@+id/end"
-        motion:autoTransition="animateToEnd"
-        motion:duration="1000" />
 </MotionScene>

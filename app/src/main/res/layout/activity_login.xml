@@ -76,7 +76,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/hyperlink"
-            android:gravity="right"/>
+            android:gravity="right"
+            android:layout_marginRight="15dp"/>
         <Button
             android:id="@+id/buttonlogin"
             android:layout_width="match_parent"
