@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/start_c"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2000"
+        motion:autoTransition="animateToEnd">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/register_form"
+               motion:framePosition="0"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/register_form"
+               motion:framePosition="33"
+               android:alpha="0" />
+           <KeyAttribute
+               motion:motionTarget="@+id/logoimg"
+               motion:framePosition="0"
+               android:alpha="0" />
+       </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:layout_height="wrap_content"
+            motion:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
+            android:layout_width="0dp"
+            android:id="@+id/logoimg"
+            motion:layout_constraintBottom_toBottomOf="parent" />
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/logoimg"
+            motion:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toBottomOf="@id/verticalguidelinetop"
+            motion:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/start_c" >
+        <Constraint
+            motion:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
+            android:layout_width="0dp"
+            android:id="@+id/logoimg"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="@id/verticalguidelineleft" />
+        <Constraint
+            android:id="@+id/register_form"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/logoimg"
+            android:alpha="0"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+    <Transition
+        android:id="@+id/transition2"
+        motion:constraintSetStart="@+id/start_c"
+        motion:constraintSetEnd="@+id/end"
+        motion:autoTransition="animateToEnd"
+        motion:duration="1000" />
+</MotionScene>
