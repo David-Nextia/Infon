@@ -10,8 +10,8 @@ public class Seguridad {
     @Expose
     private String movilID;
 
-    public Seguridad(String s) {
-
+    public Seguridad(String movilId) {
+this.movilID=movilId;
     }
 
     public String getMovilID() {

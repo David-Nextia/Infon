@@ -24,6 +24,6 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         //Utils utirl;
         Database database= new Database();
-        database.DoLogin(new UserLogin("we","ew","we","we",new Seguridad("we"),"we","we"));
+        database.DoLogin(new UserLogin("aclara106@yopmail.com","ContrasenaQa01"));
     }
 }

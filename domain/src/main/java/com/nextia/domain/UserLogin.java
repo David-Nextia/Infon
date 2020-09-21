@@ -4,6 +4,8 @@ package com.nextia.domain;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.UUID;
+
 public class UserLogin {
 
     @SerializedName("username")
@@ -28,8 +30,15 @@ public class UserLogin {
     @Expose
     private Seguridad seguridad;
 
-    public UserLogin(String s, String s1, String s2, String s3, Seguridad seguridad, String s4, String s5) {
-        this.username=s;
+    public UserLogin(String username, String passsword) {
+        this.username=username;
+        this.password=passsword;
+        this.canal="2";
+        this.correo=username;
+        this.url="https";
+        this.pagina="www.infonavit.com";
+        this.seguridad=new Seguridad(UUID.randomUUID().toString());
+
     }
 
     public String getUsername() {
