@@ -1,6 +1,7 @@
 package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -24,10 +25,12 @@ import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
     Database database = new Database();
+    UserUseCase user = new UserUseCase();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -87,7 +90,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             @Override
             public void onClick(View v) {
                 progress.setAlpha(1.0f);
-                database.DoLogin(email.getText().toString(), password.getText().toString(), context);
+               // database.doLogin(email.getText().toString(), password.getText().toString(), context);
+                user.doLogin(email.getText().toString(),password.getText().toString(),context);
             }
         });
 
@@ -134,15 +138,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @Override
     public void onSuccesRequest(UserResponse object) {
-        SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
+        SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(object);
         prefsEditor.putString("UsuarioData", json);
         prefsEditor.commit();
         ProgressBar progress= findViewById(R.id.progressBar);
-        progress.setAlpha(0.0f);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
+        progress.setAlpha(0.0f);
         startActivity(i);
     }
 

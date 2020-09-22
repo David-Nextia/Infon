@@ -20,4 +20,21 @@
     <string name="menu_constancia">Constancia de intereses</string>
     <string name="menu_info_perfil">Información de perfil</string>
     <string name="welcome">Bienvenido</string>
+
+
+
+
+    <!--Savigns -->
+    <string name="savings_title">Este es tu ahorro</string>
+    <string name="savings_ahorro">Ahorro total:</string>
+    <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
+
+
+
+    <!--Contributions Row -->
+    <string name="contribution_ultima_aportacion">Recibida el:</string>
+    <string name="contribution_patron_actual">Tu patrón actual es:</string>
+    <string name="contribution_ultimo_sueldo">Tu último sueldo</string>
+    <string name="contribution_year">Subcuenta de Vivienda</string>
+    <string name="contribution_contribution">Aportación</string>
 </resources>

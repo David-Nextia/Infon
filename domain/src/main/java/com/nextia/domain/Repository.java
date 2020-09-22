@@ -2,6 +2,7 @@ package com.nextia.domain;
 
 import com.google.gson.JsonObject;
 import com.nextia.domain.models.saldo.SaldoBody;
+import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
 import okhttp3.ResponseBody;
@@ -17,5 +18,5 @@ public interface Repository {
     @POST(LOGIN_BASE)
     Call<UserResponse> logInMethod(@Body UserBody user, @Header("Authorization") String auth);
     @POST(GET_SALDO_BASE)
-    Call<ResponseBody>  getSaldo(@Body SaldoBody saldo,@Header("Authorization") String auth);
+    Call<SaldoResponse>  getSaldo(@Body SaldoBody saldo, @Header("Authorization") String auth);
 }
