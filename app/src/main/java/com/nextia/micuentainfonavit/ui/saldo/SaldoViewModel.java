@@ -10,6 +10,7 @@ public class SaldoViewModel extends ViewModel {
 
     public SaldoViewModel() {
         mText = new MutableLiveData<>();
+
         mText.setValue("fragmento cuanto ahorro tengo");
     }
     public void getUserSharePrefs(){
