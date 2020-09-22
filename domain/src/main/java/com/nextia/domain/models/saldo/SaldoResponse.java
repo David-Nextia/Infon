@@ -21,7 +21,7 @@ public class SaldoResponse {
     private String saldoSAR97;
     @SerializedName("NSS")
     @Expose
-    private Integer nSS;
+    private String nSS;
     @SerializedName("bimestre")
     @Expose
     private Integer bimestre;
@@ -70,11 +70,11 @@ public class SaldoResponse {
         this.saldoSAR97 = saldoSAR97;
     }
 
-    public Integer getNSS() {
+    public String getNSS() {
         return nSS;
     }
 
-    public void setNSS(Integer nSS) {
+    public void setNSS(String nSS) {
         this.nSS = nSS;
     }
 

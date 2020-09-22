@@ -9,10 +9,14 @@ import androidx.lifecycle.ViewModel;
 
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
+
+import javax.xml.parsers.SAXParser;
 
 public class SaldoViewModel extends ViewModel {
-
+    SaldosUseCase saldos=new SaldosUseCase();
     private MutableLiveData<String> mText;
 
     public SaldoViewModel() {
@@ -20,20 +24,7 @@ public class SaldoViewModel extends ViewModel {
 
         mText.setValue("fragmento cuanto ahorro tengo");
     }
-    public void getUserSharePrefs(OnFinishRequestListener listener){
-        Context context= (Context)listener;
 
-    }
-
-    public UserResponse getSharedPreferences(Context context){
-        SharedPreferences  mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        Gson gson = new Gson();
-        String json = mPrefs.getString("UsuarioData", "");
-        UserResponse obj = gson.fromJson(json, UserResponse.class);
-        return obj;
-
-    }
 
     public LiveData<String> getText() {
         return mText;

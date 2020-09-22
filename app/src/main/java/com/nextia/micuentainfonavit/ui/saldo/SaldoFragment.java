@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo.SaldoResponse;
@@ -24,16 +26,26 @@ public class SaldoFragment extends Fragment implements OnFinishRequestListener<S
 
     private SaldoViewModel saldoViewModel;
     public TextView ahorro;
-
+    ProgressBar progres;
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         saldoViewModel =new ViewModelProvider(this).get(SaldoViewModel.class);
         View root = inflater.inflate(R.layout.fragment_saldos, container, false);
+        Utils utils= new Utils();
         ahorro=root.findViewById(R.id.txtAhorroTotal);
-        SharedPreferences  mPrefs = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
+        progres= root.findViewById(R.id.progressBarSaldos);
+        progres.setAlpha(1.0f);
+        TabLayout tabLayout;
+        tabLayout=(TabLayout)root.findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("Home"));
+        tabLayout.addTab(tabLayout.newTab().setText("Sport"));
+        tabLayout.addTab(tabLayout.newTab().setText("Movie"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+       /* SharedPreferences  mPrefs = this.getActivity().getSharedPreferences("pref", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = mPrefs.getString("UsuarioData", "");
-        UserResponse obj = gson.fromJson(json, UserResponse.class);
+        UserResponse obj = gson.fromJson(json, UserResponse.class);*/
+       utils.getSaldo(this, this.getActivity());
 
 
         return root;
@@ -46,6 +58,8 @@ public class SaldoFragment extends Fragment implements OnFinishRequestListener<S
 
     @Override
     public void onSuccesRequest(SaldoResponse object) {
-        ahorro.setText(object.getSaldoSARTotal().toString());
+        ahorro.setText("$"+object.getSaldoSARTotal().toString());
+        progres.setAlpha(0.0f);
+
     }
 }

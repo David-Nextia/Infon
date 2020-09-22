@@ -5,6 +5,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nextia.domain.models.Seguridad;
 
+import java.util.UUID;
+
 public class SaldoBody {
 
     @SerializedName("NSS")
@@ -28,7 +30,16 @@ public class SaldoBody {
     @SerializedName("Seguridad")
     @Expose
     private Seguridad seguridad;
-
+    public SaldoBody(String nss, String rfc){
+        this.nSS=nss;
+        this.rFC="";
+        this.canal="2";
+        this.control="0";
+        this.id="2";
+        this.origen="1";
+        Seguridad seguridad= new Seguridad(UUID.randomUUID().toString(),"");        ;
+        this.seguridad=seguridad;
+    }
     public String getNSS() {
         return nSS;
     }
