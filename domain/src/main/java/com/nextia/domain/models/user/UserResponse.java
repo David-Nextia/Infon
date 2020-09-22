@@ -1,10 +1,12 @@
 
-package com.nextia.domain.login;
+package com.nextia.domain.models.user;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.nextia.domain.models.Seguridad;
+import com.nextia.domain.models.StatusServicio;
 
 public class UserResponse {
 

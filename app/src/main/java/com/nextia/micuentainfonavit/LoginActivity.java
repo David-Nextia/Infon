@@ -22,11 +22,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.nextia.data.Database;
-import com.nextia.data.OnLoginFinished;
-import com.nextia.domain.login.UserResponse;
+import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.user.UserResponse;
 
 
-public class LoginActivity extends AppCompatActivity implements OnLoginFinished {
+public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
     Database database = new Database();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,13 +34,12 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-
         setButton(this);
     }
 
 
     @SuppressLint("ClickableViewAccessibility")
-    void setButton(OnLoginFinished context) {
+    void setButton(OnFinishRequestListener context) {
         EditText email = findViewById(R.id.email_edit);
         EditText password = findViewById(R.id.password_edit);
         Button loginbtn = findViewById(R.id.buttonlogin);
@@ -54,8 +53,9 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
-
+            public void afterTextChanged(Editable s) { }
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() != 0 && email.getText().toString().isEmpty() == false) {
@@ -65,16 +65,13 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
                 }
             }
 
-            @Override
-            public void afterTextChanged(Editable s) {
-            }
         });
 
         email.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            @Override
+            public void afterTextChanged(Editable s) {}
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() != 0 && password.getText().toString().isEmpty() == false) {
@@ -82,10 +79,6 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
                 } else {
                     loginbtn.setEnabled(false);
                 }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
             }
         });
 
@@ -120,9 +113,8 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         });
     }
 
-
     @Override
-    public void OnError(String error) {
+    public void onFailureRequest(String message) {
         AlertDialog.Builder builder
                 = new AlertDialog
                 .Builder(LoginActivity.this);
@@ -138,22 +130,21 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         });
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
-
-
     }
 
     @Override
-    public void OnSuccess(UserResponse mciUserResponse) {
+    public void onSuccesRequest(UserResponse object) {
         SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(mciUserResponse);
+        String json = gson.toJson(object);
         prefsEditor.putString("UsuarioData", json);
         prefsEditor.commit();
         ProgressBar progress= findViewById(R.id.progressBar);
         progress.setAlpha(0.0f);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(i);
-
     }
+
+
 }

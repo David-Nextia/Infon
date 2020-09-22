@@ -1,5 +1,6 @@
 package com.nextia.micuentainfonavit;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -18,10 +19,8 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.nextia.domain.Listener;
-import com.nextia.domain.login.UserResponse;
 
-public class MainActivity extends AppCompatActivity implements Listener<UserResponse> {
+public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -38,14 +37,12 @@ public class MainActivity extends AppCompatActivity implements Listener<UserResp
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Aqui se haría una cita", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_aviso_suspension,R.id.nav_constancia_interes)
                 .setDrawerLayout(drawer)
@@ -58,13 +55,14 @@ public class MainActivity extends AppCompatActivity implements Listener<UserResp
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
         TextView close=findViewById(R.id.logout);
         close.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,"Hacer logout",Toast.LENGTH_LONG).show();
+                Intent i = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(i);
+                //Toast.makeText(MainActivity.this,"Hacer logout",Toast.LENGTH_LONG).show();
             }
         });
         return true;
@@ -77,13 +75,5 @@ public class MainActivity extends AppCompatActivity implements Listener<UserResp
                 || super.onSupportNavigateUp();
     }
 
-    @Override
-    public void onFailure(String message) {
 
-    }
-
-    @Override
-    public UserResponse getObject(UserResponse object) {
-        return object;
-    }
 }

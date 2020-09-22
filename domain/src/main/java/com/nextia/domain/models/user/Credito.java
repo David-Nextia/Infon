@@ -1,5 +1,5 @@
 
-package com.nextia.domain.login;
+package com.nextia.domain.models.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

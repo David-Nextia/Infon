@@ -2,8 +2,8 @@
     <string name="app_name">Mi cuenta infonavit</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Infonavit client</string>
+    <string name="nav_header_subtitle">correo.test@infonavit.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Configuración</string>
 
@@ -18,4 +18,6 @@
     <string name="menu_saldos_movimientos">Saldos y movimientos</string>
     <string name="menu_aviso_suspension">Aviso de suspensión, retención</string>
     <string name="menu_constancia">Constancia de intereses</string>
+    <string name="menu_info_perfil">Información de perfil</string>
+    <string name="welcome">Bienvenido</string>
 </resources>

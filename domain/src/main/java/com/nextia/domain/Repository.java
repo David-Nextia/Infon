@@ -1,18 +1,21 @@
 package com.nextia.domain;
 
-import com.nextia.domain.login.UserResponse;
-import com.nextia.domain.login.UserLogin;
-//import com.nextia.micuentainfonavit.domain.user.User;
-//import com.nextia.micuentainfonavit.domain.user.UserLogin;
-
+import com.google.gson.JsonObject;
+import com.nextia.domain.models.saldo.SaldoBody;
+import com.nextia.domain.models.user.UserResponse;
+import com.nextia.domain.models.user.UserBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
-import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 public interface Repository {
-    //@Headers({"Authorization: Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA=="})
-    @POST("/RESTAdapter/SndUsuarioAutenticar")
-    Call<UserResponse> doLoginJson(@Body UserLogin user, @Header("Authorization") String auth);
+    String LOGIN_BASE = "/RESTAdapter/SndUsuarioAutenticar";
+    String GET_SALDO_BASE ="/RESTAdapter/SndSaldoConsultar";
+
+    @POST(LOGIN_BASE)
+    Call<UserResponse> logInMethod(@Body UserBody user, @Header("Authorization") String auth);
+    @POST(GET_SALDO_BASE)
+    Call<ResponseBody>  getSaldo(@Body SaldoBody saldo,@Header("Authorization") String auth);
 }

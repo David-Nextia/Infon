@@ -1,12 +1,13 @@
 
-package com.nextia.domain.login;
+package com.nextia.domain.models.user;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+import com.nextia.domain.models.Seguridad;
 
 import java.util.UUID;
 
-public class UserLogin {
+public class UserBody {
 
     @SerializedName("username")
     @Expose
@@ -30,7 +31,7 @@ public class UserLogin {
     @Expose
     private Seguridad seguridad;
 
-    public UserLogin(String username, String passsword) {
+    public UserBody(String username, String passsword) {
         this.username=username;
         this.password=passsword;
         this.canal="2";

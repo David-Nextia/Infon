@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="single"
+        android:id="@+id/test2">
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/credit"
@@ -26,6 +27,20 @@
             android:id="@+id/nav_constancia_interes"
             android:icon="@drawable/ic_constancia_retencion_menu"
             android:title="@string/menu_constancia"
+            />
+        <item
+            android:id="@+id/nav_empty"
+            android:title=""
+            />
+    </group>
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/test">
+
+        <item
+            android:id="@+id/nav_perfil"
+            android:icon="@drawable/ic_account"
+            android:title="@string/menu_info_perfil"
             />
 
     </group>
