@@ -1,5 +1,6 @@
 package com.nextia.micuentainfonavit;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,18 +9,13 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
-import android.transition.Transition;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.data.OnLoginFinished;
-import com.nextia.domain.User;
+import com.nextia.domain.login.UserResponse;
 
 
 public class LoginActivity extends AppCompatActivity implements OnLoginFinished {
@@ -38,10 +34,12 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-        //Animation fade1 = AnimationUtils.loadAnimation(this, R.id.startrans);
+
         setButton(this);
     }
 
+
+    @SuppressLint("ClickableViewAccessibility")
     void setButton(OnLoginFinished context) {
         EditText email = findViewById(R.id.email_edit);
         EditText password = findViewById(R.id.password_edit);
@@ -51,13 +49,12 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         register.setMovementMethod(LinkMovementMethod.getInstance());
         avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
 
-        loginbtn.setEnabled(false);
-        //email.setText("aclara106@yopmail.com");
-        //password.setText("ContrasenaQa01");
+        //loginbtn.setEnabled(false);
+        email.setText("aclara106@yopmail.com");
+        password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -102,13 +99,13 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
         });
 
         password.setOnTouchListener(new View.OnTouchListener() {
+
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int DRAWABLE_LEFT = 0;
                 final int DRAWABLE_TOP = 1;
                 final int DRAWABLE_RIGHT = 2;
                 final int DRAWABLE_BOTTOM = 3;
-
                 if(event.getAction() == MotionEvent.ACTION_UP) {
                     if(event.getRawX() >= (password.getRight() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         if(password.getTransformationMethod()==null){
@@ -146,11 +143,11 @@ public class LoginActivity extends AppCompatActivity implements OnLoginFinished 
     }
 
     @Override
-    public void OnSuccess(User mciUser) {
+    public void OnSuccess(UserResponse mciUserResponse) {
         SharedPreferences mPrefs = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(mciUser);
+        String json = gson.toJson(mciUserResponse);
         prefsEditor.putString("UsuarioData", json);
         prefsEditor.commit();
         ProgressBar progress= findViewById(R.id.progressBar);

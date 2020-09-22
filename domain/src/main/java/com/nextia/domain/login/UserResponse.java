@@ -1,12 +1,12 @@
 
-package com.nextia.domain;
+package com.nextia.domain.login;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+public class UserResponse {
 
     @SerializedName("nss")
     @Expose
@@ -51,11 +51,11 @@ public class User {
     @Expose
     private Seguridad seguridad;
 
-    public User(String s, String s1, boolean b, ArrayList<Credito> creditos, String s2, String s3, String s4, boolean b1, int i, String s5, String s6, Seguridad seguridad, StatusServicio statusServicio, String s7) {
+    public UserResponse(String s, String s1, boolean b, ArrayList<Credito> creditos, String s2, String s3, String s4, boolean b1, int i, String s5, String s6, Seguridad seguridad, StatusServicio statusServicio, String s7) {
 
     }
 
-    public User() {
+    public UserResponse() {
 
     }
 

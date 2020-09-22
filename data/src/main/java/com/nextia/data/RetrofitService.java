@@ -2,10 +2,10 @@ package com.nextia.data;
 
 
 
-import java.io.IOException;
+import com.nextia.domain.Repository;
+
 import java.security.cert.CertificateException;
 import java.util.Base64;
-import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -14,10 +14,7 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -35,8 +32,11 @@ public class RetrofitService {
         httpClient.addInterceptor(logging);  // <-- this is the important line!
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://serviciosweb.infonavit.org.mx:8625")
+
                 .addConverterFactory(GsonConverterFactory.create())
+
                 .client(getUnsafeOkHttpClient().addInterceptor(logging).build())
+
                 .build();
 
         return retrofit.create(Repository.class);

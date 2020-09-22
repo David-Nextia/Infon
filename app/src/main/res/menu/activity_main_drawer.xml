@@ -6,15 +6,27 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/credit"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+            android:icon="@drawable/ahorro_icon"
+            android:title="@string/menu_ahorro" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:icon="@drawable/saldos_icono"
+            android:title="@string/menu_saldos_movimientos"
+            />
+        <item
+            android:id="@+id/nav_aviso_suspension"
+            android:icon="@drawable/ic_aviso_suspension_menu"
+            android:title="@string/menu_aviso_suspension"
+            />
+        <item
+            android:id="@+id/nav_constancia_interes"
+            android:icon="@drawable/ic_constancia_retencion_menu"
+            android:title="@string/menu_constancia"
+            />
+
     </group>
 </menu>
