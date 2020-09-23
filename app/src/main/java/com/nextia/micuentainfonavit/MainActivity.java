@@ -3,11 +3,14 @@ package com.nextia.micuentainfonavit;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -26,11 +29,12 @@ public class MainActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        View close=findViewById(R.id.logout);
+
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -44,25 +48,34 @@ public class MainActivity extends AppCompatActivity  {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_aviso_suspension,R.id.nav_constancia_interes)
+                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow, R.id.nav_aviso_suspension,R.id.nav_constancia_interes,R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
+        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(getApplicationContext(),"Aqui se hace el logout",Toast.LENGTH_SHORT).show();
+                return  true;
+            }
+        });
+
+
+
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity_menu, menu);
-        TextView close=findViewById(R.id.logout);
-        close.setOnClickListener(new View.OnClickListener() {
+        menu.getItem(0).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(i);
-                //Toast.makeText(MainActivity.this,"Hacer logout",Toast.LENGTH_LONG).show();
+            public boolean onMenuItemClick(MenuItem item) {
+                Toast.makeText(getApplicationContext(),"Aqui se va al fragmento de perfil",Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
         return true;

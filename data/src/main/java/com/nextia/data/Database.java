@@ -5,7 +5,9 @@ import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
+import com.nextia.domain.models.welcome.WelcomeCard;
 
+import java.util.ArrayList;
 import java.util.Base64;
 
 import retrofit2.Call;
@@ -39,5 +41,7 @@ public class Database {
         Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);
         database.getData(getSaldo,listener);
     }
+
+
 
 }

@@ -19,8 +19,11 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer">
+        app:menu="@menu/activity_main_drawer"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="#FFFFFF"
+        app:itemIconTint="#FFFFFF"
+        android:paddingTop="28dp">
 
         <LinearLayout
         android:id="@+id/signup"
@@ -33,16 +36,7 @@
             android:elevation="200dp"
         >
 
-        <TextView
-            android:layout_marginLeft="12dp"
-            android:id="@+id/logout"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:drawablePadding="12dp"
-            android:drawableTint="#000000"
-            android:text="Log out"
-            android:drawableStart="@drawable/cerrar_sesion_icon"/>
+
     </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>

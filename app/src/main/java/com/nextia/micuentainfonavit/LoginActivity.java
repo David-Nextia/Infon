@@ -14,8 +14,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -25,12 +27,14 @@ import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.ui.saldo.Utils;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
     Database database = new Database();
     UserUseCase user = new UserUseCase();
+    Switch rememberUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -48,11 +52,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         Button loginbtn = findViewById(R.id.buttonlogin);
         TextView register = findViewById(R.id.registerlink);
         TextView avisopriv = findViewById(R.id.avisolink);
+        rememberUser=findViewById(R.id.reminduser);
         register.setMovementMethod(LinkMovementMethod.getInstance());
         avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
-
         //loginbtn.setEnabled(false);
-        email.setText("aclara106@yopmail.com");
+        if(Utils.getSharedPreferencesEmail(getApplicationContext()).isEmpty()==false){
+            rememberUser.setChecked(true);
+            email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
+        }
+        //email.setText("aclara106@yopmail.com");
         password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -92,29 +100,18 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 progress.setAlpha(1.0f);
                // database.doLogin(email.getText().toString(), password.getText().toString(), context);
                 user.doLogin(email.getText().toString(),password.getText().toString(),context);
-            }
-        });
-
-        password.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_LEFT = 0;
-                final int DRAWABLE_TOP = 1;
-                final int DRAWABLE_RIGHT = 2;
-                final int DRAWABLE_BOTTOM = 3;
-                if(event.getAction() == MotionEvent.ACTION_UP) {
-                    if(event.getRawX() >= (password.getRight() - password.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        if(password.getTransformationMethod()==null){
-                            password.setTransformationMethod(new PasswordTransformationMethod());
-                        }
-                        else{password.setTransformationMethod(null);}
-
-                    }
+                if(rememberUser.isChecked()){
+                    SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                    prefsEditor.putString("emailUser", email.getText().toString());
+                    prefsEditor.commit();
+                }else{
+                    SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
+                    mPrefs.edit().remove("emailUser").commit();
                 }
-                return false;
             }
         });
+
     }
 
     @Override

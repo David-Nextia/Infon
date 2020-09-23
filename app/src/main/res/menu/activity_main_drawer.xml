@@ -4,7 +4,7 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single"
-        android:id="@+id/test2">
+        >
 <!--        <item-->
 <!--            android:id="@+id/nav_home"-->
 <!--            android:icon="@drawable/credit"-->
@@ -28,19 +28,16 @@
             android:icon="@drawable/ic_constancia_retencion_menu"
             android:title="@string/menu_constancia"
             />
-        <item
-            android:id="@+id/nav_empty"
-            android:title=""
-            />
+
     </group>
 
     <group android:checkableBehavior="single"
-        android:id="@+id/test">
+        >
 
         <item
-            android:id="@+id/nav_perfil"
-            android:icon="@drawable/ic_account"
-            android:title="@string/menu_info_perfil"
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/cerrar_sesion_icon"
+            android:title="@string/menu_cerrar_sesion"
             />
 
     </group>

@@ -19,7 +19,7 @@ public class SaldoViewModel extends ViewModel implements OnFinishRequestListener
         _saldo = new MutableLiveData<>();
     }
     public void getSaldo(Context context){
-        UserResponse user= Utils.getSharedPreferences(context);
+        UserResponse user= Utils.getSharedPreferencesUserData(context);
         SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
         saldos.getSaldos(saldo,this);
     }

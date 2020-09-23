@@ -9,10 +9,46 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:autoTransition="animateToEnd"
-        motion:duration="3000">
+        motion:duration="4000">
         <KeyFrameSet >
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
+                motion:framePosition="90"
+                android:alpha="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/titletext"
+                motion:framePosition="0"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/titletext"
+                motion:framePosition="90"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/avisolink"
+                motion:framePosition="90"
+                android:alpha="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/avisolink"
+                motion:framePosition="0"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/avisolink"
+                motion:framePosition="90"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/titletext"
+                motion:framePosition="100"
+                android:alpha="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/registerlink"
+                motion:framePosition="0"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/registerlink"
+                motion:framePosition="90"
+                android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/registerlink"
                 motion:framePosition="100"
                 android:alpha="1" />
             <KeyAttribute
@@ -25,16 +61,16 @@
                 android:alpha="0" />
             <KeyAttribute
                 motion:motionTarget="@+id/register_form"
-                motion:framePosition="100"
+                motion:framePosition="90"
                 android:alpha="1" />
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
                 motion:framePosition="0"
-                android:translationY="150dp" />
+                android:translationY="200dp" />
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
                 motion:framePosition="49"
-                android:translationY="150dp" />
+                android:translationY="200dp" />
             <KeyAttribute
                 motion:motionTarget="@+id/register_form"
                 motion:framePosition="48"
@@ -47,6 +83,29 @@
                 motion:motionTarget="@+id/register_form"
                 motion:framePosition="34"
                 android:translationY="150dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="51"
+                android:scaleX="1."
+                android:scaleY="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="90"
+                android:scaleX="0.5"
+                android:scaleY="0.5" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="100"
+                android:scaleX="0.5"
+                android:scaleY="0.5" />
+            <KeyAttribute
+            motion:motionTarget="@+id/logoimg"
+            motion:framePosition="90"
+            android:translationY="-15dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="100"
+                android:translationY="-15dp" />
         </KeyFrameSet>
     </Transition>
 

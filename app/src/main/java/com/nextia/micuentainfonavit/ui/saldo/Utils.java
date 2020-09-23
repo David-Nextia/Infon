@@ -14,19 +14,27 @@ import java.text.DecimalFormat;
 public class Utils {
     SaldosUseCase saldos=new SaldosUseCase();
     public void getSaldo(OnFinishRequestListener listener, Context context){
-        UserResponse user=getSharedPreferences(context.getApplicationContext());
+        UserResponse user= getSharedPreferencesUserData(context.getApplicationContext());
         SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
         saldos.getSaldos(saldo,listener);
 
     }
 
-    public static UserResponse getSharedPreferences(Context context){
+    public static UserResponse getSharedPreferencesUserData(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = mPrefs.getString("UsuarioData", "");
         UserResponse obj = gson.fromJson(json, UserResponse.class);
         return obj;
+
+    }
+
+    public static String getSharedPreferencesEmail(Context context){
+        SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        String email = mPrefs.getString("emailUser", "");
+        return email;
 
     }
 

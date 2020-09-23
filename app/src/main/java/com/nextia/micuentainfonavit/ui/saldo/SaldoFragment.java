@@ -68,7 +68,6 @@ public class SaldoFragment extends Fragment {
                 adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoAnterior())," Fondo de ahorro","De 1972 al 28/feb/1992"),"Año 1972");
                 adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR92()),"Subcuenta de vivienda SAR","Del 1/mar/1992 al 30/jun/1997"),"Año 1992");
                 adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR97())," Subcuenta de vivienda","Del 1/jul/1997 a la actualidad"),"Año 1997");
-                //adapterViewpage.addFragment(new ViewPageFragment(),"jeje2");
                 patrontxt.setText(saldoResponse.getNombreEmpresa());
                 aportaciotxt.setText(Utils.formatMoney(saldoResponse.getAportacion()));
                 fechapagotxt.setText(saldoResponse.getFechaPago());
@@ -78,13 +77,10 @@ public class SaldoFragment extends Fragment {
               tabLayout.setupWithViewPager(viewPager);
                 progres.setAlpha(0.0f);
                 linear.setAlpha(1.0f);
-                Bundle bundle = new Bundle();
-                bundle.putString("PERIOD","fefef");
-                setArguments(bundle);
+
                 tabLayout.setClickable(true);
 
                 ahorro.setText(Utils.formatMoney(saldoResponse.getSaldoSARTotal()));
-                Toast.makeText(getContext(), "si llego we", Toast.LENGTH_LONG).show();
                 saldoViewModel.getSaldos().removeObservers(getViewLifecycleOwner());
             }
         });
