@@ -22,13 +22,12 @@
     <string name="welcome">Bienvenido</string>
 
 
-
-
     <!--Savigns -->
     <string name="savings_title">Este es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
-
+<!--    tabs-->
+    <string name="tab_1992">1992</string>
 
 
     <!--Contributions Row -->
@@ -37,4 +36,6 @@
     <string name="contribution_ultimo_sueldo">Tu último sueldo</string>
     <string name="contribution_year">Subcuenta de Vivienda</string>
     <string name="contribution_contribution">Aportación</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

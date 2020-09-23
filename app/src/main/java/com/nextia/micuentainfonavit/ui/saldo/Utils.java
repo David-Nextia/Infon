@@ -9,6 +9,8 @@ import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
+import java.text.DecimalFormat;
+
 public class Utils {
     SaldosUseCase saldos=new SaldosUseCase();
     public void getSaldo(OnFinishRequestListener listener, Context context){
@@ -18,7 +20,7 @@ public class Utils {
 
     }
 
-    private UserResponse getSharedPreferences(Context context){
+    public static UserResponse getSharedPreferences(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
@@ -27,4 +29,15 @@ public class Utils {
         return obj;
 
     }
+
+    public static String formatMoney(double num){
+        String money;
+        if (num==0.0){money="$0.00";}
+        else{  DecimalFormat formatter = new DecimalFormat("#,###.00");
+            money="$"+formatter.format(num);}
+
+        return money;
+    }
+
+
 }

@@ -1,32 +1,42 @@
 package com.nextia.micuentainfonavit.ui.saldo;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo.SaldoBody;
+import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
-import javax.xml.parsers.SAXParser;
-
-public class SaldoViewModel extends ViewModel {
+public class SaldoViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {
     SaldosUseCase saldos=new SaldosUseCase();
-    private MutableLiveData<String> mText;
-
+    private MutableLiveData<SaldoResponse> _saldo;
     public SaldoViewModel() {
-        mText = new MutableLiveData<>();
-
-        mText.setValue("fragmento cuanto ahorro tengo");
+        _saldo = new MutableLiveData<>();
+    }
+    public void getSaldo(Context context){
+        UserResponse user= Utils.getSharedPreferences(context);
+        SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
+        saldos.getSaldos(saldo,this);
+    }
+    public LiveData<SaldoResponse> getSaldos() {
+        return _saldo;
     }
 
 
-    public LiveData<String> getText() {
-        return mText;
+
+    @Override
+    public void onFailureRequest(String message) {
+
+    }
+
+    @Override
+    public void onSuccesRequest(SaldoResponse object) {
+        _saldo.setValue(object);
+
     }
 }
