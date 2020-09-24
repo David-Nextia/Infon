@@ -59,7 +59,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             rememberUser.setChecked(true);
             email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
         }
-        //email.setText("aclara106@yopmail.com");
         password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
@@ -97,13 +96,9 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             @Override
             public void onClick(View v) {
                 progress.setAlpha(1.0f);
-               // database.doLogin(email.getText().toString(), password.getText().toString(), context);
                 user.doLogin(email.getText().toString(),password.getText().toString(),context);
                 if(rememberUser.isChecked()){
-                    SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                    prefsEditor.putString("emailUser", email.getText().toString());
-                    prefsEditor.commit();
+                    Utils.saveToSharedPreferences(getApplicationContext(),"emailUser",email.getText().toString());
                 }else{
                     SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
                     mPrefs.edit().remove("emailUser").commit();
@@ -115,21 +110,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @Override
     public void onFailureRequest(String message) {
-//        AlertDialog.Builder builder
-//                = new AlertDialog
-//                .Builder(LoginActivity.this);
-//        builder.setMessage("Los datos introducidos no son correctos");
-//        builder.setTitle("Aviso");
-//        builder.setCancelable(false);
-//        builder.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                ProgressBar progress= findViewById(R.id.progressBar);
-//                progress.setAlpha(0.0f);
-//            }
-//        });
-//        AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
         DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", "Los datos introducidos no son correctos",DialogInfonavit.ONE_BUTTON_DIALOG);
         alertdialog.show();
         ProgressBar progress= findViewById(R.id.progressBar);
@@ -138,12 +118,9 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     }
     @Override
     public void onSuccesRequest(UserResponse object) {
-        SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(object);
-        prefsEditor.putString("UsuarioData", json);
-        prefsEditor.commit();
+        Utils.saveToSharedPreferences(getApplicationContext(),"UsuarioData",json);
         ProgressBar progress= findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);

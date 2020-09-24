@@ -43,5 +43,13 @@ public class Utils {
         return money;
     }
 
+    public static void saveToSharedPreferences(Context context, String tag, String object){
+        SharedPreferences mPrefs =context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        SharedPreferences.Editor prefsEditor = mPrefs.edit();
+        prefsEditor.putString(tag, object);
+        prefsEditor.commit();
+
+    }
+
 
 }
