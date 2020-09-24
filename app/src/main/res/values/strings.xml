@@ -25,7 +25,7 @@
     <string name="welcome">Bienvenido</string>
 
 
-    <!--Savigns -->
+    <!--Savings -->
     <string name="savings_title">Este es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
@@ -39,6 +39,9 @@
     <string name="contribution_ultimo_sueldo">Tu último sueldo</string>
     <string name="contribution_year">Subcuenta de Vivienda</string>
     <string name="contribution_contribution">Aportación</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Binding profile fragment  -->
+    <string name="NSS_profile">NSS: <![CDATA[<b>%s</b>]]></string>
+    <string name="NSS_profiletest">NSS:<b>358759872987987</b></string>
 </resources>
