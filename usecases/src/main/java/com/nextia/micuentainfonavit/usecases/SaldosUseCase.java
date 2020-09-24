@@ -12,6 +12,4 @@ public class SaldosUseCase {
       database.getSaldos(saldo,listener);
     }
 
-
-
 }

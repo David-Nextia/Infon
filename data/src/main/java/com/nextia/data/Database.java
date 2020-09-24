@@ -36,6 +36,9 @@ public class Database {
         });
 
     }
+
+
+
     public void getSaldos(SaldoBody body, final OnFinishRequestListener<SaldoResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<SaldoBody>();
         Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);

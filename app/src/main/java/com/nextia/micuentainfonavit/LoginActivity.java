@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 
@@ -49,6 +50,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         TextView register = findViewById(R.id.registerlink);
         TextView avisopriv = findViewById(R.id.avisolink);
         rememberUser=findViewById(R.id.reminduser);
+
+
         register.setMovementMethod(LinkMovementMethod.getInstance());
         avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
         //loginbtn.setEnabled(false);
@@ -112,23 +115,27 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @Override
     public void onFailureRequest(String message) {
-        AlertDialog.Builder builder
-                = new AlertDialog
-                .Builder(LoginActivity.this);
-        builder.setMessage("Los datos introducidos no son correctos");
-        builder.setTitle("Aviso");
-        builder.setCancelable(false);
-        builder.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                ProgressBar progress= findViewById(R.id.progressBar);
-                progress.setAlpha(0.0f);
-            }
-        });
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-    }
+//        AlertDialog.Builder builder
+//                = new AlertDialog
+//                .Builder(LoginActivity.this);
+//        builder.setMessage("Los datos introducidos no son correctos");
+//        builder.setTitle("Aviso");
+//        builder.setCancelable(false);
+//        builder.setPositiveButton("Reintentar", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                ProgressBar progress= findViewById(R.id.progressBar);
+//                progress.setAlpha(0.0f);
+//            }
+//        });
+//        AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
+        DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", "Los datos introducidos no son correctos",DialogInfonavit.ONE_BUTTON_DIALOG);
+        alertdialog.show();
+        ProgressBar progress= findViewById(R.id.progressBar);
+        progress.setAlpha(0.0f);
 
+    }
     @Override
     public void onSuccesRequest(UserResponse object) {
         SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);

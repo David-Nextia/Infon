@@ -76,10 +76,7 @@ public class SaldoFragment extends Fragment {
                 progres.setAlpha(0.0f);
                 linear.setAlpha(1.0f);
 
-                tabLayout.setClickable(true);
-
                 ahorro.setText(Utils.formatMoney(saldoResponse.getSaldoSARTotal()));
-                saldoViewModel.getSaldos().removeObservers(getViewLifecycleOwner());
             }
         });
 

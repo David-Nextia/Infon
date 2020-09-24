@@ -13,10 +13,4 @@ public class UserUseCase {
         database.doLogin(user,listener);
     }
 
-    public void getSharePrefUser(){
-
-
-
-
-    }
 }
