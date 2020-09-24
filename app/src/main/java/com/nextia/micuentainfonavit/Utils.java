@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.saldo;
+package com.nextia.micuentainfonavit;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -22,19 +22,15 @@ public class Utils {
 
     public static UserResponse getSharedPreferencesUserData(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
         Gson gson = new Gson();
         String json = mPrefs.getString("UsuarioData", "");
-        UserResponse obj = gson.fromJson(json, UserResponse.class);
-        return obj;
+        return gson.fromJson(json, UserResponse.class);
 
     }
 
     public static String getSharedPreferencesEmail(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
-        SharedPreferences.Editor prefsEditor = mPrefs.edit();
-        String email = mPrefs.getString("emailUser", "");
-        return email;
+        return mPrefs.getString("emailUser", "");
 
     }
 

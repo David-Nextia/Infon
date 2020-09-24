@@ -10,6 +10,7 @@ import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
 public class SaldoViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {

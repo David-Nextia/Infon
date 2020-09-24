@@ -9,12 +9,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.text.method.PasswordTransformationMethod;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Switch;
@@ -27,7 +24,6 @@ import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.UserResponse;
-import com.nextia.micuentainfonavit.ui.saldo.Utils;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 

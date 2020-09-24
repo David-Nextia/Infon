@@ -34,4 +34,10 @@
         android:name="com.nextia.micuentainfonavit.ui.constancia.ConstanciaFragment"
         android:label="@string/menu_constancia"
         tools:layout="@layout/fragment_constancia" />
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.nextia.micuentainfonavit.ui.profile.ProfileFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

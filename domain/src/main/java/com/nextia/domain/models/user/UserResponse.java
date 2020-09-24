@@ -60,6 +60,9 @@ public class UserResponse {
     public UserResponse() {
 
     }
+    public UserResponse(String email){
+        this.emailPersonal=email;
+    }
 
     public String getNss() {
         return nss;

@@ -8,7 +8,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,10 +19,9 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.ui.saldo.tabs.ViewPagerAdapter;
 import com.nextia.micuentainfonavit.ui.saldo.tabs.ViewPageFragment;
-
-import java.text.DecimalFormat;
 
 public class SaldoFragment extends Fragment {
 
