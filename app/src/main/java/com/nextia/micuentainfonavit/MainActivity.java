@@ -1,6 +1,7 @@
 package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -28,6 +29,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.profile.ProfileFragment;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class MainActivity extends AppCompatActivity  {
     NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        DialogInfonavit alertdialog = new DialogInfonavit(this);
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
@@ -68,6 +70,8 @@ public class MainActivity extends AppCompatActivity  {
         navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+
+                alertdialog.show();
                 Toast.makeText(getApplicationContext(),"Aqui se hace el logout",Toast.LENGTH_SHORT).show();
                 return  true;
             }
