@@ -27,6 +27,7 @@ import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPagerAdapter;
 public class SavingsFragment extends Fragment {
 
     FragmentSavingsBinding binding;
+
     private SavingsViewModel savingsViewModel;
     ViewPagerAdapter adapterViewpage;
 
