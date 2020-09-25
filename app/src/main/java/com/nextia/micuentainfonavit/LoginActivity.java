@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,13 +33,17 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     Database database = new Database();
     UserUseCase user = new UserUseCase();
     Switch rememberUser;
+    float hey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
+
+
         setButton(this);
+
     }
 
 
@@ -118,12 +123,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     }
     @Override
     public void onSuccesRequest(UserResponse object) {
+
         Gson gson = new Gson();
         String json = gson.toJson(object);
         Utils.saveToSharedPreferences(getApplicationContext(),"UsuarioData",json);
         ProgressBar progress= findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);
+        hey=getResources().getDisplayMetrics().density;
+        Toast.makeText(this,String.valueOf(hey),Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 
