@@ -15,7 +15,12 @@
         android:id="@+id/nav_savings"
         android:name="com.nextia.micuentainfonavit.ui.savings.SavingsFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_savings" />
+        tools:layout="@layout/fragment_savings">
+        <action
+            android:id="@+id/action_savings_home"
+            app:destination="@id/nav_home"
+            app:popUpTo="@id/nav_home" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"

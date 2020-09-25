@@ -28,7 +28,7 @@
     <!--Savings -->
     <string name="savings_title">Este es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
-    <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
+    <string name="savings_description">Tu ahorro en el 2019 genera el <b>7.32%</b> de rendimiento nominal anual</string>
 <!--    tabs-->
     <string name="tab_1992">1992</string>
 
@@ -44,4 +44,6 @@
 <!--    Binding profile fragment  -->
     <string name="NSS_profile">NSS: <![CDATA[<b>%s</b>]]></string>
     <string name="NSS_profiletest">NSS:<b>358759872987987</b></string>
+    <string name="title_error">Aviso</string>
+    <string name="message_server_error">No se pudo obtener los datos del servidor</string>
 </resources>

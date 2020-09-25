@@ -4,12 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable
-            name="saldo"
-            type="com.nextia.domain.models.saldo.SaldoResponse" />
-        <import
-            alias="utils"
-            type="com.nextia.micuentainfonavit.Utils"/>
+
     </data>
 
     <androidx.core.widget.NestedScrollView
@@ -19,30 +14,33 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rootView">
+            android:id="@+id/scrollView">
 
             <View
                 android:id="@+id/view5"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="50"
-                android:background="#979797"
+                android:background="@color/light_transparent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewpager" />
 
             <TextView
                 android:id="@+id/txtAportacion"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@color/light_transparent"
                 android:padding="3dp"
-                tools:text="$-"
-                android:text="@{utils.formatMoney(saldo.getAportacion)}"
+                android:text="$10,000"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Small"
-                android:textColor="#1c5875"
+                android:textColor="@android:color/transparent"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -53,25 +51,33 @@
                 android:id="@+id/textView7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/light_transparent"
                 android:text="Última aportación por:"
                 android:textAlignment="center"
+                android:textColor="@android:color/transparent"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtPatronActual" />
 
             <TextView
                 android:id="@+id/txtPatronActual"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="8dp"
                 android:layout_weight="1"
+                android:background="@color/light_transparent"
                 android:gravity="center"
                 android:padding="3dp"
                 android:paddingRight="3dp"
-                tools:text="..."
-                android:text="@{saldo.getNombreEmpresa}"
+                android:text="......................................................."
                 android:textAppearance="@android:style/TextAppearance.Small"
+                android:textColor="@android:color/transparent"
                 android:textSize="12sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -83,12 +89,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="8dp"
                 android:layout_weight="1"
+                android:background="@color/light_transparent"
                 android:gravity="center"
-
                 android:padding="3dp"
                 android:text="@string/contribution_patron_actual"
                 android:textAppearance="@android:style/TextAppearance.Small"
+                android:textColor="@android:color/transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -98,6 +108,10 @@
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="86dp"
+                android:background="@color/light_transparent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,9 +123,11 @@
                 android:id="@+id/tabs"
 
                 android:layout_width="match_parent"
-
                 android:layout_height="20dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/light_transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -128,7 +144,8 @@
                 android:layout_marginTop="16dp"
                 android:gravity="center_horizontal"
                 android:text="Ley de subcuenta de vivienda"
-                android:textColor="#4a4a4a"
+                android:background="@color/light_transparent"
+                android:textColor="@android:color/transparent"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -143,6 +160,8 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/savings_description"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -153,10 +172,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                tools:text="$-"
-                android:text="@{utils.formatMoney(saldo.getSaldoSARTotal)}"
+                android:text="$-"
+                android:background="@color/light_transparent"
                 android:textAlignment="center"
-                android:textColor="#1c5875"
+                android:textColor="@android:color/transparent"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -165,10 +184,10 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="wrap_content"
+                android:layout_width="82dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="@string/savings_ahorro"
+                android:background="@color/light_transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -183,16 +202,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view4"
-                app:tint="@color/colorPrimaryDark" />
+                app:tint="@color/light_transparent" />
 
             <View
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-
                 android:layout_marginStart="80dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="80dp"
-                android:background="#1c5875"
+                android:background="@color/light_transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -200,12 +219,12 @@
 
             <TextView
                 android:id="@+id/textView3"
-                style="@style/TxStyleTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="96dp"
                 android:layout_marginTop="8dp"
-                android:text="@string/savings_title"
-                android:textColor="#1c5875"
+                android:layout_marginEnd="96dp"
+                android:background="@color/light_transparent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -213,9 +232,11 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+
                 app:layout_constraintTop_toBottomOf="@+id/txtAportacion">
 
                 <TextView
@@ -223,7 +244,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
+                    android:background="@color/light_transparent"
                     android:text="@string/contribution_ultima_aportacion"
+                    android:textColor="@android:color/transparent"
                     android:textAppearance="@android:style/TextAppearance.Small" />
 
                 <TextView
@@ -231,10 +254,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="3dp"
-                    tools:text="..."
-                    android:text="@{saldo.getFechaPago}"
+                    android:text=".........."
+                    android:background="@color/light_transparent"
+                    android:textColor="@android:color/transparent"
                     android:textAppearance="@android:style/TextAppearance.Small"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_marginLeft="4dp"/>
             </LinearLayout>
 
 

@@ -54,4 +54,7 @@ dependencies {
 
     implementation "ru.tinkoff.scrollingpagerindicator:scrollingpagerindicator:1.2.1"
 
+    //Library Skeleton
+    implementation 'com.ethanhua:skeleton:1.1.2'
+    implementation 'io.supercharge:shimmerlayout:2.1.0'
 }

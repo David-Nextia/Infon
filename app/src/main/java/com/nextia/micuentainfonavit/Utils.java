@@ -2,7 +2,10 @@ package com.nextia.micuentainfonavit;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.view.View;
 
+import com.ethanhua.skeleton.Skeleton;
+import com.ethanhua.skeleton.ViewSkeletonScreen;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo.SaldoBody;
@@ -51,5 +54,18 @@ public class Utils {
 
     }
 
+    private static ViewSkeletonScreen mSkeleton;
+    public static void showLoadingSkeleton(View rootView){
+        mSkeleton = Skeleton.bind(rootView)
+                .load(R.layout.skeleton_savings)
+                .color(R.color.shimmer_color)
+                .angle(0)
+                .show();
+    }
 
+    public static void hideLoadingSkeleton(){
+        if(mSkeleton != null)
+            mSkeleton.hide();
+            mSkeleton = null;
+    }
 }

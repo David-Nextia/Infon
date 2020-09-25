@@ -24,20 +24,18 @@ public class SavingsViewModel extends ViewModel implements OnFinishRequestListen
         SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
         saldos.getSaldos(saldo,this);
     }
+
     public LiveData<SaldoResponse> getSaldos() {
         return _saldo;
     }
 
-
-
     @Override
     public void onFailureRequest(String message) {
-
+        _saldo.setValue(null);
     }
 
     @Override
     public void onSuccesRequest(SaldoResponse object) {
         _saldo.setValue(object);
-
     }
 }
