@@ -64,9 +64,9 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         if(type==ONE_BUTTON_DIALOG)
         {
             try{
-                accept.setVisibility(View.GONE);
-           //accept.getBackground().setTint(ContextCompat.getColor(getContext(),R.color.colorPrimary));
-                deny.setText("Aceptar");
+                deny.setVisibility(View.GONE);
+           accept.getBackground().setTint(ContextCompat.getColor(getContext(),R.color.colorPrimary));
+                accept.setText("Aceptar");
         }catch (Exception e){e.printStackTrace();}
 
         }

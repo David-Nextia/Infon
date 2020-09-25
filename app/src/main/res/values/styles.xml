@@ -22,6 +22,27 @@
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
+    <style name="TxStyleSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorgrayblue</item>
+    </style>
+
+    <style name="TxStyleSubSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_drak_gray</item>
+    </style>
+
+    <style name="TxStyleSubSubSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_drak_gray</item>
+    </style>
+
 
     <style name="TxStyleinitSession" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
@@ -37,6 +58,14 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
+
+    <style name="TxRedDefault" parent="android:Widget.TextView">
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 
     <style name="spinner_style">
         <item name="android:layout_width">match_parent</item>
@@ -54,7 +83,6 @@
 
     <!-- for text -->
     <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
-
         <item name="textAllCaps">false</item>
     </style>
 

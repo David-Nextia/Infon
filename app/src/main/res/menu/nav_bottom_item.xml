@@ -10,21 +10,21 @@
 <!--            android:title="@string/menu_home" />-->
         <item
             android:id="@+id/nav_mensualidades"
-            android:icon="@drawable/ahorro_icon"
+            android:icon="@drawable/ic_options_montly"
             android:title="@string/menu_mensualidades" />
         <item
             android:id="@+id/nav_pay_options"
-            android:icon="@drawable/saldos_icono"
+            android:icon="@drawable/ic_options_pay"
             android:title="@string/menu_pay_options"
             />
         <item
             android:id="@+id/nav_inner_movements"
-            android:icon="@drawable/ic_aviso_suspension_menu"
+            android:icon="@drawable/ic_options_moves"
             android:title="@string/menu_movimientos"
             />
         <item
             android:id="@+id/nav_credit_data"
-            android:icon="@drawable/ic_constancia_retencion_menu"
+            android:icon="@drawable/ic_datos"
             android:title="@string/menu_datos_credito"
             />
 
