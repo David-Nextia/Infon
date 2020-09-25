@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/logoimg"
         android:layout_marginBottom="44dp"
-        android:text="Iniciar sesión"
+        android:text="@string/iniciar_sesi_n"
 
         />
     <TextView
@@ -115,7 +115,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_margin="12dp"
             android:drawablePadding="20dp"
-            android:hint="Contraseña"
+            android:hint="@string/contrase_a"
             android:drawableStart="@drawable/ic_lock_24px"
             android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -131,7 +131,7 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:text="Recuerda tu usuario"
+                android:text="@string/recuerda_tu_usuario"
                 android:layout_height="wrap_content" />
             <Switch
                 android:layout_width="match_parent"
@@ -148,10 +148,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
-            android:textColor="#ffffff"
+            android:textColor="@color/color_white"
 
             android:background="@drawable/buttonbg"
-            android:text="Iniciar sesión"
+            android:text="@string/iniciar_sesi_n"
 
             />
 
