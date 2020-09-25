@@ -75,5 +75,7 @@
     <string name="saldos_y_movimientos"><u>Saldos y movimientos</u></string>
     <string name="haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado">Haz tus pagos completos antes del último día del mes actual. Si vas a liquidar tu crédito, paga directamente en cualquier banco autorizado.</string>
 
-
+    <!--    Dialog error    -->
+    <string name="title_error">Aviso</string>
+    <string name="message_server_error">No se pudo obtener los datos del servidor</string>
 </resources>
