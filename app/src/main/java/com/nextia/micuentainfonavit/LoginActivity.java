@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     Database database = new Database();
     UserUseCase user = new UserUseCase();
     Switch rememberUser;
-    float hey;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -130,8 +130,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         ProgressBar progress= findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);
-        hey=getResources().getDisplayMetrics().density;
-        Toast.makeText(this,String.valueOf(hey),Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
 
