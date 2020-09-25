@@ -49,4 +49,8 @@
 <!--    Binding profile fragment  -->
     <string name="NSS_profile">NSS: <![CDATA[<b>%s</b>]]></string>
     <string name="NSS_profiletest">NSS:<b>358759872987987</b></string>
+
+
+<!--    saldos y movimientos-->
+    <string name="Saldos_movimientos"><u>Saldos y movimientos</u></string>
 </resources>
