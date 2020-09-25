@@ -10,7 +10,7 @@
 <!--            android:icon="@drawable/credit"-->
 <!--            android:title="@string/menu_home" />-->
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_savings"
             android:icon="@drawable/ahorro_icon"
             android:title="@string/menu_ahorro" />
         <item

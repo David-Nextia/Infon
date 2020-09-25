@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.saldo.tabs;
+package com.nextia.micuentainfonavit.ui.savings.tabs;
 
 import android.os.Bundle;
 

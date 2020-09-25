@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.saldo;
+package com.nextia.micuentainfonavit.ui.savings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,12 +20,12 @@ import com.google.android.material.tabs.TabLayout;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
-import com.nextia.micuentainfonavit.ui.saldo.tabs.ViewPagerAdapter;
-import com.nextia.micuentainfonavit.ui.saldo.tabs.ViewPageFragment;
+import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPagerAdapter;
+import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPageFragment;
 
-public class SaldoFragment extends Fragment {
+public class SavingsFragment extends Fragment {
 
-    private SaldoViewModel saldoViewModel;
+    private SavingsViewModel savingsViewModel;
     public TextView ahorro;
     TextView patrontxt;
     TextView aportaciotxt;
@@ -36,8 +36,8 @@ public class SaldoFragment extends Fragment {
     TextView fechapagotxt;
     ViewPagerAdapter adapterViewpage;
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
-        saldoViewModel =new ViewModelProvider(this).get(SaldoViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_saldos, container, false);
+        savingsViewModel =new ViewModelProvider(this).get(SavingsViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_savings, container, false);
         ahorro=root.findViewById(R.id.txtAhorroTotal);
         adapterViewpage=new ViewPagerAdapter(getChildFragmentManager());
         tabLayout=(TabLayout)root.findViewById(R.id.tabs);
@@ -51,7 +51,7 @@ public class SaldoFragment extends Fragment {
         linear.setAlpha(0.3f);
         this.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
-        saldoViewModel.getSaldo(this.getContext());
+        savingsViewModel.getSaldo(this.getContext());
 
         return root;
     }
@@ -59,7 +59,7 @@ public class SaldoFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        saldoViewModel.getSaldos().observe(getViewLifecycleOwner(), new Observer<SaldoResponse>() {
+        savingsViewModel.getSaldos().observe(getViewLifecycleOwner(), new Observer<SaldoResponse>() {
             @Override
             public void onChanged(SaldoResponse saldoResponse) {
                 getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);

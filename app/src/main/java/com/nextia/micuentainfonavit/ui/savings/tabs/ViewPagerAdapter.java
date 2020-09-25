@@ -1,14 +1,9 @@
-package com.nextia.micuentainfonavit.ui.saldo.tabs;
-
-import android.content.Context;
+package com.nextia.micuentainfonavit.ui.savings.tabs;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
-
-import com.nextia.micuentainfonavit.R;
 
 import java.util.ArrayList;
 import java.util.List;

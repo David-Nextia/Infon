@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.saldo;
+package com.nextia.micuentainfonavit.ui.savings;
 
 import android.content.Context;
 
@@ -13,10 +13,10 @@ import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
-public class SaldoViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {
+public class SavingsViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {
     SaldosUseCase saldos=new SaldosUseCase();
     private MutableLiveData<SaldoResponse> _saldo;
-    public SaldoViewModel() {
+    public SavingsViewModel() {
         _saldo = new MutableLiveData<>();
     }
     public void getSaldo(Context context){
