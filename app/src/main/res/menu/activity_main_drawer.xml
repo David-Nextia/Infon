@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+   >
 
     <group android:checkableBehavior="single"
         android:id="@+id/grp2" >
@@ -14,7 +14,7 @@
             android:icon="@drawable/ahorro_icon"
             android:title="@string/menu_ahorro" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_movements"
             android:icon="@drawable/saldos_icono"
             android:title="@string/menu_saldos_movimientos"
             />

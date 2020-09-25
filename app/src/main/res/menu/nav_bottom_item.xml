@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp2" >
+<!--        <item-->
+<!--            android:id="@+id/nav_home"-->
+<!--            android:icon="@drawable/credit"-->
+<!--            android:title="@string/menu_home" />-->
+        <item
+            android:id="@+id/nav_mensualidades"
+            android:icon="@drawable/ahorro_icon"
+            android:title="@string/menu_mensualidades" />
+        <item
+            android:id="@+id/nav_pay_options"
+            android:icon="@drawable/saldos_icono"
+            android:title="@string/menu_pay_options"
+            />
+        <item
+            android:id="@+id/nav_inner_movements"
+            android:icon="@drawable/ic_aviso_suspension_menu"
+            android:title="@string/menu_movimientos"
+            />
+        <item
+            android:id="@+id/nav_credit_data"
+            android:icon="@drawable/ic_constancia_retencion_menu"
+            android:title="@string/menu_datos_credito"
+            />
+
+    </group>
+
+</menu>
