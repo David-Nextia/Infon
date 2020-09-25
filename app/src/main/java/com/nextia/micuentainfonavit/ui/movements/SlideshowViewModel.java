@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.slideshow;
+package com.nextia.micuentainfonavit.ui.movements;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
