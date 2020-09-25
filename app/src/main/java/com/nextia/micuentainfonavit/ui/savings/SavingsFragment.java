@@ -1,12 +1,10 @@
 package com.nextia.micuentainfonavit.ui.savings;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -17,21 +15,14 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.viewpager.widget.ViewPager;
 
-import com.google.android.material.tabs.TabLayout;
 import com.nextia.domain.models.saldo.SaldoResponse;
-import com.nextia.micuentainfonavit.LoginActivity;
-import com.nextia.micuentainfonavit.MainActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
-import com.nextia.micuentainfonavit.databinding.FragmentProfileBinding;
 import com.nextia.micuentainfonavit.databinding.FragmentSavingsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
-import com.nextia.micuentainfonavit.ui.profile.ProfileFragment;
-import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPagerAdapter;
 import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPageFragment;
+import com.nextia.micuentainfonavit.ui.savings.tabs.ViewPagerAdapter;
 
 public class SavingsFragment extends Fragment {
 
@@ -45,7 +36,7 @@ public class SavingsFragment extends Fragment {
         adapterViewpage = new ViewPagerAdapter(getChildFragmentManager());
     /*  this.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
-        Utils.showLoadingSkeleton(binding.rootView);
+        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
         savingsViewModel.getSaldo(this.getContext());
         return binding.getRoot();
     }

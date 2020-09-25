@@ -55,9 +55,9 @@ public class Utils {
     }
 
     private static ViewSkeletonScreen mSkeleton;
-    public static void showLoadingSkeleton(View rootView){
+    public static void showLoadingSkeleton(View rootView, int viewId){
         mSkeleton = Skeleton.bind(rootView)
-                .load(R.layout.skeleton_savings)
+                .load(viewId)
                 .color(R.color.shimmer_color)
                 .angle(0)
                 .show();
