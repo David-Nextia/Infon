@@ -20,10 +20,15 @@
     <string name="menu_aviso_suspension">Aviso de suspensión, retención</string>
     <string name="menu_constancia">Constancia de intereses</string>
     <string name="menu_info_perfil">Información de perfil</string>
-    <string name="menu_cerrar_sesion">Cerrar sesión</string>7
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="menu_perfil">Mostrar perfil</string>
     <string name="welcome">Bienvenido</string>
 
+<!--    bottom navigation bar menu-->
+    <string name="menu_mensualidades">Mensualidades</string>
+    <string name="menu_pay_options">Opciones de pago</string>
+    <string name="menu_movimientos">Movimientos</string>
+    <string name="menu_datos_credito">Datos de mi crédito</string>
 
     <!--Savings -->
     <string name="savings_title">Este es tu ahorro</string>

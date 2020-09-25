@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_savings" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/nav_movements"
         android:name="com.nextia.micuentainfonavit.ui.movements.MovementsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_movements" />
 
     <fragment
         android:id="@+id/nav_aviso_suspension"
