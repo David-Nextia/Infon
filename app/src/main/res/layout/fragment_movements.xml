@@ -22,18 +22,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/navbarmovements"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
         android:background="@color/color_white"
-        app:itemBackground="@color/tab_bg_item"
+        app:itemBackground="@drawable/tab_bg_item"
         app:itemIconTint="@color/tab_bg"
         app:itemTextColor="@color/tab_bg"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_bottom_item"
-        app:barrierMargin="0dp"
-
 
         />
 
