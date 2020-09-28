@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     Database database = new Database();
     UserUseCase user = new UserUseCase();
     Switch rememberUser;
-
+    EditText email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,7 +49,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setButton(OnFinishRequestListener context) {
-        EditText email = findViewById(R.id.email_edit);
+        email= findViewById(R.id.email_edit);
         EditText password = findViewById(R.id.password_edit);
         Button loginbtn = findViewById(R.id.buttonlogin);
         TextView register = findViewById(R.id.registerlink);
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             rememberUser.setChecked(true);
             email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
         }
-        password.setText("ContrasenaQa01");
+        //password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) { }
@@ -102,12 +102,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             public void onClick(View v) {
                 progress.setAlpha(1.0f);
                 user.doLogin(email.getText().toString(),password.getText().toString(),context);
-                if(rememberUser.isChecked()){
-                    Utils.saveToSharedPreferences(getApplicationContext(),"emailUser",email.getText().toString());
-                }else{
-                    SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
-                    mPrefs.edit().remove("emailUser").commit();
-                }
+
             }
         });
 
@@ -123,7 +118,12 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     }
     @Override
     public void onSuccesRequest(UserResponse object) {
-
+        if(rememberUser.isChecked()){
+            Utils.saveToSharedPreferences(getApplicationContext(),"emailUser",email.getText().toString());
+        }else{
+            SharedPreferences mPrefs =getSharedPreferences("pref", Context.MODE_PRIVATE);
+            mPrefs.edit().remove("emailUser").commit();
+        }
         Gson gson = new Gson();
         String json = gson.toJson(object);
         Utils.saveToSharedPreferences(getApplicationContext(),"UsuarioData",json);
