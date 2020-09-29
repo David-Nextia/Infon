@@ -2,7 +2,6 @@ package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,16 +9,17 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.google.gson.Gson;
 import com.nextia.data.Database;
@@ -34,14 +34,77 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     UserUseCase user = new UserUseCase();
     Switch rememberUser;
     EditText email;
+    View dumbView;
+    LinearLayout form;
+    TextView aviso;
+    TextView textitle;
+    TextView regiterlink;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_login);
+        //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        setContentView(R.layout.test2);
+        dumbView = findViewById(R.id.theDumbViewId);
+        form= findViewById(R.id.register_form);
+
+        dumbView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if((oldTop-top)>0){
+                    TextView register = findViewById(R.id.registerlink);
+                    int[] location1 = new int[2];
+                    register.getLocationOnScreen(location1);
+                    int[] location2 = new int[2];
+                    form.getLocationOnScreen(location2);
 
 
+                    if(location2[1]-location1[1]<5)
+                    {
+                        register.setText("");
+                        register.setVisibility(View.GONE);
+                        TextView title = findViewById(R.id.titletext);
+                        title.setVisibility(View.GONE);
+                        title.setText("");
+                        //Toast.makeText(getApplicationContext(),"debe desaparecer",Toast.LENGTH_SHORT).show();
+                    }
+
+                    //Toast.makeText(getApplicationContext(),"subiowe",Toast.LENGTH_SHORT).show();
+                    ConstraintSet set = new ConstraintSet();
+                    ConstraintLayout layout;
+
+
+
+                    layout = (ConstraintLayout) findViewById(R.id.viewLogin);
+                    set.clone(layout);
+                    set.connect(R.id.register_form,ConstraintSet.TOP,R.id.registerlink,ConstraintSet.BOTTOM,0);
+                    set.clear(R.id.register_form, ConstraintSet.TOP);
+                    aviso= findViewById(R.id.avisolink);
+                    aviso.setText("");
+                    set.applyTo(layout);
+                }
+                else if((oldTop-top)<-300){
+                    ConstraintSet set = new ConstraintSet();
+                    ConstraintLayout layout;
+                    aviso= findViewById(R.id.avisolink);
+                    aviso.setText(R.string.hyperlinkap);
+                    TextView register = findViewById(R.id.registerlink);
+                    register.setText(R.string.hyperlink2);
+                    TextView title = findViewById(R.id.titletext);
+                    title.setText(R.string.iniciar_sesi_n);
+                    layout = (ConstraintLayout) findViewById(R.id.viewLogin);
+                    set.clone(layout);
+                    set.connect(R.id.register_form,ConstraintSet.TOP,R.id.logoimg,ConstraintSet.BOTTOM,0);
+                    set.applyTo(layout);
+                    register.setMovementMethod(LinkMovementMethod.getInstance());
+                    aviso.setMovementMethod(LinkMovementMethod.getInstance());
+
+                }
+
+
+            }
+        });
         setButton(this);
 
     }
@@ -57,14 +120,13 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         rememberUser=findViewById(R.id.reminduser);
 
 
-        register.setMovementMethod(LinkMovementMethod.getInstance());
-        avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
+
         //loginbtn.setEnabled(false);
         if(Utils.getSharedPreferencesEmail(getApplicationContext()).isEmpty()==false){
             rememberUser.setChecked(true);
             email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
         }
-        //password.setText("ContrasenaQa01");
+        password.setText("ContrasenaQa01");
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) { }

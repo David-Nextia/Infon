@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
     NavController navController;
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         DialogInfonavit alertdialog = new DialogInfonavit(this, "Cerrar sesión","¿Seguro que deseas cerrar sesión?", DialogInfonavit.TWO_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity  {
 //            }
 //        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
                 .setDrawerLayout(drawer)
@@ -68,6 +71,8 @@ public class MainActivity extends AppCompatActivity  {
                 return  true;
             }
         });
+
+
     }
 
 
@@ -80,7 +85,13 @@ public class MainActivity extends AppCompatActivity  {
             public boolean onMenuItemClick(MenuItem item) {
 
                 if(findViewById(R.id.imageView3)==null)
-                { navController.navigate(R.id.nav_profile);}
+                {
+                    int z= item.getOrder() ;
+                    int y=Menu.CATEGORY_SECONDARY;
+                    int finan= z & y;
+                    NavigationUI.onNavDestinationSelected(item, navController);
+                    //Utils.NavigateWhitBackStack(MainActivity.this,menu.getItem(0).getItemId());
+                }
                 return true;
             }
         });
@@ -92,6 +103,10 @@ public class MainActivity extends AppCompatActivity  {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public interface onBackListener{
+        void onBackPressed();
     }
 
 

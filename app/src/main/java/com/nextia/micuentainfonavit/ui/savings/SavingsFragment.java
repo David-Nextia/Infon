@@ -32,13 +32,22 @@ public class SavingsFragment extends Fragment {
     ViewPagerAdapter adapterViewpage;
 
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
-        savingsViewModel = new ViewModelProvider(this).get(SavingsViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_savings, container, false);
         adapterViewpage = new ViewPagerAdapter(getChildFragmentManager());
+
     /*  this.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
                 WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
-        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
-        savingsViewModel.getSaldo(this.getContext());
+        savingsViewModel= new ViewModelProvider(getActivity()).get(SavingsViewModel.class);
+        if(savingsViewModel.getSaldos().getValue()==null)
+        {
+
+            Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
+            savingsViewModel.getSaldo(this.getContext());
+
+        }else{
+            binding.setSaldo(savingsViewModel.getSaldos().getValue());
+            //Utils.hideLoadingSkeleton();
+        }
         return binding.getRoot();
     }
 

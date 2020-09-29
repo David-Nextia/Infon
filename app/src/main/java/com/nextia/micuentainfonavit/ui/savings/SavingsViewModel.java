@@ -15,9 +15,9 @@ import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
 public class SavingsViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {
     SaldosUseCase saldos=new SaldosUseCase();
-    private MutableLiveData<SaldoResponse> _saldo;
+    private MutableLiveData<SaldoResponse> _saldo= new MutableLiveData<>();
     public SavingsViewModel() {
-        _saldo = new MutableLiveData<>();
+
     }
     public void getSaldo(Context context){
         UserResponse user= Utils.getSharedPreferencesUserData(context);

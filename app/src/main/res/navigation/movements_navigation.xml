@@ -9,13 +9,17 @@
         android:id="@+id/nav_mensualidades"
         android:name="com.nextia.micuentainfonavit.ui.movements.views.mensualidades.MensualidadesFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_mensualidades" />
+        tools:layout="@layout/fragment_mensualidades">
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_pay_options"
         android:name="com.nextia.micuentainfonavit.ui.movements.views.pay_options.PayOptionsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_pay_options" />
+        tools:layout="@layout/fragment_pay_options">
+
+    </fragment>
 
     <fragment
         android:id="@+id/nav_inner_movements"
