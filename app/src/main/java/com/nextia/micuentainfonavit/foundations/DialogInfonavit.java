@@ -73,7 +73,7 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         else if (type==TWO_BUTTON_DIALOG){
             try{
                 accept.getBackground().setTint(ContextCompat.getColor(getContext(),R.color.colorskeleton));
-                accept.setText("Si");
+                accept.setText("Sí");
                 deny.setText("No");
             }catch (Exception e){e.printStackTrace();}
         }
