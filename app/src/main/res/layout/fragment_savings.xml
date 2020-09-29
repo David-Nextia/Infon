@@ -47,7 +47,8 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7" />
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                android:fontFamily="@font/subtitle"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -76,7 +77,8 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contribution_company2" />
+                app:layout_constraintTop_toBottomOf="@+id/contribution_company2"
+                android:fontFamily="@font/body"/>
 
             <TextView
                 android:id="@+id/contribution_company2"
@@ -92,7 +94,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view5" />
+                app:layout_constraintTop_toBottomOf="@+id/view5"
+                android:fontFamily="@font/subtitle"/>
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
@@ -133,7 +136,8 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtMySavingDesc2" />
+                app:layout_constraintTop_toBottomOf="@+id/txtMySavingDesc2"
+                android:fontFamily="@font/subtitle"/>
 
             <TextView
                 android:id="@+id/txtMySavingDesc2"
@@ -146,7 +150,8 @@
                 android:textAlignment="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAhorroTotal" />
+                app:layout_constraintTop_toBottomOf="@+id/txtAhorroTotal"
+                android:fontFamily="@font/body"/>
 
             <TextView
                 android:id="@+id/txtAhorroTotal"
@@ -161,7 +166,8 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                android:fontFamily="@font/subtitle"/>
 
             <TextView
                 android:id="@+id/textView5"
@@ -171,7 +177,8 @@
                 android:text="@string/savings_ahorro"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView2"
+                android:fontFamily="@font/subtitle"/>
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -208,7 +215,8 @@
                 android:textColor="#1c5875"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:fontFamily="@font/subtitle"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -224,7 +232,8 @@
                     android:layout_height="wrap_content"
                     android:padding="3dp"
                     android:text="@string/contribution_ultima_aportacion"
-                    android:textAppearance="@android:style/TextAppearance.Small" />
+                    android:textAppearance="@android:style/TextAppearance.Small"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:id="@+id/txtFecha"
@@ -234,7 +243,8 @@
                     tools:text="..."
                     android:text="@{saldo.getFechaPago}"
                     android:textAppearance="@android:style/TextAppearance.Small"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/body"/>
             </LinearLayout>
 
 

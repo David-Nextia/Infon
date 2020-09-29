@@ -24,7 +24,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="@string/saldos_y_movimientos"
-               style="@style/TxStyleSubTitle" />
+                style="@style/TxStyleSubTitle"
+                android:fontFamily="@font/title"/>
 
         </LinearLayout>
 
@@ -48,7 +49,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
             android:text="Opciones de pago"
-             />
+            android:fontFamily="@font/subtitle"/>
 
 
         <TextView
@@ -56,7 +57,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Saldo a liquidar" />
+            android:text="Saldo a liquidar"
+            android:fontFamily="@font/subtitle"/>
 
         <TextView
             android:id="@+id/txt_debt_amount"
@@ -64,7 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="$ -"
-            style="@style/TxStyleSubTitle" />
+            style="@style/TxStyleSubTitle"
+            android:fontFamily="@font/subtitle"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Información actualizada:"
-                />
+                android:fontFamily="@font/body"/>
 
             <TextView
                 android:id="@+id/txt_updated_date"
@@ -88,7 +91,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:text="day de month del year"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="@font/subtitle"/>
         </LinearLayout>
 
         <LinearLayout
@@ -127,7 +131,8 @@
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:fontFamily="@font/body"/>
 
         <TextView
             android:id="@+id/txtMsg"
@@ -147,7 +152,8 @@
             android:layout_marginTop="40dp"
             android:gravity="center"
             android:text="Consulta en qué lugares puedes pagar"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:fontFamily="@font/subtitle"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -177,7 +183,8 @@
                     android:layout_height="wrap_content"
                     android:text="Pago en bancos"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:fontFamily="@font/subtitle"/>
             </LinearLayout>
 
 
@@ -201,14 +208,16 @@
                     android:layout_height="wrap_content"
                     android:text="Pago en tiendas de autoservicio"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="y comercios afiliados"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:fontFamily="@font/subtitle"/>
             </LinearLayout>
 
 
@@ -232,14 +241,16 @@
                     android:layout_height="wrap_content"
                     android:text="Paga desde"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Estados Unidos"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    android:fontFamily="@font/subtitle"/>
             </LinearLayout>
         </LinearLayout>
 

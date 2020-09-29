@@ -32,8 +32,8 @@
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/nav_bottom_item"
-
-        />
+        app:itemTextAppearanceActive="@style/NavigationDrawerStyle"
+        app:itemTextAppearanceInactive="@style/NavigationDrawerStyle"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
