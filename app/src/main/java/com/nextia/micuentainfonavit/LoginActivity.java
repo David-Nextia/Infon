@@ -97,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         set.clone(layout);
         set.clear(R.id.register_form, ConstraintSet.TOP);
         aviso.animate().alpha(0.0f);
+        aviso.setText("");
         set.applyTo(layout);
     }
 
@@ -104,6 +105,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         register.animate().alpha(1.0f);
         title.animate().alpha(1.0f);
         set.clone(layout);
+        aviso.setText(R.string.hyperlinkap);
+        aviso.animate().alpha(1.0f);
         set.connect(R.id.register_form, ConstraintSet.TOP, R.id.registerlink, ConstraintSet.BOTTOM, 0);
         set.applyTo(layout);
 
