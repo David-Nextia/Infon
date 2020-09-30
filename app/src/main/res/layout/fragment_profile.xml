@@ -43,7 +43,7 @@
                 tools:text="@string/NSS_profiletest"
                 android:text="@{html.fromHtml(@string/NSS_profile(user.Nss))}"
                 android:textColor="@color/colorgrayblue"
-                />
+                android:fontFamily="@font/title"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +64,8 @@
                         android:layout_height="wrap_content"
                         android:text="CURP: "
                         android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/tx_curp"
@@ -72,7 +73,8 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:text="@{user.scurp}"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
@@ -95,7 +97,8 @@
                         android:layout_height="wrap_content"
                         android:text="RFC: "
                         android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/tx_rfc"
@@ -103,7 +106,8 @@
                         android:layout_height="wrap_content"
                         android:text="@{user.rfc}"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -125,7 +129,8 @@
                         android:layout_height="wrap_content"
                         android:text="Teléfono: "
                         android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/tx_tel"
@@ -133,7 +138,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/body"/>
                 </LinearLayout>
 
                 <ImageView
@@ -152,7 +158,8 @@
                         android:layout_height="wrap_content"
                         android:text="Correo: "
                         android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/tx_correo"
@@ -160,7 +167,8 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textStyle="bold"
-                        android:text="@{user.emailPersonal}"/>
+                        android:text="@{user.emailPersonal}"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 

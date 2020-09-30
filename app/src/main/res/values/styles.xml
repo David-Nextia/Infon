@@ -79,11 +79,13 @@
         <item name="android:popupBackground">#DFFFFFFF</item>
     </style>
 
-
-
+    <style name="NavigationDrawerStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/subtitle</item>
+    </style>
     <!-- for text -->
     <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/subtitle</item>
     </style>
 
 </resources>

@@ -48,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="@id/logoimg"
         android:layout_marginBottom="44dp"
         android:text="@string/iniciar_sesi_n"
-
+        android:fontFamily="@font/title"
         />
     <TextView
         android:id="@+id/registerlink"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@id/titletext"
         android:layout_marginBottom="10dp"
         android:text="@string/hyperlink2"
-
+        android:fontFamily="@font/body"
         />
 
 
@@ -95,7 +95,7 @@
             android:drawableStart="@drawable/ic_alternate_email_24px"
             android:hint="Correo electrónico"
             android:inputType="textEmailAddress"
-
+            android:fontFamily="@font/input"
             />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -117,7 +117,8 @@
             android:drawablePadding="20dp"
             android:hint="@string/contrase_a"
             android:drawableStart="@drawable/ic_lock_24px"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:fontFamily="@font/input"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -132,27 +133,27 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:text="@string/recuerda_tu_usuario"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/body"/>
             <Switch
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/reminduser"
                 android:layout_gravity="right"
                 android:checked="true"
-                android:outlineSpotShadowColor="@color/colorPrimary"/>
+                android:outlineSpotShadowColor="@color/colorPrimary"
+                android:fontFamily="@font/body"/>
         </LinearLayout>
         <Button
             android:id="@+id/buttonlogin"
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_margin="20dp"
             android:textColor="@color/color_white"
-
             android:background="@drawable/buttonbg"
             android:text="@string/iniciar_sesi_n"
-
+            android:fontFamily="@font/body"
             />
 
 
@@ -180,8 +181,7 @@
         android:layout_marginBottom="35dp"
         android:gravity="center_horizontal"
         android:text="@string/hyperlinkap"
-
-        />
+        android:fontFamily="@font/body" />
 
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

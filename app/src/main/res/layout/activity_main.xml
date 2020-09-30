@@ -23,7 +23,8 @@
         android:background="@color/colorPrimary"
         app:itemTextColor="#FFFFFF"
         app:itemIconTint="#FFFFFF"
-        android:paddingTop="28dp">
+        android:paddingTop="28dp"
+        app:itemTextAppearance="@style/NavigationDrawerStyle">
 
         <LinearLayout
         android:id="@+id/signup"
