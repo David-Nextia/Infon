@@ -3,6 +3,7 @@ package com.nextia.micuentainfonavit;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -74,6 +75,13 @@ public class Utils {
         if(mSkeleton != null)
             mSkeleton.hide();
             mSkeleton = null;
+    }
+    public static int getScreenHeight(Context context){
+        int height;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        context.getDisplay().getRealMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+        return height;
     }
 
 }
