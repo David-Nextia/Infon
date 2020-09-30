@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <data>
-        <variable
-            name="user"
-            type="com.nextia.domain.models.user.UserResponse" />
-        <import
-            alias="html"
-            type="android.text.Html"/>
-    </data>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.profile.ProfileFragment">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:id="@+id/rootView">
+            android:gravity="center_horizontal">
 
                 <ImageView
 
@@ -30,7 +17,8 @@
                     android:id="@+id/imageView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/perfil" />
+                    app:srcCompat="@drawable/perfil"
+                    app:tint="@color/light_transparent"/>
 
             <TextView
 
@@ -41,9 +29,8 @@
                 android:gravity="center"
                 android:textSize="20sp"
                 tools:text="@string/NSS_profiletest"
-                android:text="@{html.fromHtml(@string/NSS_profile(user.Nss))}"
-                android:textColor="@color/colorgrayblue"
-                android:fontFamily="@font/title"/>
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,26 +49,29 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="CURP: "
+                        android:text="CURP:"
                         android:textAppearance="@android:style/TextAppearance.Medium"
                         android:textStyle="bold"
-                        android:fontFamily="@font/subtitle"/>
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"
+                        android:layout_marginBottom="4dp"/>
 
                     <TextView
                         android:id="@+id/tx_curp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        android:text="@{user.scurp}"
+                        android:text="012345678901234567"
                         android:textStyle="bold"
-                        android:fontFamily="@font/body"/>
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@color/colorgrayblue"
+                    app:srcCompat="@color/light_transparent"
                     android:layout_marginRight="20dp"/>
 
                 <LinearLayout
@@ -95,19 +85,22 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="RFC: "
+                        android:text="RFC:"
                         android:textAppearance="@android:style/TextAppearance.Medium"
                         android:textStyle="bold"
-                        android:fontFamily="@font/subtitle"/>
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                     <TextView
                         android:id="@+id/tx_rfc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{user.rfc}"
+                        android:text="XAXX010101000"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textStyle="bold"
-                        android:fontFamily="@font/body"/>
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -127,25 +120,28 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Teléfono: "
+                        android:text="Teléfono:"
                         android:textAppearance="@android:style/TextAppearance.Medium"
                         android:textStyle="bold"
-                        android:fontFamily="@font/subtitle"/>
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                     <TextView
                         android:id="@+id/tx_tel"
-                        android:text="@{user.telefonoCelular}"
+                        android:text="0123456789"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textStyle="bold"
-                        android:fontFamily="@font/body"/>
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
                 </LinearLayout>
 
                 <ImageView
                     android:layout_width="2dp"
                     android:layout_height="match_parent"
-                    app:srcCompat="@color/colorgrayblue"
+                    app:srcCompat="@color/light_transparent"
                     android:layout_marginRight="20dp"/>
 
                 <LinearLayout
@@ -156,10 +152,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Correo: "
+                        android:text="Correo:"
                         android:textAppearance="@android:style/TextAppearance.Medium"
                         android:textStyle="bold"
-                        android:fontFamily="@font/subtitle"/>
+                        android:layout_marginBottom="4dp"
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                     <TextView
                         android:id="@+id/tx_correo"
@@ -167,8 +165,9 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textStyle="bold"
-                        android:text="@{user.emailPersonal}"
-                        android:fontFamily="@font/body"/>
+                        android:text="user@gmail.com"
+                        android:textColor="@android:color/transparent"
+                        android:background="@color/light_transparent"/>
 
                 </LinearLayout>
 
@@ -177,4 +176,3 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

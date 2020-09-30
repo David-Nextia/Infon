@@ -29,7 +29,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
                 android:text="@string/saldos_y_movimientos"
-                style="@style/TxStyleSubTitle" />
+                style="@style/TxStyleSubTitle"
+                android:fontFamily="@font/title"/>
         </LinearLayout>
 
 
@@ -78,7 +79,7 @@
                         android:textAlignment="center"
                         android:text="Fecha de\notorgamiento:"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_create_date"
@@ -106,7 +107,8 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tipo de interes:" />
+                        android:text="Tipo de interes:"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_interest_type"
@@ -136,7 +138,7 @@
                         android:gravity="center"
                         android:text="Plazo:"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_plazo"
@@ -176,7 +178,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="Tipo de crédito:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_credit_type"
@@ -217,7 +219,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="Saldo de otorgamiento en VSM:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_amount_vsm"
@@ -258,7 +260,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="Saldo de otorgamiento en pesos:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_amount_pesos"
@@ -301,7 +303,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Tasa de interes:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_interest_rate"
@@ -330,7 +332,8 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tipo de moneda:" />
+                        android:text="Tipo de moneda:"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_currency_type"
@@ -361,7 +364,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Tipo de pago:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_pay_type"
@@ -409,7 +412,7 @@
                     android:textSize="10sp"
                     android:layout_gravity="center_vertical"
                     android:textColor="@color/colorPrimary"
-                    />
+                    android:fontFamily="@font/subtitle"/>
 
                 <ImageButton
                     android:id="@+id/next_resp_button"
@@ -468,7 +471,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:text="Fecha de\notorgamiento:"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_create_date2"
@@ -499,7 +502,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Plazo:"
-                     />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_plazo2"
@@ -538,7 +541,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:textAlignment="center"
-                        android:text="Tipo de movimiento" />
+                        android:text="Tipo de movimiento"
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_movement_type"
@@ -580,7 +584,7 @@
                         android:gravity="center"
                         android:text="Tipo de moneda:"
                         android:textAppearance="@android:style/TextAppearance.Small"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_currency_type2"
@@ -611,7 +615,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Tipo de pago:"
-                       />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_pay_type2"
@@ -653,7 +657,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Tasa de interes:"
-                       />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_interest_rate2"
@@ -681,7 +685,7 @@
                         android:textAlignment="center"
                         android:gravity="center"
                         android:text="Tipo de interes:"
-                       />
+                        android:fontFamily="@font/subtitle"/>
 
                     <TextView
                         android:id="@+id/txt_interest_type2"
@@ -748,7 +752,7 @@
                         android:textSize="10sp"
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/colorPrimary"
-                        />
+                        android:fontFamily="@font/subtitle"/>
 
                     <ImageButton
                         android:id="@+id/nextSecureButton"
