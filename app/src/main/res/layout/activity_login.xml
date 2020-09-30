@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/motionLayoutLogin"
     app:layoutDescription="@xml/activity_login_scene">
 
 
@@ -49,28 +50,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/logoimg">
 
-
-        <EditText
-            android:id="@+id/email_edit"
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:drawableStart="@drawable/ic_alternate_email_24px"
-            android:hint="Correo"
-            android:inputType="textEmailAddress"
+            android:layout_marginTop="9dp"
+            android:padding="5dp">
 
-            />
+            <EditText
+                android:id="@+id/email_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:drawableStart="@drawable/ic_alternate_email_24px"
+                android:hint="Correo"
+                android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/password_edit"
-            android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/email_clear"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="15dp"
+                android:layout_gravity="right|center_vertical"
+                android:src="@drawable/ic_close"
+                android:visibility="invisible"/>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="12dp"
-            android:drawableStart="@drawable/ic_lock_24px"
-            android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
-            android:hint="Contraseña"
-            android:inputType="textPassword" />
+            android:layout_marginTop="9dp"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/password_edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="12dp"
+                android:drawableStart="@drawable/ic_lock_24px"
+                android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
+                android:hint="Contraseña"
+                android:inputType="textPassword" />
+
+            <ImageView
+                android:id="@+id/password_clear"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="40dp"
+                android:layout_gravity="right|center_vertical"
+                android:src="@drawable/ic_close"
+                android:visibility="invisible"/>
+
+        </FrameLayout>
+
         <TextView
             android:id="@+id/registerlink"
             android:layout_width="match_parent"
