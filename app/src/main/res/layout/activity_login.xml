@@ -61,6 +61,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_goneMarginTop="10dp"
+            android:fontFamily="@font/title"
 
 
             />
@@ -77,6 +78,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titletext"
+            android:fontFamily="@font/body"
 
             />
         <LinearLayout
@@ -110,6 +112,7 @@
                     android:drawablePadding="20dp"
                     android:hint="Correo electrónico"
                     android:inputType="textEmailAddress"
+                    android:fontFamily="@font/input"
 
                     />
 
@@ -133,7 +136,8 @@
                     android:drawableStart="@drawable/ic_lock_24px"
                     android:drawablePadding="20dp"
                     android:hint="@string/contrase_a"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/input"/>
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
@@ -148,7 +152,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/recuerda_tu_usuario" />
+                    android:text="@string/recuerda_tu_usuario"
+                    android:fontFamily="@font/body"/>
 
                 <Switch
                     android:id="@+id/reminduser"
@@ -173,6 +178,7 @@
                 android:background="@drawable/buttonbg"
                 android:text="@string/iniciar_sesi_n"
                 android:textColor="@color/color_white"
+                android:fontFamily="@font/body"
 
                 />
 
@@ -199,7 +205,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-
+            android:fontFamily="@font/body"
 
             />
     </androidx.constraintlayout.widget.ConstraintLayout>
