@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setButton(OnFinishRequestListener context) {
-        //loginbtn.setEnabled(false);
+        loginbtn.setEnabled(false);
         if (Utils.getSharedPreferencesEmail(getApplicationContext()).isEmpty() == false) {
             rememberUser.setChecked(true);
             email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
