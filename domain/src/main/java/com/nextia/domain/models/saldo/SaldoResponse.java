@@ -15,13 +15,13 @@ public class SaldoResponse {
     private Double saldoAnterior;
     @SerializedName("saldoSAR92")
     @Expose
-    private String saldoSAR92;
+    private Double saldoSAR92;
     @SerializedName("saldoSAR97")
     @Expose
-    private String saldoSAR97;
+    private Double saldoSAR97;
     @SerializedName("NSS")
     @Expose
-    private Integer nSS;
+    private String nSS;
     @SerializedName("bimestre")
     @Expose
     private Integer bimestre;
@@ -54,27 +54,27 @@ public class SaldoResponse {
         this.saldoAnterior = saldoAnterior;
     }
 
-    public String getSaldoSAR92() {
+    public Double getSaldoSAR92() {
         return saldoSAR92;
     }
 
-    public void setSaldoSAR92(String saldoSAR92) {
+    public void setSaldoSAR92(Double saldoSAR92) {
         this.saldoSAR92 = saldoSAR92;
     }
 
-    public String getSaldoSAR97() {
+    public Double getSaldoSAR97() {
         return saldoSAR97;
     }
 
-    public void setSaldoSAR97(String saldoSAR97) {
+    public void setSaldoSAR97(Double saldoSAR97) {
         this.saldoSAR97 = saldoSAR97;
     }
 
-    public Integer getNSS() {
+    public String getNSS() {
         return nSS;
     }
 
-    public void setNSS(Integer nSS) {
+    public void setNSS(String nSS) {
         this.nSS = nSS;
     }
 

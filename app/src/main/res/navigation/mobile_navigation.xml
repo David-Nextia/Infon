@@ -9,29 +9,58 @@
         android:id="@+id/nav_home"
         android:name="com.nextia.micuentainfonavit.ui.home.HomeFragment"
         android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.nextia.micuentainfonavit.ui.saldo.SaldoFragment"
+        android:id="@+id/nav_savings"
+        android:name="com.nextia.micuentainfonavit.ui.savings.SavingsFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_saldos" />
+        tools:layout="@layout/fragment_savings">
+        <action
+            android:id="@+id/action_nav_savings_to_nav_home"
+            app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_savings_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.nextia.micuentainfonavit.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_movements"
+        android:name="com.nextia.micuentainfonavit.ui.movements.MovementsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_movements" >
+        <action
+            android:id="@+id/action_nav_movements_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_aviso_suspension"
         android:name="com.nextia.micuentainfonavit.ui.aviso.AvisoFragment"
         android:label="@string/menu_aviso_suspension"
-        tools:layout="@layout/fragment_aviso" />
+        tools:layout="@layout/fragment_aviso" >
+        <action
+            android:id="@+id/action_nav_aviso_suspension_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_constancia_interes"
         android:name="com.nextia.micuentainfonavit.ui.constancia.ConstanciaFragment"
         android:label="@string/menu_constancia"
-        tools:layout="@layout/fragment_constancia" />
+        tools:layout="@layout/fragment_constancia" >
+        <action
+            android:id="@+id/action_nav_constancia_interes_to_nav_profile"
+            app:destination="@id/nav_profile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.nextia.micuentainfonavit.ui.profile.ProfileFragment"
+        android:label="@string/menu_perfil"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

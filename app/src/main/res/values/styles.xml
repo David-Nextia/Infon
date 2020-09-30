@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
@@ -10,6 +10,7 @@
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -17,10 +18,55 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="TxStyleTitle" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">40sp</item>
+        <item name="android:textSize">28sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
+
+    <style name="TxStyleSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorgrayblue</item>
+    </style>
+
+    <style name="TxStyleSubSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_drak_gray</item>
+    </style>
+
+    <style name="TxStyleSubSubSubTitle" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_drak_gray</item>
+    </style>
+
+
+    <style name="TxStyleinitSession" parent="android:Widget.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="TxStyleinitdescSession" parent="android:Widget.TextView">
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <style name="TxRedDefault" parent="android:Widget.TextView">
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 
     <style name="spinner_style">
         <item name="android:layout_width">match_parent</item>
@@ -34,12 +80,23 @@
         <item name="android:popupBackground">#DFFFFFFF</item>
     </style>
 
-
-
+    <style name="NavigationDrawerStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/subtitle</item>
+    </style>
     <!-- for text -->
     <style name="AppTabTextAppearance" parent="TextAppearance.Design.Tab">
-
         <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/subtitle</item>
+    </style>
+
+    <style name="ThemeFullSCreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowEnableSplitTouch">false</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="kitkat">true</item>
+        <item name="android:windowTranslucentNavigation" tools:targetApi="kitkat">true</item>
     </style>
 
 </resources>

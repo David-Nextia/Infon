@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="navigation_view">
+   >
 
     <group android:checkableBehavior="single"
-        android:id="@+id/test2">
+        android:id="@+id/grp2" >
+<!--        <item-->
+<!--            android:id="@+id/nav_home"-->
+<!--            android:icon="@drawable/credit"-->
+<!--            android:title="@string/menu_home" />-->
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/credit"
-            android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ahorro_icon"
+            android:id="@+id/nav_savings"
+            android:icon="@drawable/ic_ahorro"
             android:title="@string/menu_ahorro" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/saldos_icono"
+            android:id="@+id/nav_movements"
+            android:icon="@drawable/ic_saldos_movimientos"
             android:title="@string/menu_saldos_movimientos"
             />
         <item
             android:id="@+id/nav_aviso_suspension"
-            android:icon="@drawable/ic_aviso_suspension_menu"
+            android:icon="@drawable/ic_aviso_suspension_retencion"
             android:title="@string/menu_aviso_suspension"
             />
         <item
             android:id="@+id/nav_constancia_interes"
-            android:icon="@drawable/ic_constancia_retencion_menu"
+            android:icon="@drawable/ic_constancia_interes"
             android:title="@string/menu_constancia"
             />
-        <item
-            android:id="@+id/nav_empty"
-            android:title=""
-            />
+
     </group>
 
     <group android:checkableBehavior="single"
-        android:id="@+id/test">
+        android:id="@+id/grp1"  >
 
         <item
-            android:id="@+id/nav_perfil"
-            android:icon="@drawable/ic_account"
-            android:title="@string/menu_info_perfil"
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_cerrar_sesion"
+            android:title="@string/menu_cerrar_sesion"
             />
 
     </group>

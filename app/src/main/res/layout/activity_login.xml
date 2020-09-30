@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:id="@+id/motionLayoutLogin"
     app:layoutDescription="@xml/activity_login_scene">
+    app:layoutDescription="@xml/activity_login_scene"
+    android:focusableInTouchMode="true">
 
 
     <androidx.constraintlayout.widget.Guideline
@@ -13,48 +15,100 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.40" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalguidelineright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.60" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/verticalguidelinetop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.10" />
+        app:layout_constraintGuide_percent="0.03009576" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/Horizontalguidelinetop2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1504788" />
 
     <ImageView
         android:id="@+id/logoimg"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
         app:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
-        app:layout_constraintTop_toBottomOf="@id/verticalguidelinetop"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
-
-    <LinearLayout
-        android:id="@+id/register_form"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:alpha="1"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoimg">
+        android:id="@+id/viewLogin"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/logoimg"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <TextView
+            android:id="@+id/titletext"
+            style="@style/TxStyleinitSession"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/iniciar_sesi_n"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginTop="10dp"
+            android:fontFamily="@font/title"
+
+
+            />
+        <TextView
+            android:id="@+id/registerlink"
+            style="@style/TxStyleinitdescSession"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/hyperlink2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titletext"
+            android:fontFamily="@font/body"
+
+            />
+        <LinearLayout
+            android:id="@+id/register_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="1"
+            android:orientation="vertical"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerlink"
+            >
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
 
         <FrameLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:padding="5dp">
+                android:textColorHint="@color/colorskeleton"
+
+                >
 
             <EditText
                 android:id="@+id/email_edit"
@@ -73,6 +127,16 @@
                 android:layout_gravity="right|center_vertical"
                 android:src="@drawable/ic_close"
                 android:visibility="invisible"/>
+                <EditText
+                    android:id="@+id/email_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="12dp"
+                    android:drawableStart="@drawable/ic_alternate_email_24px"
+                    android:drawablePadding="20dp"
+                    android:hint="Correo electrónico"
+                    android:inputType="textEmailAddress"
+                    android:fontFamily="@font/input"
 
         </FrameLayout>
 
@@ -81,6 +145,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="9dp"
             android:padding="5dp">
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_layout_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/colorskeleton"
+                app:passwordToggleEnabled="true"
+
+                >
 
             <EditText
                 android:id="@+id/password_edit"
@@ -114,36 +190,96 @@
         <Button
             android:id="@+id/buttonlogin"
             android:layout_width="match_parent"
+                <EditText
+                    android:id="@+id/password_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="12dp"
+                    android:drawableStart="@drawable/ic_lock_24px"
+                    android:drawablePadding="20dp"
+                    android:hint="@string/contrase_a"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/input"/>
+            </com.google.android.material.textfield.TextInputLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recuerda_tu_usuario"
+                    android:fontFamily="@font/body"/>
+
+                <Switch
+                    android:id="@+id/reminduser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:checked="true"
+                    android:outlineSpotShadowColor="@color/colorPrimary" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/buttonlogin"
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+
+                android:background="@drawable/buttonbg"
+                android:text="@string/iniciar_sesi_n"
+                android:textColor="@color/color_white"
+                android:fontFamily="@font/body"
+
+                />
+
+
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="20dp"
-
-            android:background="@drawable/buttonbg"
-            android:text="Entrar"
-
-            />
-
+            android:alpha="0"
+            app:layout_constraintBottom_toTopOf="@id/register_form"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerlink" />
         <TextView
             android:id="@+id/avisolink"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/avisomargin"
+            android:gravity="center_horizontal"
             android:text="@string/hyperlinkap"
-            android:gravity="center"/>
 
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/body"
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:alpha="0"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoimg"
-        app:layout_constraintBottom_toTopOf="@id/register_form"
-         />
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/AuxView"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
 
+        />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

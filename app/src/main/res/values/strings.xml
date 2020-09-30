@@ -12,21 +12,39 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">MainActivity</string>
-    <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
-    <string name="hyperlinkap">Consulta nuestro aviso de privacidad \n <u>Consultar aviso de privacidad</u></string>
-    <string name="menu_ahorro">¿Cuanto ahorro tengo?</string>
+
     <string name="menu_saldos_movimientos">Saldos y movimientos</string>
     <string name="menu_aviso_suspension">Aviso de suspensión, retención</string>
     <string name="menu_constancia">Constancia de intereses</string>
     <string name="menu_info_perfil">Información de perfil</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+    <string name="menu_perfil">Mostrar perfil</string>
     <string name="welcome">Bienvenido</string>
     <string name="strDefault_loading">Cargando...</string>
 
 
-    <!--Savigns -->
+<!--    iniciar sesión-->
+    <string name="iniciar_sesi_n">Iniciar sesión</string>
+    <string name="contrase_a">Contraseña</string>
+    <string name="recuerda_tu_usuario">Recuerda tu usuario</string>
+    <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
+    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> , si aún no la tienes <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">registrate</a></string>
+    <string name="hyperlinkap"><a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/transparencia/aviso-privacidad/!ut/p/z1/jY-7DoJAEEW_xYKWmQXF1W4xiA-CWBBxGwMGVw2wBBB-X0QbEyFON5Nzbu4AhwB4FtY3EVY3mYVJux-5cTJsxNViTNwd245xT00PzamnO0SDQwdoFNE2kbg2XVFkS2ttzRxdswkC_8cfAF4-9gzD1ucd0tfAJx9gIGMDXCQyer_LskinAngRX-IiLtRH0Z6vVZWXcwUVbJpGFVKKJFbPMlXwl3KVZQXBNwl56gd4nyS1w0ZPkMUZLw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Aviso de privacidad</a></string>
+    <string name="menu_ahorro">¿Cuanto ahorro tengo?</string>
+
+
+<!--    bottom navigation bar menu-->
+    <string name="menu_mensualidades">Mensualidades</string>
+    <string name="menu_pay_options">Opciones de pago</string>
+    <string name="menu_movimientos">Movimientos</string>
+    <string name="menu_datos_credito">Datos de mi crédito</string>
+
+    <!--Savings -->
     <string name="savings_title">Este es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
+<!--    tabs-->
+    <string name="tab_1992">1992</string>
 
 
     <!--Contributions Row -->
@@ -35,4 +53,30 @@
     <string name="contribution_ultimo_sueldo">Tu último sueldo</string>
     <string name="contribution_year">Subcuenta de Vivienda</string>
     <string name="contribution_contribution">Aportación</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+<!--    Binding profile fragment  -->
+    <string name="NSS_profile">NSS: <![CDATA[<b>%s</b>]]></string>
+    <string name="NSS_profiletest">NSS:<b>358759872987987</b></string>
+
+
+<!--    saldos y movimientos-->
+
+ <!-- mensualidades   -->
+    <string name="Saldos_movimientos"><u>Saldos y movimientos</u></string>
+    <string name="pago_de_mi_mensualidad">Pago de mi mensualidad</string>
+    <string name="informaci_n_actualizada">Información actualizada:</string>
+    <string name="mensualidades"><u>Mensualidades</u></string>
+    <string name="cu_nto_debo"><u>¿Cuánto debo?</u></string>
+    <string name="pago_para_estar_al_corriente">Pago para estar al corriente</string>
+    <string name="tu_pago_se_refleja_10_di_as_despue_s_de_efectuado_consu_ltalo_en_la_seccio_n_mis_movimientos_y_estados_de_cuenta">Tu pago se refleja 10 días después de efectuado; consúltalo en la sección Mis movimientos y estados de cuenta.</string>
+    <string name="consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos">Consulta los establecimientos en los que puedes realizar tus pagos.</string>
+
+ <!-- opciones de pago   -->
+    <string name="saldos_y_movimientos"><u>Saldos y movimientos</u></string>
+    <string name="haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado">Haz tus pagos completos antes del último día del mes actual. Si vas a liquidar tu crédito, paga directamente en cualquier banco autorizado.</string>
+
+    <!--    Dialog error    -->
+    <string name="title_error">Aviso</string>
+    <string name="message_server_error">No se pudo obtener los datos del servidor</string>
 </resources>

@@ -12,7 +12,7 @@ public class UserResponse {
 
     @SerializedName("nss")
     @Expose
-    private Double nss;
+    private String nss;
     @SerializedName("nombre")
     @Expose
     private String nombre;
@@ -60,12 +60,15 @@ public class UserResponse {
     public UserResponse() {
 
     }
+    public UserResponse(String email){
+        this.emailPersonal=email;
+    }
 
-    public Double getNss() {
+    public String getNss() {
         return nss;
     }
 
-    public void setNss(Double nss) {
+    public void setNss(String nss) {
         this.nss = nss;
     }
 

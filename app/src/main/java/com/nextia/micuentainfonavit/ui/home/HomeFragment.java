@@ -14,7 +14,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nextia.domain.models.welcome.WelcomeCard;
 import com.nextia.micuentainfonavit.R;
+
+import java.util.ArrayList;
+
+import ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator;
 
 public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
@@ -24,8 +29,16 @@ public class HomeFragment extends Fragment {
         homeViewModel =new ViewModelProvider(this).get(HomeViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView = root.findViewById(R.id.recyclerwelcome);
+        ScrollingPagerIndicator recyclerIndicator = root.findViewById(R.id.indicatorrecycler);
         CardAdapter adapter= new CardAdapter();
         recyclerView.setAdapter(adapter);
+        recyclerIndicator.attachToRecyclerView(recyclerView);
+        homeViewModel.getCards().observe(getViewLifecycleOwner(), new Observer<ArrayList<WelcomeCard>>() {
+            @Override
+            public void onChanged(ArrayList<WelcomeCard> welcomeCards) {
+                adapter.setData(welcomeCards);
+            }
+        });
         return root;
     }
 }

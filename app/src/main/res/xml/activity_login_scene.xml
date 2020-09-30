@@ -1,69 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <MotionScene
-
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto"
     >
+
     <Transition
-        android:id="@+id/test"
-        motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
-        motion:autoTransition="animateToEnd"
-        motion:duration="3000">
-        <KeyFrameSet >
+        motion:constraintSetStart="@id/start"
+        motion:duration="5000"
+        motion:autoTransition="animateToEnd">
+        <KeyFrameSet>
+
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
-                motion:framePosition="100"
-                android:alpha="1" />
+                motion:framePosition="0"
+                android:translationY="@dimen/logoposition" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="46"
+                android:translationY="@dimen/logoposition" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="0"
+                android:scaleX="1.5"
+                android:scaleY="1.5"/>
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="45"
+                android:scaleX="1.5"
+                android:scaleY="1.5"/>
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
                 motion:framePosition="0"
                 android:alpha="0" />
             <KeyAttribute
-                motion:motionTarget="@+id/register_form"
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="45"
+                android:alpha="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/viewLogin"
                 motion:framePosition="0"
                 android:alpha="0" />
             <KeyAttribute
-                motion:motionTarget="@+id/register_form"
-                motion:framePosition="100"
-                android:alpha="1" />
-            <KeyAttribute
-                motion:motionTarget="@+id/logoimg"
-                motion:framePosition="0"
-                android:translationY="150dp" />
-            <KeyAttribute
-                motion:motionTarget="@+id/logoimg"
-                motion:framePosition="49"
-                android:translationY="150dp" />
-            <KeyAttribute
-                motion:motionTarget="@+id/register_form"
+                motion:motionTarget="@+id/viewLogin"
                 motion:framePosition="48"
                 android:alpha="0" />
             <KeyAttribute
                 motion:motionTarget="@+id/logoimg"
-                motion:framePosition="47"
-                android:alpha="1" />
+                motion:framePosition="89"
+                android:translationY="0dp" />
             <KeyAttribute
-                motion:motionTarget="@+id/register_form"
-                motion:framePosition="34"
-                android:translationY="150dp" />
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="88"
+                android:scaleX="1"
+                android:scaleY="1" />
+            <KeyAttribute
+                motion:motionTarget="@+id/viewLogin"
+                motion:framePosition="48"
+                android:translationY="300dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/logoimg"
+                motion:framePosition="0"
+                android:elevation="3dp" />
         </KeyFrameSet>
     </Transition>
 
-
-
-    <ConstraintSet android:id="@+id/start"></ConstraintSet>
-    <ConstraintSet android:id="@+id/end">
+    <ConstraintSet android:id="@+id/start">
         <Constraint
-            android:id="@+id/logoimg"
-            motion:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            motion:layout_constraintTop_toBottomOf="@id/verticalguidelinetop"
-            motion:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
-            android:scaleX="0.8"
-            android:scaleY="0.8" />
+            android:id="@+id/viewLogin"
+            />
     </ConstraintSet>
 
-
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            />
+    </ConstraintSet>
 </MotionScene>
