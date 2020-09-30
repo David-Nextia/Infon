@@ -10,21 +10,26 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.method.PasswordTransformationMethod;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import com.google.gson.Gson;
 import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 
@@ -38,6 +43,20 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
         setButton(this);
+
+        init();
+    }
+
+    private void init(){
+        MotionLayout motionLayoutLogin = findViewById(R.id.motionLayoutLogin);
+
+        motionLayoutLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
     }
 
 
@@ -48,8 +67,10 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         Button loginbtn = findViewById(R.id.buttonlogin);
         TextView register = findViewById(R.id.registerlink);
         TextView avisopriv = findViewById(R.id.avisolink);
+        ImageView emailClear = findViewById(R.id.email_clear);
+        ImageView passwordClear = findViewById(R.id.password_clear);
         register.setMovementMethod(LinkMovementMethod.getInstance());
-        avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
+        //avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
 
         //loginbtn.setEnabled(false);
         email.setText("aclara106@yopmail.com");
@@ -66,8 +87,34 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 } else {
                     loginbtn.setEnabled(false);
                 }
+
+                if(s.length() != 0){
+                    passwordClear.setVisibility(View.VISIBLE);
+                } else {
+                    passwordClear.setVisibility(View.GONE);
+                }
             }
 
+        });
+
+        password.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                ProgressBar progress= findViewById(R.id.progressBar);
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    String mailInput = email.getText().toString().trim();
+                    String passwordInput = password.getText().toString().trim();
+
+                    if(!mailInput.isEmpty() && !passwordInput.isEmpty()){
+                        progress.setAlpha(1.0f);
+                        // database.doLogin(email.getText().toString(), password.getText().toString(), context);
+                        user.doLogin(email.getText().toString(),password.getText().toString(),context);
+                        return true;
+                    }
+                }
+                return false;
+            }
         });
 
         email.addTextChangedListener(new TextWatcher() {
@@ -81,6 +128,12 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
+                }
+
+                if(s.length() != 0){
+                    emailClear.setVisibility(View.VISIBLE);
+                } else {
+                    emailClear.setVisibility(View.GONE);
                 }
             }
         });
@@ -115,6 +168,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 return false;
             }
         });
+
+        avisopriv.setOnClickListener(view -> {
+            Intent intent = new Intent(LoginActivity.this, AvisoPrivacidadActivity.class);
+            startActivity(intent);
+        });
+
+        emailClear.setOnClickListener(view -> email.setText(""));
+
+        passwordClear.setOnClickListener(view -> password.setText(""));
     }
 
     @Override

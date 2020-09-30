@@ -13,22 +13,20 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main2">MainActivity</string>
     <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
-    <string name="hyperlinkap">Consulta nuestro aviso de privacidad \n<a href="https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/transparencia/aviso-privacidad/!ut/p/z1/jY-7DoJAEEW_xYKWmQXF1W4xiA-CWBBxGwMGVw2wBBB-X0QbEyFON5Nzbu4AhwB4FtY3EVY3mYVJux-5cTJsxNViTNwd245xT00PzamnO0SDQwdoFNE2kbg2XVFkS2ttzRxdswkC_8cfAF4-9gzD1ucd0tfAJx9gIGMDXCQyer_LskinAngRX-IiLtRH0Z6vVZWXcwUVbJpGFVKKJFbPMlXwl3KVZQXBNwl56gd4nyS1w0ZPkMUZLw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/">Consultar aviso de privacidad</a></string>
+    <string name="hyperlinkap">Consulta nuestro aviso de privacidad \n <u>Consultar aviso de privacidad</u></string>
     <string name="menu_ahorro">¿Cuanto ahorro tengo?</string>
     <string name="menu_saldos_movimientos">Saldos y movimientos</string>
     <string name="menu_aviso_suspension">Aviso de suspensión, retención</string>
     <string name="menu_constancia">Constancia de intereses</string>
     <string name="menu_info_perfil">Información de perfil</string>
     <string name="welcome">Bienvenido</string>
-
-
+    <string name="strDefault_loading">Cargando...</string>
 
 
     <!--Savigns -->
     <string name="savings_title">Este es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
-
 
 
     <!--Contributions Row -->
