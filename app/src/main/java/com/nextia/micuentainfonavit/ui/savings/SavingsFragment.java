@@ -34,20 +34,9 @@ public class SavingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_savings, container, false);
         adapterViewpage = new ViewPagerAdapter(getChildFragmentManager());
-
-    /*  this.getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);*/
-        savingsViewModel= new ViewModelProvider(getActivity()).get(SavingsViewModel.class);
-        if(savingsViewModel.getSaldos().getValue()==null)
-        {
-
-            Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
-            savingsViewModel.getSaldo(this.getContext());
-
-        }else{
-            binding.setSaldo(savingsViewModel.getSaldos().getValue());
-            //Utils.hideLoadingSkeleton();
-        }
+        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
+       savingsViewModel= new ViewModelProvider(getActivity()).get(SavingsViewModel.class);
+        savingsViewModel.getSaldo(this.getContext());
         return binding.getRoot();
     }
 
@@ -63,7 +52,6 @@ public class SavingsFragment extends Fragment {
             @Override
             public void onChanged(SaldoResponse saldoResponse) {
                 if(saldoResponse != null && validateField(saldoResponse)) {
-                    //getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                     if(adapterViewpage.getCount() == 0) {
                         adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoAnterior()), " Fondo de ahorro", "De 1972 al 28/feb/1992"), "Año 1972");
                         adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR92()), "Subcuenta de vivienda SAR", "Del 1/mar/1992 al 30/jun/1997"), "Año 1992");
