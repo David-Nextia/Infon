@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/motionLayoutLogin"
-    app:layoutDescription="@xml/activity_login_scene">
     app:layoutDescription="@xml/activity_login_scene"
+    android:id="@+id/motionLayoutLogin"
     android:focusableInTouchMode="true">
 
 
@@ -89,119 +88,84 @@
             android:layout_height="wrap_content"
             android:alpha="1"
             android:orientation="vertical"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/registerlink"
-            >
+            app:layout_constraintTop_toBottomOf="@id/registerlink">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="@color/colorskeleton">
 
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:padding="5dp">
-                android:textColorHint="@color/colorskeleton"
-
-                >
-
-            <EditText
-                android:id="@+id/email_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:drawableStart="@drawable/ic_alternate_email_24px"
-                android:hint="Correo"
-                android:inputType="textEmailAddress" />
-
-            <ImageView
-                android:id="@+id/email_clear"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginRight="15dp"
-                android:layout_gravity="right|center_vertical"
-                android:src="@drawable/ic_close"
-                android:visibility="invisible"/>
-                <EditText
-                    android:id="@+id/email_edit"
-                    android:layout_width="match_parent"
+                <FrameLayout
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:drawableStart="@drawable/ic_alternate_email_24px"
-                    android:drawablePadding="20dp"
-                    android:hint="Correo electrónico"
-                    android:inputType="textEmailAddress"
-                    android:fontFamily="@font/input"
+                    android:layout_marginTop="9dp"
+                    android:padding="5dp">
 
-        </FrameLayout>
+                    <EditText
+                        android:id="@+id/email_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="12dp"
+                        android:drawableStart="@drawable/ic_alternate_email_24px"
+                        android:drawablePadding="20dp"
+                        android:hint="Correo electrónico"
+                        android:inputType="textEmailAddress"
+                        android:fontFamily="@font/input" />
 
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:padding="5dp">
-                    />
+                    <ImageView
+                        android:id="@+id/email_clear"
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:src="@drawable/ic_close"
+                        android:visibility="invisible"/>
+
+                </FrameLayout>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_layout_pass"
-                android:layout_width="match_parent"
+            <FrameLayout
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/colorskeleton"
-                app:passwordToggleEnabled="true"
+                android:layout_marginTop="9dp"
+                android:padding="5dp">
 
-                >
-
-            <EditText
-                android:id="@+id/password_edit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_margin="12dp"
-                android:drawableStart="@drawable/ic_lock_24px"
-                android:drawableEnd="@drawable/ic_baseline_remove_red_eye_24"
-                android:hint="Contraseña"
-                android:inputType="textPassword" />
-
-            <ImageView
-                android:id="@+id/password_clear"
-                android:layout_width="22dp"
-                android:layout_height="22dp"
-                android:layout_marginRight="40dp"
-                android:layout_gravity="right|center_vertical"
-                android:src="@drawable/ic_close"
-                android:visibility="invisible"/>
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/registerlink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/hyperlink"
-            android:gravity="right"
-            android:layout_marginRight="15dp"/>
-        <Button
-            android:id="@+id/buttonlogin"
-            android:layout_width="match_parent"
-                <EditText
-                    android:id="@+id/password_edit"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="12dp"
-                    android:drawableStart="@drawable/ic_lock_24px"
-                    android:drawablePadding="20dp"
-                    android:hint="@string/contrase_a"
-                    android:inputType="textPassword"
-                    android:fontFamily="@font/input"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:textColorHint="@color/colorskeleton"
+                    app:passwordToggleEnabled="true">
+
+                    <EditText
+                        android:id="@+id/password_edit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="12dp"
+                        android:drawableStart="@drawable/ic_lock_24px"
+                        android:drawablePadding="20dp"
+                        android:hint="@string/contrase_a"
+                        android:inputType="textPassword"
+                        android:fontFamily="@font/input"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/password_clear"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_marginRight="60dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:src="@drawable/ic_close"
+                    android:visibility="invisible"/>
+
+            </FrameLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -230,23 +194,18 @@
             <Button
                 android:id="@+id/buttonlogin"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-
                 android:background="@drawable/buttonbg"
                 android:text="@string/iniciar_sesi_n"
                 android:textColor="@color/color_white"
-                android:fontFamily="@font/body"
-
-                />
-
+                android:fontFamily="@font/body" />
 
         </LinearLayout>
+
         <ProgressBar
             android:id="@+id/progressBar"
             style="?android:attr/progressBarStyle"
@@ -264,22 +223,20 @@
             android:layout_marginBottom="@dimen/avisomargin"
             android:gravity="center_horizontal"
             android:text="@string/hyperlinkap"
-
+            android:textColor="@color/colorPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/body"
+            android:fontFamily="@font/body" />
 
-            />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <View
         android:id="@+id/AuxView"
         android:layout_width="1dp"
         android:layout_height="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

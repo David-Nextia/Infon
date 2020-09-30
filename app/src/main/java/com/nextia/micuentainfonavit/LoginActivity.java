@@ -8,24 +8,21 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.KeyEvent;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.constraintlayout.motion.widget.MotionLayout;
 
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
@@ -46,29 +43,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     TextView aviso, title, register;
     ConstraintSet set;
     ProgressBar progress;
+    MotionLayout motionLayoutLogin;
+    ImageView emailClear;
+    ImageView passwordClear;
     int screenHeight;
     int[] registerLocation, formLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_login);
-        setButton(this);
-
-        init();
-    }
-
-    private void init(){
-        MotionLayout motionLayoutLogin = findViewById(R.id.motionLayoutLogin);
-
-        motionLayoutLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-            }
-        });
         instanceActivity(); //iniciar vista y variables
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -82,13 +65,30 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 }
             }
         });
+        motionLayoutLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            }
+        });
+        initActions();
         setButton(this);//condicionales del botton y funciones de Onclick
+    }
+
+    private void initActions(){
+        if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
+            loginbtn.setEnabled(false);
+        } else {
+            loginbtn.setEnabled(true);
+        }
     }
 
     public void instanceActivity() {
         setContentView(R.layout.activity_login);//Layout
 
         //finding elements
+        motionLayoutLogin = findViewById(R.id.motionLayoutLogin);
         auxView = findViewById(R.id.AuxView);
         form = findViewById(R.id.register_form);
         register = findViewById(R.id.registerlink);
@@ -100,6 +100,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         email = findViewById(R.id.email_edit);
         rememberUser = findViewById(R.id.reminduser);
         progress = findViewById(R.id.progressBar);
+        emailClear = findViewById(R.id.email_clear);
+        passwordClear = findViewById(R.id.password_clear);
         //initiate variables
         user = new UserUseCase();
         screenHeight = Utils.getScreenHeight(getApplicationContext());
@@ -108,7 +110,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         formLocation = new int[2];
         //setting links
         register.setMovementMethod(LinkMovementMethod.getInstance());
-        aviso.setMovementMethod(LinkMovementMethod.getInstance());
+        //aviso.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     public void setOnKeyboardView() {
@@ -139,16 +141,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setButton(OnFinishRequestListener context) {
-        EditText email = findViewById(R.id.email_edit);
-        EditText password = findViewById(R.id.password_edit);
-        Button loginbtn = findViewById(R.id.buttonlogin);
-        TextView register = findViewById(R.id.registerlink);
-        TextView avisopriv = findViewById(R.id.avisolink);
-        ImageView emailClear = findViewById(R.id.email_clear);
-        ImageView passwordClear = findViewById(R.id.password_clear);
-        register.setMovementMethod(LinkMovementMethod.getInstance());
-        //avisopriv.setMovementMethod(LinkMovementMethod.getInstance());
-
         //loginbtn.setEnabled(false);
         if (Utils.getSharedPreferencesEmail(getApplicationContext()).isEmpty() == false) {
             rememberUser.setChecked(true);
@@ -180,7 +172,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                     passwordClear.setVisibility(View.GONE);
                 }
             }
-
         });
 
         password.setOnKeyListener(new View.OnKeyListener() {
@@ -238,8 +229,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             }
         });
 
-
-        avisopriv.setOnClickListener(view -> {
+        aviso.setOnClickListener(view -> {
             Intent intent = new Intent(LoginActivity.this, AvisoPrivacidadActivity.class);
             startActivity(intent);
         });
