@@ -72,16 +72,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         });
-        initActions();
         setButton(this);//condicionales del botton y funciones de Onclick
-    }
-
-    private void initActions(){
-        if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
-            loginbtn.setEnabled(false);
-        } else {
-            loginbtn.setEnabled(true);
-        }
     }
 
     public void instanceActivity() {
@@ -116,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void setOnKeyboardView() {
         register.getLocationOnScreen(registerLocation);
         form.getLocationOnScreen(formLocation);
-        if (formLocation[1] - registerLocation[1] < (screenHeight / 14))//condition if form is over description
+        if (formLocation[1] - registerLocation[1] < (screenHeight / 19))//condition if form is over description
         {
             register.animate().alpha(0.0f).setDuration(300);
             title.animate().alpha(0.0f);
@@ -141,14 +132,21 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setButton(OnFinishRequestListener context) {
-        //loginbtn.setEnabled(false);
+        //password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
+        if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
+            loginbtn.setEnabled(false);
+        } else {
+            loginbtn.setEnabled(true);
+        }
+
         if (Utils.getSharedPreferencesEmail(getApplicationContext()).isEmpty() == false) {
             rememberUser.setChecked(true);
             email.setText(Utils.getSharedPreferencesEmail(getApplicationContext()));
         } else {
             rememberUser.setChecked(false);
         }
-        password.setText("ContrasenaQa01");
+
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
