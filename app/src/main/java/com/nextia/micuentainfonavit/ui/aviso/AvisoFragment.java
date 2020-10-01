@@ -91,6 +91,6 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
 
     @Override
     public void onSuccesRequest(Object object) {
-
+        //dialog.show();
     }
 }

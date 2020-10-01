@@ -63,6 +63,8 @@ public class PayOptionsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+//        navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_movements);
+//        navController.navigate(R.id.action_nav_pay_options_to_nav_home);
         mViewModel = ViewModelProviders.of(this).get(PayOptionsViewModel.class);
         // TODO: Use the ViewModel
     }

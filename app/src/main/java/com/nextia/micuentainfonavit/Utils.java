@@ -86,9 +86,9 @@ public class Utils {
     public static int getScreenHeight(Context context){
         int height;
         DisplayMetrics displayMetrics = new DisplayMetrics();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            context.getDisplay().getRealMetrics(displayMetrics);
-        }
+
+        context.getDisplay().getRealMetrics(displayMetrics);
+
         height = displayMetrics.heightPixels;
         return height;
     }
