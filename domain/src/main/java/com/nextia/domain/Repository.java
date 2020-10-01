@@ -26,6 +26,6 @@ public interface Repository {
     Call<SaldoResponse>  getSaldo(@Body SaldoBody saldo, @Header("Authorization") String auth);
     @POST(GET_CREDIT_INFO_BASE)
     Call<CreditInfoResponse>  getCreditInfo(@Body CreditInfoBody credito, @Header("Authorization") String auth);
-    @POST(GET_CREDIT_INFO_BASE)
+    @POST(GET_CREDIT_INFO_YEAR_BASE)
     Call<CreditYearInfoResponse>  getCreditInfoYear(@Body CreditYearInfoBody credito, @Header("Authorization") String auth);
 }

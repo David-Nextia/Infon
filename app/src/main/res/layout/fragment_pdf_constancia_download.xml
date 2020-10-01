@@ -2,6 +2,9 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+        <variable
+            name="credit"
+            type="com.nextia.domain.models.credit_year_info.CreditYearInfoResponse" />
 
     </data>
 
@@ -60,6 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -84,6 +88,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text=""
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -108,6 +113,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text="@{credit.datosGenerales.nombre}"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -132,6 +138,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:text="@{credit.datosGenerales.rfc}"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -140,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:id="@+id/dowloadPdf"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp">
 
