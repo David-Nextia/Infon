@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 if ((oldTop - top) > (screenHeight / 5)) //Keyboard is OnScreen
                 {
                     setOnKeyboardView();
-                } else if ((oldTop - top) < -screenHeight / 7)//Keyboard is OffScreen
+                } else if ((oldTop - top) < -screenHeight/ 7)//Keyboard is OffScreen
                 {
                     setOffKeyboardView();
                 }
@@ -72,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
             }
         });
-        setButton(this);//condicionales del botton y funciones de Onclick
+        setFunctions(this);//condicionales del botton y funciones de Onclick
     }
 
     public void instanceActivity() {
@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     }
 
     @SuppressLint("ClickableViewAccessibility")
-    void setButton(OnFinishRequestListener context) {
+    void setFunctions(OnFinishRequestListener context) {
         //password.setText("ContrasenaQa01");
         //email.setText("aclara106@yopmail.com");
         if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {

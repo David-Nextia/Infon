@@ -21,6 +21,7 @@
         android:fitsSystemWindows="true"
         app:menu="@menu/activity_main_drawer"
         android:background="@color/colorPrimary"
+
         app:itemTextColor="#FFFFFF"
         app:itemIconTint="#FFFFFF"
         android:paddingTop="28dp"
