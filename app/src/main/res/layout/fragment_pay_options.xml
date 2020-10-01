@@ -1,261 +1,268 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.movements.views.pay_options.PayOptionsFragment">
-    <LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:layout_marginBottom="100dp"
-        android:orientation="vertical">
+        tools:context=".ui.movements.views.pay_options.PayOptionsFragment">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="100dp"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/saldos_y_movimientos"
+                    style="@style/TxStyleSubTitle"
+                    android:fontFamily="@font/title"/>
+
+            </LinearLayout>
+
+            <Spinner
+                android:layout_marginTop="12dp"
+                android:id="@+id/sp_credit_type"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp" />
+
             <TextView
+                style="@style/TxStyleSubSubTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/saldos_y_movimientos"
+                android:text="Opciones de pago"
+                android:fontFamily="@font/subtitle"/>
+
+            <TextView
+                style="@style/TxStyleSubSubSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Saldo a liquidar"
+                android:fontFamily="@font/subtitle"/>
+
+            <TextView
+                android:id="@+id/txt_debt_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="$ -"
                 style="@style/TxStyleSubTitle"
-                android:fontFamily="@font/title"/>
+                android:fontFamily="@font/subtitle"/>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Información actualizada:"
+                    android:fontFamily="@font/body"/>
 
+                <TextView
+                    android:id="@+id/txt_updated_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="8dp"
+                    android:text="day de month del year"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/subtitle"/>
 
-        <Spinner
-            android:layout_marginTop="12dp"
-            android:id="@+id/sp_credit_type"
-            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/section_debt_amount_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="gone">
 
-        <TextView
-            style="@style/TxStyleSubSubTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Opciones de pago"
-            android:fontFamily="@font/subtitle"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Saldo a liquidar con descuento"
+                    android:textAppearance="@android:style/TextAppearance.Medium"
+                    android:textStyle="bold" />
 
+                <TextView
+                    android:id="@+id/txt_debt_amount_discount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="$ 0"
+                    android:textAppearance="@android:style/TextAppearance.Large"
+                    android:textColor="@color/colorpink"
+                    android:textStyle="bold" />
 
-        <TextView
-            style="@style/TxStyleSubSubSubTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Saldo a liquidar"
-            android:fontFamily="@font/subtitle"/>
-
-        <TextView
-            android:id="@+id/txt_debt_amount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="$ -"
-            style="@style/TxStyleSubTitle"
-            android:fontFamily="@font/subtitle"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Información actualizada:"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado"
+                android:textSize="12dp"
                 android:fontFamily="@font/body"/>
 
             <TextView
-                android:id="@+id/txt_updated_date"
+                android:id="@+id/txtMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:textSize="12dp"
+                android:visibility="gone" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                android:text="day de month del year"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Consulta en qué lugares puedes pagar"
                 android:textStyle="bold"
                 android:fontFamily="@font/subtitle"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/section_debt_amount_discount"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Saldo a liquidar con descuento"
-                android:textAppearance="@android:style/TextAppearance.Medium"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/txt_debt_amount_discount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="$ 0"
-                android:textAppearance="@android:style/TextAppearance.Large"
-                android:textColor="@color/colorpink"
-                android:textStyle="bold" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:text="@string/haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado"
-            android:textSize="12dp"
-            android:fontFamily="@font/body"/>
-
-        <TextView
-            android:id="@+id/txtMsg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:textSize="12dp"
-            android:visibility="gone" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:gravity="center"
-            android:text="Consulta en qué lugares puedes pagar"
-            android:textStyle="bold"
-            android:fontFamily="@font/subtitle"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:layout_marginTop="6dp"
-            android:orientation="horizontal">
 
             <LinearLayout
-                android:id="@+id/ly_bank"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginBottom="40dp"
+                android:layout_marginTop="6dp"
+                android:orientation="horizontal">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/ly_bank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:src="@drawable/ic_bank"
-                  android:tint="@color/colorPrimary"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                <TextView
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:src="@drawable/ic_bank"
+                        app:tint="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pago en bancos"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_market"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pago en bancos"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/subtitle"/>
+                    android:layout_gravity="center"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_market"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pago en tiendas de autoservicio"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/subtitle"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="y comercios afiliados"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ly_usa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_usa"
+                        app:tint="@color/colorPrimary" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paga desde"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/subtitle"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estados Unidos"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="10sp"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
+
             </LinearLayout>
 
-
-            <LinearLayout
-                android:id="@+id/ly_market"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="3"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_market"
-                    android:tint="@color/colorPrimary" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pago en tiendas de autoservicio"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/subtitle"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="y comercios afiliados"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/subtitle"/>
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/ly_usa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_usa"
-                    android:tint="@color/colorPrimary" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Paga desde"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/subtitle"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Estados Unidos"
-                    android:textColor="@color/colorPrimary"
-                    android:textSize="10sp"
-                    android:fontFamily="@font/subtitle"/>
-            </LinearLayout>
         </LinearLayout>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

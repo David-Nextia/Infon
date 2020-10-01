@@ -54,4 +54,5 @@
         android:name="com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadFragment"
         android:label="@string/menu_pdf_constancia"
         tools:layout="@layout/fragment_pdf_constancia_download" />
+
 </navigation>

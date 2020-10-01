@@ -4,6 +4,9 @@
     <bytecodeTargetLevel>
       <module name="data" target="1.7" />
       <module name="domain" target="1.7" />
+      <module name="mci-android-data" target="1.7" />
+      <module name="mci-android-domain" target="1.7" />
+      <module name="mci-android-usecases" target="1.7" />
       <module name="Mi cuenta infonavit-data" target="1.7" />
       <module name="Mi cuenta infonavit-domain" target="1.7" />
       <module name="Mi cuenta infonavit-usecases" target="1.7" />
