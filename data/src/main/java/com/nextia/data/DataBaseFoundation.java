@@ -11,7 +11,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class DataBaseFoundation<T> {
-    public static final String AUTH = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
+    public static final String AUTH = "Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA==";
+            //"Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
 
     public void getData(Call<T> fun, final OnFinishRequestListener<T> listener){
 

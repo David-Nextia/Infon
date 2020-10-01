@@ -45,7 +45,7 @@ public class UserResponse {
     private Boolean notificacion;
     @SerializedName("Credito")
     @Expose
-    private List<Credito> credito = null;
+    private ArrayList<Credito> credito = null;
     @SerializedName("StatusServicio")
     @Expose
     private StatusServicio statusServicio;
@@ -152,11 +152,11 @@ public class UserResponse {
         this.notificacion = notificacion;
     }
 
-    public List<Credito> getCredito() {
+    public ArrayList<Credito> getCredito() {
         return credito;
     }
 
-    public void setCredito(List<Credito> credito) {
+    public void setCredito(ArrayList<Credito> credito) {
         this.credito = credito;
     }
 

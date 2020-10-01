@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/constancia_interes_titulo"
+                android:textAppearance="@android:style/TextAppearance.Large"
+                style="@style/TxStyleTitle"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/light_transparent" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/subtitulo_constancia_pdf"
+                android:textAlignment="gravity"
+                android:textSize="12sp"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Número de crédito "
+                    android:layout_marginEnd="15dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+                <TextView
+                    android:id="@+id/tv_num_credito_impr_pdf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Año fiscal"
+                    android:layout_marginEnd="15dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+                <TextView
+                    android:id="@+id/tv_anio_impr_pdf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Nombre del acreditado"
+                    android:layout_marginEnd="15dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+                <TextView
+                    android:id="@+id/tv_nombre_impr_pdf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="R.F.C."
+                    android:layout_marginEnd="15dp"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+                <TextView
+                    android:id="@+id/tv_rfc_impr_pdf"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="12sp"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp">
+
+                <TextView
+                    android:id="@+id/tv_btn_imprimir_pdf"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:background="@drawable/pdfc"
+                    android:backgroundTint="@color/light_transparent"
+                    android:layout_gravity="center"
+                    app:tint="@color/light_transparent"/>
+
+                <TextView
+                    android:id="@+id/tv_imprimir_constancia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/descarga_tu_archivo"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

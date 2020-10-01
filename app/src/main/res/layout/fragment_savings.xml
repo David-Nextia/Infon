@@ -199,7 +199,7 @@
 
                 android:layout_marginStart="80dp"
                 android:layout_marginEnd="80dp"
-                android:background="#1c5875"
+                android:background="@color/color_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />

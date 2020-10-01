@@ -20,7 +20,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">28sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:layout_marginTop">8dp</item>
         <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/subtitle</item>
+        <item name="android:textAlignment">center</item>
     </style>
 
     <style name="TxStyleSubTitle" parent="android:Widget.TextView">
