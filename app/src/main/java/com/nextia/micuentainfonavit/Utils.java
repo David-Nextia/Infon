@@ -21,6 +21,7 @@ import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Utils {
     SaldosUseCase saldos=new SaldosUseCase();
@@ -82,6 +83,77 @@ public class Utils {
         context.getDisplay().getRealMetrics(displayMetrics);
         height = displayMetrics.heightPixels;
         return height;
+    }
+
+    public static ArrayList<String> getItems(){
+        ArrayList<String> items=new ArrayList<>();
+        items.add("Famsa");
+        items.add("Chedraui");
+        items.add("Súperché");
+        items.add("Súper Chedraui");
+        items.add("7 Eleven");
+        items.add("Aeroflah");
+        items.add("Al súper");
+        items.add("Súper Fasti");
+        items.add("Farmacias Benavides");
+        items.add("Súper Iberia");
+        items.add("Central de estacionamientos");
+        items.add("Equipate");
+        items.add("Supertiendas Rico");
+        items.add("Puntos recarga");
+        items.add("Farmacias del Ahorro");
+        items.add("Yastas");
+        items.add("El Austuriano");
+        items.add("El Vigilante/One");
+        items.add("Circulo K");
+        items.add("Maxilana");
+        items.add("LDI");
+        items.add("Milano");
+        items.add("Muebles América");
+        items.add("Multired");
+        items.add("Movivendor");
+        items.add("Pademobile");
+        items.add("Pago Rápido");
+        items.add("Prendamex");
+        items.add("Red Efectiva");
+        items.add("Súper kiosco");
+        items.add("Extra/Circulo K");
+        items.add("ISSSTEZAC");
+        items.add("Akala");
+        items.add("Farmacias Bazar");
+        items.add("Te creemos");
+        items.add("La Misión");
+        items.add("Gana Mas");
+        items.add("Netpay");
+        items.add("Gestopago");
+        items.add("Quantum");
+        items.add("Fundación Donde");
+        items.add("Airpack");
+        items.add("Waldos");
+        items.add("La Casa Abarrotera");
+        items.add("Banjercito");
+        items.add("Virtual Market");
+        items.add("Vía Servicios");
+        items.add("Administradora de Fondos y Recursos Regiomontanos");
+        items.add("Oki Auto-Servicios");
+        items.add("Supermercados del Occidente");
+        items.add("Alamo");
+        items.add("Comercial Mexicana");
+        items.add("Mega");
+        items.add("Bodega Comercial Mexicana");
+        items.add("Al précio");
+        items.add("La Comer");
+        items.add("City Market");
+        items.add("Sumesa");
+        items.add("Fresko");
+        items.add("City Club");
+        items.add("Soriana");
+        items.add("Soriana Mercado");
+        items.add("Soriana Hiper");
+        items.add("Soriana Súper");
+        items.add("Soriana Express");
+        items.add("Súper City");
+        return items;
     }
 
 }

@@ -1,0 +1,9 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/button_shape_selected_accept"
+        android:state_pressed="true" />
+    <item android:drawable="@drawable/button_shape_deselected_accept"
+        android:state_focused="true" />
+    <item android:state_selected="true"
+        android:drawable="@drawable/button_shape_selected_accept" />
+    <item android:drawable="@drawable/button_shape_deselected_accept" />
+</selector>

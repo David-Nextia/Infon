@@ -19,6 +19,33 @@
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_pay_options">
 
+        <action
+            android:id="@+id/action_nav_pay_options_to_nav_pay_banks"
+            app:destination="@id/nav_pay_banks"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_pay_options"/>
+
+        <action
+            android:id="@+id/action_nav_pay_options_to_nav_pay_market"
+            app:destination="@id/nav_pay_market"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_pay_options"/>
+
+        <action
+            android:id="@+id/action_nav_pay_options_to_nav_pay_usa"
+            app:destination="@id/nav_pay_usa"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_pay_options"/>
+
     </fragment>
 
     <fragment
@@ -32,5 +59,23 @@
         android:name="com.nextia.micuentainfonavit.ui.movements.views.credit_data.CreditDataFragment"
         android:label="@string/menu_constancia"
         tools:layout="@layout/fragment_constancia" />
+
+    <fragment
+        android:id="@+id/nav_pay_banks"
+        android:name="com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_banks.BanksFragment"
+        android:label="@string/pay_banks"
+        tools:layout="@layout/fragment_banks" />
+
+    <fragment
+        android:id="@+id/nav_pay_market"
+        android:name="com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_market.MarketFragment"
+        android:label="@string/pay_market"
+        tools:layout="@layout/fragment_market" />
+
+    <fragment
+        android:id="@+id/nav_pay_usa"
+        android:name="com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_usa.PayUsaFragment"
+        android:label="@string/pay_usa"
+        tools:layout="@layout/fragment_pay_usa" />
 
 </navigation>
