@@ -20,7 +20,8 @@ import retrofit2.Response;
 import retrofit2.http.HEAD;
 
 public class Database {
-    public static final String AUTH = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
+    public static final String AUTH="Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA==";
+          //  = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
 
 
 
