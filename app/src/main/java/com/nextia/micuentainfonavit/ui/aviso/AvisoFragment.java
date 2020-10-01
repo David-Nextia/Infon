@@ -16,15 +16,18 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
+import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.Credito;
+import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 import java.util.ArrayList;
 
-public class AvisoFragment extends Fragment {
+public class AvisoFragment extends Fragment implements OnFinishRequestListener {
 
     private AvisoViewModel mViewModel;
     FragmentAvisoBinding binding;
@@ -34,6 +37,7 @@ public class AvisoFragment extends Fragment {
     ArrayList<Credito> creditos;
     ArrayAdapter<String> arrayAdapter;
     ArrayList<String> hey=new ArrayList<>();
+    DialogInfonavit dialog;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding= DataBindingUtil.inflate(inflater, R.layout.fragment_aviso, container, false);
@@ -47,8 +51,11 @@ public class AvisoFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0)
-                { DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
-                dialog.show();}
+                {  dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
+                    UserUseCase user= new UserUseCase();//servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
+                    user.doLogin("","",AvisoFragment.this);//servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
+
+               }
             }
 
             @Override
@@ -75,5 +82,15 @@ public class AvisoFragment extends Fragment {
 
             }
         }.start();
+    }
+
+    @Override
+    public void onFailureRequest(String message) {
+        dialog.show();
+    }
+
+    @Override
+    public void onSuccesRequest(Object object) {
+
     }
 }
