@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 if ((oldTop - top) > (screenHeight / 5)) //Keyboard is OnScreen
                 {
                     setOnKeyboardView();
-                } else if ((oldTop - top) < -screenHeight/ 7)//Keyboard is OffScreen
+                } else if ((oldTop - top) < -screenHeight/ 7 )//Keyboard is OffScreen
                 {
                     setOffKeyboardView();
                 }
@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         formLocation = new int[2];
         //setting links
         register.setMovementMethod(LinkMovementMethod.getInstance());
+        screenHeight=Utils.getScreenHeight(this);
         //aviso.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
