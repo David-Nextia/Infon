@@ -19,6 +19,7 @@
     <string name="menu_info_perfil">Información de perfil</string>
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="menu_perfil">Mostrar perfil</string>
+    <string name="menu_pdf_constancia">Mostrar Constancia PDF</string>
     <string name="welcome">Bienvenido</string>
     <string name="strDefault_loading">Cargando...</string>
 
@@ -79,4 +80,34 @@
     <!--    Dialog error    -->
     <string name="title_error">Aviso</string>
     <string name="message_server_error">No se pudo obtener los datos del servidor</string>
+
+<!-- constancia de interes-->
+    <string name="constancia_subtitulo1">En apego a nuestra normatividad institucional existen
+        periodos en los que podremos entregar la Carta Constancia de intereses actualizada,
+        previa solicitud resgistrada por usted; por favor tome en cuenta el sigiente calendario.</string>
+    <string name="constancia_subtitulo2">Si para el 17 de septiembre de 2018 usted cuenta con un
+        caso de aclaración ya atendido con su información actualizada en nuestros sistemas,
+        la Carta de Intereses actualizada la podrá consultar apartir de la 2da semana de diciembre
+        de 2018</string>
+    <string name="constancia_subtitulo3">Si para el 16 de noviembre de 2018 usted cuenta con un
+        caso de aclaración ya atendido con su información actualizada en nuestros sistemas,
+        la Carta de Intereses actualizada la podrá consultar apartir de la 2da semana de diciembre
+        de 2018</string>
+    <string name="elige_anio_fiscal">Elige el año fiscal</string>
+    <string name="consultar">Consultar</string>
+    <string name="constancia_subtitulo_registro_federal_contribuyentes">El Registro Federal de Contribuyentes
+        (RFC) con el que expedimos la constancia de interes para tu declaración anual de impuestos
+        es el que tenemos en el Infonavit. Revisalo y, si no es correcto, haz lo siguiente:</string>
+    <string name="constancia_subtitulo_1_ten_constancia_interes">1. Ten a la mano la constancia de RFC que te
+        dio el Servicio de Administración Tributaría</string>
+    <string name="constancia_subtitulo_2_acude_modulo_atencion">2. Si todavía no la tienes acude a un modulo de
+        atención del SAT que corresponda para solicitarle</string>
+    <string name="constancia_subtitulo_3_haz_una_cita">3. <u>Haz una cita</u> para que acudas al
+        Centro de Servicio Infonavit más cercano y solicites que te lo corrijan. DEbes llevar el
+        original y copia de los siguientes documentos:</string>
+    <string name="constancia_subtitulo_constancia_o_copia">Constancia o copia de cédula de RFC emitida por el SAT.</string>
+    <string name="constancia_subtitulo_identificacion_oficial_vigente">Identificación oficial vigente con fotografíaT.</string>
+    <string name="constancia_interes_titulo">Constancia de interes para tu declaracion anual</string>
+    <string name="subtitulo_constancia_pdf">Con los datos que nos proporcionaste encontramos la siguiente información.</string>
+    <string name="descarga_tu_archivo">Descarga tu archivo</string>
 </resources>

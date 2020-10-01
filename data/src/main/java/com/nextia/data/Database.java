@@ -1,6 +1,10 @@
 package com.nextia.data;
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.credit_info.CreditInfoBody;
+import com.nextia.domain.models.credit_info.CreditInfoResponse;
+import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
+import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
@@ -13,6 +17,7 @@ import java.util.Base64;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.HEAD;
 
 public class Database {
     public static final String AUTH = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
@@ -44,7 +49,16 @@ public class Database {
         Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);
         database.getData(getSaldo,listener);
     }
-
+    public void getCredifInfo(CreditInfoBody body, final OnFinishRequestListener<CreditInfoResponse> listener){
+        DataBaseFoundation database= new DataBaseFoundation<CreditInfoBody>();
+        Call<CreditInfoResponse> getInfoCredit =RetrofitService.getApiService().getCreditInfo(body,AUTH);
+        database.getData(getInfoCredit,listener);
+    }
+    public void getCredifInfoYear(CreditYearInfoBody body, final OnFinishRequestListener<CreditYearInfoResponse> listener){
+        DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
+        Call<CreditYearInfoResponse> getInfoCreditYear =RetrofitService.getApiService().getCreditInfoYear(body, AUTH);
+        database.getData(getInfoCreditYear,listener);
+    }
 
 
 }

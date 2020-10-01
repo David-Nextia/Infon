@@ -132,8 +132,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        //password.setText("ContrasenaQa01");
-        //email.setText("aclara106@yopmail.com");
+        password.setText("ContrasenaQa01");
+        email.setText("aclara106@yopmail.com");
         if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
             loginbtn.setEnabled(false);
         } else {

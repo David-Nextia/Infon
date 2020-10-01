@@ -1,5 +1,7 @@
 package com.nextia.micuentainfonavit.ui.constancia;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -7,32 +9,126 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
+import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.credit_info.CreditInfoResponse;
+import com.nextia.domain.models.credit_info.RespuestUm;
+import com.nextia.domain.models.user.Credito;
+import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
+import com.nextia.micuentainfonavit.databinding.FragmentConstanciaBinding;
+import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadViewModel;
+import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
+import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
-public class ConstanciaFragment extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConstanciaFragment extends Fragment implements OnFinishRequestListener<CreditInfoResponse> {
 
     private ConstanciaViewModel mViewModel;
+    FragmentConstanciaBinding binding;
+    ArrayList<Credito> creditos;
+    ArrayList<String> hey=new ArrayList<>();
+    ArrayAdapter<String> arrayAdapter;
+    ArrayAdapter<String> arrayAdapter2;
+    CreditUseCase creditUseCase= new CreditUseCase();
+    List<RespuestUm> LisitemAnios;
+    ArrayList<String> listanios=new ArrayList<>();
+    NavController navController;
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
+        creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
+        hey.add("Seleccionar crédito");
+        for(int i=0; i<creditos.size();i++){
+            hey.add("0000"+creditos.get(i).getNumeroCredito());
+        }
+        binding.spSeleccionaCreditoConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position!=0)
+                {
+                creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(), ConstanciaFragment.this);
+                }
+            }
 
-    public static ConstanciaFragment newInstance() {
-        return new ConstanciaFragment();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        binding.spAniosConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position!=0)
+                {
+                    binding.btnConsultarConstancia.setEnabled(true);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        binding.btnConsultarConstancia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_nav_constancia_interes_to_nav_pdf_constancia);
+            }
+        });
+        return binding.getRoot();
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_constancia, container, false);
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_constancia);
+        new CountDownTimer(2000, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+                binding.btnConsultarConstancia.setEnabled(false);
+                arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, hey);
+                arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                binding.spSeleccionaCreditoConstancia.setAdapter(arrayAdapter);
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(ConstanciaViewModel.class);
-        // TODO: Use the ViewModel
+    public void onFailureRequest(String message) {
+        Toast.makeText(getContext(),"fallo",Toast.LENGTH_LONG).show();
     }
 
+    @Override
+    public void onSuccesRequest(CreditInfoResponse object) {
+        LisitemAnios=object.getRespuesta();
+        listanios.clear();
+        listanios.add("Seleccionar año");
+        for(int i=0; i<LisitemAnios.size();i++){
+            listanios.add(LisitemAnios.get(i).getEjercicioFiscal());
+        }
+        arrayAdapter2 = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, listanios);
+        arrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spAniosConstancia.setAdapter(arrayAdapter2);
+
+
+    }
 }
