@@ -48,6 +48,6 @@ public class MovementsFragment extends Fragment {
         NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_movements);
         BottomNavigationView navView = view.findViewById(R.id.navbarmovements);
         NavigationUI.setupWithNavController(navView, navController);
-        navController.navigate(R.id.nav_home);
+
     }
 }

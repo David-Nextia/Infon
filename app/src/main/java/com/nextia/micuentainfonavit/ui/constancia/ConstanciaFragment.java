@@ -38,6 +38,7 @@ import java.util.List;
 public class ConstanciaFragment extends Fragment implements OnFinishRequestListener<CreditInfoResponse> {
 
     private ConstanciaViewModel mViewModel;
+   PdfConstanciaDownloadViewModel ViewModelPdf;
     FragmentConstanciaBinding binding;
     ArrayList<Credito> creditos;
     ArrayList<String> hey=new ArrayList<>();
@@ -49,8 +50,10 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     NavController navController;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
+        ViewModelPdf= new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
         creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
+        hey.clear();
         hey.add("Seleccionar crédito");
         for(int i=0; i<creditos.size();i++){
             hey.add("0000"+creditos.get(i).getNumeroCredito());
@@ -75,6 +78,9 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
                 if(position!=0)
                 {
                     binding.btnConsultarConstancia.setEnabled(true);
+                    ViewModelPdf.setCredit(hey.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
+                    ViewModelPdf.setYear(parent.getItemAtPosition(position).toString());
+                    //Toast.makeText(getContext(),ViewModelPdf.getCredit().getValue()+" "+ViewModelPdf.getYear().getValue(),Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -88,6 +94,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             public void onClick(View v) {
                 navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                 navController.navigate(R.id.action_nav_constancia_interes_to_nav_pdf_constancia);
+
             }
         });
         return binding.getRoot();
@@ -97,7 +104,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void onStart() {
         super.onStart();
         Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_constancia);
-        new CountDownTimer(2000, 1000) {
+        new CountDownTimer(1500, 1000) {
             public void onFinish() {
                 Utils.hideLoadingSkeleton();
                 binding.btnConsultarConstancia.setEnabled(false);

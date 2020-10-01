@@ -80,6 +80,17 @@
     <!--    Dialog error    -->
     <string name="title_error">Aviso</string>
     <string name="message_server_error">No se pudo obtener los datos del servidor</string>
+    <!-- Avisos Suspension -->
+    <string name="title_retencion">Aviso de suspensión, retención y modificación de descuentos</string>
+    <string name="Texto_informacion_importante">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos, esta información es importante para ti:\n\nSi tu Aviso no se generara en el portal, se puede deber a alguna de las siguientes situaciones:\nTe encuentras en un proceso de aclaración de homonimia y, por lo tanto, tu aviso te llegará mediante un correo electrónico. No podrás consultarlo en el portal hasta que concluyas tu trámite ante el IMSS y tu Afore, y el Infonavit haya separado los datos de las personas involucradas.\nYa firmaste tu escritura ante el notario pero la descarga de tu aviso está presentando dificultades. Si estás en este caso llama al Infonatel y repórtalo.\nTu crédito es cofinanciado o es Apoyo Infonavit. Recuerda que tu patrón no está obligado a retener de tu salario el pago de la mensualidad de estos créditos y por esta razón no se emite el aviso.\nLiquidaste tu crédito con un patrón diferente al que tenías cuando lo solicitaste o mientras no tenías relación laboral y en tales casos el aviso de suspensión no se le genera.\nTe descuentan tu crédito Infonavit pero no apareces en la cédula bimestral que emite el IMSS y por eso no se expidió tu Aviso de Retención; en este caso repórtalo en Infonatel.\nSi tu Aviso se genera de manera incorrecta en el portal, se puede deber a alguna de las siguientes situaciones:\nAun no concluyes tu trámite de unificación de NSS ante el IMSS y la Afore, y tu aviso sale con el NSS que tenías cuando obtuviste tu crédito. Es importante que agilices tu trámite en la Afore.\nTienes dos avisos de retencíon porque trabajas en dos empresas obligadas a aportar al Infonavit. Comunicate a Infonatel y solicita que el aviso se dirija sólo a uno de tus patrones.\nYa liquidaste tu crédito pero la descarga de tu aviso de suspensión presenta dificultades o sale con los datos erróneos del patrón con el que laboras actualmente. En este caso, llama a Infonatel y repórtalo.</string>
+    <string name="Advertencia_pt_1">Por favor revisa que los datos de tu aviso sean correctos:</string>
+    <string name="Advertencia_pt_2">Si hay alguna diferencia en los dígitos de tu Número de Seguridad Social (NSS).</string>
+    <string name="Advertencia_pt_3">Si tu aviso sale a nombre de una empresa a la que tu no perteneces.</string>
+    <string name="Advertencia_pt_4">Comunícate a Infonatel; ahí encontrarás ayuda para solucionar el problema.</string>
+    <string name="Pre_text_info_click">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos:</string>
+    <string name="Text_info_click">está información es importante para ti.</string>
+    <string name="Unsucces_text">No tenemos registro de este número de crédito. Si estás haciendo tu trámite para obtenerlo, puedes encontrar tu aviso correspondiente en el portal de:</string>
+    <string name="Pre_text_info_trouble">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos, está información es importante para ti.</string>
 
 <!-- constancia de interes-->
     <string name="constancia_subtitulo1">En apego a nuestra normatividad institucional existen
