@@ -13,12 +13,14 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import com.nextia.domain.models.user.Credito;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
+import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 
 import java.util.ArrayList;
 
@@ -41,6 +43,19 @@ public class AvisoFragment extends Fragment {
         for(int i=0; i<creditos.size();i++){
             hey.add("0000"+creditos.get(i).getNumeroCredito());
         }
+        binding.spCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position!=0)
+                { DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         return binding.getRoot();
     }
 
