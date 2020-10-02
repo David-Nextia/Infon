@@ -1,7 +1,9 @@
 package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 alertdialog.show();
+
                 return  true;
             }
         });

@@ -2,6 +2,7 @@ package com.nextia.micuentainfonavit;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
@@ -83,11 +85,15 @@ public class Utils {
             mSkeleton.hide();
             mSkeleton = null;
     }
-    public static int getScreenHeight(Context context){
+    public static int getScreenHeight(Activity context){
         int height;
         DisplayMetrics displayMetrics = new DisplayMetrics();
 
-        context.getDisplay().getRealMetrics(displayMetrics);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            context.getDisplay().getRealMetrics(displayMetrics);
+        }else{
+            context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        }
 
         height = displayMetrics.heightPixels;
         return height;
@@ -179,6 +185,24 @@ public class Utils {
         items.add("Soriana Express");
         items.add("Súper City");
         return items;
+    }
+
+    public static void ShowDialogOnebuttonSdk19(Context context, String title, String message){
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("Aceptar", null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+    public static void ShowDialogTwobuttonSdk19(Context context, String title, String message, DialogInterface.OnClickListener listener){
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton("Sí", listener)
+                .setNegativeButton("No", null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
 }

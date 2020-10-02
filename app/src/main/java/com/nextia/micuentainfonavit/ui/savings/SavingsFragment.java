@@ -1,5 +1,6 @@
 package com.nextia.micuentainfonavit.ui.savings;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,7 +84,7 @@ public class SavingsFragment extends Fragment {
     }
     private void dialogError(){
         DialogInfonavit alertdialog = new DialogInfonavit(getContext(), getString(R.string.title_error),getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
-            @Override
+                @Override
             public void onAcceptClickListener(Button button, AlertDialog dialog) {
                 dialog.dismiss();
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);

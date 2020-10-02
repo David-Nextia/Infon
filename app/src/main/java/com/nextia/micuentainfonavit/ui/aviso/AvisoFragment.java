@@ -3,6 +3,7 @@ package com.nextia.micuentainfonavit.ui.aviso;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -86,7 +87,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
 
     @Override
     public void onFailureRequest(String message) {
-        dialog.show();
+      dialog.show();
     }
 
     @Override

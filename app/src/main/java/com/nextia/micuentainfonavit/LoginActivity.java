@@ -2,8 +2,10 @@ package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -30,6 +33,8 @@ import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
+
+import okhttp3.internal.Util;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
@@ -75,6 +80,19 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         setFunctions(this);//condicionales del botton y funciones de Onclick
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (Build.VERSION.SDK_INT < 21) {
+            MotionLayout login=findViewById(R.id.motionLayoutLogin);
+            login.setTransitionDuration(500);
+            //login.transitionToEnd();
+
+        }else{}
+
+        //login.transitionToEnd();
+    }
+
     public void instanceActivity() {
         setContentView(R.layout.activity_login);//Layout
 
@@ -95,7 +113,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         passwordClear = findViewById(R.id.password_clear);
         //initiate variables
         user = new UserUseCase();
-        screenHeight = Utils.getScreenHeight(getApplicationContext());
+        screenHeight = Utils.getScreenHeight(LoginActivity.this);
         set = new ConstraintSet();
         registerLocation = new int[2];
         formLocation = new int[2];
@@ -133,8 +151,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        password.setText("ContrasenaQa01");
-        email.setText("aclara106@yopmail.com");
+        //password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
         if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
             loginbtn.setEnabled(false);
         } else {
@@ -242,6 +260,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void onFailureRequest(String message) {
         DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", "Los datos introducidos no son correctos", DialogInfonavit.ONE_BUTTON_DIALOG);
         alertdialog.show();
+        alertdialog.show();
+
         ProgressBar progress = findViewById(R.id.progressBar);
         progress.setAlpha(0.0f);
 
