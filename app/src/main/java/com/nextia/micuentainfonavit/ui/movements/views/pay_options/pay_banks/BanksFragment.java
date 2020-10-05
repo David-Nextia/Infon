@@ -3,9 +3,9 @@ package com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_banks;
 import android.os.Build;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +13,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
 
 public class BanksFragment extends Fragment {
 
     TextView tx_bank;
-
+    private View rootView;
     public BanksFragment() {
         // Required empty public constructor
     }
@@ -31,8 +32,8 @@ public class BanksFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_banks, container, false);
-
+        View root = inflater.inflate(R.layout.fragment_pay_banks, container, false);
+        rootView = root.findViewById(R.id.rootView);
         tx_bank = (TextView) root.findViewById(R.id.tx_bank);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -50,6 +51,20 @@ public class BanksFragment extends Fragment {
         });
 
         return root;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_banks);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
 
 }

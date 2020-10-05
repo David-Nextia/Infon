@@ -2,7 +2,6 @@ package com.nextia.micuentainfonavit;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -20,8 +19,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -34,7 +31,7 @@ import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
-import okhttp3.internal.Util;
+
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
@@ -151,7 +148,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        //password.setText("ContrasenaQa01");
+        password.setText("ContrasenaQa01");
         //email.setText("aclara106@yopmail.com");
         if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
             loginbtn.setEnabled(false);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
 
 public class PayUsaFragment extends Fragment {
 
     TextView tx_bank;
-
+    private View rootView;
     public PayUsaFragment() {
         // Required empty public constructor
     }
@@ -31,7 +33,7 @@ public class PayUsaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_pay_usa, container, false);
-
+        rootView = root.findViewById(R.id.rootView);
         tx_bank = (TextView) root.findViewById(R.id.tx_bank);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -49,5 +51,19 @@ public class PayUsaFragment extends Fragment {
         });
 
         return root;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_usa);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
 }

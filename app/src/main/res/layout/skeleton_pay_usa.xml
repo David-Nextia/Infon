@@ -27,14 +27,15 @@
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Large"
-                android:textColor="@color/colorTexts"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorTexts" />
+                android:background="@color/light_transparent" />
 
             <TextView
                 style="@style/TxStyleSubTitle"
@@ -46,7 +47,9 @@
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
 
         </LinearLayout>
 
@@ -57,15 +60,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Paga desde Estados Unidos" />
+            android:text="Paga desde Estados Unidos"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_telefono"
-            app:tint="@color/colorPrimaryDark"
+            app:tint="@color/light_transparent"
             android:layout_gravity="center"
-            android:layout_marginTop="25dp"/>
+            android:layout_marginTop="25dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,15 +79,17 @@
             android:text="Llama por teléfono al 1 888 246 2527, proporciona tu código postal y te indicarán la sucursal DolEx más cercana a tu domicilio para que puedas hacer tu pago."
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:layout_marginTop="12dp"/>
+            android:layout_marginTop="12dp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_sucursal"
-            app:tint="@color/colorPrimaryDark"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="30dp"
+            app:tint="@color/light_transparent"/>
 
         <TextView
             android:textSize="12sp"
@@ -91,6 +98,8 @@
             android:layout_marginRight="30dp"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="12dp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"
             android:text="En la sucursal DolEx proporciona los 10 dígitos de tu número de crédito y da el importe en pesos."/>
 
         <ImageView
@@ -98,17 +107,51 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_cash"
             android:layout_gravity="center"
-            app:tint="@color/colorPrimaryDark"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            app:tint="@color/light_transparent"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/desc_pay"
             android:layout_gravity="center"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
-        <include layout="@layout/view_desc_pay"/>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1sp"
+                android:background="@color/light_transparent"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:id="@+id/tx_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"
+                />
+
+            <Button
+                android:id="@+id/bt_back"
+
+                android:backgroundTint="@color/light_transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/custom_button_accept"
+                android:layout_margin="40sp"
+
+                />
+
+        </LinearLayout>
 
     </LinearLayout>
 

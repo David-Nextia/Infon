@@ -11,12 +11,14 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentPayOptionsBinding;
 
 public class PayOptionsFragment extends Fragment {
@@ -24,6 +26,7 @@ public class PayOptionsFragment extends Fragment {
     private FragmentPayOptionsBinding binding;
     private PayOptionsViewModel mViewModel;
     private NavController navController;
+    private View rootView;
 
     public static PayOptionsFragment newInstance() {
         return new PayOptionsFragment();
@@ -32,7 +35,7 @@ public class PayOptionsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pay_options, container, false);
-
+        rootView = binding.rootView;
         binding.lyBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,12 +64,21 @@ public class PayOptionsFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-//        navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_movements);
-//        navController.navigate(R.id.action_nav_pay_options_to_nav_home);
-        mViewModel = ViewModelProviders.of(this).get(PayOptionsViewModel.class);
-        // TODO: Use the ViewModel
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_options);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
+
+
+
 
 }
