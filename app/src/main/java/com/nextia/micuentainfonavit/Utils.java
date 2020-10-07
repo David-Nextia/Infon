@@ -5,16 +5,22 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.FileProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
@@ -24,29 +30,27 @@ import com.ethanhua.skeleton.ViewSkeletonScreen;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo.SaldoBody;
+import com.nextia.domain.models.user.Credito;
 import com.nextia.domain.models.user.UserResponse;
+import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadViewModel;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+
 public class Utils {
     SaldosUseCase saldos=new SaldosUseCase();
-    public void getSaldo(OnFinishRequestListener listener, Context context){
-        UserResponse user= getSharedPreferencesUserData(context.getApplicationContext());
-        SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
-        saldos.getSaldos(saldo,listener);
-
-    }
 
     public static UserResponse getSharedPreferencesUserData(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("UsuarioData", "");
-        return gson.fromJson(json, UserResponse.class);
-
-    }
+        return gson.fromJson(json, UserResponse.class);    }
 
     public static String getSharedPreferencesEmail(Context context){
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
@@ -187,22 +191,99 @@ public class Utils {
         return items;
     }
 
-    public static void ShowDialogOnebuttonSdk19(Context context, String title, String message){
-        new AlertDialog.Builder(context)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("Aceptar", null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+  public static void fillSpinnerWithCredit(Context context, Spinner spinner){
+      ArrayList<Credito> creditos;
+      ArrayList<String> lista=new ArrayList<>();
+      creditos=getSharedPreferencesUserData(context).getCredito();
+      lista.add("Seleccionar cuenta");
+      for(int i=0; i<creditos.size();i++){
+          lista.add(creditos.get(i).getNumeroCredito());
+      }
+      ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,lista);
+      adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      spinner.setAdapter(adapter);
+  }
+
+  public static void sharePdf(File file,Activity activity){
+
+      Uri uri = Uri.fromFile(file);
+      Uri fileUri = FileProvider.getUriForFile(activity.getApplicationContext(),
+              activity.getPackageName() + ".fileprovider", file);
+      Intent share = new Intent();
+      share.setAction(Intent.ACTION_SEND);
+      share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//      share.setType("application/pdf");
+
+      share.setDataAndType(fileUri,"application/pdf");
+      share.putExtra(Intent.EXTRA_STREAM,fileUri);
+
+      activity.startActivity(Intent.createChooser(share, "Share it"));
+  }
+
+    public static File createPdfFromCanvas(PdfConstanciaDownloadViewModel mViewModel,String Name, Activity activity){
+        String myFilePath;
+        File myfile;
+        PdfDocument pdfDocument= new PdfDocument();
+        PdfDocument.PageInfo pageInfo= new PdfDocument.PageInfo.Builder(300,600,1).create();
+        PdfDocument.Page mypage= pdfDocument.startPage(pageInfo);
+        Paint myPaint= new Paint();
+        mypage.getCanvas().drawText("Este es un pdf",10,30,myPaint);
+        mypage.getCanvas().drawText("Datos del servidor:",10,50,myPaint);
+        mypage.getCanvas().drawText("Datos técnicos:",10,70,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getCodigoRespuesta(),10,90,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta(),10,100,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getNumeroFormato().toString(),10,110,myPaint);
+
+        mypage.getCanvas().drawText("Datos generales:",10,130,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getNombre(),10,150,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc(),10,160,myPaint);
+        mypage.getCanvas().drawText("Domicilio:",10,175,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCalleNumero(),10,185,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getColonia(),10,195,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getEstado(),10,205,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getPoblacion(),10,215,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCp().toString(),10,225,myPaint);
+        mypage.getCanvas().drawText("Datos financieros:",10,245,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getDomicilioFiscal(),10,255,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRfc(),10,265,myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial(),10,275,myPaint);
+        pdfDocument.finishPage(mypage);
+        try{ myFilePath= activity.getExternalFilesDir(null).getAbsolutePath()+ "/"+Name+".pdf";
+        } catch (Exception e){
+            myFilePath="";
+        }
+        myfile= new File(myFilePath);
+        try {
+            pdfDocument.writeTo(new FileOutputStream(myfile));
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
+        pdfDocument.close();
+        return myfile;
     }
-    public static void ShowDialogTwobuttonSdk19(Context context, String title, String message, DialogInterface.OnClickListener listener){
-        new AlertDialog.Builder(context)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton("Sí", listener)
-                .setNegativeButton("No", null)
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
+
+    public static File createPdfFromBase64(String pdfUrlBase64, String name,Activity context) throws FileNotFoundException {
+        String myFilePath;
+        File myfile;
+        try{ myFilePath= context.getExternalFilesDir(null).getAbsolutePath()+ "/"+name+".pdf";
+        } catch (Exception e){
+            myFilePath="";
+        }
+
+        myfile= new File(myFilePath);
+        FileOutputStream out = new FileOutputStream(myfile);
+
+        try {
+            byte[] pdfAsBytes = Base64.decode(pdfUrlBase64, 0);
+            out.write(pdfAsBytes);
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return myfile;
     }
 
 }

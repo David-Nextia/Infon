@@ -24,6 +24,15 @@ import java.util.ArrayList;
 import ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator;
 
 public class HomeFragment extends Fragment {
+
+    /**
+     * variables
+     *
+     * recyclerview: adapter to show each item
+     * homeViewmodel: model with the data
+     * rootView: main view of each card item
+     */
+
     private RecyclerView recyclerView;
     private HomeViewModel homeViewModel;
     private View rootView;

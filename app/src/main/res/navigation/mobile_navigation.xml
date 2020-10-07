@@ -21,7 +21,16 @@
         android:id="@+id/nav_movements"
         android:name="com.nextia.micuentainfonavit.ui.movements.MovementsFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_movements" />
+        tools:layout="@layout/fragment_movements" >
+        <action
+            android:id="@+id/action_nav_movements_to_nav_pdf_viewer"
+            app:destination="@id/nav_pdf_viewer"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_movements" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_aviso_suspension"
@@ -53,6 +62,20 @@
         android:id="@+id/nav_pdf_constancia"
         android:name="com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadFragment"
         android:label="@string/menu_pdf_constancia"
-        tools:layout="@layout/fragment_pdf_constancia_download" />
+        tools:layout="@layout/fragment_pdf_constancia_download" >
+        <action
+            android:id="@+id/action_nav_pdf_constancia_to_nav_pdf_viewer"
+            app:destination="@id/nav_pdf_viewer"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_pdf_constancia"/>
+    </fragment>
+    <fragment
+        android:id="@+id/nav_pdf_viewer"
+        android:name="com.nextia.micuentainfonavit.ui.pdf_view.PdfViewFragment"
+        android:label="@string/menu_pdf_view"
+        tools:layout="@layout/fragment_pdf_view" />
 
 </navigation>

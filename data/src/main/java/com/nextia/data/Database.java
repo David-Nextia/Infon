@@ -5,6 +5,7 @@ import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
+import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.user.UserResponse;
@@ -18,6 +19,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.http.HEAD;
+import sun.rmi.runtime.Log;
+
 
 public class Database {
     public static final String AUTH="Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA==";
@@ -29,8 +32,10 @@ public class Database {
         Call<UserResponse> doLoginJS =RetrofitService.getApiService().logInMethod(user,AUTH);
         doLoginJS.enqueue(new Callback<UserResponse>() {
             @Override
+            //On wrong credentials login returns credit object instead credit list, and that triggers OnFailure
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                if(response.body().getEmailPersonal()!="" || response.body().getEmailPersonal().isEmpty()==false){
+                String t=response.body().getStatusServicio().getCodigo();
+                if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
                listener.onSuccesRequest(response.body());}
                 else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
                 }
@@ -38,14 +43,16 @@ public class Database {
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
                 listener.onFailureRequest(t.getMessage());
+
             }
         });
 
     }
 
 
-
+//function to  get the SaldosResponse class from DB, the parameters are: SaldoBody object and OnfinishRequestlistener
     public void getSaldos(SaldoBody body, final OnFinishRequestListener<SaldoResponse> listener){
+
         DataBaseFoundation database= new DataBaseFoundation<SaldoBody>();
         Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);
         database.getData(getSaldo,listener);
@@ -59,6 +66,11 @@ public class Database {
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
         Call<CreditYearInfoResponse> getInfoCreditYear =RetrofitService.getApiService().getCreditInfoYear(body, AUTH);
         database.getData(getInfoCreditYear,listener);
+    }
+    public void getCredifInfoHistoric(CreditInfoBody body, final OnFinishRequestListener<HistoricResponse> listener){
+        DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
+        Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, AUTH);
+        database.getData(getInfoCreditHistoric,listener);
     }
 
 

@@ -16,10 +16,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentPayOptionsBinding;
+
+import java.util.ArrayList;
 
 public class PayOptionsFragment extends Fragment {
 
@@ -27,14 +31,17 @@ public class PayOptionsFragment extends Fragment {
     private PayOptionsViewModel mViewModel;
     private NavController navController;
     private View rootView;
-
+    Spinner spinnerCredit;
     public static PayOptionsFragment newInstance() {
         return new PayOptionsFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pay_options, container, false);
+        spinnerCredit=binding.spCreditType;
+        Utils.fillSpinnerWithCredit(getContext(),spinnerCredit);
         rootView = binding.rootView;
         binding.lyBank.setOnClickListener(new View.OnClickListener() {
             @Override

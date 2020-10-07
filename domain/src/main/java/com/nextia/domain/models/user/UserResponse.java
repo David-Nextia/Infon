@@ -2,6 +2,7 @@
 package com.nextia.domain.models.user;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -45,7 +46,7 @@ public class UserResponse {
     private Boolean notificacion;
     @SerializedName("Credito")
     @Expose
-    private ArrayList<Credito> credito = null;
+    private ArrayList<Credito> credito = new ArrayList<>();
     @SerializedName("StatusServicio")
     @Expose
     private StatusServicio statusServicio;
@@ -62,6 +63,10 @@ public class UserResponse {
     }
     public UserResponse(String email){
         this.emailPersonal=email;
+    }
+
+    public UserResponse(Credito ... ms) {
+        credito = (ArrayList<Credito>) Arrays.asList(ms);
     }
 
     public String getNss() {
