@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit;
+/**
+ * class that creates aux and repetitive methods
+ */
 
 import android.app.Activity;
 import android.content.Context;
@@ -44,39 +47,48 @@ import java.util.ArrayList;
 
 
 public class Utils {
-    SaldosUseCase saldos=new SaldosUseCase();
-
-    public static UserResponse getSharedPreferencesUserData(Context context){
+    //To get the user data saved on shared preferences
+    public static UserResponse getSharedPreferencesUserData(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = mPrefs.getString("UsuarioData", "");
-        return gson.fromJson(json, UserResponse.class);    }
+        return gson.fromJson(json, UserResponse.class);
+    }
 
-    public static String getSharedPreferencesEmail(Context context){
+    //To get the email on login screen, saved on shared preferences
+    public static String getSharedPreferencesEmail(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         return mPrefs.getString("emailUser", "");
 
     }
 
-    public static String formatMoney(double num){
+    //To format String as money double
+    public static String formatMoney(double num) {
         String money;
-        if (num==0.0){money="$0.00";}
-        else{  DecimalFormat formatter = new DecimalFormat("#,###.00");
-            money="$"+formatter.format(num);}
+        if (num == 0.0) {
+            money = "$0.00";
+        } else {
+            DecimalFormat formatter = new DecimalFormat("#,###.00");
+            money = "$" + formatter.format(num);
+        }
 
         return money;
     }
 
-    public static void saveToSharedPreferences(Context context, String tag, String object){
-        SharedPreferences mPrefs =context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+    //To save data on shared preferences
+    public static void saveToSharedPreferences(Context context, String tag, String object) {
+        SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         SharedPreferences.Editor prefsEditor = mPrefs.edit();
         prefsEditor.putString(tag, object);
         prefsEditor.commit();
 
     }
 
+
     private static ViewSkeletonScreen mSkeleton;
-    public static void showLoadingSkeleton(View rootView, int viewId){
+
+    //To create skeleton view
+    public static void showLoadingSkeleton(View rootView, int viewId) {
         mSkeleton = Skeleton.bind(rootView)
                 .load(viewId)
                 .color(R.color.shimmer_color)
@@ -84,25 +96,30 @@ public class Utils {
                 .show();
     }
 
-    public static void hideLoadingSkeleton(){
-        if(mSkeleton != null)
+    //To hide skeleton View
+    public static void hideLoadingSkeleton() {
+        if (mSkeleton != null)
             mSkeleton.hide();
-            mSkeleton = null;
+        mSkeleton = null;
     }
-    public static int getScreenHeight(Activity context){
+
+    //To get the device screen height
+    public static int getScreenHeight(Activity context) {
         int height;
         DisplayMetrics displayMetrics = new DisplayMetrics();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             context.getDisplay().getRealMetrics(displayMetrics);
-        }else{
+        } else {
             context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         }
 
         height = displayMetrics.heightPixels;
         return height;
     }
-    public static void showShareIntent(Activity activity){
+
+    //To share other apps string
+    public static void showShareIntent(Activity activity) {
         String image_url = "http://images.cartradeexchange.com//img//800//vehicle//Honda_Brio_562672_5995_6_1438153637072.jpg";
         String image_url2 = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
 
@@ -116,12 +133,13 @@ public class Utils {
         // Target whatsapp:
         //shareIntent.setPackage("com.whatsapp");
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        activity.startActivity(Intent.createChooser(shareIntent,"choose one"));
+        activity.startActivity(Intent.createChooser(shareIntent, "choose one"));
 
     }
 
-    public static ArrayList<String> getItems(){
-        ArrayList<String> items=new ArrayList<>();
+    //To get available hard data of markets to pay credit
+    public static ArrayList<String> getItems() {
+        ArrayList<String> items = new ArrayList<>();
         items.add("Famsa");
         items.add("Chedraui");
         items.add("Súperché");
@@ -191,71 +209,75 @@ public class Utils {
         return items;
     }
 
-  public static void fillSpinnerWithCredit(Context context, Spinner spinner){
-      ArrayList<Credito> creditos;
-      ArrayList<String> lista=new ArrayList<>();
-      creditos=getSharedPreferencesUserData(context).getCredito();
-      lista.add("Seleccionar cuenta");
-      for(int i=0; i<creditos.size();i++){
-          lista.add(creditos.get(i).getNumeroCredito());
-      }
-      ArrayAdapter<String> adapter = new ArrayAdapter<String>(context,android.R.layout.simple_spinner_item,lista);
-      adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-      spinner.setAdapter(adapter);
-  }
+    //To fill any spinner with credits of the user
+    public static void fillSpinnerWithCredit(Context context, Spinner spinner) {
+        ArrayList<Credito> creditos;
+        ArrayList<String> lista = new ArrayList<>();
+        creditos = getSharedPreferencesUserData(context).getCredito();
+        lista.add("Seleccionar cuenta");
+        for (int i = 0; i < creditos.size(); i++) {
+            lista.add(creditos.get(i).getNumeroCredito());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, lista);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+    }
 
-  public static void sharePdf(File file,Activity activity){
+    //To share  a pdf to other apps
+    public static void sharePdf(File file, Activity activity) {
 
-      Uri uri = Uri.fromFile(file);
-      Uri fileUri = FileProvider.getUriForFile(activity.getApplicationContext(),
-              activity.getPackageName() + ".fileprovider", file);
-      Intent share = new Intent();
-      share.setAction(Intent.ACTION_SEND);
-      share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        Uri uri = Uri.fromFile(file);
+        Uri fileUri = FileProvider.getUriForFile(activity.getApplicationContext(),
+                activity.getPackageName() + ".fileprovider", file);
+        Intent share = new Intent();
+        share.setAction(Intent.ACTION_SEND);
+        share.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 //      share.setType("application/pdf");
 
-      share.setDataAndType(fileUri,"application/pdf");
-      share.putExtra(Intent.EXTRA_STREAM,fileUri);
+        share.setDataAndType(fileUri, "application/pdf");
+        share.putExtra(Intent.EXTRA_STREAM, fileUri);
 
-      activity.startActivity(Intent.createChooser(share, "Share it"));
-  }
+        activity.startActivity(Intent.createChooser(share, "Share it"));
+    }
 
-    public static File createPdfFromCanvas(PdfConstanciaDownloadViewModel mViewModel,String Name, Activity activity){
+    //To create a pdf from canvas
+    public static File createPdfFromCanvas(PdfConstanciaDownloadViewModel mViewModel, String Name, Activity activity) {
         String myFilePath;
         File myfile;
-        PdfDocument pdfDocument= new PdfDocument();
-        PdfDocument.PageInfo pageInfo= new PdfDocument.PageInfo.Builder(300,600,1).create();
-        PdfDocument.Page mypage= pdfDocument.startPage(pageInfo);
-        Paint myPaint= new Paint();
-        mypage.getCanvas().drawText("Este es un pdf",10,30,myPaint);
-        mypage.getCanvas().drawText("Datos del servidor:",10,50,myPaint);
-        mypage.getCanvas().drawText("Datos técnicos:",10,70,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getCodigoRespuesta(),10,90,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta(),10,100,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getNumeroFormato().toString(),10,110,myPaint);
+        PdfDocument pdfDocument = new PdfDocument();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(300, 600, 1).create();
+        PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
+        Paint myPaint = new Paint();
+        mypage.getCanvas().drawText("Este es un pdf", 10, 30, myPaint);
+        mypage.getCanvas().drawText("Datos del servidor:", 10, 50, myPaint);
+        mypage.getCanvas().drawText("Datos técnicos:", 10, 70, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getCodigoRespuesta(), 10, 90, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta(), 10, 100, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getNumeroFormato().toString(), 10, 110, myPaint);
 
-        mypage.getCanvas().drawText("Datos generales:",10,130,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getNombre(),10,150,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc(),10,160,myPaint);
-        mypage.getCanvas().drawText("Domicilio:",10,175,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCalleNumero(),10,185,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getColonia(),10,195,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getEstado(),10,205,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getPoblacion(),10,215,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCp().toString(),10,225,myPaint);
-        mypage.getCanvas().drawText("Datos financieros:",10,245,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getDomicilioFiscal(),10,255,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRfc(),10,265,myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial(),10,275,myPaint);
+        mypage.getCanvas().drawText("Datos generales:", 10, 130, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getNombre(), 10, 150, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc(), 10, 160, myPaint);
+        mypage.getCanvas().drawText("Domicilio:", 10, 175, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCalleNumero(), 10, 185, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getColonia(), 10, 195, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getEstado(), 10, 205, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getPoblacion(), 10, 215, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCp().toString(), 10, 225, myPaint);
+        mypage.getCanvas().drawText("Datos financieros:", 10, 245, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getDomicilioFiscal(), 10, 255, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRfc(), 10, 265, myPaint);
+        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial(), 10, 275, myPaint);
         pdfDocument.finishPage(mypage);
-        try{ myFilePath= activity.getExternalFilesDir(null).getAbsolutePath()+ "/"+Name+".pdf";
-        } catch (Exception e){
-            myFilePath="";
+        try {
+            myFilePath = activity.getExternalFilesDir(null).getAbsolutePath() + "/" + Name + ".pdf";
+        } catch (Exception e) {
+            myFilePath = "";
         }
-        myfile= new File(myFilePath);
+        myfile = new File(myFilePath);
         try {
             pdfDocument.writeTo(new FileOutputStream(myfile));
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
         }
@@ -263,15 +285,17 @@ public class Utils {
         return myfile;
     }
 
-    public static File createPdfFromBase64(String pdfUrlBase64, String name,Activity context) throws FileNotFoundException {
+    //To create a pfd from Base64 String
+    public static File createPdfFromBase64(String pdfUrlBase64, String name, Activity context) throws FileNotFoundException {
         String myFilePath;
         File myfile;
-        try{ myFilePath= context.getExternalFilesDir(null).getAbsolutePath()+ "/"+name+".pdf";
-        } catch (Exception e){
-            myFilePath="";
+        try {
+            myFilePath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + name + ".pdf";
+        } catch (Exception e) {
+            myFilePath = "";
         }
 
-        myfile= new File(myFilePath);
+        myfile = new File(myFilePath);
         FileOutputStream out = new FileOutputStream(myfile);
 
         try {

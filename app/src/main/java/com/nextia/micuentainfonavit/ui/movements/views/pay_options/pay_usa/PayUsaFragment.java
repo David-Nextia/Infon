@@ -1,5 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_usa;
-
+/**
+ * view of USA inside pay options
+ */
 import android.os.Build;
 import android.os.Bundle;
 
@@ -19,18 +21,9 @@ public class PayUsaFragment extends Fragment {
 
     TextView tx_bank;
     private View rootView;
-    public PayUsaFragment() {
-        // Required empty public constructor
-    }
-
+    //creating view
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_pay_usa, container, false);
         rootView = root.findViewById(R.id.rootView);
@@ -52,6 +45,7 @@ public class PayUsaFragment extends Fragment {
 
         return root;
     }
+    //function before initial view to show and stop skeleton
     @Override
     public void onStart() {
         super.onStart();

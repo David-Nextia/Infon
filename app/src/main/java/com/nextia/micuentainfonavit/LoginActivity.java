@@ -1,6 +1,7 @@
 package com.nextia.micuentainfonavit;
-
-import android.Manifest;
+/**
+ * class of the login view and functions
+ */
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -46,7 +47,6 @@ import java.io.FileNotFoundException;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
-    private FirebaseAnalytics mFirebaseAnalytics;
     UserUseCase user;
     Switch rememberUser;
     View auxView;
@@ -61,12 +61,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     ImageView emailClear;
     ImageView passwordClear;
     int screenHeight;
+
+    //location to determine visibility's description view
     int[] registerLocation, formLocation;
 
+    //To create the view and initial declarations
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
         instanceActivity(); //iniciar vista y variables
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -107,6 +110,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         setFunctions(this);//condicionales del botón y funciones de Onclick
     }
 
+    //Methods before the view starts
     @Override
     protected void onPostResume() {
         super.onPostResume();
@@ -120,6 +124,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         //login.transitionToEnd();
     }
 
+    //To declare variables and find views
     public void instanceActivity() {
         setContentView(R.layout.activity_login);//Layout
 
@@ -150,6 +155,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         //aviso.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
+    //To manage functions on soft keyboard
     public void setOnKeyboardView() {
         register.getLocationOnScreen(registerLocation);
         form.getLocationOnScreen(formLocation);
@@ -165,6 +171,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         set.applyTo(layout);
     }
 
+    //To manage functions off soft keyboard
     public void setOffKeyboardView() {
         register.animate().alpha(1.0f);
         title.animate().alpha(1.0f);
@@ -176,6 +183,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     }
 
+   //To create conditions of view and trigger methods, for buttons and textviews
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
         //password.setText("ContrasenaQa01");
@@ -283,17 +291,18 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         passwordClear.setOnClickListener(view -> password.setText(""));
     }
 
+    //To manage fail request response
     @Override
     public void onFailureRequest(String message) {
         DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         alertdialog.show();
         alertdialog.show();
-        Log.e("error",message);
         ProgressBar progress = findViewById(R.id.progressBar);
         progress.setAlpha(0.0f);
 
     }
 
+    //To manage success request response
     @Override
     public void onSuccesRequest(UserResponse object) {
         if (rememberUser.isChecked()) {

@@ -1,5 +1,8 @@
 
 package com.nextia.domain.models.credit_year_info;
+/**
+ * Secondary class to get the CreditYearInfoResponse class
+ */
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

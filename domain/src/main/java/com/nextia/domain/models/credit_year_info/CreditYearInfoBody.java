@@ -1,5 +1,7 @@
 package com.nextia.domain.models.credit_year_info;
-
+/**
+ * Class body to post and get credit year info
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

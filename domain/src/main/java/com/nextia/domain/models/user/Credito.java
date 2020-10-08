@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models.user;
-
+/**
+ * Secondary class to get the UserResponse class
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

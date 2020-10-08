@@ -1,5 +1,7 @@
 package com.nextia.domain;
-
+/**
+ * interface of the repository methods to get data from server
+ */
 import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
@@ -14,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+
 
 public interface Repository {
     String LOGIN_BASE = "/RESTAdapter/SndUsuarioAutenticar";

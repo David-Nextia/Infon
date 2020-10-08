@@ -1,5 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_market;
-
+/**
+ * view of market inside pay options
+ */
 import android.os.Build;
 import android.os.Bundle;
 
@@ -23,18 +25,9 @@ public class MarketFragment extends Fragment {
     RecyclerView rv_market;
     AdapterMarket adapterMarket;
     private View rootView;
-    public MarketFragment() {
-        // Required empty public constructor
-    }
-
+    //creating view
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_pay_market, container, false);
         rootView = root.findViewById(R.id.rootView);
@@ -54,13 +47,11 @@ public class MarketFragment extends Fragment {
         });
 
         rv_market = (RecyclerView) root.findViewById(R.id.rv_market);
-        rv_market.setLayoutManager(new GridLayoutManager(getActivity(),3));
-        adapterMarket=new AdapterMarket(getActivity());
-        rv_market.setAdapter(adapterMarket);
-        adapterMarket.notifyDataSetChanged();
-
+        setRecyclerView();
         return root;
     }
+
+    //function before initial view to show and stop skeleton
     @Override
     public void onStart() {
         super.onStart();
@@ -74,5 +65,14 @@ public class MarketFragment extends Fragment {
 
             }
         }.start();
+    }
+
+    //method to set the data on recyclerView
+    public void setRecyclerView(){
+        rv_market.setLayoutManager(new GridLayoutManager(getActivity(),3));
+        adapterMarket=new AdapterMarket(getActivity());
+        rv_market.setAdapter(adapterMarket);
+        adapterMarket.notifyDataSetChanged();
+
     }
 }

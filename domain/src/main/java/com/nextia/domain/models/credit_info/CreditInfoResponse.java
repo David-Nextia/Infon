@@ -1,4 +1,7 @@
 package com.nextia.domain.models.credit_info;
+/**
+ * class of the response of get credit post
+ */
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

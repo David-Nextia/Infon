@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.views.credit_data;
+/**
+ * view of datos de mi credito inside movements
+ */
 
 import androidx.lifecycle.ViewModelProviders;
 
@@ -22,29 +25,25 @@ import java.util.ArrayList;
 
 public class CreditDataFragment extends Fragment {
 
-    private CreditDataViewModel mViewModel;
     private View rootView;
     Spinner spinnerCredit;
-    public static CreditDataFragment newInstance() {
-        return new CreditDataFragment();
-    }
-    ArrayAdapter<String> creditAdapter;
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
 
+    //creating view, and instance it
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_credit_data, container, false);
-        spinnerCredit=root.findViewById(R.id.sp_credit_type);
-        Utils.fillSpinnerWithCredit(getContext(),spinnerCredit);
+        spinnerCredit = root.findViewById(R.id.sp_credit_type);
+        fillSpinner();
         rootView = root.findViewById(R.id.rootView);
         return root;
     }
 
+    //function before initial view to show and stop skeleton
     @Override
     public void onStart() {
         super.onStart();
-        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_credit_data);
+        Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
         new CountDownTimer(1500, 1000) {
             public void onFinish() {
                 Utils.hideLoadingSkeleton();
@@ -54,6 +53,11 @@ public class CreditDataFragment extends Fragment {
 
             }
         }.start();
+    }
+
+    //method to fill spinner
+    public void fillSpinner() {
+        Utils.fillSpinnerWithCredit(getContext(), spinnerCredit);
     }
 
 }

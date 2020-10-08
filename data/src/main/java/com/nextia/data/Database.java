@@ -1,4 +1,7 @@
 package com.nextia.data;
+/**
+ * class that contains methods to access the repository calls
+ */
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.credit_info.CreditInfoBody;
@@ -24,10 +27,9 @@ import sun.rmi.runtime.Log;
 
 public class Database {
     public static final String AUTH="Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA==";
-          //  = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
+//  = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
 
-
-
+    //To login the user and get the UserResponse
     public void doLogin(UserBody user, final OnFinishRequestListener<UserResponse> listener){
         Call<UserResponse> doLoginJS =RetrofitService.getApiService().logInMethod(user,AUTH);
         doLoginJS.enqueue(new Callback<UserResponse>() {
@@ -49,24 +51,29 @@ public class Database {
 
     }
 
-
-//function to  get the SaldosResponse class from DB, the parameters are: SaldoBody object and OnfinishRequestlistener
+    //To  get the SaldosResponse class from DB
     public void getSaldos(SaldoBody body, final OnFinishRequestListener<SaldoResponse> listener){
 
         DataBaseFoundation database= new DataBaseFoundation<SaldoBody>();
         Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);
         database.getData(getSaldo,listener);
     }
+
+    //To get the credit info of each credit of the user
     public void getCredifInfo(CreditInfoBody body, final OnFinishRequestListener<CreditInfoResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditInfoBody>();
         Call<CreditInfoResponse> getInfoCredit =RetrofitService.getApiService().getCreditInfo(body,AUTH);
         database.getData(getInfoCredit,listener);
     }
+
+    //To get the info on credit per year
     public void getCredifInfoYear(CreditYearInfoBody body, final OnFinishRequestListener<CreditYearInfoResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
         Call<CreditYearInfoResponse> getInfoCreditYear =RetrofitService.getApiService().getCreditInfoYear(body, AUTH);
         database.getData(getInfoCreditYear,listener);
     }
+
+    //To get the urlBase64 of the credit
     public void getCredifInfoHistoric(CreditInfoBody body, final OnFinishRequestListener<HistoricResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
         Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, AUTH);

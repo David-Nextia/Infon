@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.home;
+/**
+ * View model off the Home fragment that creates the welcome cards data
+ */
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -11,15 +14,15 @@ import java.util.ArrayList;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
     private MutableLiveData<ArrayList<WelcomeCard>> mCards;
 
+    //trigger methods on model created
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
         mCards= new MutableLiveData<>();
-        mText.setValue("fragmento home");
         setWelcomeCards();
     }
+
+    //setting welcome cards on local way
     public void setWelcomeCards(){
         ArrayList<WelcomeCard> cards= new ArrayList<>();
         cards.add(new WelcomeCard(R.drawable.logo, "Mi Ahorro", "Utiliza tu ahorro en la Subcuenta de Vivienda para ampliar tu capacidad de compra."));
@@ -29,9 +32,8 @@ public class HomeViewModel extends ViewModel {
         cards.add(new WelcomeCard(R.drawable.logo, "Unamos Créditos Infonavit", "La suma del monto de tu crédito más el de tu familiar o corresidente, les ayudará a conseguir un mayor financiamiento para adquirir vivienda nueva o usada. (Disponible para dos participantes)"));
         mCards.setValue(cards);
     }
-    public LiveData<String> getText() {
-        return mText;
-    }
+
+    //method to get cards form viewmodel
     public LiveData<ArrayList<WelcomeCard>> getCards() {
         return mCards;
     }

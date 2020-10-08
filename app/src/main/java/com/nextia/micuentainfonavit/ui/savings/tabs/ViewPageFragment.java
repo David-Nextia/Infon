@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.savings.tabs;
+/**
+ * view of every view page on savings view
+ */
 
 import android.os.Bundle;
 
@@ -19,30 +22,33 @@ public class ViewPageFragment extends Fragment {
     public static final String TITLE = "title";
     public static final String PERIOD = "period";
     TextView txtSaldo, tx_title, tx_period;
-    public ViewPageFragment() {}
-    public static ViewPageFragment getIntance(String saldo, String title,String period){
+
+    //instance of this fragment with bundles to get information
+    public static ViewPageFragment getIntance(String saldo, String title, String period) {
         ViewPageFragment fragmentMySavings = new ViewPageFragment();
 
         Bundle bundle = new Bundle();
-        bundle.putString(ID,saldo);
-        bundle.putString(TITLE,title);
-        bundle.putString(PERIOD,period);
+        bundle.putString(ID, saldo);
+        bundle.putString(TITLE, title);
+        bundle.putString(PERIOD, period);
         fragmentMySavings.setArguments(bundle);
         return fragmentMySavings;
     }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
 
-        View root=inflater.inflate(R.layout.fragment_viewpager, container, false);
+    //creating the view
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View root = inflater.inflate(R.layout.fragment_viewpager, container, false);
         txtSaldo = root.findViewById(R.id.txtMySaving);
         tx_title = root.findViewById(R.id.tx_title);
-        tx_period=root.findViewById(R.id.tx_period);
+        tx_period = root.findViewById(R.id.tx_period);
 
         return root;
 
     }
 
+    //filling view with data
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         Bundle bundle = getArguments();
@@ -52,11 +58,4 @@ public class ViewPageFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
     }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
-
-
-}

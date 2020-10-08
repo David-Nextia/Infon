@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models.user;
-
+/**
+ * Class body to post and get User info
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nextia.domain.models.Seguridad;

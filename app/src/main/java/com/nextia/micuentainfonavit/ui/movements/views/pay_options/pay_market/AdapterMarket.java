@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.views.pay_options.pay_market;
+/**
+ * adapter of every market on market fragment
+ */
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,10 +15,6 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 
 import java.util.ArrayList;
-
-/**
- * Created by drm on 16/02/18.
- */
 
 public class AdapterMarket extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
