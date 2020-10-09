@@ -205,7 +205,9 @@
                 android:background="@drawable/buttonbg"
                 android:text="@string/iniciar_sesi_n"
                 android:textColor="@color/color_white"
-                android:fontFamily="@font/body" />
+                android:fontFamily="@font/body"
+                android:minHeight="40dp"
+                />
 
         </LinearLayout>
 

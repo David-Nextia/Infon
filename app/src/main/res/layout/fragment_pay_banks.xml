@@ -175,7 +175,7 @@
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_bbva_bancomer" />
+            android:src="@drawable/bbva" />
 
         <TextView
             android:layout_width="wrap_content"

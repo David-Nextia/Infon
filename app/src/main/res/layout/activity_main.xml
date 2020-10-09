@@ -27,19 +27,10 @@
         android:paddingTop="28dp"
         app:itemTextAppearance="@style/NavigationDrawerStyle">
 
-        <LinearLayout
-        android:id="@+id/signup"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_gravity="bottom"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:background="@drawable/buttonbg"
-            android:elevation="200dp"
-        >
 
 
-    </LinearLayout>
+
+
 
     </com.google.android.material.navigation.NavigationView>
 </androidx.drawerlayout.widget.DrawerLayout>
