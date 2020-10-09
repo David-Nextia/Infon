@@ -16,12 +16,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.MenuCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -34,12 +38,18 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 
 public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
     NavController navController;
     NavigationView navigationView;
+    DrawerLayout drawer;
+    View header;
+    TextView tvTermAndCond;
+    TextView tvNoticePrivacy;
+    ImageView ivCloseMenu;
     Toolbar toolbar;
     //create of the view, and instance of variables
     @Override
@@ -50,6 +60,7 @@ public class MainActivity extends AppCompatActivity  {
         checkPermissions();
         setNavigation();
         setLogoutMethod();
+        setActions();
     }
 
     //check for storage permissions
@@ -64,8 +75,10 @@ public class MainActivity extends AppCompatActivity  {
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
+        navigationView.setItemIconTintList(null);
+        header = navigationView.getHeaderView(0);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
                 .setDrawerLayout(drawer)
@@ -95,6 +108,35 @@ public class MainActivity extends AppCompatActivity  {
             }
         });
 
+    }
+
+    private void setActions() {
+        tvTermAndCond = findViewById(R.id.tv_term_and_cond);
+        tvNoticePrivacy = findViewById(R.id.tv_notice_privacy);
+        ivCloseMenu = header.findViewById(R.id.iv_close_menu);
+
+        tvTermAndCond.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tvNoticePrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ivCloseMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
     }
 
 
