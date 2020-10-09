@@ -53,7 +53,7 @@
                     android:text="Consulta e imprime aquí tu constancia"
                     android:textAlignment="gravity"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/regular"/>
+                    android:fontFamily="@font/body"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -71,6 +71,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/constancia_subtitulo1"
+                        android:fontFamily="@font/body"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -91,7 +92,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/constancia_subtitulo2"
-                        android:textSize="12sp" />
+                        android:textSize="12sp"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
@@ -111,6 +113,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/constancia_subtitulo3"
+                        android:fontFamily="@font/body"
                         android:textSize="12sp" />
 
                 </LinearLayout>
@@ -127,7 +130,8 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/elige_anio_fiscal"
                     android:layout_marginStart="20dp"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:fontFamily="@font/body"/>
 
                 <!--        Este textview se va a elimar cuando el spinner sea llenado con la información-->
 
@@ -163,6 +167,7 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/constancia_subtitulo_registro_federal_contribuyentes"
                     android:layout_marginStart="20dp"
+                    android:fontFamily="@font/body"
                     android:textSize="12sp" />
 
                 <TextView
@@ -171,7 +176,8 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/constancia_subtitulo_1_ten_constancia_interes"
                     android:layout_marginStart="30dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -179,7 +185,8 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/constancia_subtitulo_2_acude_modulo_atencion"
                     android:layout_marginStart="30dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -187,7 +194,8 @@
                     android:layout_marginTop="5dp"
                     android:text="@string/constancia_subtitulo_3_haz_una_cita"
                     android:layout_marginStart="30dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -209,7 +217,8 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/constancia_subtitulo_constancia_o_copia"
                         android:textSize="12sp"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
