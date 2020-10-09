@@ -79,7 +79,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void setSpinners(){
         creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
         creditList.clear();
-        creditList.add("Seleccionar cuenta");
+        creditList.add("Selecciona una cuenta");
         for(int i=0; i<creditos.size();i++){
             creditList.add("0000"+creditos.get(i).getNumeroCredito());
         }

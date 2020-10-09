@@ -20,7 +20,8 @@
         android:text="algo de texto"
         android:layout_gravity="center"
         android:layout_marginLeft="5dp"
-        android:textSize="10sp"/>
+        android:textSize="10sp"
+        android:fontFamily="@font/body"/>
 
 
 </LinearLayout>

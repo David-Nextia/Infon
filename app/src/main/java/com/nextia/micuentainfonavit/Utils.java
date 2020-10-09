@@ -229,7 +229,7 @@ public class Utils {
         ArrayList<Credito> creditos;
         ArrayList<String> lista = new ArrayList<>();
         creditos = getSharedPreferencesUserData(context).getCredito();
-        lista.add("Seleccionar cuenta");
+        lista.add("Selecciona una cuenta");
         for (int i = 0; i < creditos.size(); i++) {
             lista.add(creditos.get(i).getNumeroCredito());
         }

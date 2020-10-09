@@ -15,14 +15,22 @@
         android:id="@+id/tx_bank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="10dp" />
+        android:text="10dp"
+        android:fontFamily="@font/body"/>
 
     <Button
         android:id="@+id/bt_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/custom_button_accept"
-        android:layout_margin="40sp"
-        android:text="Regresar"/>
+       android:background="@drawable/buttonbg"
+        android:textColor="@color/color_white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40sp"
+        android:layout_marginBottom="40sp"
+        android:text="Regresar"
+        android:textAllCaps="false"
+        android:fontFamily="@font/body"
+        android:minHeight="40dp"/>
 
 </LinearLayout>

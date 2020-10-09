@@ -35,7 +35,7 @@
     <string name="contrase_a">Contraseña</string>
     <string name="recuerda_tu_usuario">Recuerda tu usuario</string>
     <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
-    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> , si aún no la tienes <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">registrate</a></string>
+    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> , si aún no la tienes <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">regístrate</a></string>
     <string name="hyperlinkap">Aviso de privacidad</string>
     <string name="menu_ahorro">¿Cuánto ahorro tengo?</string>
 
@@ -88,46 +88,46 @@
 
     <!--    Dialog error    -->
     <string name="title_error">Aviso</string>
-    <string name="message_server_error">No se pudo obtener los datos del servidor</string>
+    <string name="message_server_error">No se pudieron obtener los datos del servidor.\nPor favor intenta más tarde.</string>
     <!-- Avisos Suspension -->
     <string name="title_retencion">Aviso de suspensión, retención y modificación de descuentos</string>
     <string name="Texto_informacion_importante">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos, esta información es importante para ti:\n\nSi tu Aviso no se generara en el portal, se puede deber a alguna de las siguientes situaciones:\nTe encuentras en un proceso de aclaración de homonimia y, por lo tanto, tu aviso te llegará mediante un correo electrónico. No podrás consultarlo en el portal hasta que concluyas tu trámite ante el IMSS y tu Afore, y el Infonavit haya separado los datos de las personas involucradas.\nYa firmaste tu escritura ante el notario pero la descarga de tu aviso está presentando dificultades. Si estás en este caso llama al Infonatel y repórtalo.\nTu crédito es cofinanciado o es Apoyo Infonavit. Recuerda que tu patrón no está obligado a retener de tu salario el pago de la mensualidad de estos créditos y por esta razón no se emite el aviso.\nLiquidaste tu crédito con un patrón diferente al que tenías cuando lo solicitaste o mientras no tenías relación laboral y en tales casos el aviso de suspensión no se le genera.\nTe descuentan tu crédito Infonavit pero no apareces en la cédula bimestral que emite el IMSS y por eso no se expidió tu Aviso de Retención; en este caso repórtalo en Infonatel.\nSi tu Aviso se genera de manera incorrecta en el portal, se puede deber a alguna de las siguientes situaciones:\nAun no concluyes tu trámite de unificación de NSS ante el IMSS y la Afore, y tu aviso sale con el NSS que tenías cuando obtuviste tu crédito. Es importante que agilices tu trámite en la Afore.\nTienes dos avisos de retencíon porque trabajas en dos empresas obligadas a aportar al Infonavit. Comunicate a Infonatel y solicita que el aviso se dirija sólo a uno de tus patrones.\nYa liquidaste tu crédito pero la descarga de tu aviso de suspensión presenta dificultades o sale con los datos erróneos del patrón con el que laboras actualmente. En este caso, llama a Infonatel y repórtalo.</string>
     <string name="Advertencia_pt_1">Por favor revisa que los datos de tu aviso sean correctos:</string>
     <string name="Advertencia_pt_2">Si hay alguna diferencia en los dígitos de tu Número de Seguridad Social (NSS).</string>
-    <string name="Advertencia_pt_3">Si tu aviso sale a nombre de una empresa a la que tu no perteneces.</string>
+    <string name="Advertencia_pt_3">Si tu aviso sale a nombre de una empresa a la que tú no perteneces.</string>
     <string name="Advertencia_pt_4">Comunícate a Infonatel; ahí encontrarás ayuda para solucionar el problema.</string>
     <string name="Pre_text_info_click">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos:</string>
-    <string name="Text_info_click">está información es importante para ti.</string>
+    <string name="Text_info_click">esta información es importante para ti.</string>
     <string name="Unsucces_text">No tenemos registro de este número de crédito. Si estás haciendo tu trámite para obtenerlo, puedes encontrar tu aviso correspondiente en el portal de:</string>
     <string name="Pre_text_info_trouble">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos, está información es importante para ti.</string>
 
     <!-- constancia de interes-->
     <string name="constancia_subtitulo1">En apego a nuestra normatividad institucional existen
         periodos en los que podremos entregar la Carta Constancia de intereses actualizada,
-        previa solicitud resgistrada por usted; por favor tome en cuenta el sigiente calendario.</string>
-    <string name="constancia_subtitulo2">Si para el 17 de septiembre de 2018 usted cuenta con un
-        caso de aclaración ya atendido con su información actualizada en nuestros sistemas,
-        la Carta de Intereses actualizada la podrá consultar apartir de la 2da semana de diciembre
+        previa solicitud registrada por ti; por favor toma en cuenta el siguiente calendario.</string>
+    <string name="constancia_subtitulo2">Si para el 17 de septiembre de 2018 cuentas con un
+        caso de aclaración ya atendido con tu información actualizada en nuestros sistemas,
+        la Carta de Intereses actualizada la podrás consultar a partir de la 2da semana de diciembre
         de 2018</string>
-    <string name="constancia_subtitulo3">Si para el 16 de noviembre de 2018 usted cuenta con un
-        caso de aclaración ya atendido con su información actualizada en nuestros sistemas,
-        la Carta de Intereses actualizada la podrá consultar apartir de la 2da semana de diciembre
+    <string name="constancia_subtitulo3">Si para el 16 de noviembre de 2018 cuentas con un
+        caso de aclaración ya atendido con tu información actualizada en nuestros sistemas,
+        la Carta de Intereses actualizada la podrás consultar a partir de la 2da semana de diciembre
         de 2018</string>
     <string name="elige_anio_fiscal">Elige el año fiscal</string>
     <string name="consultar">Consultar</string>
     <string name="constancia_subtitulo_registro_federal_contribuyentes">El Registro Federal de Contribuyentes
-        (RFC) con el que expedimos la constancia de interes para tu declaración anual de impuestos
-        es el que tenemos en el Infonavit. Revisalo y, si no es correcto, haz lo siguiente:</string>
+        (RFC) con el que expedimos la constancia de interés para tu declaración anual de impuestos
+        es el que tenemos en el Infonavit. Revísalo y, si no es correcto, haz lo siguiente:</string>
     <string name="constancia_subtitulo_1_ten_constancia_interes">1. Ten a la mano la constancia de RFC que te
         dio el Servicio de Administración Tributaría</string>
     <string name="constancia_subtitulo_2_acude_modulo_atencion">2. Si todavía no la tienes acude a un modulo de
         atención del SAT que corresponda para solicitarle</string>
     <string name="constancia_subtitulo_3_haz_una_cita">3. <u>Haz una cita</u> para que acudas al
-        Centro de Servicio Infonavit más cercano y solicites que te lo corrijan. DEbes llevar el
+        Centro de Servicio Infonavit más cercano y solicites que lo corrijan. Debes llevar el
         original y copia de los siguientes documentos:</string>
     <string name="constancia_subtitulo_constancia_o_copia">Constancia o copia de cédula de RFC emitida por el SAT.</string>
-    <string name="constancia_subtitulo_identificacion_oficial_vigente">Identificación oficial vigente con fotografíaT.</string>
-    <string name="constancia_interes_titulo">Constancia de interes para tu declaracion anual</string>
+    <string name="constancia_subtitulo_identificacion_oficial_vigente">Identificación oficial vigente con fotografía.</string>
+    <string name="constancia_interes_titulo">Constancia de interés para tu declaración anual</string>
     <string name="subtitulo_constancia_pdf">Con los datos que nos proporcionaste encontramos la siguiente información.</string>
     <string name="descarga_tu_archivo">Abrir archivo</string>
 

@@ -18,9 +18,17 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="TxStyleTitle" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">28sp</item>
+        <item name="android:textSize">22sp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:fontFamily">@font/subtitle</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+    <style name="BodyTextStyle" parent="android:Widget.TextView">
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">1dp</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:fontFamily">@font/subtitle</item>
         <item name="android:textAlignment">center</item>
@@ -31,12 +39,14 @@
         <item name="android:textSize">24sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorgrayblue</item>
+        <item name="android:fontFamily">@font/subtitle</item>
     </style>
 
     <style name="TxStyleSubSubTitle" parent="android:Widget.TextView">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">18sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:fontFamily">@font/subtitle</item>
         <item name="android:textColor">@color/color_drak_gray</item>
     </style>
 
