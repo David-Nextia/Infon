@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="start"
+    >
 
     <include
         layout="@layout/app_bar_main"
@@ -24,10 +25,11 @@
         app:menu="@menu/activity_main_drawer"
         app:headerLayout="@layout/layout_navigation_header"
         android:background="@drawable/gradient_blue"
-        app:itemTextColor="#FFFFFF"
-        app:itemIconTint="#FFFFFF"
+        app:itemTextColor="@color/color_white"
+        app:itemIconTint="@color/color_white"
         android:paddingTop="28dp"
-        app:itemTextAppearance="@style/NavigationDrawerStyle">
+        app:itemTextAppearance="@style/NavigationDrawerStyle"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
