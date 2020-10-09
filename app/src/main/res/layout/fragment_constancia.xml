@@ -52,7 +52,8 @@
                     android:layout_height="wrap_content"
                     android:text="Consulta e imprime aquí tu constancia"
                     android:textAlignment="gravity"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/regular"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
