@@ -18,18 +18,18 @@
         android:background="@drawable/back">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/rootView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/rootView">
+            android:layout_height="wrap_content">
 
             <View
                 android:id="@+id/view5"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="35dp"
+                android:layout_marginEnd="35dp"
                 android:layout_weight="50"
-                android:background="#979797"
+                android:background="#C5C5C8"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewpager" />
@@ -38,18 +38,20 @@
                 android:id="@+id/txtAportacion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/subtitle"
                 android:padding="3dp"
-                tools:text="$-"
                 android:text="@{utils.formatMoney(saldo.getAportacion)}"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Small"
-                android:textColor="#1c5875"
+                android:textColor="@color/color_blue"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
-                android:fontFamily="@font/subtitle"/>
+                tools:text="$-" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -60,7 +62,8 @@
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtPatronActual" />
+                app:layout_constraintTop_toBottomOf="@+id/txtPatronActual"
+                android:textColor="@color/color_blue"/>
 
             <TextView
                 android:id="@+id/txtPatronActual"
@@ -68,10 +71,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:fontFamily="@font/subtitle"
                 android:gravity="center"
                 android:padding="3dp"
                 android:paddingRight="3dp"
-                tools:text="..."
                 android:text="@{saldo.getNombreEmpresa}"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 android:textSize="12sp"
@@ -79,29 +82,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contribution_company2"
-                android:fontFamily="@font/body"/>
+                tools:text="..."
+                android:textColor="@color/color_blue"/>
 
             <TextView
                 android:id="@+id/contribution_company2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:fontFamily="@font/subtitle"
+                android:textColor="@color/color_blue"
                 android:gravity="center"
-
                 android:padding="3dp"
                 android:text="@string/contribution_patron_actual"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view5"
-                android:fontFamily="@font/subtitle"/>
+                app:layout_constraintTop_toBottomOf="@+id/view5" />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
+                android:paddingTop="20dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -113,85 +119,131 @@
                 android:id="@+id/tabs"
 
                 android:layout_width="match_parent"
-
-                android:layout_height="20dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
                 app:tabIndicatorColor="@color/colorPrimary"
-                app:tabIndicatorHeight="3dp"
-                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabIndicatorHeight="2dp"
+
+                app:tabIndicatorFullWidth="false"
+                app:tabBackground="@drawable/tab_background"
+                app:tabSelectedTextColor="@color/color_white"
                 app:tabTextAppearance="@style/AppTabTextAppearance"
-                app:tabTextColor="#1c5875" />
+                app:tabTextColor="@color/color_blue" />
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:fontFamily="@font/subtitle"
                 android:gravity="center_horizontal"
                 android:text="Ley de subcuenta de vivienda"
-                android:textColor="#4a4a4a"
-                android:textSize="20sp"
+                android:textColor="@color/color_blue"
+                android:textSize="18sp"
+
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtMySavingDesc2"
-                android:fontFamily="@font/subtitle"/>
+                app:layout_constraintTop_toBottomOf="@+id/ahorroview" />
 
-            <TextView
-                android:id="@+id/txtMySavingDesc2"
+
+
+            <LinearLayout
+                android:id="@+id/ahorroview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="8dp"
-                android:text="@string/savings_description"
-                android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAhorroTotal"
-                android:fontFamily="@font/body"/>
-
-            <TextView
-                android:id="@+id/txtAhorroTotal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                tools:text="$-"
-                android:text="@{utils.formatMoney(saldo.getSaldoSARTotal)}"
-                android:textAlignment="center"
-                android:textColor="#1c5875"
-                android:textSize="26sp"
-                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
-                android:fontFamily="@font/subtitle"/>
+                android:orientation="vertical"
+                android:background="@drawable/banner_savings"
+                >
+
+                <TextView
+                    android:id="@+id/txtAhorroTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:fontFamily="@font/subtitle"
+                    android:text="@{utils.formatMoney(saldo.getSaldoSARTotal)}"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_white"
+                    android:textSize="26sp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView5"
+                    tools:text="$-" />
+                <TextView
+                    android:id="@+id/txtMySavingDesc2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="2dp"
+                    android:textColor="@color/color_white"
+                    android:layout_marginEnd="40dp"
+                    android:fontFamily="@font/subtitle"
+                    android:text="@string/savings_description"
+                    android:textAlignment="center"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txtAhorroTotal" />
+
+            </LinearLayout>
+
+
+
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/subtitle"
                 android:text="@string/savings_ahorro"
+                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                android:fontFamily="@font/subtitle"/>
+                android:textColor="@color/colorPrimary"/>
 
-            <ImageView
-                android:id="@+id/imageView2"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.35" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.65" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.25" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:src="@drawable/marranito"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/cochinito"
+                app:layout_constraintRight_toLeftOf="@id/guideline3"
+                app:layout_constraintLeft_toLeftOf="@id/guideline2"
                 app:layout_constraintTop_toBottomOf="@+id/view4"
-                app:tint="@color/colorPrimaryDark" />
+                app:layout_constraintBottom_toTopOf="@id/guideline4"/>
+
 
             <View
                 android:id="@+id/view4"
@@ -213,11 +265,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="@string/savings_title"
-                android:textColor="#1c5875"
+               android:textColor="@color/color_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:fontFamily="@font/subtitle"/>
+                app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -225,28 +276,33 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtAportacion">
+                app:layout_constraintTop_toBottomOf="@+id/txtAportacion"
+                app:layout_constraintBottom_toBottomOf="parent">
 
                 <TextView
                     android:id="@+id/contribution_year"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/subtitle"
                     android:padding="3dp"
                     android:text="@string/contribution_ultima_aportacion"
                     android:textAppearance="@android:style/TextAppearance.Small"
-                    android:fontFamily="@font/subtitle"/>
+                    android:textColor="@color/color_blue"/>
 
                 <TextView
                     android:id="@+id/txtFecha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/subtitle"
                     android:padding="3dp"
-                    tools:text="..."
                     android:text="@{saldo.getFechaPago}"
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textStyle="bold"
-                    android:fontFamily="@font/body"/>
+                    tools:text="..."
+                    android:textColor="@color/color_blue"/>
             </LinearLayout>
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

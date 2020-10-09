@@ -35,7 +35,7 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/saldos_y_movimientos"
                     style="@style/TxStyleSubTitle"
-                    android:fontFamily="@font/title"/>
+                    />
 
             </LinearLayout>
 
@@ -247,7 +247,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Paga desde"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="10sp"
                         android:fontFamily="@font/subtitle"/>
 

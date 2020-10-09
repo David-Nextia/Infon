@@ -38,7 +38,7 @@ public class SavingsFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_savings, container, false);
         adapterViewpage = new ViewPagerAdapter(getChildFragmentManager());
         Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
-       savingsViewModel= new ViewModelProvider(getActivity()).get(SavingsViewModel.class);
+       savingsViewModel= new ViewModelProvider(this).get(SavingsViewModel.class);
         savingsViewModel.getSaldo(this.getContext());
         return binding.getRoot();
     }

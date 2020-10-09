@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/constancia_interes_titulo"
                 android:textAppearance="@android:style/TextAppearance.Large"
-                style="@style/TxStyleTitle"
+                style="@style/TxStyleSubTitle"
                 android:textColor="@color/color_blue" />
 
             <View
@@ -41,7 +41,8 @@
                 android:text="@string/subtitulo_constancia_pdf"
                 android:textAlignment="gravity"
                 android:textSize="12sp"
-                android:layout_marginTop="10dp" />
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/body"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -57,14 +58,15 @@
                     android:layout_weight="1"
                     android:text="Número de crédito "
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:id="@+id/tv_num_credito_impr_pdf"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
+                    android:fontFamily="@font/body"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -82,7 +84,8 @@
                     android:layout_weight="1"
                     android:text="Año fiscal"
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:id="@+id/tv_anio_impr_pdf"
@@ -90,7 +93,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text=""
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
             </LinearLayout>
 
@@ -107,7 +111,8 @@
                     android:layout_weight="1"
                     android:text="Nombre del acreditado"
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:id="@+id/tv_nombre_impr_pdf"
@@ -115,7 +120,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{credit.datosGenerales.nombre}"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
             </LinearLayout>
 
@@ -132,7 +138,8 @@
                     android:layout_weight="1"
                     android:text="R.F.C."
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/subtitle"/>
 
                 <TextView
                     android:id="@+id/tv_rfc_impr_pdf"
@@ -140,7 +147,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{credit.datosGenerales.rfc}"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
 
             </LinearLayout>
 
@@ -168,7 +176,8 @@
                     android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
                     android:textSize="14sp"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/subtitle"/>
 
             </LinearLayout>
             <ImageView
@@ -184,7 +193,8 @@
                 android:text="Compartir Archivo"
                 android:textStyle="bold"
                 android:textSize="14sp"
-                android:layout_gravity="center" />
+                android:layout_gravity="center"
+                android:fontFamily="@font/subtitle"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
