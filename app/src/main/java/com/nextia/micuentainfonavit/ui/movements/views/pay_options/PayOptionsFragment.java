@@ -1,5 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.views.pay_options;
-
+/**
+ * view of opciones de pago inside movements
+ */
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -28,14 +30,13 @@ import java.util.ArrayList;
 public class PayOptionsFragment extends Fragment {
 
     private FragmentPayOptionsBinding binding;
-    private PayOptionsViewModel mViewModel;
     private NavController navController;
     private View rootView;
     Spinner spinnerCredit;
     public static PayOptionsFragment newInstance() {
         return new PayOptionsFragment();
     }
-
+    //creating view, and instance it
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
@@ -43,6 +44,28 @@ public class PayOptionsFragment extends Fragment {
         spinnerCredit=binding.spCreditType;
         Utils.fillSpinnerWithCredit(getContext(),spinnerCredit);
         rootView = binding.rootView;
+        setOnClicks();
+        return binding.getRoot();
+    }
+
+    //function before initial view to show and stop skeleton
+    @Override
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_options);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
+    }
+
+    //setting clicks on view
+    public void setOnClicks(){
         binding.lyBank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,23 +89,6 @@ public class PayOptionsFragment extends Fragment {
                 navController.navigate(R.id.action_nav_pay_options_to_nav_pay_usa);
             }
         });
-
-        return binding.getRoot();
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_options);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
     }
 
 

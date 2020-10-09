@@ -1,5 +1,7 @@
 package com.nextia.domain.models.welcome;
-
+/**
+ * Class to create welcome card
+ */
 import javax.swing.text.html.ImageView;
 
 public class WelcomeCard {

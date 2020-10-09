@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.pdf_view;
+/**
+ * class that shows the pdf that comes from other fragments
+ */
 
 import android.os.Bundle;
 
@@ -19,17 +22,11 @@ import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDown
 public class PdfViewFragment extends Fragment {
 
     PDFView mPdfView;
-
-
-
     private PdfViewViewModel mViewModel;
-    public static PdfViewFragment newInstance() {
-        return new PdfViewFragment();
-    }
 
+    //setting pdf view
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-                             @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         mViewModel= new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         View view= inflater.inflate(R.layout.fragment_pdf_view, container, false);
         mPdfView= view.findViewById(R.id.pdfView);

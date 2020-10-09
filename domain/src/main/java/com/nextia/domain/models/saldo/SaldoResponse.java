@@ -1,5 +1,8 @@
 
 package com.nextia.domain.models.saldo;
+/**
+ * class of the response of get saldo post
+ */
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

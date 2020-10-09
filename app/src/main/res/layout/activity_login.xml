@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_login_scene"
     android:id="@+id/motionLayoutLogin"
+    android:background="@drawable/back"
     android:focusableInTouchMode="true">
 
 

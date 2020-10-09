@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.constancia;
+/**
+ * class of view Constancia de intereses
+ */
 
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
@@ -34,8 +37,7 @@ import java.util.List;
 
 public class ConstanciaFragment extends Fragment implements OnFinishRequestListener<CreditInfoResponse> {
 
-    private ConstanciaViewModel mViewModel;
-   PdfConstanciaDownloadViewModel ViewModelPdf;
+    PdfConstanciaDownloadViewModel ViewModelPdf;
     FragmentConstanciaBinding binding;
     ArrayList<Credito> creditos;
     ArrayList<String> creditList =new ArrayList<>();
@@ -45,10 +47,36 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     List<RespuestUm> listItemAnio;
     ArrayList<String> listanios=new ArrayList<>();
     NavController navController;
+
+    //creating and instancing view
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
         ViewModelPdf= new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
+        setSpinners();
+        setButton();
+        return binding.getRoot();
+    }
+
+    //function before initial view to show and stop skeleton
+    @Override
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_constancia);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
+    }
+
+    //fill spinner with credits from sharedpreferences and set methods
+    public void setSpinners(){
         creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
         creditList.clear();
         creditList.add("Seleccionar cuenta");
@@ -60,7 +88,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0)
                 {
-                creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(), ConstanciaFragment.this);
+                    creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(), ConstanciaFragment.this);
                 }
             }
 
@@ -86,6 +114,15 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
             }
         });
+
+        binding.btnConsultarConstancia.setEnabled(false);
+        creditAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, creditList);
+        creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
+    }
+
+    //setButton methods and states
+    public void setButton(){
         binding.btnConsultarConstancia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,33 +131,15 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
             }
         });
-        return binding.getRoot();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_constancia);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-                binding.btnConsultarConstancia.setEnabled(false);
-                creditAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, creditList);
-                creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
-
+    //To manage on fail request
     @Override
     public void onFailureRequest(String message) {
         Toast.makeText(getContext(),"No se pudieron obtener los datos",Toast.LENGTH_LONG).show();
     }
 
+    //To manage on Succes request
     @Override
     public void onSuccesRequest(CreditInfoResponse object) {
         listItemAnio =object.getRespuesta();

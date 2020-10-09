@@ -1,4 +1,7 @@
 package com.nextia.domain.models.credit_info;
+/**
+ * Secondary class to get the CreditInfoResponse class
+ */
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

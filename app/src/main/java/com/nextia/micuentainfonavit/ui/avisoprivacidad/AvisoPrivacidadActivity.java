@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.avisoprivacidad;
+/**
+ * class  to open webpage aviso de privacidad from infonavit
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,27 +28,30 @@ public class AvisoPrivacidadActivity extends AppCompatActivity {
     private String url = "https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/transparencia/aviso-privacidad/!ut/p/z1/jY-7DoJAEEW_xYKWmQXF1W4xiA-CWBBxGwMGVw2wBBB-X0QbEyFON5Nzbu4AhwB4FtY3EVY3mYVJux-5cTJsxNViTNwd245xT00PzamnO0SDQwdoFNE2kbg2XVFkS2ttzRxdswkC_8cfAF4-9gzD1ucd0tfAJx9gIGMDXCQyer_LskinAngRX-IiLtRH0Z6vVZWXcwUVbJpGFVKKJFbPMlXwl3KVZQXBNwl56gd4nyS1w0ZPkMUZLw!!/dz/d5/L2dBISEvZ0FBIS9nQSEh/";
     private AvisoPrivacidadActivity mContext;
 
+    //creating and instancing view
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aviso_privacidad);
-
         initView();
         initWebView();
     }
 
+    //initiate the main view, with progressbar
     private void initView() {
         webView = (WebView) findViewById(R.id.wvNoticeOfPrivacy);
-        progressBar= findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBar);
         progressBar.setMax(100);
     }
 
-    private void initWebView(){
+    //Loading webView  to View
+    private void initWebView() {
         webView.loadUrl(url);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new AvisoPrivacidadActivity.MyWebViewClient());
     }
 
+    //create Web client
     private class MyWebViewClient extends WebViewClient {
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -55,14 +61,7 @@ public class AvisoPrivacidadActivity extends AppCompatActivity {
         }
 
         @Override
-        public void doUpdateVisitedHistory(WebView view, String url, boolean isReload) {
-            Log.d("url-payment", url);
-            super.doUpdateVisitedHistory(view, url, isReload);
-        }
-
-        @Override
         public void onPageFinished(WebView view, String url) {
-            System.out.println("on finish");
             webView.setVisibility(View.VISIBLE);
         }
     }

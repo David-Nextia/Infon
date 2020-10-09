@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models.credit_year_info;
-
+/**
+ * Secondary class to get the CreditYearInfoResponse class
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -8,25 +10,25 @@ public class DatosFinancieros {
 
     @SerializedName("interesDevengado")
     @Expose
-    private Double interesDevengado;
+    private Double interesDevengado=0.0;
     @SerializedName("interesPagado")
     @Expose
-    private Double interesPagado;
+    private Double interesPagado=0.0;
     @SerializedName("interesReal")
     @Expose
-    private Double interesReal;
+    private Double interesReal=0.0;
     @SerializedName("fechaOriginacionCredito")
     @Expose
-    private Integer fechaOriginacionCredito;
+    private Integer fechaOriginacionCredito=0;
     @SerializedName("fechaTerminacionCredito")
     @Expose
-    private Integer fechaTerminacionCredito;
+    private Integer fechaTerminacionCredito=0;
     @SerializedName("indicador")
     @Expose
     private String indicador;
     @SerializedName("pool")
     @Expose
-    private Integer pool;
+    private Integer pool=0;
 
     public Double getInteresDevengado() {
         return interesDevengado;

@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models.credit_year_info;
-
+/**
+ * Secondary class to get the CreditYearInfoResponse class
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -20,7 +22,7 @@ public class Domicilio {
     private String estado;
     @SerializedName("cp")
     @Expose
-    private Integer cp;
+    private Integer cp=0;
 
     public String getCalleNumero() {
         return calleNumero;

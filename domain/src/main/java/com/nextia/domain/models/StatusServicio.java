@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models;
-
+/**
+ * class of server response about service status
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

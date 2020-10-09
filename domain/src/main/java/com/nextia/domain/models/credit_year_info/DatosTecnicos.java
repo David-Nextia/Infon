@@ -1,6 +1,8 @@
 
 package com.nextia.domain.models.credit_year_info;
-
+/**
+ * Secondary class to get the CreditYearInfoResponse class
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -14,7 +16,7 @@ public class DatosTecnicos {
     private String descripcionRespuesta;
     @SerializedName("numeroFormato")
     @Expose
-    private Integer numeroFormato;
+    private String numeroFormato;
 
     public String getCodigoRespuesta() {
         return codigoRespuesta;
@@ -32,11 +34,11 @@ public class DatosTecnicos {
         this.descripcionRespuesta = descripcionRespuesta;
     }
 
-    public Integer getNumeroFormato() {
+    public String getNumeroFormato() {
         return numeroFormato;
     }
 
-    public void setNumeroFormato(Integer numeroFormato) {
+    public void setNumeroFormato(String numeroFormato) {
         this.numeroFormato = numeroFormato;
     }
 

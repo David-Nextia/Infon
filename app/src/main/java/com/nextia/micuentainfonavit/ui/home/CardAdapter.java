@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.home;
+/**
+ * Adapter of the view of each card on welcome view
+ */
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +20,8 @@ import java.util.ArrayList;
 public class CardAdapter extends RecyclerView.Adapter {
     ArrayList<WelcomeCard> cards= new ArrayList<>();
     @NonNull
+
+    //creating view
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
@@ -27,21 +32,25 @@ public class CardAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
+    //filling view information
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ((SimpleViewHolder) holder).onBind(cards.get(position));
     }
 
+    //to get the total items that will show
     @Override
     public int getItemCount() {
         return cards.size();
     }
 
+    //to get the type of view to show
     @Override
     public int getItemViewType(int position) {
         return R.layout.card_view_welcome;
     }
 
+    //class that manages the binding part
     public class SimpleViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         TextView description;

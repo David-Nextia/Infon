@@ -1,5 +1,8 @@
 
 package com.nextia.domain.models.user;
+/**
+ * class of the response of get User post
+ */
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -54,8 +57,21 @@ public class UserResponse {
     @Expose
     private Seguridad seguridad;
 
-    public UserResponse(String s, String s1, boolean b, ArrayList<Credito> creditos, String s2, String s3, String s4, boolean b1, int i, String s5, String s6, Seguridad seguridad, StatusServicio statusServicio, String s7) {
-
+    public UserResponse(String nss, String nombre, String apPaterno, String apMaterno, String rfc, String scurp, String telefonoCelular, String emailPersonal, String idPerfilglobal, Boolean biometrico, Boolean notificacion, ArrayList<Credito> credito, StatusServicio statusServicio, Seguridad seguridad) {
+        this.nss = nss;
+        this.nombre = nombre;
+        this.apPaterno = apPaterno;
+        this.apMaterno = apMaterno;
+        this.rfc = rfc;
+        this.scurp = scurp;
+        this.telefonoCelular = telefonoCelular;
+        this.emailPersonal = emailPersonal;
+        this.idPerfilglobal = idPerfilglobal;
+        this.biometrico = biometrico;
+        this.notificacion = notificacion;
+        this.credito = credito;
+        this.statusServicio = statusServicio;
+        this.seguridad = seguridad;
     }
 
     public UserResponse() {
@@ -65,9 +81,7 @@ public class UserResponse {
         this.emailPersonal=email;
     }
 
-    public UserResponse(Credito ... ms) {
-        credito = (ArrayList<Credito>) Arrays.asList(ms);
-    }
+
 
     public String getNss() {
         return nss;

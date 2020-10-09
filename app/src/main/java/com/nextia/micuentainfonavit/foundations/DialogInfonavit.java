@@ -1,5 +1,7 @@
 package com.nextia.micuentainfonavit.foundations;
-
+/**
+ * This class creates the custom dialog of the entire app
+ */
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -18,27 +20,18 @@ import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.nextia.micuentainfonavit.R;
-/**
- * This class creates the custom dialog of the entire app
- */
+
 public class DialogInfonavit extends AlertDialog implements View.OnClickListener{
-
-    /**
-     * Variables
-     *
-     * title: dialog title
-     * message: dialog message
-     * card: the view of the dialog
-     */
-    String title;
-    String message;
-    OnButtonClickListener listener;
-    Context context;
-    CardView card;
+    String title, message;
     int type;
-    public static int TWO_BUTTON_DIALOG=1;
-    public static int ONE_BUTTON_DIALOG=2;
+    OnButtonClickListener listener;
+    CardView card;
+    Context context;
 
+    //Options of dialog type
+    public static int TWO_BUTTON_DIALOG=1,ONE_BUTTON_DIALOG=2;
+
+    //constructor with button listener
     public DialogInfonavit(@NonNull Context context,String title, String message,int type, OnButtonClickListener listener) {
 
         super(context);
@@ -48,6 +41,8 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         this.context=context;
         this.type=type;
     }
+
+    //constructor without button listener
     public DialogInfonavit(@NonNull Context context,String title, String message,int type) {
 
         super(context);
@@ -58,13 +53,7 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         this.type=type;
     }
 
-    public DialogInfonavit(@NonNull Context context, OnButtonClickListener listener) {
-        super(context);
-        this.listener = listener;
-        this.title="Cerrar sesión";
-        this.message="¿Seguro que sesas cerrar sesión?";
-        this.context=context;
-    }
+    //creation of dialog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,6 +103,7 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     }
 
+    //manage the click of the button on dialog
     @Override
     public void onClick(View v) {
         if (listener!=null){
@@ -126,6 +116,7 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         }
     }
 
+    //listener to trigger functions of the dialog
     public interface OnButtonClickListener{
         void onAcceptClickListener(Button button,AlertDialog dialog);
     }
