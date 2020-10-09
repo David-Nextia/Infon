@@ -243,7 +243,8 @@
                         android:layout_marginTop="5dp"
                         android:text="@string/constancia_subtitulo_identificacion_oficial_vigente"
                         android:textSize="12sp"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
