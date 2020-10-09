@@ -116,4 +116,9 @@
         <item name="android:textAllCaps">false</item>
     </style>
 
+    <style name="NavigationView" >
+        <item name="android:listDivider">@color/color_white</item>
+        <item name="android:textColorSecondary">@color/color_white</item>
+    </style>
+
 </resources>

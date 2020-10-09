@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-   >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single"
         android:id="@+id/grp2" >
@@ -11,34 +10,35 @@
 <!--            android:title="@string/menu_home" />-->
         <item
             android:id="@+id/nav_savings"
-            android:icon="@drawable/ic_ahorro"
+            android:icon="@drawable/ic_cuanto_ahorro_tengo_mesa_de_trabajo"
             android:title="@string/menu_ahorro" />
         <item
             android:id="@+id/nav_movements"
-            android:icon="@drawable/ic_saldos_movimientos"
-            android:title="@string/menu_saldos_movimientos"
-            />
+            android:icon="@drawable/ic_saldos_y_movimientos"
+            android:title="@string/menu_saldos_movimientos" />
         <item
             android:id="@+id/nav_aviso_suspension"
             android:icon="@drawable/ic_aviso_suspension_retencion"
-            android:title="@string/menu_aviso_suspension"
-            />
+            android:title="@string/menu_aviso_suspension" />
         <item
             android:id="@+id/nav_constancia_interes"
-            android:icon="@drawable/ic_constancia_interes"
-            android:title="@string/menu_constancia"
-            />
+            android:icon="@drawable/ic_constancia_de_interes"
+            android:title="@string/menu_constancia" />
 
     </group>
 
     <group android:checkableBehavior="single"
         android:id="@+id/grp1"  >
-
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_cerrar_sesion"
-            android:title="@string/menu_cerrar_sesion"
-            />
+            android:icon="@drawable/ic_cerrar_sesion_color"
+            android:title="@string/menu_cerrar_sesion" />
+    </group>
 
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp3"  >
+        <item
+            android:id="@+id/nav_separate"
+            android:title="" />
     </group>
 </menu>
