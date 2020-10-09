@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.movements.views.mensualidades.MensualidadesFragment">
 
     <LinearLayout
@@ -26,7 +27,9 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/Saldos_movimientos"
                 style="@style/TxStyleSubTitle"
-                android:fontFamily="@font/title" />
+                android:fontFamily="@font/title"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
         </LinearLayout>
 
 
@@ -37,7 +40,9 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="20dp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
 
 
@@ -48,7 +53,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             style="@style/TxStyleSubSubTitle"
-            android:fontFamily="@font/subtitle"/>
+            android:fontFamily="@font/subtitle"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +70,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/informaci_n_actualizada"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
 
             <TextView
                 android:id="@+id/txt_updated_date"
@@ -72,6 +81,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="8dp"
                 android:text="day de month del year"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"
                 />
 
         </LinearLayout>
@@ -84,7 +95,9 @@
             android:layout_marginTop="20dp"
             android:text="$ -"
             style="@style/TxStyleSubTitle"
-            android:fontFamily="@font/subtitle"/>
+            android:fontFamily="@font/subtitle"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,7 +112,9 @@
                 android:layout_gravity="center"
                 android:text="Pagar antes del día:"
                 android:textSize="10sp"
-                android:fontFamily="@font/body"/>
+                android:fontFamily="@font/body"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
 
             <TextView
                 android:id="@+id/txt_payment_date"
@@ -110,7 +125,9 @@
                 android:text="day de month del year"
                 android:textSize="10sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
         </LinearLayout>
 
         <LinearLayout
@@ -135,7 +152,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/mensualidades"
                     style="@style/TxRedDefault"
-                    android:fontFamily="@font/subtitle"/>
+                    android:fontFamily="@font/subtitle"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -148,8 +167,9 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="20sp"
-                    android:background="@color/colorgrayblue"
-                    android:layout_margin="8dp"/>
+                    android:background="@color/light_transparent"
+                    android:layout_margin="8dp"
+                   />
             </LinearLayout>
 
             <LinearLayout
@@ -167,8 +187,9 @@
                     android:text="@string/cu_nto_debo"
                     style="@style/TxRedDefault"
                     android:textAppearance="@android:style/TextAppearance.Medium"
-                    android:textColor="@color/colorPrimary"
-                    android:fontFamily="@font/subtitle"/>
+                    android:fontFamily="@font/subtitle"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -194,8 +215,10 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="-"
-                   style="@style/TxStyleSubTitle"
-                    android:fontFamily="@font/body"/>
+                    style="@style/TxStyleSubTitle"
+                    android:fontFamily="@font/body"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
 
             </LinearLayout>
 
@@ -209,7 +232,8 @@
                 <View
                     android:layout_width="1dp"
                     android:layout_height="20sp"
-                    android:layout_margin="8dp"/>
+                    android:layout_margin="8dp"
+                    android:background="@color/light_transparent"/>
             </LinearLayout>
 
             <LinearLayout
@@ -227,8 +251,9 @@
                     style="@style/TxRedDefault"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textColor="@color/colorgrayblue"
-                    android:fontFamily="@font/body"/>
+                    android:fontFamily="@font/body"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
 
                 <TextView
                     android:id="@+id/txt_debt_amount"
@@ -237,7 +262,9 @@
                     android:layout_gravity="center"
                     android:text="$ -"
                     style="@style/TxStyleSubTitle"
-                    android:fontFamily="@font/subtitle"/>
+                    android:fontFamily="@font/subtitle"
+                    android:textColor="@android:color/transparent"
+                    android:background="@color/light_transparent"/>
 
             </LinearLayout>
 
@@ -251,7 +278,7 @@
             android:layout_marginStart="45dp"
             android:layout_marginEnd="45dp"
             android:layout_marginTop="20dp"
-            android:background="@color/colorgrayblue"/>
+            android:background="@color/light_transparent"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -263,7 +290,9 @@
             android:gravity="center"
             android:textSize="12sp"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/body"/>
+            android:fontFamily="@font/body"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <TextView
             android:id="@+id/txtMsg"
@@ -285,10 +314,11 @@
             android:layout_marginBottom="15dp"
             android:gravity="center"
             android:text="@string/consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos"
-            android:textColor="@color/colorgrayblue"
             android:textSize="12dp"
             android:textStyle="bold"
-            android:fontFamily="@font/subtitle"/>
+            android:fontFamily="@font/subtitle"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
     </LinearLayout>
 

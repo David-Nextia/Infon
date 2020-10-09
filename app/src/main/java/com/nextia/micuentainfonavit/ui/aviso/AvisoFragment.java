@@ -1,7 +1,6 @@
 package com.nextia.micuentainfonavit.ui.aviso;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 
@@ -18,7 +17,6 @@ import android.widget.ArrayAdapter;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.user.Credito;
-import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
@@ -36,16 +34,17 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
     }
     ArrayList<Credito> creditos;
     ArrayAdapter<String> arrayAdapter;
-    ArrayList<String> hey=new ArrayList<>();
+    ArrayList<String> Creditlist =new ArrayList<>();
     DialogInfonavit dialog;
+    ArrayAdapter<String> creditAdapter;
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding= DataBindingUtil.inflate(inflater, R.layout.fragment_aviso, container, false);
         creditos= Utils.getSharedPreferencesUserData(getContext()).getCredito();
-        hey.clear();
-        hey.add("Seleccionar crédito");
+        Creditlist.clear();
+        Creditlist.add("Seleccionar cuenta");
         for(int i=0; i<creditos.size();i++){
-            hey.add("0000"+creditos.get(i).getNumeroCredito());
+            Creditlist.add("0000"+creditos.get(i).getNumeroCredito());
         }
         binding.spCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -73,7 +72,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
         new CountDownTimer(1500, 1000) {
             public void onFinish() {
                 Utils.hideLoadingSkeleton();
-                arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, hey);
+                arrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, Creditlist);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 binding.spCredit.setAdapter(arrayAdapter);
             }
@@ -86,7 +85,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
 
     @Override
     public void onFailureRequest(String message) {
-        dialog.show();
+      dialog.show();
     }
 
     @Override

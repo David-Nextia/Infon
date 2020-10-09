@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -25,6 +27,7 @@ public class MovementsFragment extends Fragment {
 //        movementsViewModel =
 //                ViewModelProviders.of(this).get(MovementsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_movements, container, false);
+
 //        String[] arraySpinner = new String[] {
 //                "1", "2", "3", "4", "5", "6", "7"
 //        };

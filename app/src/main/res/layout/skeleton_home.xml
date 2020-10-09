@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.home.HomeFragment"
@@ -15,33 +14,38 @@
         <TextView
             android:id="@+id/title_welcome"
             style="@style/TxStyleTitle"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/welcome"
             android:layout_marginTop="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/title"/>
+            android:background="@color/light_transparent"
+            android:textColor="@android:color/transparent"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <androidx.cardview.widget.CardView
             android:id="@+id/recyclerwelcome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
+            android:layout_marginStart="36dp"
             android:layout_marginTop="20dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginEnd="36dp"
+            app:cardBackgroundColor="@color/light_transparent"
+            app:cardElevation="0dp"
             android:orientation="horizontal"
-            tools:listitem="@layout/card_view_welcome"
-            app:layout_constraintTop_toBottomOf="@id/title_welcome"/>
-
-        <ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator
-            android:id="@+id/indicatorrecycler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:spi_dotSelectedColor="@color/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/recyclerwelcome"/>
+            app:layout_constraintTop_toBottomOf="@id/title_welcome" />
+
+        <RelativeLayout
+            android:id="@+id/indicatorrecycler"
+            android:layout_width="72dp"
+            android:layout_height="12dp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerwelcome"
+            android:background="@color/light_transparent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

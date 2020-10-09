@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +15,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
 
 public class MarketFragment extends Fragment {
 
     TextView tx_bank;
     RecyclerView rv_market;
     AdapterMarket adapterMarket;
-
+    private View rootView;
     public MarketFragment() {
         // Required empty public constructor
     }
@@ -34,8 +36,8 @@ public class MarketFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_market, container, false);
-
+        View root = inflater.inflate(R.layout.fragment_pay_market, container, false);
+        rootView = root.findViewById(R.id.rootView);
         tx_bank = (TextView) root.findViewById(R.id.tx_bank);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
@@ -58,5 +60,19 @@ public class MarketFragment extends Fragment {
         adapterMarket.notifyDataSetChanged();
 
         return root;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_market);
+        new CountDownTimer(1500, 1000) {
+            public void onFinish() {
+                Utils.hideLoadingSkeleton();
+            }
+
+            public void onTick(long millisUntilFinished) {
+
+            }
+        }.start();
     }
 }

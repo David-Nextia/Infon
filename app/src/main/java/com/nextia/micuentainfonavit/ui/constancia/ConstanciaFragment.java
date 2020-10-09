@@ -51,7 +51,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
         creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
         creditList.clear();
-        creditList.add("Seleccionar crédito");
+        creditList.add("Seleccionar cuenta");
         for(int i=0; i<creditos.size();i++){
             creditList.add("0000"+creditos.get(i).getNumeroCredito());
         }
@@ -118,7 +118,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
     @Override
     public void onFailureRequest(String message) {
-        Toast.makeText(getContext(),"fallo",Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(),"No se pudieron obtener los datos",Toast.LENGTH_LONG).show();
     }
 
     @Override

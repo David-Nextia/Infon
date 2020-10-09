@@ -1,13 +1,18 @@
 package com.nextia.micuentainfonavit;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -18,21 +23,30 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
+import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
+
+import java.io.FileNotFoundException;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
+    private FirebaseAnalytics mFirebaseAnalytics;
     UserUseCase user;
     Switch rememberUser;
     View auxView;
@@ -52,6 +66,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
         instanceActivity(); //iniciar vista y variables
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -68,11 +83,41 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         motionLayoutLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                // es para poder sacarlo del focus y activar las funciones del focus de los edit text
             }
         });
-        setFunctions(this);//condicionales del botton y funciones de Onclick
+        email.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        });
+        password.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus){
+                    InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        });
+        setFunctions(this);//condicionales del botón y funciones de Onclick
+    }
+
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        if (Build.VERSION.SDK_INT < 21) {
+            MotionLayout login=findViewById(R.id.motionLayoutLogin);
+            login.setTransitionDuration(500);
+            //login.transitionToEnd();
+
+        }else{}
+
+        //login.transitionToEnd();
     }
 
     public void instanceActivity() {
@@ -95,7 +140,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         passwordClear = findViewById(R.id.password_clear);
         //initiate variables
         user = new UserUseCase();
-        screenHeight = Utils.getScreenHeight(getApplicationContext());
+        screenHeight = Utils.getScreenHeight(LoginActivity.this);
         set = new ConstraintSet();
         registerLocation = new int[2];
         formLocation = new int[2];
@@ -133,9 +178,9 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        password.setText("ContrasenaQa01");
-        email.setText("aclara106@yopmail.com");
-        if(email.getText().toString().isEmpty() && password.getText().toString().isEmpty()) {
+        //password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
+        if(email.getText().toString().trim().length()==0 || password.getText().toString().trim().length()==0) {
             loginbtn.setEnabled(false);
         } else {
             loginbtn.setEnabled(true);
@@ -159,7 +204,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0 && email.getText().toString().isEmpty() == false) {
+                if (s.toString().trim().length() != 0 && email.getText().toString().trim().length()!=0 ) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -204,7 +249,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() != 0 && password.getText().toString().isEmpty() == false) {
+                if (s.toString().trim().length() != 0 && password.getText().toString().trim().length()!=0) {
                     loginbtn.setEnabled(true);
                 } else {
                     loginbtn.setEnabled(false);
@@ -222,7 +267,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onClick(View v) {
-                progress.setAlpha(1.0f);
+               progress.setAlpha(1.0f);
                 user.doLogin(email.getText().toString(), password.getText().toString(), context);
 
             }
@@ -240,8 +285,10 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     @Override
     public void onFailureRequest(String message) {
-        DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", "Los datos introducidos no son correctos", DialogInfonavit.ONE_BUTTON_DIALOG);
+        DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         alertdialog.show();
+        alertdialog.show();
+        Log.e("error",message);
         ProgressBar progress = findViewById(R.id.progressBar);
         progress.setAlpha(0.0f);
 
@@ -262,7 +309,9 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         ProgressBar progress = findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);
+
         startActivity(i);
+        finish();
     }
 
 

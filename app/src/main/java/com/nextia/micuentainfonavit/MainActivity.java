@@ -1,7 +1,12 @@
 package com.nextia.micuentainfonavit;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +17,8 @@ import android.widget.Button;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -37,14 +44,18 @@ public class MainActivity extends AppCompatActivity  {
             public void onAcceptClickListener(Button button, AlertDialog dialog) {
                 Intent i = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(i);
+                finish();
             }
         });
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
+        }
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+       getSupportActionBar().setDisplayShowTitleEnabled(false);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
@@ -60,6 +71,7 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 alertdialog.show();
+
                 return  true;
             }
         });
@@ -97,8 +109,10 @@ public class MainActivity extends AppCompatActivity  {
                 || super.onSupportNavigateUp();
     }
 
-    public interface onBackListener{
-        void onBackPressed();
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
     }
 
 

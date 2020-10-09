@@ -20,4 +20,12 @@ public class CreditUseCase {
         database.getCredifInfoYear(body,listener);
 
     }
+    public void getInfoCreditHistoric(String credito, OnFinishRequestListener listener){
+        CreditInfoBody credit= new CreditInfoBody();
+        credit.setNumeroCredito(credito);
+        database.getCredifInfoHistoric(credit,listener);
+    }
+
+
+
 }

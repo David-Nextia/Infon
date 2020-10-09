@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,7 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:padding="12dp"
+        android:id="@+id/rootView">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,14 +27,15 @@
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Large"
-                android:textColor="@color/colorTexts"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/colorTexts" />
+                android:background="@color/light_transparent" />
 
             <TextView
                 style="@style/TxStyleSubTitle"
@@ -44,7 +47,9 @@
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@android:color/transparent"
+                android:background="@color/light_transparent"/>
         </LinearLayout>
 
         <TextView
@@ -55,7 +60,8 @@
             android:textSize="13sp"
             android:text="Todos los bancos"
             android:textStyle="bold"
-            android:textColor="@color/colorTexts"/>
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +70,8 @@
             android:gravity="center"
             android:textSize="11sp"
             android:text="En ventanilla o a través de la banca electrónica, vía SPEI, haz una transferencia electrónica, con los siguientes datos: "
-            android:textColor="@color/colorTexts"/>
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -74,7 +81,8 @@
             android:textSize="11sp"
             android:text="@string/clabe"
             android:textStyle="bold"
-            android:textColor="@color/colorTexts"/>
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,84 +94,102 @@
 Tu número de crédito que consta de 10 dígitos, en el campo nombrado como: concepto de pago, motivo de pago o referencia alfanumérica entre otros.
 
 Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu pago fue aceptado o rechazado, así como la clave de rastreo correspondiente."
-            android:textColor="@color/colorTexts"/>
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/colorTexts"
+            android:background="@color/light_transparent"
             android:layout_margin="8dp"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_back_scotiabank"
-            android:layout_margin="6sp"/>
+            android:layout_margin="6sp"
+            app:tint="@color/light_transparent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_scotian"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_banorte"
-            />
+            app:tint="@color/light_transparent" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_banor"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_citibanamex" />
+            android:src="@drawable/ic_back_citibanamex"
+            app:tint="@color/light_transparent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_city"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_santander" />
+            android:src="@drawable/ic_back_santander"
+            app:tint="@color/light_transparent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_santan"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_bansefi" />
+            android:src="@drawable/ic_back_bansefi"
+            app:tint="@color/light_transparent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_bans"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_back_hsbc" />
+            android:src="@drawable/ic_back_hsbc"
+            app:tint="@color/light_transparent" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_hsbc"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <ImageView
             android:layout_margin="6sp"
@@ -175,7 +201,9 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bank_bbva"
-            android:textSize="12sp"/>
+            android:textSize="12sp"
+            android:textColor="@android:color/transparent"
+            android:background="@color/light_transparent"/>
 
         <include layout="@layout/view_desc_pay"/>
 
