@@ -31,6 +31,7 @@
         <item name="android:textSize">24sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorgrayblue</item>
+        <item name="android:fontFamily">@font/subtitle</item>
     </style>
 
     <style name="TxStyleSubSubTitle" parent="android:Widget.TextView">
