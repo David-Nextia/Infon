@@ -62,7 +62,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="11sp"
-            android:text="En ventanilla o a través de la banca electrónica, vía SPEI, haz una transferencia electrónica, con los siguientes datos: "
+            android:text="En ventanilla o a través de la banca electrónica, vía SPEI. haz una transferencia electrónica, con los siguientes datos: "
             android:textColor="@color/colorTexts"
             android:fontFamily="@font/body"/>
 
@@ -82,10 +82,9 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="11sp"
-            android:text="El número 5503, en el campo que pide la referencia o referencia numérica y que puedes distinguir porque no admite más de 7 dígitos.
-Tu número de crédito que consta de 10 dígitos, en el campo nombrado como: concepto de pago, motivo de pago o referencia alfanumérica entre otros.
-
-Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu pago fue aceptado o rechazado, así como la clave de rastreo correspondiente."
+            android:text="En el campo, Referencia o Referencia Numérica, digita el número 5503; lo puedes distinguir porque no admite más de 7 dígitos.
+\nEn el campo, Concepto de pago, Motivo de pago o Referencia alfanumérica; digita tu número de crédito que consta de 10 dígitos.
+\n Al hacer tu pago por Banca electrónica, el mismo medio te notificará si tu pago fue aceptado o rechazado, también te proporcionará la clave de rastreo correspondiente."
             android:textColor="@color/colorTexts"
             android:fontFamily="@font/body"/>
 

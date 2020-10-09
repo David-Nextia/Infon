@@ -111,7 +111,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tipo de interes:"
+                        android:text="Tipo de interés:"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -306,7 +306,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tasa de interes:"
+                        android:text="Tasa de interés:"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -660,7 +660,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tasa de interes:"
+                        android:text="Tasa de interés:"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -688,7 +688,7 @@
                         android:layout_gravity="center"
                         android:textAlignment="center"
                         android:gravity="center"
-                        android:text="Tipo de interes:"
+                        android:text="Tipo de interés:"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -855,7 +855,7 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textAlignment="center"
-                        android:text="Guia para conocer los detalles del Seguro de Calidad"
+                        android:text="Guía para conocer los detalles del Seguro de Calidad"
                        />
 
                     <ImageButton
@@ -894,7 +894,7 @@
                         android:background="@android:color/transparent"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/pdf_bitmap" />
+                        android:src="@drawable/pdf" />
 
                 </LinearLayout>
 

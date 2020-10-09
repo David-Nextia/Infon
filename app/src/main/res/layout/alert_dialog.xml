@@ -66,7 +66,8 @@
                             android:backgroundTint="@color/colorskeleton"
                             android:textColor="@color/color_white"
                             android:text="Si"
-                            android:fontFamily="@font/body"/>
+                            android:fontFamily="@font/body"
+                            android:textAllCaps="false"/>
                         <Button
                             android:id="@+id/buttoncancel"
                             android:layout_width="match_parent"
@@ -74,8 +75,9 @@
                             android:layout_weight="1"
                             android:background="@drawable/ripple_button"
                             android:textColor="@color/color_white"
-                            android:text="NO"
-                            android:fontFamily="@font/body"/>
+                            android:text="No"
+                            android:fontFamily="@font/body"
+                            android:textAllCaps="false"/>
 
                 </LinearLayout>
             </LinearLayout>
