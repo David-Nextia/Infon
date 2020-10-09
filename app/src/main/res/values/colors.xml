@@ -11,7 +11,7 @@
     <color name="color_black">#000000</color>
     <color name="color_drak_gray">#554A4A</color>
     <color name="color_blue">#213D66</color>
-
+    <color name="color_transparent">#00000000</color>
     <color name="colorTexts">#4c5f76</color>
     <color name="colorTextsSubTitle">#4a4a4a</color>
     <color name="colorTextsTitle">#1c5875</color>

@@ -26,9 +26,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
-                android:textAppearance="@android:style/TextAppearance.Large"
-                android:textColor="@color/colorTexts"
-                android:textStyle="bold" />
+               style="@style/TxStyleSubTitle" />
 
             <View
                 android:id="@+id/view"
@@ -44,9 +42,8 @@
                 android:layout_marginTop="10dp"
                 android:text=" Opciones de pago"
                 android:textAlignment="center"
-                android:textAppearance="@android:style/TextAppearance.Large"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                 />
 
         </LinearLayout>
 
@@ -66,7 +63,7 @@
             android:layout_gravity="center"
             android:textSize="12sp"
             android:text="El pago mínimo es de $50.00 y en efectivo. Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar. En estos establecimientos no se cobra comisión por este servicio."
-            android:textAppearance="@android:style/TextAppearance.Small"
+            android:fontFamily="@font/body"
             android:gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -78,8 +75,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lugares donde se encuetre el logotipo con la leyenda de Akinet."
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            android:fontFamily="@font/subtitle"
+            android:layout_marginTop="16dp"
+            />
 
         <include layout="@layout/view_desc_pay"/>
 

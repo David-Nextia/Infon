@@ -33,7 +33,7 @@
                 android:layout_marginTop="10dp"
                 android:text="@string/saldos_y_movimientos"
                 style="@style/TxStyleSubTitle"
-                android:fontFamily="@font/title"/>
+               />
         </LinearLayout>
 
 
@@ -92,7 +92,8 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
@@ -121,7 +122,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -151,7 +152,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -191,7 +192,7 @@
                         android:layout_marginTop="5dp"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -232,7 +233,7 @@
                         android:layout_marginTop="15dp"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -273,7 +274,7 @@
                         android:layout_marginTop="15dp"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -316,7 +317,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
                 </LinearLayout>
 
 
@@ -347,7 +348,7 @@
                         android:text="-"
                         android:textAlignment="center"
 
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -378,7 +379,7 @@
                         android:text="-"
                         android:textAlignment="center"
 
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -484,7 +485,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -515,7 +516,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -555,7 +556,7 @@
                         android:layout_marginTop="5dp"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -598,7 +599,7 @@
                         android:text="-"
                         android:textAlignment="center"
 
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -629,7 +630,7 @@
                         android:text="-"
                         android:textAlignment="center"
 
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -670,7 +671,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -698,7 +699,7 @@
                         android:gravity="center"
                         android:text="-"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -825,7 +826,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Seguro de Calidad"
                         android:textAlignment="center"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 

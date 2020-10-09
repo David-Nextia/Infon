@@ -16,8 +16,11 @@
         android:textStyle="bold"
         android:layout_gravity="center"
         android:gravity="center"
+
         android:fontFamily="@font/subtitle"/>
     <TextView
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:id="@+id/txtMySaving"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +38,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="14sp"
         android:textStyle="bold"
+
         android:layout_gravity="center"
         android:gravity="center"
         android:fontFamily="@font/subtitle"/>
