@@ -66,10 +66,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         new CountDownTimer(1500, 1000) {
             public void onFinish() {
                 Utils.hideLoadingSkeleton();
-                binding.btnConsultarConstancia.setEnabled(false);
-                creditAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, creditList);
-                creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
+
             }
 
             public void onTick(long millisUntilFinished) {
@@ -117,6 +114,11 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
             }
         });
+
+        binding.btnConsultarConstancia.setEnabled(false);
+        creditAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, creditList);
+        creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
     }
 
     //setButton methods and states

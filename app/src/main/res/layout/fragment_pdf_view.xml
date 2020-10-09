@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pdf_view.PdfViewFragment">
+    tools:context=".ui.pdf_view.PdfViewFragment"
+    android:background="@drawable/back">
 
 <com.github.barteksc.pdfviewer.PDFView
     android:layout_width="match_parent"

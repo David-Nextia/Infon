@@ -16,7 +16,7 @@ public class DatosTecnicos {
     private String descripcionRespuesta;
     @SerializedName("numeroFormato")
     @Expose
-    private Integer numeroFormato;
+    private String numeroFormato;
 
     public String getCodigoRespuesta() {
         return codigoRespuesta;
@@ -34,11 +34,11 @@ public class DatosTecnicos {
         this.descripcionRespuesta = descripcionRespuesta;
     }
 
-    public Integer getNumeroFormato() {
+    public String getNumeroFormato() {
         return numeroFormato;
     }
 
-    public void setNumeroFormato(Integer numeroFormato) {
+    public void setNumeroFormato(String numeroFormato) {
         this.numeroFormato = numeroFormato;
     }
 

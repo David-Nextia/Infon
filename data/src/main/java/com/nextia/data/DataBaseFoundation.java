@@ -4,6 +4,8 @@ package com.nextia.data;
  */
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.credit_info.CreditInfoBody;
+import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.user.UserBody;
 import com.nextia.domain.models.user.UserResponse;
@@ -25,11 +27,19 @@ public class DataBaseFoundation<T> {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
                 if(response.body() instanceof HistoricResponse){
-                    if(((HistoricResponse) response.body()).getStatusServicio().getCodigo()=="00"){
+                    if(((HistoricResponse) response.body()).getStatusServicio().getCodigo().contains("00")){
                         listener.onSuccesRequest(response.body());
                     }
                     else{
                         listener.onFailureRequest(((HistoricResponse) response.body()).getStatusServicio().getMensaje());
+                    }
+                }
+                if(response.body() instanceof CreditYearInfoResponse){
+                    if(((CreditYearInfoResponse) response.body()).getDatosTecnicos().getCodigoRespuesta().equals("00")){
+                        listener.onSuccesRequest(response.body());
+                    }
+                    else{
+                        listener.onFailureRequest(((CreditYearInfoResponse) response.body()).getDatosTecnicos().getDescripcionRespuesta());
                     }
                 }
                 else{

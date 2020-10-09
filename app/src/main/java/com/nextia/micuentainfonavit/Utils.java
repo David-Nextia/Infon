@@ -118,6 +118,21 @@ public class Utils {
         return height;
     }
 
+    //To get the device screen width
+    public static int getScreenWidth(Activity context) {
+        int width;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            context.getDisplay().getRealMetrics(displayMetrics);
+        } else {
+            context.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        }
+
+        width = displayMetrics.widthPixels;
+        return width;
+    }
+
     //To share other apps string
     public static void showShareIntent(Activity activity) {
         String image_url = "http://images.cartradeexchange.com//img//800//vehicle//Honda_Brio_562672_5995_6_1438153637072.jpg";

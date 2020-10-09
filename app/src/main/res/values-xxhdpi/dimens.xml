@@ -9,4 +9,5 @@
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">9sp</dimen>
     <dimen name="avisomargin">35dp</dimen>
     <dimen name="logoposition">250dp</dimen>
+    <dimen name="WelcomeCardWidth">320dp</dimen>
 </resources>

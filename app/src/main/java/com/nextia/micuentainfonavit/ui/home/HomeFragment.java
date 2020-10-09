@@ -5,6 +5,7 @@ package com.nextia.micuentainfonavit.ui.home;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,11 @@ public class HomeFragment extends Fragment {
         adapter = new CardAdapter();
         recyclerView.setAdapter(adapter);
         recyclerIndicator.attachToRecyclerView(recyclerView);
+        int halfCard = (int) (getResources().getDimension(R.dimen.WelcomeCardWidth))/2;
+        int halfScreenWidth=(Utils.getScreenWidth(getActivity()))/2;
+        int padding= halfScreenWidth-halfCard;
+        recyclerView.setPadding(padding,0,padding,0);
+
     }
 
     //To set wich data will be observed and trigger methods
@@ -79,6 +85,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onChanged(ArrayList<WelcomeCard> welcomeCards) {
                 adapter.setData(welcomeCards);
+
             }
         });
     }

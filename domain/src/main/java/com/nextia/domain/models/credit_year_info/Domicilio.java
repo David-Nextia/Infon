@@ -22,7 +22,7 @@ public class Domicilio {
     private String estado;
     @SerializedName("cp")
     @Expose
-    private Integer cp;
+    private Integer cp=0;
 
     public String getCalleNumero() {
         return calleNumero;
