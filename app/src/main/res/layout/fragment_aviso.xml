@@ -30,6 +30,7 @@
                     android:layout_marginTop="20dp"
                     android:text="@string/title_retencion"
                     style="@style/TxStyleTitle"
+                    android:fontFamily="@font/title"
                     android:textColor="@color/color_blue"
 
                     />
@@ -50,7 +51,8 @@
                     android:gravity="center"
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
-                    android:layout_marginTop="12dp" />
+                    android:layout_marginTop="12dp"
+                    android:fontFamily="@font/regular"/>
 
                 <Spinner
                     android:id="@+id/sp_credit"
@@ -59,7 +61,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginStart="50dp"
-                    android:layout_marginEnd="50dp" />
+                    android:layout_marginEnd="50dp"
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -70,7 +73,8 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:layout_marginTop="12dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:fontFamily="@font/regular"/>
 
 
                 <LinearLayout
@@ -88,7 +92,8 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginStart="2dp"
                         android:background="@drawable/circle_gray"
-                        android:backgroundTint="@color/color_black" />
+                        android:backgroundTint="@color/color_black"
+                        android:fontFamily="@font/regular"/>
 
 
                     <TextView
@@ -98,7 +103,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="3dp"
                         android:text="@string/Advertencia_pt_2"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/regular" />
 
                 </LinearLayout>
 
@@ -116,7 +121,8 @@
                         android:layout_height="7dp"
                         android:layout_marginTop="3dp"
                         android:background="@drawable/circle_gray"
-                        android:backgroundTint="@color/color_black" />
+                        android:backgroundTint="@color/color_black"
+                        />
 
 
                     <TextView
@@ -126,7 +132,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="3dp"
                         android:text="@string/Advertencia_pt_3"
-                        android:textStyle="bold" />
+                        android:fontFamily="@font/regular"/>
 
                 </LinearLayout>
 
@@ -139,7 +145,7 @@
                     android:layout_marginEnd="30dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="6dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/regular" />
 
                 <View
                     android:layout_width="match_parent"
@@ -158,7 +164,8 @@
                     android:layout_gravity="center"
                     android:layout_marginEnd="30dp"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="24dp" />
+                    android:layout_marginTop="24dp"
+                    android:fontFamily="@font/regular"/>
 
 
                 <TextView
@@ -170,6 +177,7 @@
                     android:layout_marginStart="30dp"
                     android:layout_marginEnd="30dp"
                     android:layout_gravity="center"
+                    android:fontFamily="@font/regular"
                     android:clickable="true"
 
                     />

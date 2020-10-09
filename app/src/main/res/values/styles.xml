@@ -53,6 +53,7 @@
         <item name="android:textSize">23sp</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorPrimary</item>
+
     </style>
 
 
