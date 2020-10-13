@@ -40,7 +40,7 @@ public class SavingsViewModel extends ViewModel implements OnFinishRequestListen
 
     //method to handle the success response of the service
     @Override
-    public void onSuccesRequest(SaldoResponse object) {
+    public void onSuccesRequest(SaldoResponse object, String token) {
         _saldo.setValue(object);
     }
 }

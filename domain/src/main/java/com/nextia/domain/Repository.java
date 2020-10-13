@@ -26,7 +26,7 @@ public interface Repository {
     String GET_CREDIT_INFO_HISTORIC_BASE ="/RESTAdapter/SndEdoCuentaHistoricoConsultar";
 
     @POST(LOGIN_BASE)
-    Call<UserResponse> logInMethod(@Body UserBody user, @Header("Authorization") String auth);
+    Call<UserResponse> logInMethod(@Body UserBody user);
     @POST(GET_SALDO_BASE)
     Call<SaldoResponse>  getSaldo(@Body SaldoBody saldo, @Header("Authorization") String auth);
     @POST(GET_CREDIT_INFO_BASE)

@@ -8,6 +8,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
@@ -32,6 +37,7 @@ import com.ethanhua.skeleton.Skeleton;
 import com.ethanhua.skeleton.ViewSkeletonScreen;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.user.Credito;
 import com.nextia.domain.models.user.UserResponse;
@@ -44,6 +50,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Locale;
+
+import static java.security.AccessController.getContext;
 
 
 public class Utils {
@@ -255,34 +265,93 @@ public class Utils {
         activity.startActivity(Intent.createChooser(share, "Share it"));
     }
 
-    //To create a pdf from canvas
+    //To create a pdf with canvas
     public static File createPdfFromCanvas(PdfConstanciaDownloadViewModel mViewModel, String Name, Activity activity) {
         String myFilePath;
         File myfile;
+        CreditYearInfoResponse credit=mViewModel.getCreditInfo().getValue();
+        String credutNum= mViewModel.getCredit().getValue();
+        String creditYear= mViewModel.getYear().getValue();
         PdfDocument pdfDocument = new PdfDocument();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(300, 600, 1).create();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(340, 600, 1).create();
         PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
         Paint myPaint = new Paint();
-        mypage.getCanvas().drawText("Este es un pdf", 10, 30, myPaint);
-        mypage.getCanvas().drawText("Datos del servidor:", 10, 50, myPaint);
-        mypage.getCanvas().drawText("Datos técnicos:", 10, 70, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getCodigoRespuesta(), 10, 90, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta(), 10, 100, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosTecnicos().getNumeroFormato().toString(), 10, 110, myPaint);
+        Canvas canvas= mypage.getCanvas();
 
-        mypage.getCanvas().drawText("Datos generales:", 10, 130, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getNombre(), 10, 150, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc(), 10, 160, myPaint);
-        mypage.getCanvas().drawText("Domicilio:", 10, 175, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCalleNumero(), 10, 185, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getColonia(), 10, 195, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getEstado(), 10, 205, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getPoblacion(), 10, 215, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosGenerales().getDomicilio().getCp().toString(), 10, 225, myPaint);
-        mypage.getCanvas().drawText("Datos financieros:", 10, 245, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getDomicilioFiscal(), 10, 255, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRfc(), 10, 265, myPaint);
-        mypage.getCanvas().drawText(mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial(), 10, 275, myPaint);
+        //setting title format
+        Paint paintTitle = new Paint();
+        paintTitle.setTextSize(10f);
+        paintTitle.setFakeBoldText(true);
+
+        //setting body text format
+        Paint paintText = new Paint();
+        paintText.setTextSize(8f);
+
+        //setting description text format
+        Paint paintTextDescription = new Paint();
+        paintTextDescription.setTextSize(7f);
+
+        //setting subdirect text format
+        Paint paintTitleSubdirec = new Paint();
+        paintTitleSubdirec.setTextSize((float) 7.5);
+        paintTitleSubdirec.setFakeBoldText(true);
+        paintTitleSubdirec.setColor(Color.BLACK);
+
+        //setting images on pdf
+        Bitmap logo = null;
+        Bitmap cedula = null;
+        Bitmap scaleImageCedula = null;
+        Bitmap scaleImageLogo = null;
+        if (getContext() != null) {
+            logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
+            cedula = BitmapFactory.decodeResource(activity.getResources(), R.drawable.cedula_rfc);
+            scaleImageLogo=Bitmap.createScaledBitmap(logo,60,60,true);
+            scaleImageCedula = Bitmap.createScaledBitmap(cedula, 90, 160, true);
+        }
+        paintTitle.setColor(Color.BLACK);
+        if (logo != null) {
+            canvas.drawBitmap(getResizedBitmap(logo, 60, 60), 20, 10, null);
+            //canvas.drawBitmap(scaleImageLogo, 20, 10, null);
+        }
+
+        //writing title
+        canvas.drawText("INSTITUTO DEL FONDO NACIONAL DE LA", 95, 20, paintTitle);
+        canvas.drawText("VIVIENDA PARA LOS TRABAJADORES", 100, 30, paintTitle);
+
+        //writing body text
+        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
+        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
+        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
+        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
+        canvas.drawText("RFC: " + credit.getDatosGenerales().getRfc(), 210, 100, paintText);
+        canvas.drawText("CRÉDITO: " + credutNum, 185, 110, paintText);
+        canvas.drawText(getDate(), 20, 135, paintText);
+        canvas.drawText("C. Acreditado", 20, 145, paintText);
+        canvas.drawText("Esta es tu Carta Constancia de Intereses del ejercicio " + creditYear + " de tu crédito", 20, 155, paintTextDescription);
+        canvas.drawText("del Infonavit. Te será de ayuda para poder deducir en tu declaración anual", 20, 165, paintTextDescription);
+        canvas.drawText("los  intereses  reales  pagados  por  tu  créditoInfonavit,  en caso de que ", 20, 175, paintTextDescription);
+        canvas.drawText("debas presentarla. Contiene e indica el monto de los intereses nominales", 20, 185, paintTextDescription);
+        canvas.drawText("devengados,  así  como  los  intereses pagados en el ejercicio " + creditYear + " y los ", 20, 195, paintTextDescription);
+        canvas.drawText("intereses reales. De esta forma cumplimos con lo dispuesto en la Ley del", 20, 205, paintTextDescription);
+        canvas.drawText("Impuesto sobre la Renta y su reglamento.", 20, 215, paintTextDescription);
+        canvas.drawText("DOMICILIO Y UBICACIÓN DEL INMUEBLE HIPOTECADO: ", 20, 235, paintText);
+        canvas.drawText("NOMBRE DEL ACREDITADO: " + credit.getDatosGenerales().getNombre(), 20, 255, paintText);
+        canvas.drawText("CALLE: " + credit.getDatosGenerales().getDomicilio().getCalleNumero(), 20, 265, paintText);
+        canvas.drawText("COLONIA: " + credit.getDatosGenerales().getDomicilio().getColonia(), 20, 275, paintText);
+        canvas.drawText("MUNICIPIO: " + credit.getDatosGenerales().getDomicilio().getPoblacion(), 20, 285, paintText);
+        canvas.drawText("ESTADO: " + credit.getDatosGenerales().getDomicilio().getEstado(), 20, 295, paintText);
+        canvas.drawText("CÓDIGO POSTAL: " + credit.getDatosGenerales().getDomicilio().getCp(), 20, 305, paintText);
+        //writing description
+        canvas.drawText("INTERESES DEL CRÉDITO HIPOTECARIO: ", 20, 335, paintTextDescription);
+        canvas.drawText("Intereses nominales devengados: " + credit.getDatosFinancieros().getInteresDevengado(), 20, 355, paintTextDescription);
+        canvas.drawText("Intereses pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresPagado(), 20, 365, paintTextDescription);
+        canvas.drawText("Intereses reales pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresReal(), 20, 375, paintTextDescription);
+        canvas.drawText("ATENTAMENTE", 20, 395, paintText);
+        canvas.drawText("Subdirección General de Administración de Cartera", 20, 408, paintTitleSubdirec);
+        if (scaleImageCedula != null) {
+            canvas.drawBitmap(scaleImageCedula, 240, 390, null);
+        }
+
         pdfDocument.finishPage(mypage);
         try {
             myFilePath = activity.getExternalFilesDir(null).getAbsolutePath() + "/" + Name + ".pdf";
@@ -298,6 +367,24 @@ public class Utils {
         }
         pdfDocument.close();
         return myfile;
+    }
+
+    //to resize mipmaps
+    public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
+        int width = bm.getWidth();
+        int height = bm.getHeight();
+        float scaleWidth = ((float) newWidth) / width;
+        float scaleHeight = ((float) newHeight) / height;
+        // CREATE A MATRIX FOR THE MANIPULATION
+        Matrix matrix = new Matrix();
+        // RESIZE THE BIT MAP
+        matrix.postScale(scaleWidth, scaleHeight);
+
+        // "RECREATE" THE NEW BITMAP
+        Bitmap resizedBitmap = Bitmap.createBitmap(
+                bm, 0, 0, width, height, matrix, false);
+        bm.recycle();
+        return resizedBitmap;
     }
 
     //To create a pfd from Base64 String
@@ -323,6 +410,15 @@ public class Utils {
         }
 
         return myfile;
+    }
+
+    //to get actual date
+    public static String getDate() {
+        Calendar c = Calendar.getInstance();
+        String month = c.getDisplayName(Calendar.MONTH, Calendar.LONG, new Locale("es", "ES"));
+        int year = c.get(Calendar.YEAR);
+        int day = c.get(Calendar.DAY_OF_WEEK);
+        return month.toUpperCase() + " " + day + " DEL " + year;
     }
 
 }

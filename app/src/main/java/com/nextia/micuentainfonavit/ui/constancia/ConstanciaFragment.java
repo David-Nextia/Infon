@@ -141,7 +141,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
     //To manage on Succes request
     @Override
-    public void onSuccesRequest(CreditInfoResponse object) {
+    public void onSuccesRequest(CreditInfoResponse object, String token) {
         listItemAnio =object.getRespuesta();
         listanios.clear();
         listanios.add("Seleccionar año");

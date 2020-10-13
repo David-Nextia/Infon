@@ -147,7 +147,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
     //handle success response of server
     @Override
-    public void onSuccesRequest(HistoricResponse object) {
+    public void onSuccesRequest(HistoricResponse object, String token) {
         binding.shareHistoricPdf.animate().alpha(1.0f);
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);

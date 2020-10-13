@@ -36,6 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitService {
 
     private static final String URL_BASE="https://serviciosweb.infonavit.org.mx:8625";
+    private static final String URL_BASE_LOGIN="https://serviciosweb.infonavit.org.mx:8893";
     static Gson gson = new GsonBuilder().registerTypeAdapter(UserResponse.class, new UserResponseDeserealizer()).create();
 
     //To create the repository with the apiService
@@ -44,6 +45,19 @@ public class RetrofitService {
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
+                //.addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(getUnsafeOkHttpClient().addInterceptor(logging).build())
+                .build();
+        return retrofit.create(Repository.class);
+    }
+
+    //to get login service
+    public static Repository getApiLoginService(){
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL_BASE_LOGIN)
                 //.addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getUnsafeOkHttpClient().addInterceptor(logging).build())

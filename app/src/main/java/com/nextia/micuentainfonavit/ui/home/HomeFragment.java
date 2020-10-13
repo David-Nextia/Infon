@@ -3,6 +3,7 @@ package com.nextia.micuentainfonavit.ui.home;
  * class of view home, showing welcome cards
  */
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.DisplayMetrics;
@@ -29,12 +30,18 @@ import java.util.ArrayList;
 import ru.tinkoff.scrollingpagerindicator.ScrollingPagerIndicator;
 
 public class HomeFragment extends Fragment {
-
+    private FirebaseAnalytics mFirebaseAnalytics;
     private RecyclerView recyclerView;
     private HomeViewModel homeViewModel;
     private View rootView;
     CardAdapter adapter;
     ScrollingPagerIndicator recyclerIndicator;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(context);
+    }
 
     //creating and instancing view
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

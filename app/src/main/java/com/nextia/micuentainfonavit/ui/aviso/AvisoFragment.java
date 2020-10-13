@@ -98,7 +98,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
 
     //To manage on Succes request
     @Override
-    public void onSuccesRequest(Object object) {
+    public void onSuccesRequest(Object object, String token) {
         //dialog.show();
     }
 

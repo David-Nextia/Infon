@@ -26,12 +26,14 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
@@ -69,7 +71,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         instanceActivity(); //iniciar vista y variables
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -304,7 +305,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
     //To manage success request response
     @Override
-    public void onSuccesRequest(UserResponse object) {
+    public void onSuccesRequest(UserResponse object, String token) {
         if (rememberUser.isChecked()) {
             Utils.saveToSharedPreferences(getApplicationContext(), "emailUser", email.getText().toString());
         } else {

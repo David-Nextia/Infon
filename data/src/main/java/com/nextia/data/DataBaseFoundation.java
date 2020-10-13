@@ -28,7 +28,7 @@ public class DataBaseFoundation<T> {
             public void onResponse(Call<T> call, Response<T> response) {
                 if(response.body() instanceof HistoricResponse){
                     if(((HistoricResponse) response.body()).getStatusServicio().getCodigo().contains("00")){
-                        listener.onSuccesRequest(response.body());
+                        listener.onSuccesRequest(response.body(),"");
                     }
                     else{
                         listener.onFailureRequest(((HistoricResponse) response.body()).getStatusServicio().getMensaje());
@@ -36,14 +36,14 @@ public class DataBaseFoundation<T> {
                 }
                 if(response.body() instanceof CreditYearInfoResponse){
                     if(((CreditYearInfoResponse) response.body()).getDatosTecnicos().getCodigoRespuesta().equals("00")){
-                        listener.onSuccesRequest(response.body());
+                        listener.onSuccesRequest(response.body(),"");
                     }
                     else{
                         listener.onFailureRequest(((CreditYearInfoResponse) response.body()).getDatosTecnicos().getDescripcionRespuesta());
                     }
                 }
                 else{
-                    listener.onSuccesRequest(response.body());
+                    listener.onSuccesRequest(response.body(),"");
                 }
 
             }
