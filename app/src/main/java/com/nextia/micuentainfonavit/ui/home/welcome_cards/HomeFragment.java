@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.home;
+package com.nextia.micuentainfonavit.ui.home.welcome_cards;
 /**
  * class of view home, showing welcome cards
  */

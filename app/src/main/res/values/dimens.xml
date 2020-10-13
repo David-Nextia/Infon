@@ -9,4 +9,17 @@
     <dimen name="design_bottom_navigation_active_text_size" tools:override="true">12sp</dimen>
     <dimen name="desig_bottom_navigation_design_bottom_navigation_margin" tools:override="true">5dp</dimen>
     <dimen name="avisomargin">35dp</dimen>
+
+    <!--Dimens in dp    -->
+    <dimen name="d10dp">10dp</dimen>
+    <dimen name="d40dp">40dp</dimen>
+    <dimen name="d50dp">50dp</dimen>
+    <dimen name="d30dp">30dp</dimen>
+    <dimen name="d30sp">30sp</dimen>
+    <dimen name="d16sp">16sp</dimen>
+    <dimen name="d20dp">20dp</dimen>
+    <dimen name="d20sp">20sp</dimen>
+    <dimen name="d5dp">5dp</dimen>
+    <dimen name="d18sp">18sp</dimen>
+    <dimen name="d10sp">10sp</dimen>
 </resources>

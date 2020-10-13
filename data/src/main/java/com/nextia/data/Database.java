@@ -15,6 +15,9 @@ import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
 import com.nextia.domain.models.welcome.WelcomeCard;
 
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Base64;
 
@@ -36,11 +39,22 @@ public class Database {
             @Override
             //On wrong credentials login returns credit object instead credit list, and that triggers OnFailure
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                String t=response.body().getStatusServicio().getCodigo();
-                if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
-               listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
-                else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
+                if(response.code()>400){
+                    try {
+                        JSONObject jObjError = new JSONObject(response.errorBody().string());
+                        listener.onFailureRequest(jObjError.getJSONObject("StatusServicio").getString("mensaje"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else{
+                    String t=response.body().getStatusServicio().getCodigo();
+                    if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
+                        listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
+                    else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
+                    }
                 }
+
+
             }
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {

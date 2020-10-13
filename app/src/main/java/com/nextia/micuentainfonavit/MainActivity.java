@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity  {
         navigationView.setItemIconTintList(null);
         header = navigationView.getHeaderView(0);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
+                R.id.nav_new_welcome,R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
                 .setDrawerLayout(drawer)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);

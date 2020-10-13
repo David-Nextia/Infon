@@ -21,6 +21,7 @@
     <string name="menu_perfil">Mostrar perfil</string>
     <string name="menu_pdf_constancia">Mostrar Constancia PDF</string>
     <string name="menu_pdf_view">Pdf viewer</string>
+    <string name="menu_new_welcome">New Welcome</string>
     <string name="menu_title">Menú</string>
     <string name="welcome">Bienvenido</string>
     <string name="follow_us">Síguenos</string>
@@ -141,5 +142,14 @@
     <string name="bank_bbva">I) Pagar en su Banca en línea\nII) Cajeros automáticos las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito; la cantidad a pagar se descontará del saldo de tu tarjeta de débito BBVA Bancomer.\nIII) Practicajas (cajeros receptores) de este banco las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito.\nIV) Acude a la sucursal de tu preferencia dale al cajero los 10 dígitos de tu número de crédito e indícale la cantidad a pagar así como el número de convenio con el Infonavit CIE 828289.</string>
 
     <string name="desc_pay">Tu pago se hará en dólares\ny aplicará al tipo de cambio del día.</string>
+
+
+<!--    vista dee new welcome-->
+    <string name="bienvenido_signo">¡Bienvenido</string>
+    <string name="en_esta_nueva_version">En esta nueva versión de la aplicación podrás consultar la siguiente información:</string>
+    <string name="consultar_tu_ahorro_vivienda">consultar tu ahorro para vivienda de los diferentes periodos</string>
+    <string name="obtener_constancia_de_intereses">Obtener la constancia de intereses para la declaración anual de tu crédito</string>
+    <string name="consultar_informacion_saldos_movimientos">Consultar información para la administración de tu crédito en el servicio de saldos y movimientos</string>
+    <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona el servicio que quieres consultar desde el menú</string>
 
 </resources>
