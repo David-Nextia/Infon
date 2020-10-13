@@ -72,6 +72,12 @@ public class Utils {
 
     }
 
+    //To get the token on app, saved on shared preferences
+    public static String getSharedPreferencesToken(Context context) {
+        SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
+        return mPrefs.getString("Token", "");
+
+    }
     //To format String as money double
     public static String formatMoney(double num) {
         String money;

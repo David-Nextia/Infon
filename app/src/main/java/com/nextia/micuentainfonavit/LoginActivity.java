@@ -316,6 +316,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         Gson gson = new Gson();
         String json = gson.toJson(object);
         Utils.saveToSharedPreferences(getApplicationContext(), "UsuarioData", json);
+        Utils.saveToSharedPreferences(getApplicationContext(), "Token", token);
         ProgressBar progress = findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);
