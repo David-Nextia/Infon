@@ -52,31 +52,31 @@ public class Database {
     }
 
     //To  get the SaldosResponse class from DB
-    public void getSaldos(SaldoBody body, final OnFinishRequestListener<SaldoResponse> listener){
+    public void getSaldos(SaldoBody body, String token, final OnFinishRequestListener<SaldoResponse> listener){
 
         DataBaseFoundation database= new DataBaseFoundation<SaldoBody>();
-        Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,AUTH);
+        Call<SaldoResponse> getSaldo =RetrofitService.getApiService().getSaldo(body,token);
         database.getData(getSaldo,listener);
     }
 
     //To get the credit info of each credit of the user
-    public void getCredifInfo(CreditInfoBody body, final OnFinishRequestListener<CreditInfoResponse> listener){
+    public void getCredifInfo(CreditInfoBody body, String token, final OnFinishRequestListener<CreditInfoResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditInfoBody>();
-        Call<CreditInfoResponse> getInfoCredit =RetrofitService.getApiService().getCreditInfo(body,AUTH);
+        Call<CreditInfoResponse> getInfoCredit =RetrofitService.getApiService().getCreditInfo(body,token);
         database.getData(getInfoCredit,listener);
     }
 
     //To get the info on credit per year
-    public void getCredifInfoYear(CreditYearInfoBody body, final OnFinishRequestListener<CreditYearInfoResponse> listener){
+    public void getCredifInfoYear(CreditYearInfoBody body, String token, final OnFinishRequestListener<CreditYearInfoResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
-        Call<CreditYearInfoResponse> getInfoCreditYear =RetrofitService.getApiService().getCreditInfoYear(body, AUTH);
+        Call<CreditYearInfoResponse> getInfoCreditYear =RetrofitService.getApiService().getCreditInfoYear(body, token);
         database.getData(getInfoCreditYear,listener);
     }
 
     //To get the urlBase64 of the credit
-    public void getCredifInfoHistoric(CreditInfoBody body, final OnFinishRequestListener<HistoricResponse> listener){
+    public void getCredifInfoHistoric(CreditInfoBody body, String token, final OnFinishRequestListener<HistoricResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
-        Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, AUTH);
+        Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, token);
         database.getData(getInfoCreditHistoric,listener);
     }
 

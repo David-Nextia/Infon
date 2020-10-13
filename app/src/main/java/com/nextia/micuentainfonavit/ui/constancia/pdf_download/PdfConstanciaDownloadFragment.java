@@ -53,7 +53,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
     //to  get data from server with teh credit and year
     public void getData(){
-        creditUseCase.getInfoCreditYear(mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
+        creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()),mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
     }
 
    //starts skeleton before view

@@ -88,7 +88,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if(position!=0)
                 {
-                    creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(), ConstanciaFragment.this);
+                    creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
                 }
             }
 
