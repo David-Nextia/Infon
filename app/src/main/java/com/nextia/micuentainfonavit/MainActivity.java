@@ -53,13 +53,6 @@ public class MainActivity extends AppCompatActivity  {
     TextView tvTermAndCond;
     TextView tvNoticePrivacy;
     ImageView ivCloseMenu;
-    private FirebaseAnalytics mFirebaseAnalytics;
-    @Override
-    public void onAttachFragment(@NonNull Fragment fragment) {
-        super.onAttachFragment(fragment);
-        mFirebaseAnalytics=FirebaseAnalytics.getInstance(fragment.getContext());
-    }
-
     Toolbar toolbar;
     //create of the view, and instance of variables
     @Override
