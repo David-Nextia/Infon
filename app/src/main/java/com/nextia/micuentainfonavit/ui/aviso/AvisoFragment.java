@@ -75,8 +75,8 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
                 if (position != 0) {
                     dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
                     //servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
-                    UserUseCase user = new UserUseCase();
-                    user.doLogin("", "", AvisoFragment.this);
+                    //UserUseCase user = new UserUseCase();
+                    //user.doLogin("", "", AvisoFragment.this);
                 }
             }
 
