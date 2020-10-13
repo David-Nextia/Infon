@@ -6,9 +6,12 @@ package com.nextia.micuentainfonavit;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +32,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.core.view.MenuCompat;
+import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -42,6 +46,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.nextia.micuentainfonavit.databinding.ActivityMainBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 
@@ -50,20 +55,28 @@ import okhttp3.internal.Util;
 public class MainActivity extends AppCompatActivity  {
 
     private AppBarConfiguration mAppBarConfiguration;
-    NavController navController;
-    NavigationView navigationView;
-    DrawerLayout drawer;
-    View header;
-    TextView tvTermAndCond;
-    TextView tvNoticePrivacy;
-    ImageView ivCloseMenu;
-    Toolbar toolbar;
-    //create of the view, and instance of variables
+    private NavController navController;
+    private View header;
+    private ImageView ivCloseMenu;
+    private Toolbar toolbar;
+    private Intent intent;
+
+    private ActivityMainBinding binding;
+    private static String FACEBOOK_URL = "https://m.facebook.com/ComunidadInfonavit";
+    private static String FACEBOOK_PAGE_ID = "ComunidadInfonavit";
+    private static String TWITTER_URL = "https://twitter.com/Infonavit";
+    private static String TWITTER_ID = "85345126";
+    private static String YOUTUBE_URL = "https://www.youtube.com/user/ComunidadInfonavit";
+    private static String YOUTUBE_PAGE_ID = "UCaDujTMEnq8clcqgbuko8DA";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
+
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setContentView(binding.getRoot());
+
         checkPermissions();
         setNavigation();
         setLogoutMethod();
@@ -82,23 +95,23 @@ public class MainActivity extends AppCompatActivity  {
         toolbar= findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        drawer = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        navigationView.setItemIconTintList(null);
-        header = navigationView.getHeaderView(0);
+        //drawer = findViewById(R.id.drawer_layout);
+        //navigationView = findViewById(R.id.nav_view);
+        binding.navView.setItemIconTintList(null);
+        header = binding.navView.getHeaderView(0);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_new_welcome,R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
-                .setDrawerLayout(drawer)
+                .setDrawerLayout(binding.drawerLayout)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
 
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
     //setting the logout method
     private void setLogoutMethod() {
-        navigationView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+        binding.navView.getMenu().findItem(R.id.nav_logout).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 DialogInfonavit alertdialog = new DialogInfonavit(MainActivity.this, "Cerrar sesión","¿Seguro que deseas cerrar sesión?", DialogInfonavit.TWO_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
@@ -118,32 +131,25 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void setActions() {
-        tvTermAndCond = findViewById(R.id.tv_term_and_cond);
-        tvNoticePrivacy = findViewById(R.id.tv_notice_privacy);
         ivCloseMenu = header.findViewById(R.id.iv_close_menu);
 
-        tvTermAndCond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
-                startActivity(intent);
-            }
+        binding.tvTermAndCond.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
+            startActivity(intent);
         });
 
-        tvNoticePrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
-                startActivity(intent);
-            }
+        binding.tvNoticePrivacy.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
+            startActivity(intent);
         });
 
-        ivCloseMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                drawer.closeDrawer(GravityCompat.START);
-            }
-        });
+        ivCloseMenu.setOnClickListener(view -> binding.drawerLayout.closeDrawer(GravityCompat.START));
+
+        binding.ivFacebook.setOnClickListener(view -> clickEventCallFB());
+
+        binding.ivTwitter.setOnClickListener(view -> clickEventCallTWITTER());
+
+        binding.ivYoutube.setOnClickListener(view -> clickEventCallYOUTUBE());
     }
 
 
@@ -176,6 +182,67 @@ public class MainActivity extends AppCompatActivity  {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    public void clickEventCallFB() {
+        try{
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            String facebookUrl = getFacebookPageURL(this);
+            intent.setData(Uri.parse(facebookUrl));
+            startActivity(intent);
+        }
+        catch (Exception e){}
+    }
+
+    private String getFacebookPageURL(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        try
+        {
+            int versionCode = packageManager.getPackageInfo("com.facebook.katana", 0).versionCode;
+            if (versionCode >= 3002850)
+            { //newer versions of fb app
+                return "fb://facewebmodal/f?href=" + FACEBOOK_URL;
+            }
+            else
+            { //older versions of fb app
+                return "fb://page/" + FACEBOOK_PAGE_ID;
+            }
+        }
+        catch (PackageManager.NameNotFoundException e)
+        {
+            return FACEBOOK_URL; //normal web url
+        }
+    }
+
+    public void clickEventCallTWITTER() {
+        intent = null;
+        try
+        {
+            // get the Twitter app if possible
+            this.getPackageManager().getPackageInfo("com.twitter.android", 0);
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?user_id=" + TWITTER_ID));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        catch (Exception e)
+        {
+            // no Twitter app, revert to browser
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse(TWITTER_URL));
+        }
+        this.startActivity(intent);
+    }
+
+    public void clickEventCallYOUTUBE() {
+        try {
+            intent =new Intent(Intent.ACTION_VIEW);
+            intent.setPackage("com.google.android.youtube");
+            intent.setData(Uri.parse(YOUTUBE_URL));
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(YOUTUBE_URL));
+            startActivity(intent);
+        }
     }
 
 }

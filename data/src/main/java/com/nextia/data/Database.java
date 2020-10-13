@@ -53,8 +53,6 @@ public class Database {
                     else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
                     }
                 }
-
-
             }
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
