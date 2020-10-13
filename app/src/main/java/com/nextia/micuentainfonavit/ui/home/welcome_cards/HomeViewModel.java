@@ -1,4 +1,4 @@
-package com.nextia.micuentainfonavit.ui.home;
+package com.nextia.micuentainfonavit.ui.home.welcome_cards;
 /**
  * View model off the Home fragment that creates the welcome cards data
  */

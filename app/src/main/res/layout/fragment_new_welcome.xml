@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/d10dp"
+        android:orientation="vertical"
+        android:id="@+id/rootView">
+
+        <TextView
+            android:id="@+id/tv_titulo_bienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/bienvenido_signo"
+            android:textStyle="bold"
+            android:textColor="@color/color_blue"
+            android:textSize="@dimen/d30sp" />
+
+        <TextView
+            android:id="@+id/tv_name_bienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="@color/color_blue"
+            android:textSize="@dimen/d30sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/en_esta_nueva_version"
+            android:textColor="@color/color_blue"
+            android:textSize="@dimen/d20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d30dp">
+
+            <TextView
+                android:layout_width="@dimen/d10dp"
+                android:layout_height="@dimen/d10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/circle_gray"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/consultar_tu_ahorro_vivienda"
+                android:textColor="@color/color_blue"
+                android:textSize="@dimen/d16sp"
+                android:layout_marginStart="@dimen/d5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d30dp">
+
+            <TextView
+                android:layout_width="@dimen/d10dp"
+                android:layout_height="@dimen/d10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/circle_gray"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/obtener_constancia_de_intereses"
+                android:textColor="@color/color_blue"
+                android:textSize="@dimen/d16sp"
+                android:layout_marginStart="@dimen/d5dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d30dp">
+
+            <TextView
+                android:layout_width="@dimen/d10dp"
+                android:layout_height="@dimen/d10dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/circle_gray"
+                android:backgroundTint="@color/colorPrimary"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/consultar_informacion_saldos_movimientos"
+                android:textColor="@color/color_blue"
+                android:textSize="@dimen/d16sp"
+                android:layout_marginStart="@dimen/d5dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d30dp"
+            android:gravity="center"
+            android:text="@string/para_iniciar_selecciona_el_servicio"
+            android:textColor="@color/color_blue"
+            android:textSize="@dimen/d20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/d20dp"/>
+    </LinearLayout>
+</ScrollView>

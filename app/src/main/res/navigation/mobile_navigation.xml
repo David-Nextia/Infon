@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_new_welcome">
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.nextia.micuentainfonavit.ui.home.HomeFragment"
+        android:name="com.nextia.micuentainfonavit.ui.home.welcome_cards.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
@@ -84,5 +84,10 @@
         android:name="com.nextia.micuentainfonavit.ui.pdf_view.PdfViewFragment"
         android:label="@string/menu_pdf_view"
         tools:layout="@layout/fragment_pdf_view" />
+    <fragment
+        android:id="@+id/nav_new_welcome"
+        android:name="com.nextia.micuentainfonavit.ui.home.new_welcome.NewWelcomeFragment"
+        android:label="@string/menu_new_welcome"
+        tools:layout="@layout/fragment_new_welcome" />
 
 </navigation>
