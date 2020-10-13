@@ -36,10 +36,14 @@ public class Database {
             @Override
             //On wrong credentials login returns credit object instead credit list, and that triggers OnFailure
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                String t=response.body().getStatusServicio().getCodigo();
-                if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
-               listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
-                else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
+                if(response.body() != null) {
+                    String t=response.body().getStatusServicio().getCodigo();
+                    if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
+                        listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
+                    else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
+                    }
+                } else {
+                    listener.onFailureRequest("Error en el servicio, intente mas tarde.");
                 }
             }
             @Override
