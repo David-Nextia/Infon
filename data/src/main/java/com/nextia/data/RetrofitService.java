@@ -35,7 +35,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitService {
 
-    private static final String URL_BASE="https://serviciosweb.infonavit.org.mx:8625";
+    private static final String URL_BASE="https://serviciosweb.infonavit.org.mx:8892";
     private static final String URL_BASE_LOGIN="https://serviciosweb.infonavit.org.mx:8893";
     static Gson gson = new GsonBuilder().registerTypeAdapter(UserResponse.class, new UserResponseDeserealizer()).create();
 

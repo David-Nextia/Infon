@@ -24,7 +24,7 @@ public class SavingsViewModel extends ViewModel implements OnFinishRequestListen
     public void getSaldo(Context context){
         UserResponse user= Utils.getSharedPreferencesUserData(context);
         SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
-        saldos.getSaldos(saldo,this);
+        saldos.getSaldos(saldo,Utils.getSharedPreferencesToken(context),this);
     }
 
     //method to obtain data of the viewmodel

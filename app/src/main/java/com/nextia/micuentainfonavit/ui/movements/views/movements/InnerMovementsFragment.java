@@ -9,6 +9,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -20,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.reports.HistoricResponse;
@@ -28,6 +31,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
+import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
 import java.io.File;
@@ -39,9 +43,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     private View rootView;
     FragmentInnerMovementsBinding binding;
     CreditUseCase creditUseCase= new CreditUseCase();
-    public static InnerMovementsFragment newInstance() {
-        return new InnerMovementsFragment();
-    }
+    InnerMovementsViewModel viewmodel;
     Spinner spinnerCredit;
     NavController navController;
     PdfViewViewModel pdfViewModel;
@@ -51,13 +53,13 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
+        viewmodel= new ViewModelProvider(this).get(InnerMovementsViewModel.class);
         spinnerCredit=binding.spCreditType;
         pdfViewModel= new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
         binding.progressBar2.animate().alpha(0.0f);
         setSpinner();
         setOnclicks();
-
         return binding.getRoot();
 
     }
@@ -89,7 +91,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.shareHistoricPdf.animate().alpha(0.0f);
                     binding.textDownloadHistoric.animate().alpha(0.0f);
                     binding.progressBar2.animate().alpha(1.0f);
-                    creditUseCase.getInfoCreditHistoric(parent.getItemAtPosition(position).toString(),InnerMovementsFragment.this);
+                    creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()),parent.getItemAtPosition(position).toString(),InnerMovementsFragment.this);
+                    //viewmodel.loadHistoric(getActivity(), parent.getItemAtPosition(position).toString());
 
 
                 }

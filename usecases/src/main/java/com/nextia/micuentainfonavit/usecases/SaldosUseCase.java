@@ -11,8 +11,8 @@ import com.nextia.domain.models.user.UserResponse;
 public class SaldosUseCase {
     Database database = new Database();
     //To get the saldos from database
-    public void getSaldos(SaldoBody saldo, OnFinishRequestListener listener){
-      database.getSaldos(saldo,listener);
+    public void getSaldos(SaldoBody saldo, String token, OnFinishRequestListener listener){
+      database.getSaldos(saldo,token,listener);
     }
 
 }
