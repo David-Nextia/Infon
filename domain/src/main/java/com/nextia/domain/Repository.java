@@ -9,6 +9,8 @@ import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
+import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
+import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
 
@@ -24,6 +26,7 @@ public interface Repository {
     String GET_CREDIT_INFO_BASE ="/RESTAdapter/SndConstanciaInteresSolicitar";
     String GET_CREDIT_INFO_YEAR_BASE ="/RESTAdapter/SndConstanciaInteresSolicitarAnio";
     String GET_CREDIT_INFO_HISTORIC_BASE ="/RESTAdapter/SndEdoCuentaHistoricoConsultar";
+    String GET_SALDO_MOVEMENTS_BASE ="/RESTAdapter/SndConsultaSdoMovsAppMovil";
 
     @POST(LOGIN_BASE)
     Call<UserResponse> logInMethod(@Body UserBody user);
@@ -35,4 +38,6 @@ public interface Repository {
     Call<CreditYearInfoResponse>  getCreditInfoYear(@Body CreditYearInfoBody credito, @Header("Authorization") String auth);
     @POST(GET_CREDIT_INFO_HISTORIC_BASE)
     Call<HistoricResponse>  getCreditInfoHistoric(@Body CreditInfoBody credito, @Header("Authorization") String auth);
+    @POST(GET_SALDO_MOVEMENTS_BASE)
+    Call<SaldoMovimientosResponse>  getSaldoMovimientos(@Body SaldoMovimientosBody saldo, @Header("Authorization") String auth);
 }
