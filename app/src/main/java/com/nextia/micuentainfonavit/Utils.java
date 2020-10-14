@@ -49,14 +49,19 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import static java.security.AccessController.getContext;
 
 
 public class Utils {
+    //Patterns date string
+    public static String PATTERN_YYYYMMDD = "yyyymmdd";
+
     //To get the user data saved on shared preferences
     public static UserResponse getSharedPreferencesUserData(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
@@ -88,6 +93,24 @@ public class Utils {
             money = "$" + formatter.format(num);
         }
 
+        return money;
+    }
+
+    //To format String as money String
+    public static String formatMoney(String stringNum) {
+        String money;
+        try {
+            double num = Double.parseDouble(stringNum.trim());
+            if (num == 0.0) {
+                money = "$0.00";
+            } else {
+                DecimalFormat formatter = new DecimalFormat("#,###.00");
+                money = "$" + formatter.format(num);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            money = "$0.00";
+        }
         return money;
     }
 
@@ -427,4 +450,23 @@ public class Utils {
         return month.toUpperCase() + " " + day + " DEL " + year;
     }
 
+    //to get actual date in format dd MMMM yyy
+    public static String getDateString() {
+        SimpleDateFormat fmtOut = new SimpleDateFormat("dd MMMM yyy");
+        return fmtOut.format(new Date());
+    }
+
+    //to get date format with pattern
+    public static String formatDate(String dateString, String pattern){
+        try {
+            SimpleDateFormat fmt = new SimpleDateFormat(pattern);
+            Date date = fmt.parse(dateString);
+
+            SimpleDateFormat fmtOut = new SimpleDateFormat("dd MMMM yyy");
+            return fmtOut.format(date);
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return dateString;
+        }
+    }
 }

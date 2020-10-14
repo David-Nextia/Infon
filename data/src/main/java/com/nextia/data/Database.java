@@ -13,6 +13,8 @@ import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
+import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
+import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
 import com.nextia.domain.models.welcome.WelcomeCard;
@@ -95,10 +97,17 @@ public class Database {
     }
 
     //To get the urlBase64 of the credit
-    public void getConsultPDFNotice(AvisosPDFBody avisosPDFBody, String token, final OnFinishRequestListener<HistoricResponse> listener){
-        DataBaseFoundation database= new DataBaseFoundation<String>();
-        Call<AvisosPDFResponse> getPDFConsultNotice =RetrofitService.getApiService().getConsultPDFNotice(avisosPDFBody, token);
-        database.getData(getPDFConsultNotice,listener);
+    public void getConsultPDFNotice(AvisosPDFBody avisosPDFBody, String token, final OnFinishRequestListener<HistoricResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<String>();
+        Call<AvisosPDFResponse> getPDFConsultNotice = RetrofitService.getApiService().getConsultPDFNotice(avisosPDFBody, token);
+        database.getData(getPDFConsultNotice, listener);
+    }
+
+    //To get balances and movements
+    public void getSaldosMovimientos(SaldoMovimientosBody body, String token, final OnFinishRequestListener<SaldoResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<SaldoBody>();
+        Call<SaldoMovimientosResponse> getSaldoMovimientos = RetrofitService.getApiService().getSaldoMovimientos(body, token);
+        database.getData(getSaldoMovimientos, listener);
     }
 
 }
