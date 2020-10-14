@@ -26,6 +26,10 @@ public class DataBaseFoundation<T> {
        fun.enqueue(new Callback<T>() {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
+                if(response.code()==401){
+                    listener.onTokenExpired();
+                }
+                else{
                 if(response.body() instanceof HistoricResponse){
                     if(((HistoricResponse) response.body()).getStatusServicio().getCodigo().contains("00")){
                         listener.onSuccesRequest(response.body(),"");
@@ -44,7 +48,7 @@ public class DataBaseFoundation<T> {
                 }
                 else{
                     listener.onSuccesRequest(response.body(),"");
-                }
+                }}
 
             }
             @Override

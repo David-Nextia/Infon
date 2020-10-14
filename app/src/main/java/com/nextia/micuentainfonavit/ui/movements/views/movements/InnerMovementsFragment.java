@@ -2,8 +2,10 @@ package com.nextia.micuentainfonavit.ui.movements.views.movements;
 /**
  * view of movimientos inside movements
  */
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,11 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.reports.HistoricResponse;
+import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
@@ -147,7 +151,20 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
        dialog.show();
 
     }
+    @Override
+    public void onTokenExpired() {
+        DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+            @Override
+            public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                dialog.dismiss();
+                startActivity(i);
+                getActivity().finish();
 
+            }
+        });
+        alertdialog.show();
+    }
     //handle success response of server
     @Override
     public void onSuccesRequest(HistoricResponse object, String token) {
