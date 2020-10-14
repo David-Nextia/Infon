@@ -2,6 +2,8 @@ package com.nextia.domain;
 /**
  * interface of the repository methods to get data from server
  */
+import com.nextia.domain.models.aviso_suspension.AvisosPDFBody;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
@@ -26,6 +28,7 @@ public interface Repository {
     String GET_CREDIT_INFO_BASE ="/RESTAdapter/SndConstanciaInteresSolicitar";
     String GET_CREDIT_INFO_YEAR_BASE ="/RESTAdapter/SndConstanciaInteresSolicitarAnio";
     String GET_CREDIT_INFO_HISTORIC_BASE ="/RESTAdapter/SndEdoCuentaHistoricoConsultar";
+    String GET_CONSULT_PDF_NOTICE = "/RESTAdapter/SndAvisosPDFConsultar";
     String GET_SALDO_MOVEMENTS_BASE ="/RESTAdapter/SndConsultaSdoMovsAppMovil";
 
     @POST(LOGIN_BASE)
@@ -38,6 +41,8 @@ public interface Repository {
     Call<CreditYearInfoResponse>  getCreditInfoYear(@Body CreditYearInfoBody credito, @Header("Authorization") String auth);
     @POST(GET_CREDIT_INFO_HISTORIC_BASE)
     Call<HistoricResponse>  getCreditInfoHistoric(@Body CreditInfoBody credito, @Header("Authorization") String auth);
+    @POST(GET_CONSULT_PDF_NOTICE)
+    Call<AvisosPDFResponse>  getConsultPDFNotice(@Body AvisosPDFBody avisosPDF, @Header("Authorization") String auth);
     @POST(GET_SALDO_MOVEMENTS_BASE)
     Call<SaldoMovimientosResponse>  getSaldoMovimientos(@Body SaldoMovimientosBody saldo, @Header("Authorization") String auth);
 }

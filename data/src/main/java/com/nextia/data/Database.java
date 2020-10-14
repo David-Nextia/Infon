@@ -4,6 +4,8 @@ package com.nextia.data;
  */
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFBody;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
@@ -92,6 +94,13 @@ public class Database {
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
         Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, token);
         database.getData(getInfoCreditHistoric,listener);
+    }
+
+    //To get the urlBase64 of the credit
+    public void getConsultPDFNotice(AvisosPDFBody avisosPDFBody, String token, final OnFinishRequestListener<HistoricResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<String>();
+        Call<AvisosPDFResponse> getPDFConsultNotice = RetrofitService.getApiService().getConsultPDFNotice(avisosPDFBody, token);
+        database.getData(getPDFConsultNotice, listener);
     }
 
     //To get balances and movements

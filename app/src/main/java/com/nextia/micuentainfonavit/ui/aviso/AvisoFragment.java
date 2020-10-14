@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.user.Credito;
 import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.MainActivity;
@@ -29,12 +30,14 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.views.movements.InnerMovementsFragment;
+import com.nextia.micuentainfonavit.usecases.NoticeSuspensionCase;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 import java.util.ArrayList;
 
-public class AvisoFragment extends Fragment implements OnFinishRequestListener {
-
+public class AvisoFragment extends Fragment implements OnFinishRequestListener<AvisosPDFResponse> {
+    NoticeSuspensionCase noticeSuspensionCase = new NoticeSuspensionCase();
     FragmentAvisoBinding binding;
     ArrayList<Credito> creditos;
     ArrayAdapter<String> arrayAdapter;
@@ -82,6 +85,8 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
                     //servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
                     //UserUseCase user = new UserUseCase();
                     //user.doLogin("", "", AvisoFragment.this);
+                    String credit = parent.getSelectedItem().toString();
+                    noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
                 }
             }
 
@@ -115,11 +120,13 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
         alertdialog.show();
     }
 
-    //To manage on Succes request
     @Override
-    public void onSuccesRequest(Object object, String token) {
-        //dialog.show();
+    public void onSuccesRequest(AvisosPDFResponse object, String token) {
+        if(object.getStatusServicio().getCodigo().equals("02")){
+            binding.suspensionUnsucess.setVisibility(View.VISIBLE);
+        } else {
+            binding.suspensionUnsucess.setVisibility(View.GONE);
+        }
     }
-
 
 }
