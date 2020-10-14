@@ -4,7 +4,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="opcionesPago"
+            type="com.nextia.domain.models.saldo_movimientos.OpcionesPago" />
+        <variable
+            name="pagosMensualidades"
+            type="com.nextia.domain.models.saldo_movimientos.PagosMensualidades" />
+        <import
+            alias="utils"
+            type="com.nextia.micuentainfonavit.Utils"/>
 
+        <import
+            alias="string"
+            type="java.lang.String"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,7 +83,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="$ -"
+                android:text="@{opcionesPago.v11Sdoliqpes != null ? utils.formatMoney(opcionesPago.v11Sdoliqpes.trim()) : @string/nonenumber}"
+                tools:text="$ -"
                 style="@style/TxStyleSubTitle"
                 android:fontFamily="@font/subtitle"/>
 
@@ -96,7 +109,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:text="day de month del year"
+                    android:text="@{pagosMensualidades.v6FechaActualAls != null ? utils.formatDate(pagosMensualidades.v6FechaActualAls, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
+                    tools:text="day de month del year"
                     android:textStyle="bold"
                     android:fontFamily="@font/subtitle"/>
 
@@ -125,7 +139,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="$ 0"
+                    tools:text="$ 0"
+                    android:text="@{opcionesPago.v13SdoliqpesProymesCondesc != null ? utils.formatMoney(opcionesPago.v13SdoliqpesProymesCondesc.trim()) : @string/nonenumber}"
                     android:textAppearance="@android:style/TextAppearance.Large"
                     android:textColor="@color/colorpink"
                     android:textStyle="bold" />
