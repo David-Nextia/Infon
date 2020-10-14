@@ -115,7 +115,7 @@ public class CreditDataFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
-                    Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
+                    Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }else{
                     binding.setPagosMensualidad(new PagosMensualidades());
