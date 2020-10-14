@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -187,8 +188,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
    //To create conditions of view and trigger methods, for buttons and textviews
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        password.setText("ContrasenaQa01");
-        email.setText("aclara106@yopmail.com");
+        //password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
         if(email.getText().toString().trim().length()==0 || password.getText().toString().trim().length()==0) {
             loginbtn.setEnabled(false);
         } else {
@@ -297,9 +298,14 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void onFailureRequest(String message) {
         DialogInfonavit alertdialog = new DialogInfonavit(this, "Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         alertdialog.show();
-        alertdialog.show();
+
         ProgressBar progress = findViewById(R.id.progressBar);
         progress.setAlpha(0.0f);
+
+    }
+
+    @Override
+    public void onTokenExpired() {
 
     }
 

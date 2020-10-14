@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,7 @@ import android.widget.Spinner;
 
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.saldo_movimientos.TablaPagos1;
+import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentMensualidadesBinding;
@@ -75,6 +77,25 @@ public class MensualidadesFragment extends Fragment {
                     Utils.hideLoadingSkeleton();
                 }else {
                     dialogError();
+                }
+            }
+        });
+
+        //To manage on Token Expired
+        viewModel.getTokenExpired().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if (aBoolean == false) {
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+                        @Override
+                        public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                            Intent i = new Intent(getActivity(), LoginActivity.class);
+                            dialog.dismiss();
+                            startActivity(i);
+                            getActivity().finish();
+                        }
+                    });
+                    alertdialog.show();
                 }
             }
         });

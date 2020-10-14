@@ -30,6 +30,11 @@ public class InnerMovementsViewModel extends ViewModel implements OnFinishReques
     }
 
     @Override
+    public void onTokenExpired() {
+
+    }
+
+    @Override
     public void onSuccesRequest(HistoricResponse object, String token) {
         _historic.setValue(object);
         try {
