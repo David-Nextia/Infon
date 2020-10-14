@@ -19,6 +19,8 @@ import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 public class SavingsViewModel extends ViewModel implements OnFinishRequestListener<SaldoResponse> {
     SaldosUseCase saldos=new SaldosUseCase();
     private MutableLiveData<SaldoResponse> _saldo= new MutableLiveData<>();
+    private MutableLiveData<Boolean> _availableToken= new MutableLiveData<>();
+
 
     //method to call the DB service and get data
     public void getSaldo(Context context){
@@ -26,6 +28,7 @@ public class SavingsViewModel extends ViewModel implements OnFinishRequestListen
         SaldoBody saldo= new SaldoBody(user.getNss(),user.getRfc())  ;
         saldos.getSaldos(saldo,Utils.getSharedPreferencesToken(context),this);
     }
+    public LiveData<Boolean>getTokenExpired(){return _availableToken;}
 
     //method to obtain data of the viewmodel
     public LiveData<SaldoResponse> getSaldos() {
@@ -36,6 +39,11 @@ public class SavingsViewModel extends ViewModel implements OnFinishRequestListen
     @Override
     public void onFailureRequest(String message) {
         _saldo.setValue(null);
+    }
+
+    @Override
+    public void onTokenExpired() {
+        _availableToken.setValue(false);
     }
 
     //method to handle the success response of the service

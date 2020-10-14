@@ -3,9 +3,11 @@ package com.nextia.micuentainfonavit.ui.constancia;
  * class of view Constancia de intereses
  */
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,15 +22,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_info.RespuestUm;
 import com.nextia.domain.models.user.Credito;
+import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentConstanciaBinding;
+import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
@@ -138,7 +143,20 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void onFailureRequest(String message) {
         Toast.makeText(getContext(),"No se pudieron obtener los datos",Toast.LENGTH_LONG).show();
     }
+    @Override
+    public void onTokenExpired() {
+        DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+            @Override
+            public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                dialog.dismiss();
+                startActivity(i);
+                getActivity().finish();
 
+            }
+        });
+        alertdialog.show();
+    }
     //To manage on Succes request
     @Override
     public void onSuccesRequest(CreditInfoResponse object, String token) {
