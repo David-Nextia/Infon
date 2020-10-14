@@ -210,7 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@{saldo.tp12MensPgoMensualidad!=null ? saldo.tp12MensPgoMensualidad:@string/nonenumber }"
+                        android:text="@{saldo.tp11MensPgoCorriente!=null ? saldo.tp11MensPgoCorriente:@string/nonenumber }"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/body"
                         tools:text="-"/>

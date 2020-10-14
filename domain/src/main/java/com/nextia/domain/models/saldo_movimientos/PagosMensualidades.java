@@ -34,7 +34,7 @@ public class PagosMensualidades {
 
     @SerializedName("v6FechaActualAls")
     @Expose
-    private int v6FechaActualAls;
+    private String v6FechaActualAls;
 
     @SerializedName("v7FechaReestructura")
     @Expose
@@ -96,11 +96,11 @@ public class PagosMensualidades {
         this.v5DespachoCobranza = v5DespachoCobranza;
     }
 
-    public int getV6FechaActualAls() {
+    public String getV6FechaActualAls() {
         return v6FechaActualAls;
     }
 
-    public void setV6FechaActualAls(int v6FechaActualAls) {
+    public void setV6FechaActualAls(String v6FechaActualAls) {
         this.v6FechaActualAls = v6FechaActualAls;
     }
 
