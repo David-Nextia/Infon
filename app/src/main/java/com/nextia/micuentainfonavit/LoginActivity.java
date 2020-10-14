@@ -188,8 +188,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
    //To create conditions of view and trigger methods, for buttons and textviews
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        //password.setText("ContrasenaQa01");
-        //email.setText("aclara106@yopmail.com");
+        password.setText("ContrasenaQa01");
+        email.setText("aclara106@yopmail.com");
         if(email.getText().toString().trim().length()==0 || password.getText().toString().trim().length()==0) {
             loginbtn.setEnabled(false);
         } else {
@@ -326,7 +326,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         ProgressBar progress = findViewById(R.id.progressBar);
         Intent i = new Intent(LoginActivity.this, MainActivity.class);
         progress.setAlpha(0.0f);
-
         startActivity(i);
         finish();
     }

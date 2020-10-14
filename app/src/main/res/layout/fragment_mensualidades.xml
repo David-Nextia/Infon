@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:text="@{utils.getDateString()}"
+                    android:text="@{saldo.tp18PgoMensualidad!=null ? utils.formatDate(saldo.tp18PgoMensualidad, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
                     tools:text="day de month del year" />
 
             </LinearLayout>
@@ -97,7 +97,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/subtitle"
-                android:text="@{utils.formatMoney(saldo.tp14PesPgoMensualidad.trim())}"
+                android:text="@{saldo.tp14PesPgoMensualidad!=null ? utils.formatMoney(saldo.tp14PesPgoMensualidad.trim()):@string/nonenumber}"
                 tools:text="$ -" />
 
             <LinearLayout
@@ -122,7 +122,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:text="@{utils.formatDate(saldo.tp17PgoCorriente, utils.PATTERN_YYYYMMDD)}"
+                    android:text="@{saldo.tp17PgoCorriente!=null ? utils.formatDate(saldo.tp17PgoCorriente, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
                     android:textSize="10sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/subtitle"
@@ -210,7 +210,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@{saldo.tp12MensPgoMensualidad}"
+                        android:text="@{saldo.tp12MensPgoMensualidad!=null ? saldo.tp12MensPgoMensualidad:@string/nonenumber }"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/body"
                         tools:text="-"/>
@@ -254,7 +254,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@{utils.formatMoney(saldo.tp13PesPgoCorriente.trim())}"
+                        android:text="@{saldo.tp13PesPgoCorriente!=null ? utils.formatMoney(saldo.tp13PesPgoCorriente.trim()): @string/nonenumber}"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/subtitle"
                         tools:text="$ -"/>

@@ -152,5 +152,6 @@
     <string name="consultar_informacion_saldos_movimientos">Consultar información para la administración de tu crédito en el servicio de saldos y movimientos</string>
     <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona el servicio que quieres consultar desde el menú</string>
     <string name="expired_Session">Su sesión ha expirado</string>
+    <string name="nonenumber">-</string>
 
 </resources>
