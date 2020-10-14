@@ -212,7 +212,8 @@
                         android:layout_gravity="center"
                         android:text="@{saldo.tp11MensPgoCorriente!=null ? saldo.tp11MensPgoCorriente:@string/nonenumber }"
                         style="@style/TxStyleSubTitle"
-                        android:fontFamily="@font/body"
+
+                        android:fontFamily="@font/subtitle"
                         tools:text="-"/>
 
                 </LinearLayout>
