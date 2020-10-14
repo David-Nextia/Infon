@@ -7,6 +7,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,7 @@ import android.widget.Button;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
+import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentPdfConstanciaDownloadBinding;
@@ -96,7 +98,19 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
         alertdialog.show();
     }
-
+    @Override
+    public void onTokenExpired() {
+        DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+            @Override
+            public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                dialog.dismiss();
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
+        alertdialog.show();
+    }
     //To manage on Succes request
     @Override
     public void onSuccesRequest(CreditYearInfoResponse object, String token) {

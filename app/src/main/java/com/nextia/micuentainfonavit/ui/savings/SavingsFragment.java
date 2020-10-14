@@ -3,6 +3,7 @@ package com.nextia.micuentainfonavit.ui.savings;
  * class of the view savings
  */
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.nextia.domain.models.saldo.SaldoResponse;
+import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentSavingsBinding;
@@ -63,6 +65,24 @@ public class SavingsFragment extends Fragment {
                     Utils.hideLoadingSkeleton();
                 }else{
                    dialogError();
+                }
+            }
+        });
+
+        savingsViewModel.getTokenExpired().observe(getViewLifecycleOwner(), new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                if(aBoolean==false){
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+                        @Override
+                        public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                            Intent i = new Intent(getActivity(), LoginActivity.class);
+                            dialog.dismiss();
+                            startActivity(i);
+                            getActivity().finish();
+                        }
+                    });
+                    alertdialog.show();
                 }
             }
         });

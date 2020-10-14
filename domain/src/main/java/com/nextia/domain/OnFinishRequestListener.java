@@ -6,5 +6,6 @@ package com.nextia.domain;
  */
 public interface OnFinishRequestListener<T> {
     void onFailureRequest(String message);
+    void onTokenExpired();
     void onSuccesRequest(T object, String token);
 }

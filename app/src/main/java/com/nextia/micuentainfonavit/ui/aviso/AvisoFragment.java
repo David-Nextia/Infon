@@ -3,8 +3,10 @@ package com.nextia.micuentainfonavit.ui.aviso;
  * fragment of view aviso, suspensión y retención, it appears on the Main activity
  */
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,11 +19,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
+import android.widget.Button;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.user.Credito;
+import com.nextia.micuentainfonavit.LoginActivity;
+import com.nextia.micuentainfonavit.MainActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
@@ -88,7 +92,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Toast.makeText(getContext(), "No seleccionado", Toast.LENGTH_LONG).show();
+
             }
         });
         arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, Creditlist);
@@ -100,6 +104,20 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     @Override
     public void onFailureRequest(String message) {
         dialog.show();
+    }
+
+    @Override
+    public void onTokenExpired() {
+        DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+            @Override
+            public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                dialog.dismiss();
+                startActivity(i);
+                getActivity().finish();
+            }
+        });
+        alertdialog.show();
     }
 
     @Override

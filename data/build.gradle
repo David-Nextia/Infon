@@ -12,6 +12,7 @@ dependencies {
         force = true //API 19 support
     }
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.12'
+    implementation 'org.json:json:20160212'
 
 }
 
