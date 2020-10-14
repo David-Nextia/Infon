@@ -17,19 +17,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.user.Credito;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.views.movements.InnerMovementsFragment;
+import com.nextia.micuentainfonavit.usecases.NoticeSuspensionCase;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
 
 import java.util.ArrayList;
 
-public class AvisoFragment extends Fragment implements OnFinishRequestListener {
-
+public class AvisoFragment extends Fragment implements OnFinishRequestListener<AvisosPDFResponse> {
+    NoticeSuspensionCase noticeSuspensionCase = new NoticeSuspensionCase();
     FragmentAvisoBinding binding;
     ArrayList<Credito> creditos;
     ArrayAdapter<String> arrayAdapter;
@@ -77,12 +81,14 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
                     //servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
                     //UserUseCase user = new UserUseCase();
                     //user.doLogin("", "", AvisoFragment.this);
+                    String credit = parent.getSelectedItem().toString();
+                    noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
                 }
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                Toast.makeText(getContext(), "No seleccionado", Toast.LENGTH_LONG).show();
             }
         });
         arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, Creditlist);
@@ -96,11 +102,13 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener {
         dialog.show();
     }
 
-    //To manage on Succes request
     @Override
-    public void onSuccesRequest(Object object, String token) {
-        //dialog.show();
+    public void onSuccesRequest(AvisosPDFResponse object, String token) {
+        if(object.getStatusServicio().getCodigo().equals("02")){
+            binding.suspensionUnsucess.setVisibility(View.VISIBLE);
+        } else {
+            binding.suspensionUnsucess.setVisibility(View.GONE);
+        }
     }
-
 
 }

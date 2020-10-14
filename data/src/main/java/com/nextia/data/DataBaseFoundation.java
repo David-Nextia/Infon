@@ -4,6 +4,7 @@ package com.nextia.data;
  */
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
@@ -40,6 +41,14 @@ public class DataBaseFoundation<T> {
                     }
                     else{
                         listener.onFailureRequest(((CreditYearInfoResponse) response.body()).getDatosTecnicos().getDescripcionRespuesta());
+                    }
+                }
+                if(response.body() instanceof AvisosPDFResponse){
+                    if(((AvisosPDFResponse) response.body()).getDatosAvisos().getItem().size() > 0){
+                        listener.onSuccesRequest(response.body(),"");
+                    }
+                    else{
+                        listener.onFailureRequest(((AvisosPDFResponse) response.body()).getStatusServicio().getMensaje());
                     }
                 }
                 else{
