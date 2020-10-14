@@ -89,6 +89,8 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
                     binding.progressBar2.animate().alpha(1.0f);
                     String credit = parent.getSelectedItem().toString();
                     noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
+                }else{
+                    binding.suspensionUnsucess.setVisibility(View.GONE);
                 }
             }
 
