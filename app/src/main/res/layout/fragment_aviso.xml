@@ -235,7 +235,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:visibility="gone"
+                    android:alpha="0.0"
                     android:id="@+id/suspension_unsucess"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

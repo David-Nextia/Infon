@@ -90,7 +90,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
                     String credit = parent.getSelectedItem().toString();
                     noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
                 }else{
-                    binding.suspensionUnsucess.setVisibility(View.GONE);
+                    binding.suspensionUnsucess.animate().alpha(0.0f);
                 }
             }
 
@@ -129,9 +129,9 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public void onSuccesRequest(AvisosPDFResponse object, String token) {
         binding.progressBar2.animate().alpha(0.0f);
         if(object.getStatusServicio().getCodigo().equals("02")){
-            binding.suspensionUnsucess.setVisibility(View.VISIBLE);
+            binding.suspensionUnsucess.animate().alpha(1.0f);
         } else {
-            binding.suspensionUnsucess.setVisibility(View.GONE);
+            binding.suspensionUnsucess.animate().alpha(0.0f);
         }
     }
 
