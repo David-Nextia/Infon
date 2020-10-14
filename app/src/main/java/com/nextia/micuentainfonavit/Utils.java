@@ -60,7 +60,7 @@ import static java.security.AccessController.getContext;
 
 public class Utils {
     //Patterns date string
-    public static String PATTERN_YYYYMMDD = "yyyymmdd";
+    public static String PATTERN_YYYYMMDD = "yyyyMMdd";
 
     //To get the user data saved on shared preferences
     public static UserResponse getSharedPreferencesUserData(Context context) {
@@ -461,7 +461,7 @@ public class Utils {
         try {
             SimpleDateFormat fmt = new SimpleDateFormat(pattern);
             Date date = fmt.parse(dateString);
-
+            Calendar c = Calendar.getInstance();
             SimpleDateFormat fmtOut = new SimpleDateFormat("dd MMMM yyy");
             return fmtOut.format(date);
         }catch (Exception ex){

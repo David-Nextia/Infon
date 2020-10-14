@@ -128,6 +128,7 @@ public class MensualidadesFragment extends Fragment {
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }else{
+                    TablaPagos1 tab= new TablaPagos1();
                     binding.setSaldo(new TablaPagos1());
                 }
             }
