@@ -49,6 +49,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_aviso, container, false);
         setSpinner();
+        binding.progressBar2.animate().alpha(0.0f);
         return binding.getRoot();
     }
 
@@ -81,12 +82,15 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position != 0) {
-                    dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
+                    //dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
                     //servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
                     //UserUseCase user = new UserUseCase();
                     //user.doLogin("", "", AvisoFragment.this);
+                    binding.progressBar2.animate().alpha(1.0f);
                     String credit = parent.getSelectedItem().toString();
                     noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
+                }else{
+                    binding.suspensionUnsucess.setVisibility(View.GONE);
                 }
             }
 
@@ -104,6 +108,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     @Override
     public void onFailureRequest(String message) {
         dialog.show();
+        binding.progressBar2.animate().alpha(0.0f);
     }
 
     @Override
@@ -122,6 +127,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
 
     @Override
     public void onSuccesRequest(AvisosPDFResponse object, String token) {
+        binding.progressBar2.animate().alpha(0.0f);
         if(object.getStatusServicio().getCodigo().equals("02")){
             binding.suspensionUnsucess.setVisibility(View.VISIBLE);
         } else {
