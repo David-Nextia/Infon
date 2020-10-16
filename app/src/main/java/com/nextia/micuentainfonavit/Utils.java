@@ -304,6 +304,7 @@ public class Utils {
         PdfDocument pdfDocument = new PdfDocument();
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(340, 600, 1).create();
         PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
+        mypage.getCanvas().setDensity(200);
         Paint myPaint = new Paint();
         Canvas canvas= mypage.getCanvas();
 
@@ -334,12 +335,13 @@ public class Utils {
         if (getContext() != null) {
             logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
             cedula = BitmapFactory.decodeResource(activity.getResources(), R.drawable.cedula_rfc);
-            scaleImageLogo=Bitmap.createScaledBitmap(logo,60,60,true);
-            scaleImageCedula = Bitmap.createScaledBitmap(cedula, 90, 160, true);
+            scaleImageLogo=Bitmap.createScaledBitmap(logo,60,43,false);
+            scaleImageCedula = Bitmap.createScaledBitmap(cedula, 200, 400, true);
         }
         paintTitle.setColor(Color.BLACK);
         if (logo != null) {
-            canvas.drawBitmap(getResizedBitmap(logo, 60, 60), 20, 10, null);
+            canvas.drawBitmap(resizeBitmap(logo, 150, 106), 20, 10, null);
+
             //canvas.drawBitmap(scaleImageLogo, 20, 10, null);
         }
 
@@ -399,21 +401,23 @@ public class Utils {
     }
 
     //to resize mipmaps
-    public static Bitmap getResizedBitmap(Bitmap bm, int newWidth, int newHeight) {
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // CREATE A MATRIX FOR THE MANIPULATION
-        Matrix matrix = new Matrix();
-        // RESIZE THE BIT MAP
-        matrix.postScale(scaleWidth, scaleHeight);
+    public static Bitmap resizeBitmap(Bitmap bitmap,int newWidth,int newHeight) {
+        Bitmap scaledBitmap = Bitmap.createBitmap(newWidth, newHeight, Bitmap.Config.ARGB_8888);
 
-        // "RECREATE" THE NEW BITMAP
-        Bitmap resizedBitmap = Bitmap.createBitmap(
-                bm, 0, 0, width, height, matrix, false);
-        bm.recycle();
-        return resizedBitmap;
+        float ratioX = newWidth / (float) bitmap.getWidth();
+        float ratioY = newHeight / (float) bitmap.getHeight();
+        float middleX = newWidth / 2.0f;
+        float middleY = newHeight / 2.0f;
+
+        Matrix scaleMatrix = new Matrix();
+        scaleMatrix.setScale(ratioX, ratioY, middleX, middleY);
+
+        Canvas canvas = new Canvas(scaledBitmap);
+        canvas.setMatrix(scaleMatrix);
+        canvas.drawBitmap(bitmap, middleX - bitmap.getWidth() / 2, middleY - bitmap.getHeight() / 2, new Paint(Paint.FILTER_BITMAP_FLAG));
+
+        return scaledBitmap;
+
     }
 
     //To create a pfd from Base64 String

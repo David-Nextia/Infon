@@ -1,6 +1,6 @@
 package com.nextia.micuentainfonavit.ui.movements;
 /**
- * class to contain mensualidades, datos de mi credito,  opccines de pago and mensaulidades views
+ * class to contain mensualidades, datos de mi credito,  opciones de pago and mensaulidades views
  */
 
 import android.content.Context;

@@ -1,4 +1,7 @@
 package com.nextia.domain.models.aviso_suspension;
+/**
+ * Class body to post and get aviso pdf
+ */
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

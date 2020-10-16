@@ -1,5 +1,7 @@
 package com.nextia.domain.models.aviso_suspension;
-
+/**
+ * Secondary class to get the AvisoPdfResponse class
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

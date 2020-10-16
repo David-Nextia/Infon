@@ -24,7 +24,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Constancia de interes para tu declaracion anual"
+                    android:text="Constancia de interés para tu declaracion anual"
                     style="@style/TxStyleTitle"
                     android:textColor="@color/color_blue"
 
