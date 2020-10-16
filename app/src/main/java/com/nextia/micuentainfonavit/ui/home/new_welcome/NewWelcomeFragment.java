@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.home.new_welcome;
+/**
+ * class of first view of new users
+ */
 
 import android.os.Bundle;
 
@@ -18,6 +21,7 @@ public class NewWelcomeFragment extends Fragment {
     private View rootView;
     TextView name;
 
+    //creating view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -27,6 +31,7 @@ public class NewWelcomeFragment extends Fragment {
         name.setText(Utils.getSharedPreferencesUserData(getContext()).getNombre()+"!");
         return root;
     }
+   //starting skeleton view and stopping it after a while
     @Override
     public void onStart() {
         super.onStart();

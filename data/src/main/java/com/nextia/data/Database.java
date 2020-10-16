@@ -54,7 +54,7 @@ public class Database {
                     String t=response.body().getStatusServicio().getCodigo();
                     if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
                         listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
-                    else{ listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
+                    else { listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
                     }
                 }
             }

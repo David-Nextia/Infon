@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.avisoprivacidad;
+/**
+ * class of terms and conditions policy
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,6 +23,7 @@ public class TermConditionsActivity extends AppCompatActivity {
     private String url = "https://portalmx.infonavit.org.mx/wps/portal/infonavit.web/contactanos/terminos-condiciones/!ut/p/z1/jZDBCoJAEIafxqszriFbNw1bkzCDRNtLaNgqqCu65esn1SUoc24zfN_8zACHBHiT3kuRqlI2aTX2J26dLYborRdGwHwkeNg7xzAijskCAvETIBSROTgC1KNob9ytu9yZhEUG8Dk-_igb5_kTAJ9eHwOfikDTegNTJ_4L8YGLSmavf9pNZlIBvMuveZd3-q0bx4VSbb_SUMNhGHQhpahy_SJrDb8phewVJJ8ktHUUJViGdUz7BwjD5EQ!/dz/d5/L2dBISEvZ0FBIS9nQSEh/";
     private AvisoPrivacidadActivity mContext;
 
+    //creating the view
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

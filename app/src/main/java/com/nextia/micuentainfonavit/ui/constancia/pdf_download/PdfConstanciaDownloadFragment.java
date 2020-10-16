@@ -98,6 +98,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
         alertdialog.show();
     }
+    //to manage token expired
     @Override
     public void onTokenExpired() {
         DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {

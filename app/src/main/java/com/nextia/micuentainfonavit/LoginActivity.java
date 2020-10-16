@@ -72,6 +72,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawable(getDrawable(R.drawable.back));
         instanceActivity(); //iniciar vista y variables
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
@@ -110,6 +111,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             }
         });
         setFunctions(this);//condicionales del botón y funciones de Onclick
+
     }
 
     //Methods before the view starts

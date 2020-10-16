@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements;
+/**
+ * class to contain mensualidades, datos de mi credito,  opccines de pago and mensaulidades views
+ */
 
 import android.content.Context;
 
@@ -36,6 +39,7 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
         _movements.setValue(null);
     }
 
+    //to manage token expired
     @Override
     public void onTokenExpired() {
         _availableToken.setValue(false);

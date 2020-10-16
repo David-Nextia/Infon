@@ -47,7 +47,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     private View rootView;
     FragmentInnerMovementsBinding binding;
     CreditUseCase creditUseCase= new CreditUseCase();
-    InnerMovementsViewModel viewmodel;
+
     Spinner spinnerCredit;
     NavController navController;
     PdfViewViewModel pdfViewModel;
@@ -57,7 +57,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
-        viewmodel= new ViewModelProvider(this).get(InnerMovementsViewModel.class);
+
         spinnerCredit=binding.spCreditType;
         pdfViewModel= new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
@@ -151,6 +151,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
        dialog.show();
 
     }
+    //to manage token expired
     @Override
     public void onTokenExpired() {
         DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {

@@ -143,6 +143,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void onFailureRequest(String message) {
         Toast.makeText(getContext(),"No se pudieron obtener los datos",Toast.LENGTH_LONG).show();
     }
+    //to manage token expired
     @Override
     public void onTokenExpired() {
         DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
