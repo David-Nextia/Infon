@@ -74,7 +74,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public void setSpinner(){
         creditos = Utils.getSharedPreferencesUserData(getContext()).getCredito();
         Creditlist.clear();
-        Creditlist.add("Seleccionar cuenta");
+        Creditlist.add("Selecciona una cuenta");
         for (int i = 0; i < creditos.size(); i++) {
             Creditlist.add("0000" + creditos.get(i).getNumeroCredito());
         }

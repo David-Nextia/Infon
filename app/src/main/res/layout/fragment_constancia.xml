@@ -18,7 +18,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:padding="10dp"
+                android:layout_margin="15dp"
                 android:id="@+id/rootView">
 
                 <TextView
@@ -26,6 +26,7 @@
                     android:layout_height="wrap_content"
                     android:text="Constancia de interés para tu declaracion anual"
                     style="@style/TxStyleTitle"
+                    android:layout_marginTop="3dp"
                     android:textColor="@color/color_blue"
 
                     />
@@ -40,12 +41,13 @@
                     android:id="@+id/sp_selecciona_credito_constancia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp" />
+                    android:layout_marginTop="25dp" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/colorskeleton" />
+                    android:background="@color/colorskeleton"
+                    android:layout_marginBottom="25dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -127,9 +129,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="20dp"
                     android:text="@string/elige_anio_fiscal"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="32dp"
                     android:textSize="14sp"
                     android:fontFamily="@font/body"/>
 
@@ -141,14 +143,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp" />
+                    android:layout_marginEnd="20dp"
+
+                    />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/colorskeleton"
                     android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp" />
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"/>
 
                 <Button
                     style="@style/button_app"

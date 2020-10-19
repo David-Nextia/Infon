@@ -45,16 +45,6 @@
                     android:layout_marginEnd="30dp" />
 
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="11sp"
-                    android:text="Selecciona un credito:"
-                    android:gravity="center"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginTop="12dp"
-                    android:fontFamily="@font/body"/>
 
                 <Spinner
                     android:id="@+id/sp_credit"
@@ -62,6 +52,8 @@
                     style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="50dp" />
 
@@ -162,7 +154,8 @@
                     android:layout_marginEnd="30dp"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="24dp"
-                    android:fontFamily="@font/body"/>
+                    android:fontFamily="@font/body"
+                    android:textSize="11sp"/>
 
                 <TextView
                     android:id="@+id/clickInformacionImportante"
@@ -171,6 +164,7 @@
                     android:text="@string/Text_info_click"
                     android:textColor="#9e1b31"
                     android:layout_marginStart="30dp"
+                    android:textSize="11sp"
                     android:layout_marginEnd="30dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/body"

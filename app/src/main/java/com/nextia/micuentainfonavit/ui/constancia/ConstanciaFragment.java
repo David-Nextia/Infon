@@ -163,7 +163,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void onSuccesRequest(CreditInfoResponse object, String token) {
         listItemAnio =object.getRespuesta();
         listanios.clear();
-        listanios.add("Seleccionar año");
+        listanios.add("Selecciona un año");
         for(int i = 0; i< listItemAnio.size(); i++){
             listanios.add(listItemAnio.get(i).getEjercicioFiscal());
         }
