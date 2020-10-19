@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.home.new_welcome;
+/**
+ * class of first view of new users
+ */
 
 import android.os.Bundle;
 
@@ -18,15 +21,24 @@ public class NewWelcomeFragment extends Fragment {
     private View rootView;
     TextView name;
 
+    //creating view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_new_welcome, container, false);
         rootView = root.findViewById(R.id.rootView);
-        name=root.findViewById(R.id.tv_name_bienvenida);
-        name.setText(Utils.getSharedPreferencesUserData(getContext()).getNombre()+"!");
+        name=root.findViewById(R.id.tv_titulo_bienvenido);
+
+        if(Utils.getSharedPreferencesUserData(getContext()).getNombre().equals("")){
+            name.setText("!Bienvenido!");
+        }
+        else{
+            name.setText("!Bienvenido\n"+Utils.getSharedPreferencesUserData(getContext()).getNombre()+"!");
+
+        }
         return root;
     }
+   //starting skeleton view and stopping it after a while
     @Override
     public void onStart() {
         super.onStart();

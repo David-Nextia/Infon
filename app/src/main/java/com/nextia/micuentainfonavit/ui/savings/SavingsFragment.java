@@ -109,7 +109,7 @@ public class SavingsFragment extends Fragment {
             public void onAcceptClickListener(Button button, AlertDialog dialog) {
                 dialog.dismiss();
                 NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                navController.popBackStack(R.id.nav_home, false);
+                navController.popBackStack(R.id.nav_new_welcome, false);
             }
         });
         alertdialog.show();

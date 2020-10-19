@@ -21,11 +21,12 @@ public class AdapterMarket extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private final int APPOINMENTS =0;
     private ArrayList<String> items;
-
+    //instance a new Adapter market with a list
     public AdapterMarket(Context context){
         this.items = Utils.getItems();
     }
 
+    //creating viewholder
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
@@ -44,6 +45,7 @@ public class AdapterMarket extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return viewHolder;
     }
 
+    //custom view holder class
     private class ViewHolderItemMenu extends RecyclerView.ViewHolder{
 
         TextView tx_market;
@@ -56,6 +58,7 @@ public class AdapterMarket extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
+    //binding view on view holder
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         AdapterMarket.ViewHolderItemMenu aforeHolder;
@@ -68,18 +71,21 @@ public class AdapterMarket extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
     }
 
+    //method to fill view with data on viewholder
     private void configureViewHolderItemMenu(final AdapterMarket.ViewHolderItemMenu holder, final int position) {
         String appoinment = items.get(position);
         holder.tx_market.setText(String.valueOf(appoinment));
 
     }
 
+    //gettin viewtype method
     @Override
     public  int getItemViewType(int position) {
 
         return APPOINMENTS;
     }
 
+    //gettin item number on recyclerview
     @Override
     public int getItemCount() {
         return items.size();

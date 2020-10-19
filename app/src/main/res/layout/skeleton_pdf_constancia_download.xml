@@ -167,8 +167,8 @@
 
                 <TextView
                     android:id="@+id/tv_btn_imprimir_pdf"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/pdfc"
                     android:backgroundTint="@color/light_transparent"
                     android:layout_gravity="center"

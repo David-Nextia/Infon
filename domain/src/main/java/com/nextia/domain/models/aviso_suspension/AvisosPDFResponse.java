@@ -1,5 +1,7 @@
 package com.nextia.domain.models.aviso_suspension;
-
+/**
+ * class of the response of get consult pdf notice
+ */
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.nextia.domain.models.StatusServicio;

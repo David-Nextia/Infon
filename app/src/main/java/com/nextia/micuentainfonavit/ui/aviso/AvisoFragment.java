@@ -111,6 +111,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
         binding.progressBar2.animate().alpha(0.0f);
     }
 
+    //to manage token expired
     @Override
     public void onTokenExpired() {
         DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.expired_Session), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
@@ -125,6 +126,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
         alertdialog.show();
     }
 
+    //To manage on succes request
     @Override
     public void onSuccesRequest(AvisosPDFResponse object, String token) {
         binding.progressBar2.animate().alpha(0.0f);

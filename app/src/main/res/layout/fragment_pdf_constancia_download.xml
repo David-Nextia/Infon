@@ -162,8 +162,8 @@
 
                 <TextView
                     android:id="@+id/tv_btn_imprimir_pdf"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/pdfc"
                     android:layout_gravity="center" />
 
@@ -181,11 +181,12 @@
 
             </LinearLayout>
             <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:src="@drawable/ic_baseline_share_24"
                 android:layout_gravity="center"
-                android:id="@+id/sharePdf"/>
+                android:id="@+id/sharePdf"
+                android:layout_marginTop="20dp"/>
             <TextView
 
                 android:layout_width="wrap_content"

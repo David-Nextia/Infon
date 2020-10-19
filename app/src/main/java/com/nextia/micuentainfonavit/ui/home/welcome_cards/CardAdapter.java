@@ -27,6 +27,8 @@ public class CardAdapter extends RecyclerView.Adapter {
         final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
         return new SimpleViewHolder(view);
     }
+
+    //mehtod to add data to recyclerview
     public void setData(ArrayList<WelcomeCard> cards){
         this.cards=cards;
         notifyDataSetChanged();
