@@ -49,6 +49,7 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 import com.nextia.micuentainfonavit.databinding.ActivityMainBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
+import com.nextia.micuentainfonavit.ui.avisoprivacidad.TermConditionsActivity;
 
 import okhttp3.internal.Util;
 
@@ -134,7 +135,7 @@ public class MainActivity extends AppCompatActivity  {
         ivCloseMenu = header.findViewById(R.id.iv_close_menu);
 
         binding.tvTermAndCond.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), AvisoPrivacidadActivity.class);
+            Intent intent = new Intent(getApplicationContext(), TermConditionsActivity.class);
             startActivity(intent);
         });
 
