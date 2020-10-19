@@ -151,15 +151,12 @@
                     android:layout_marginEnd="20dp" />
 
                 <Button
+                    style="@style/button_app"
                     android:id="@+id/btn_consultar_constancia"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
                     android:text="@string/consultar"
-                    android:textColor="@color/color_white"
-                    android:background="@drawable/buttonbg"
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/body" />
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
