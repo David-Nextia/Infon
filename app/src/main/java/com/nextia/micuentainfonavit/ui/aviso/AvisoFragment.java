@@ -25,7 +25,6 @@ import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.user.Credito;
 import com.nextia.micuentainfonavit.LoginActivity;
-import com.nextia.micuentainfonavit.MainActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentAvisoBinding;
