@@ -147,7 +147,7 @@
 <!--    vista dee new welcome-->
     <string name="bienvenido_signo">¡Bienvenido</string>
     <string name="en_esta_nueva_version">En esta nueva versión de la aplicación podrás consultar la siguiente información:</string>
-    <string name="consultar_tu_ahorro_vivienda">consultar tu ahorro para vivienda de los diferentes periodos</string>
+    <string name="consultar_tu_ahorro_vivienda">Consultar tu ahorro para vivienda de los diferentes periodos</string>
     <string name="obtener_constancia_de_intereses">Obtener la constancia de intereses para la declaración anual de tu crédito</string>
     <string name="consultar_informacion_saldos_movimientos">Consultar información para la administración de tu crédito en el servicio de saldos y movimientos</string>
     <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona el servicio que quieres consultar desde el menú</string>
