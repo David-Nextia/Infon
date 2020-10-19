@@ -169,14 +169,9 @@
 
                 <Button
                     android:id="@+id/btn_consultar_constancia"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    style="@style/button_app"
                     android:text="@string/consultar"
-
-
                     android:layout_marginTop="10dp"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/body"
                     android:textColor="@android:color/transparent"
                     android:background="@color/light_transparent"/>
 

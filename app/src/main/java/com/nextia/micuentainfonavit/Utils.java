@@ -305,7 +305,6 @@ public class Utils {
         PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(340, 600, 1).create();
         PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
         mypage.getCanvas().setDensity(200);
-        Paint myPaint = new Paint();
         Canvas canvas= mypage.getCanvas();
 
         //setting title format
@@ -342,7 +341,6 @@ public class Utils {
         if (logo != null) {
             canvas.drawBitmap(resizeBitmap(logo, 150, 106), 20, 10, null);
 
-            //canvas.drawBitmap(scaleImageLogo, 20, 10, null);
         }
 
         //writing title
