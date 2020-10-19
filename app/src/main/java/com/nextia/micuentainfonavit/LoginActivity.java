@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
-                if ((oldTop - top) > (screenHeight / 5)) //Keyboard is OnScreen
+                if ((oldTop - top) > (screenHeight / 7)) //Keyboard is OnScreen
                 {
                     setOnKeyboardView();
                 } else if ((oldTop - top) < -screenHeight/ 7 )//Keyboard is OffScreen
@@ -152,7 +152,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void setOnKeyboardView() {
         register.getLocationOnScreen(registerLocation);
         form.getLocationOnScreen(formLocation);
-        if (formLocation[1] - registerLocation[1] < (screenHeight / 19))//condition if form is over description
+        int bottomRegister=registerLocation[1]+register.getHeight();
+        if ((formLocation[1] -bottomRegister)< 0)//condition if form is over description
         {
             register.animate().alpha(0.0f).setDuration(300);
             title.animate().alpha(0.0f);
@@ -179,8 +180,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
    //To create conditions of view and trigger methods, for buttons and textviews
     @SuppressLint("ClickableViewAccessibility")
     void setFunctions(OnFinishRequestListener context) {
-        password.setText("ContrasenaQa01");
-        email.setText("aclara106@yopmail.com");
+       // password.setText("ContrasenaQa01");
+        //email.setText("aclara106@yopmail.com");
         if(email.getText().toString().trim().length()==0 || password.getText().toString().trim().length()==0) {
             loginbtn.setEnabled(false);
         } else {
@@ -193,7 +194,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         } else {
             rememberUser.setChecked(false);
         }
-        email.setText("aclara02@yopmail.com");
+
         password.addTextChangedListener(new TextWatcher() {
             @Override
             public void afterTextChanged(Editable s) {
