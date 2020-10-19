@@ -2,18 +2,16 @@ package com.nextia.micuentainfonavit;
 /**
  * class of the login view and functions
  */
+
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -24,29 +22,18 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.ConstraintSet;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.gson.Gson;
 import com.nextia.domain.OnFinishRequestListener;
-import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
-import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 import com.nextia.micuentainfonavit.usecases.UserUseCase;
-
-import java.io.FileNotFoundException;
 
 
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
@@ -63,6 +50,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     MotionLayout motionLayoutLogin;
     ImageView emailClear;
     ImageView passwordClear;
+    TextView passwordMessage;
     int screenHeight;
 
     //location to determine visibility's description view
@@ -147,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         progress = findViewById(R.id.progressBar);
         emailClear = findViewById(R.id.email_clear);
         passwordClear = findViewById(R.id.password_clear);
+        passwordMessage = findViewById(R.id.password_message);
         //initiate variables
         user = new UserUseCase();
         screenHeight = Utils.getScreenHeight(LoginActivity.this);
@@ -217,6 +206,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                passwordMessage.setVisibility(View.GONE);
                 if (s.toString().trim().length() != 0 && email.getText().toString().trim().length()!=0 ) {
                     loginbtn.setEnabled(true);
                 } else {
@@ -241,9 +231,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                     String passwordInput = password.getText().toString().trim();
 
                     if(!mailInput.isEmpty() && !passwordInput.isEmpty()){
-                        progress.setAlpha(1.0f);
                         // database.doLogin(email.getText().toString(), password.getText().toString(), context);
-                        user.doLogin(email.getText().toString(),password.getText().toString(),context);
+                        doLogin(context);
                         return true;
                     }
                 }
@@ -262,6 +251,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                passwordMessage.setVisibility(View.GONE);
                 if (s.toString().trim().length() != 0 && password.getText().toString().trim().length()!=0) {
                     loginbtn.setEnabled(true);
                 } else {
@@ -280,9 +270,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onClick(View v) {
-               progress.setAlpha(1.0f);
-                user.doLogin(email.getText().toString(), password.getText().toString(), context);
-
+                doLogin(context);
             }
         });
 
@@ -294,6 +282,17 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         emailClear.setOnClickListener(view -> email.setText(""));
 
         passwordClear.setOnClickListener(view -> password.setText(""));
+    }
+
+    //To manage request login
+    private void doLogin(OnFinishRequestListener context){
+        if(password.getText().length() >= 8) {
+            progress.setAlpha(1.0f);
+            user.doLogin(email.getText().toString(), password.getText().toString(), context);
+        }else{
+            passwordMessage.setText(getString(R.string.password_min));
+            passwordMessage.setVisibility(View.VISIBLE);
+        }
     }
 
     //To manage fail request response
