@@ -22,8 +22,8 @@
             android:layout_marginTop="@dimen/d20dp"
             android:gravity="center_horizontal"
             android:text="@string/bienvenido_signo"
-            android:textStyle="bold"
             android:textColor="@color/color_blue"
+            style="@style/TxStyleSubTitle"
             android:textSize="@dimen/d30sp" />
 
 
@@ -33,6 +33,7 @@
             android:layout_marginTop="30dp"
             android:text="@string/en_esta_nueva_version"
             android:textColor="@color/color_blue"
+            android:fontFamily="@font/body"
             android:textSize="@dimen/d20sp" />
 
         <LinearLayout
@@ -52,6 +53,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/consultar_tu_ahorro_vivienda"
                 android:textColor="@color/color_blue"
+                android:fontFamily="@font/body"
                 android:textSize="@dimen/d16sp"
                 android:layout_marginStart="@dimen/d5dp"/>
 
@@ -74,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/obtener_constancia_de_intereses"
                 android:textColor="@color/color_blue"
+                android:fontFamily="@font/body"
                 android:textSize="@dimen/d16sp"
                 android:layout_marginStart="@dimen/d5dp"/>
 
@@ -96,6 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/consultar_informacion_saldos_movimientos"
                 android:textColor="@color/color_blue"
+                android:fontFamily="@font/body"
                 android:textSize="@dimen/d16sp"
                 android:layout_marginStart="@dimen/d5dp"/>
 
@@ -108,6 +112,7 @@
             android:gravity="center"
             android:text="@string/para_iniciar_selecciona_el_servicio"
             android:textColor="@color/color_blue"
+            android:fontFamily="@font/body"
             android:textSize="@dimen/d20sp"
             android:textStyle="bold"
             android:layout_marginBottom="@dimen/d20dp"/>

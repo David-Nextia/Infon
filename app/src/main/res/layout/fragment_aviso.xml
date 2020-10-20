@@ -246,7 +246,8 @@
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textColor="@color/colorTextsSubTitle"
                         android:text="@string/Unsucces_text"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/body"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -254,7 +255,8 @@
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:text="Mi Cuenta Infonavit."
                         android:textColor="#9e1b31"
-                        android:layout_gravity="center" />
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/body"/>
 
                 </LinearLayout>
 
