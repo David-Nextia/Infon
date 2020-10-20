@@ -298,18 +298,21 @@ public class Utils {
     public static File createPdfFromCanvas(PdfConstanciaDownloadViewModel mViewModel, String Name, Activity activity) {
         String myFilePath;
         File myfile;
+        int position;
+        int pageWidth=1200;
+        int pageHieght=2010;
         CreditYearInfoResponse credit=mViewModel.getCreditInfo().getValue();
         String credutNum= mViewModel.getCredit().getValue();
         String creditYear= mViewModel.getYear().getValue();
         PdfDocument pdfDocument = new PdfDocument();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(340, 600, 1).create();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1200, 2010, 1).create();
         PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
         mypage.getCanvas().setDensity(200);
         Canvas canvas= mypage.getCanvas();
 
         //setting title format
         Paint paintTitle = new Paint();
-        paintTitle.setTextSize(10f);
+        paintTitle.setTextSize(20f);
         paintTitle.setFakeBoldText(true);
 
         //setting body text format
@@ -339,47 +342,47 @@ public class Utils {
         }
         paintTitle.setColor(Color.BLACK);
         if (logo != null) {
-            canvas.drawBitmap(resizeBitmap(logo, 150, 106), 20, 10, null);
+            canvas.drawBitmap(resizeBitmap(logo, 700, 490), 30, 30, null);
 
         }
 
         //writing title
-        canvas.drawText("INSTITUTO DEL FONDO NACIONAL DE LA", 95, 20, paintTitle);
-        canvas.drawText("VIVIENDA PARA LOS TRABAJADORES", 100, 30, paintTitle);
+//        canvas.drawText("INSTITUTO DEL FONDO NACIONAL DE LA", 95, 20, paintTitle);
+//        canvas.drawText("VIVIENDA PARA LOS TRABAJADORES", 100, 30, paintTitle);
 
         //writing body text
-        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
-        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
-        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
-        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
-        canvas.drawText("RFC: " + credit.getDatosGenerales().getRfc(), 210, 100, paintText);
-        canvas.drawText("CRÉDITO: " + credutNum, 185, 110, paintText);
-        canvas.drawText(getDate(), 20, 135, paintText);
-        canvas.drawText("C. Acreditado", 20, 145, paintText);
-        canvas.drawText("Esta es tu Carta Constancia de Intereses del ejercicio " + creditYear + " de tu crédito", 20, 155, paintTextDescription);
-        canvas.drawText("del Infonavit. Te será de ayuda para poder deducir en tu declaración anual", 20, 165, paintTextDescription);
-        canvas.drawText("los  intereses  reales  pagados  por  tu  créditoInfonavit,  en caso de que ", 20, 175, paintTextDescription);
-        canvas.drawText("debas presentarla. Contiene e indica el monto de los intereses nominales", 20, 185, paintTextDescription);
-        canvas.drawText("devengados,  así  como  los  intereses pagados en el ejercicio " + creditYear + " y los ", 20, 195, paintTextDescription);
-        canvas.drawText("intereses reales. De esta forma cumplimos con lo dispuesto en la Ley del", 20, 205, paintTextDescription);
-        canvas.drawText("Impuesto sobre la Renta y su reglamento.", 20, 215, paintTextDescription);
-        canvas.drawText("DOMICILIO Y UBICACIÓN DEL INMUEBLE HIPOTECADO: ", 20, 235, paintText);
-        canvas.drawText("NOMBRE DEL ACREDITADO: " + credit.getDatosGenerales().getNombre(), 20, 255, paintText);
-        canvas.drawText("CALLE: " + credit.getDatosGenerales().getDomicilio().getCalleNumero(), 20, 265, paintText);
-        canvas.drawText("COLONIA: " + credit.getDatosGenerales().getDomicilio().getColonia(), 20, 275, paintText);
-        canvas.drawText("MUNICIPIO: " + credit.getDatosGenerales().getDomicilio().getPoblacion(), 20, 285, paintText);
-        canvas.drawText("ESTADO: " + credit.getDatosGenerales().getDomicilio().getEstado(), 20, 295, paintText);
-        canvas.drawText("CÓDIGO POSTAL: " + credit.getDatosGenerales().getDomicilio().getCp(), 20, 305, paintText);
+//        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
+//        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
+//        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", 105, 40, paintText);
+//        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", 100, 50, paintText);
+//        canvas.drawText("RFC: " + credit.getDatosGenerales().getRfc(), 210, 100, paintText);
+//        canvas.drawText("CRÉDITO: " + credutNum, 185, 110, paintText);
+//        canvas.drawText(getDate(), 20, 135, paintText);
+//        canvas.drawText("C. Acreditado", 20, 145, paintText);
+//        canvas.drawText("Esta es tu Carta Constancia de Intereses del ejercicio " + creditYear + " de tu crédito", 20, 155, paintTextDescription);
+//        canvas.drawText("del Infonavit. Te será de ayuda para poder deducir en tu declaración anual", 20, 165, paintTextDescription);
+//        canvas.drawText("los  intereses  reales  pagados  por  tu  créditoInfonavit,  en caso de que ", 20, 175, paintTextDescription);
+//        canvas.drawText("debas presentarla. Contiene e indica el monto de los intereses nominales", 20, 185, paintTextDescription);
+//        canvas.drawText("devengados,  así  como  los  intereses pagados en el ejercicio " + creditYear + " y los ", 20, 195, paintTextDescription);
+//        canvas.drawText("intereses reales. De esta forma cumplimos con lo dispuesto en la Ley del", 20, 205, paintTextDescription);
+//        canvas.drawText("Impuesto sobre la Renta y su reglamento.", 20, 215, paintTextDescription);
+//        canvas.drawText("DOMICILIO Y UBICACIÓN DEL INMUEBLE HIPOTECADO: ", 20, 235, paintText);
+//        canvas.drawText("NOMBRE DEL ACREDITADO: " + credit.getDatosGenerales().getNombre(), 20, 255, paintText);
+//        canvas.drawText("CALLE: " + credit.getDatosGenerales().getDomicilio().getCalleNumero(), 20, 265, paintText);
+//        canvas.drawText("COLONIA: " + credit.getDatosGenerales().getDomicilio().getColonia(), 20, 275, paintText);
+//        canvas.drawText("MUNICIPIO: " + credit.getDatosGenerales().getDomicilio().getPoblacion(), 20, 285, paintText);
+//        canvas.drawText("ESTADO: " + credit.getDatosGenerales().getDomicilio().getEstado(), 20, 295, paintText);
+//        canvas.drawText("CÓDIGO POSTAL: " + credit.getDatosGenerales().getDomicilio().getCp(), 20, 305, paintText);
         //writing description
-        canvas.drawText("INTERESES DEL CRÉDITO HIPOTECARIO: ", 20, 335, paintTextDescription);
-        canvas.drawText("Intereses nominales devengados: " + credit.getDatosFinancieros().getInteresDevengado(), 20, 355, paintTextDescription);
-        canvas.drawText("Intereses pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresPagado(), 20, 365, paintTextDescription);
-        canvas.drawText("Intereses reales pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresReal(), 20, 375, paintTextDescription);
-        canvas.drawText("ATENTAMENTE", 20, 395, paintText);
-        canvas.drawText("Subdirección General de Administración de Cartera", 20, 408, paintTitleSubdirec);
-        if (scaleImageCedula != null) {
-            canvas.drawBitmap(scaleImageCedula, 240, 390, null);
-        }
+//        canvas.drawText("INTERESES DEL CRÉDITO HIPOTECARIO: ", 20, 335, paintTextDescription);
+//        canvas.drawText("Intereses nominales devengados: " + credit.getDatosFinancieros().getInteresDevengado(), 20, 355, paintTextDescription);
+//        canvas.drawText("Intereses pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresPagado(), 20, 365, paintTextDescription);
+//        canvas.drawText("Intereses reales pagados en el ejercicio: " + credit.getDatosFinancieros().getInteresReal(), 20, 375, paintTextDescription);
+//        canvas.drawText("ATENTAMENTE", 20, 395, paintText);
+//        canvas.drawText("Subdirección General de Administración de Cartera", 20, 408, paintTitleSubdirec);
+//        if (scaleImageCedula != null) {
+//            canvas.drawBitmap(scaleImageCedula, 240, 390, null);
+//        }
 
         pdfDocument.finishPage(mypage);
         try {
@@ -398,6 +401,14 @@ public class Utils {
         return myfile;
     }
 
+    //to get next position on canvas text pdf
+    public static int getPosition(int position, int plus){
+       if(plus!=0){
+           position=position+plus;
+       }
+        position=position+5;
+        return position;
+    }
     //to resize mipmaps
     public static Bitmap resizeBitmap(Bitmap bitmap,int newWidth,int newHeight) {
         Bitmap scaledBitmap = Bitmap.createBitmap(newWidth, newHeight, Bitmap.Config.ARGB_8888);
