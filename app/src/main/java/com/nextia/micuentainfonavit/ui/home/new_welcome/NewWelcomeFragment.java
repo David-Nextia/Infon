@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 
@@ -20,7 +21,7 @@ public class NewWelcomeFragment extends Fragment {
 
     private View rootView;
     TextView name;
-
+    UserResponse user;
     //creating view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,12 +29,16 @@ public class NewWelcomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_new_welcome, container, false);
         rootView = root.findViewById(R.id.rootView);
         name=root.findViewById(R.id.tv_titulo_bienvenido);
-
-        if(Utils.getSharedPreferencesUserData(getContext()).getNombre().equals("")){
-            name.setText("!Bienvenido!");
+        user=Utils.getSharedPreferencesUserData(getContext());
+        if(user.getNombre().equals("")){
+            name.setText("¡Bienvenido!");
         }
         else{
-            name.setText("!Bienvenido\n"+Utils.getSharedPreferencesUserData(getContext()).getNombre()+"!");
+            if(user.getScurp().charAt(10)=='M')
+            {name.setText("¡Bienvenida\n"+user.getNombre()+"!");}
+            else{
+                name.setText("¡Bienvenido\n"+user.getNombre()+"!");
+            }
 
         }
         return root;
