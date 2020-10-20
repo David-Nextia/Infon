@@ -20,6 +20,7 @@
     <color name="button_accept_on">#4D9e1b31</color>
     <color name="colorYellow">#F59E27</color>
     <color name="colorGray">#F0F0F0</color>
+    <color name="colorBulletsRed">#C01F3F</color>
     <!--degraded color -->
     <color name="blue_degraded">@drawable/gradient_blue</color>
     <color name="red_degraded">@drawable/gradient_red</color>

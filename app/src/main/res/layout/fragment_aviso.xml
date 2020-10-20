@@ -84,7 +84,7 @@
                         android:layout_marginTop="3dp"
                         android:layout_marginStart="2dp"
                         android:background="@drawable/circle_gray"
-                        android:backgroundTint="@color/color_black"
+                        android:backgroundTint="@color/colorBulletsRed"
                         android:fontFamily="@font/body"/>
 
 
@@ -113,7 +113,7 @@
                         android:layout_height="7dp"
                         android:layout_marginTop="3dp"
                         android:background="@drawable/circle_gray"
-                        android:backgroundTint="@color/color_black" />
+                        android:backgroundTint="@color/colorBulletsRed" />
 
                     <TextView
                         android:layout_width="match_parent"

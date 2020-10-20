@@ -48,7 +48,8 @@
                     android:textColor="@color/color_white"
                     android:text="Síguenos"
                     android:textStyle="bold"
-                    android:gravity="center" />
+                    android:gravity="center"
+                    android:fontFamily="@font/body"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -86,7 +87,8 @@
                     android:text="@string/rights_reserved"
                     android:textColor="@color/color_white"
                     android:textSize="12sp"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/body"/>
 
                 <TextView
                     android:id="@+id/tv_term_and_cond"
@@ -96,7 +98,8 @@
                     android:text="@string/term_and_cond"
                     android:textColor="@color/color_white"
                     android:textSize="12sp"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/body"/>
 
                 <TextView
                     android:id="@+id/tv_notice_privacy"
@@ -106,7 +109,8 @@
                     android:text="@string/notice_privacy"
                     android:textColor="@color/color_white"
                     android:textSize="12sp"
-                    android:layout_marginTop="16dp" />
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/body"/>
 
             </LinearLayout>
 
