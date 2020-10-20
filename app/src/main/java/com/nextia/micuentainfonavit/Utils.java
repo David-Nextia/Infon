@@ -391,7 +391,7 @@ public class Utils {
         canvas.drawText("C. Acreditado", paddingSide,  getPosition(porportionalLine), paintText);
         canvas.drawText("Esta es tu Carta Constancia de Intereses del ejercicio " + creditYear + " de tu crédito", paddingSide, getPosition(porportionalLine), paintTextDescription);
         canvas.drawText("del Infonavit. Te será de ayuda para poder deducir en tu declaración anual", paddingSide, getPosition(porportionalLine), paintTextDescription);
-        canvas.drawText("los  intereses  reales  pagados  por  tu  créditoInfonavit,  en caso de que ", paddingSide, getPosition(porportionalLine), paintTextDescription);
+        canvas.drawText("los  intereses  reales  pagados  por  tu  crédito Infonavit,  en caso de que ", paddingSide, getPosition(porportionalLine), paintTextDescription);
         canvas.drawText("debas presentarla. Contiene e indica el monto de los intereses nominales", paddingSide, getPosition(porportionalLine), paintTextDescription);
         canvas.drawText("devengados,  así  como  los  intereses pagados en el ejercicio " + creditYear + " y los ", paddingSide, getPosition(porportionalLine), paintTextDescription);
         canvas.drawText("intereses reales. De esta forma cumplimos con lo dispuesto en la Ley del", paddingSide, getPosition(porportionalLine), paintTextDescription);
