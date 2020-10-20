@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" group="Mi_cuenta_infonavit" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml" filepath="$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Mi cuenta infonavit/app" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" group="Mi cuenta infonavit/data" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/domain.iml" group="Mi cuenta infonavit/domain" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usecases/usecases.iml" filepath="$PROJECT_DIR$/.idea/modules/usecases/usecases.iml" group="Mi cuenta infonavit/usecases" />
     </modules>
   </component>
 </project>

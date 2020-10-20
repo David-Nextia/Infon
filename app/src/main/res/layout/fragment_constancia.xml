@@ -64,10 +64,12 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/circle_gray" />
+                        android:background="@drawable/circle_gray"
+                        android:backgroundTint="@color/colorBulletsRed"
+                        android:fontFamily="@font/body"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -85,10 +87,12 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/circle_gray" />
+                        android:background="@drawable/circle_gray"
+                        android:backgroundTint="@color/colorBulletsRed"
+                        android:fontFamily="@font/body"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -106,10 +110,12 @@
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
                         android:layout_marginTop="5dp"
-                        android:background="@drawable/circle_gray" />
+                        android:background="@drawable/circle_gray"
+                        android:backgroundTint="@color/colorBulletsRed"
+                        android:fontFamily="@font/body"/>
 
                     <TextView
                         android:layout_width="match_parent"

@@ -46,6 +46,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.nextia.domain.models.user.UserResponse;
 import com.nextia.micuentainfonavit.databinding.ActivityMainBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity  {
         setNavigation();
         setLogoutMethod();
         setActions();
+        setPermisionMenu();
     }
 
     //check for storage permissions
@@ -243,6 +245,38 @@ public class MainActivity extends AppCompatActivity  {
             intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse(YOUTUBE_URL));
             startActivity(intent);
+        }
+    }
+
+    public void setPermisionMenu() {
+        UserResponse user = Utils.getSharedPreferencesUserData(getApplicationContext());
+        String idPermision = user.getIdPerfilglobal();
+
+        //Menu
+        Menu menu = binding.navView.getMenu();
+        switch (idPermision) {
+            case "1.1":
+            case "1.2":
+            case "3.1":
+                menu.findItem(R.id.nav_savings).setVisible(true);
+                menu.findItem(R.id.nav_movements).setVisible(false);
+                menu.findItem(R.id.nav_aviso_suspension).setVisible(false);
+                menu.findItem(R.id.nav_constancia_interes).setVisible(false);
+                break;
+            case "1.3":
+            case "2.1":
+            case "3.3":
+                menu.findItem(R.id.nav_savings).setVisible(true);
+                menu.findItem(R.id.nav_movements).setVisible(true);
+                menu.findItem(R.id.nav_aviso_suspension).setVisible(true);
+                menu.findItem(R.id.nav_constancia_interes).setVisible(true);
+                break;
+            case "1.4":
+                menu.findItem(R.id.nav_savings).setVisible(true);
+                menu.findItem(R.id.nav_movements).setVisible(false);
+                menu.findItem(R.id.nav_aviso_suspension).setVisible(true);
+                menu.findItem(R.id.nav_constancia_interes).setVisible(false);
+                break;
         }
     }
 
