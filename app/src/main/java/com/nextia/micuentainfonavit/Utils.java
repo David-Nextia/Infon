@@ -21,6 +21,7 @@ import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
+import android.service.voice.VoiceInteractionSession;
 import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -302,21 +303,22 @@ public class Utils {
         String myFilePath;
         File myfile;
         int pageWidth=1200;
-        int pageHieght=2010;
-        int paddingTop=pageWidth/40;
-        int paddingSide=pageWidth/30;
+        int pageHieght=2100;
+        int paddingTop=pageWidth/20;
+        int paddingSide=pageWidth/20;
         CreditYearInfoResponse credit=mViewModel.getCreditInfo().getValue();
         String credutNum= mViewModel.getCredit().getValue();
         String creditYear= mViewModel.getYear().getValue();
         PdfDocument pdfDocument = new PdfDocument();
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(1200, 2010, 1).create();
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(pageWidth, pageHieght, 1).create();
         PdfDocument.Page mypage = pdfDocument.startPage(pageInfo);
-        //mypage.getCanvas().setDensity(200);
+        Paint myPaint = new Paint();
         Canvas canvas= mypage.getCanvas();
-        AssetManager manager= activity.getAssets();
-        Typeface typefaceTitle = Typeface.createFromAsset(activity.getAssets(), "res/font/title.ttf");
-        Typeface typefaceSubtitle = Typeface.createFromAsset(activity.getAssets(), "res/font/subtitle.ttf");
-        Typeface typefaceBody = Typeface.createFromAsset(activity.getAssets(), "res/font/body.ttf");
+        AssetManager aset= activity.getAssets();
+        Typeface typefaceTitle = Typeface.createFromAsset(activity.getAssets(), "font/title.ttf");
+        Typeface typefaceSubtitle = Typeface.createFromAsset(activity.getAssets(), "font/subtitle.ttf");
+        Typeface typefaceBody = Typeface.createFromAsset(activity.getAssets(), "font/body.ttf");
+
 
 
         //setting title format
@@ -324,7 +326,6 @@ public class Utils {
         paintTitle.setTextSize(40f);
         paintTitle.setTypeface(typefaceTitle);
         //paintTitle.setFakeBoldText(true);
-
 
         //setting body text format
         Paint paintText = new Paint();
@@ -340,6 +341,8 @@ public class Utils {
         //setting subdirect text format
         Paint paintTitleSubdirec = new Paint();
         paintTitleSubdirec.setTextSize((float) 30);
+        paintTitleSubdirec.setFakeBoldText(true);
+        paintTitleSubdirec.setColor(Color.BLACK);
         paintTitleSubdirec.setTypeface(typefaceSubtitle);
 
 
@@ -347,28 +350,32 @@ public class Utils {
         Bitmap logo = null;
         Bitmap cedula = null;
         Bitmap scaleImageCedula = null;
+        Bitmap scaleImageLogo = null;
         if (getContext() != null) {
             logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
             cedula = BitmapFactory.decodeResource(activity.getResources(), R.drawable.cedula_rfc);
-            scaleImageCedula = Bitmap.createScaledBitmap(cedula, 200, 400, true);
+            scaleImageLogo=Bitmap.createScaledBitmap(logo,60,60,true);
+            scaleImageCedula = Bitmap.createScaledBitmap(cedula, 90, 160, true);
         }
         paintTitle.setColor(Color.BLACK);
         if (logo != null) {
-            int imageWidth= pageWidth/5;
-            int imageHeight= (int)((imageWidth)*0.7);
-
+            int imageWidth= (int)(pageWidth/5.5);
+           int imageHeight= (int)((imageWidth)*0.7);
             canvas.drawBitmap(resizeBitmap(logo, imageWidth, imageHeight), paddingTop, paddingTop, null);
-
+//
+           // canvas.drawBitmap(resizeBitmap(logo, 60, 60), 20, 10, null);
+            //canvas.drawBitmap(scaleImageLogo, 20, 10, null);
         }
+
         //writing title
         int porportionalLine= pageHieght/52;
 
-         canvas.drawText("INSTITUTO DEL FONDO NACIONAL DE LA", (pageWidth/5)+50, getPosition(paddingTop+24), paintTitle);
-         canvas.drawText("VIVIENDA PARA LOS TRABAJADORES", (pageWidth/5)+80, getPosition(porportionalLine), paintTitle);
+        canvas.drawText("INSTITUTO DEL FONDO NACIONAL DE LA", (pageWidth/5)+80, getPosition(paddingTop+30), paintTitle);
+        canvas.drawText("VIVIENDA PARA LOS TRABAJADORES", (pageWidth/5)+110, getPosition(porportionalLine), paintTitle);
 
         //writing body text
-        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", (pageWidth/5)+100, getPosition(porportionalLine), paintText);
-        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", (pageWidth/5)+80, getPosition(porportionalLine), paintText);
+        canvas.drawText("BARRANCA DEL MUERTO 280 GUADALUPE INN", (pageWidth/5)+130, getPosition(porportionalLine), paintText);
+        canvas.drawText("DELEGACIÓN ALVARO OBREGON 01029 CDMX", (pageWidth/5)+110, getPosition(porportionalLine), paintText);
         Rect bounds = new Rect();
         int text_height = 0;
         int text_width = 0;
@@ -406,8 +413,8 @@ public class Utils {
         if (scaleImageCedula != null) {
             int imageHeight= (int)(pageHieght/3);
             int imageWidth= (int)((imageHeight)*0.5);
-            int yPosition=pageHieght/2+200;
-            int xPosition=(pageWidth/3)*2+30;
+            int yPosition=pageHieght/2+240;
+            int xPosition=(pageWidth/5)*3+50;
             canvas.drawBitmap(resizeBitmap(cedula,imageWidth,imageHeight), xPosition, yPosition, null);
         }
         position=0;
