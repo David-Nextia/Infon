@@ -64,6 +64,7 @@
         <item name="android:gravity">center</item>
         <item name="android:textColor">@color/colorPrimary</item>
 
+
     </style>
 
 
@@ -143,6 +144,13 @@
         <item name="android:layout_marginRight">10dp</item>
 
 
+    </style>
+
+    <style name="onlytwocorner">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">0dp</item>
     </style>
 
 </resources>

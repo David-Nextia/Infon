@@ -37,16 +37,45 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1504788" />
+    <ImageView
+        android:id="@+id/topimage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/background_login_top"
+       app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/Horizontalguidelinetop5"
+        />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/Horizontalguidelinetop5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.2504788" />
 
     <ImageView
         android:id="@+id/logoimg"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="50dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
         app:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logo_infonavit_rojo" />
+
+    <ImageView
+        android:id="@+id/logoimgwhite"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
+        app:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
+        app:layout_constraintTop_toTopOf="parent"
+        android:alpha="0"
+        app:srcCompat="@drawable/logo_infonavit_blanco" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:id="@+id/viewLogin"
@@ -54,6 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/logoimg"
         app:layout_constraintBottom_toBottomOf="parent">
         <TextView
+            android:visibility="gone"
             android:id="@+id/titletext"
             style="@style/TxStyleinitSession"
             android:layout_width="0dp"
@@ -67,19 +97,24 @@
 
 
             />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/Horizontalguidelinetop7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.1604788" />
         <TextView
             android:id="@+id/registerlink"
             style="@style/TxStyleinitdescSession"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="10dp"
             android:text="@string/hyperlink2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titletext"
+            app:layout_constraintTop_toBottomOf="@id/Horizontalguidelinetop7"
             android:fontFamily="@font/body"
 
             />
@@ -99,28 +134,39 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 >
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_layout_email"
                 android:layout_width="match_parent"
+                android:animateLayoutChanges="true"
                 android:layout_height="wrap_content"
                 android:textColorHint="@color/colorskeleton">
-
 
 
                     <EditText
                         android:id="@+id/email_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                       android:layout_marginBottom="12dp"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
                         android:drawableStart="@drawable/ic_alternate_email_24px"
                         android:drawablePadding="20dp"
                         android:hint="Correo electrónico"
                         android:inputType="textEmailAddress"
-                        android:fontFamily="@font/input" />
+                        android:fontFamily="@font/input"
 
+                        />
 
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/view_username"
+                    android:layout_width="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_height="2dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="12dp"
+                    android:background="#aaaaaa" />
 
 
 
@@ -144,6 +190,7 @@
                     android:id="@+id/input_layout_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
                     android:textColorHint="@color/colorskeleton"
                     app:passwordToggleEnabled="true">
 

@@ -108,6 +108,7 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public void onFailureRequest(String message) {
         dialog.show();
         binding.progressBar2.animate().alpha(0.0f);
+
     }
 
     //to manage token expired
@@ -130,6 +131,8 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public void onSuccesRequest(AvisosPDFResponse object, String token) {
         binding.progressBar2.animate().alpha(0.0f);
         if(object.getStatusServicio().getCodigo().equals("02")){
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Atención", "Este crédito no tiene avisos disponibles", DialogInfonavit.ONE_BUTTON_DIALOG);
+            alertdialog.show();
             binding.suspensionUnsucess.animate().alpha(1.0f);
         } else {
             binding.suspensionUnsucess.animate().alpha(0.0f);

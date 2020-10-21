@@ -52,7 +52,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Consulta e imprime aquí tu constancia"
+                    android:text="En este servicio puedes obtener la constancia de intereses de los últimos ejercicios fiscales disponibles de tu crédito hipotecario."
                     android:textAlignment="gravity"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/body"/>
@@ -61,7 +61,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="7dp"
@@ -84,7 +85,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="7dp"
@@ -107,7 +109,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="7dp"
@@ -130,8 +133,140 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
-                    android:background="@color/colorskeleton" />
+                    android:background="@color/colorskeleton"
+                    android:visibility="gone"/>
 
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/constancia_subtitulo_registro_federal_contribuyentes"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/body"
+                    android:textSize="12sp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="30dp"
+                        android:background="@drawable/circle_gray"
+                        android:backgroundTint="@color/colorPrimary"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/constancia_subtitulo_1_ten_constancia_interes"
+                        android:layout_marginStart="3dp"
+                        android:textSize="12sp"
+                        android:fontFamily="@font/body"
+                        />
+                </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/circle_gray"
+                    android:backgroundTint="@color/colorPrimary"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/constancia_subtitulo_2_acude_modulo_atencion"
+                    android:layout_marginStart="3dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
+            </LinearLayout>
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="30dp"
+                    android:background="@drawable/circle_gray"
+                    android:backgroundTint="@color/colorPrimary"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/constancia_subtitulo_3_haz_una_cita"
+                    android:layout_marginStart="3dp"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/body"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="35sp">
+
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_gray"
+                        android:backgroundTint="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/constancia_subtitulo_constancia_o_copia"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/body"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_marginBottom="20dp">
+
+                    <TextView
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/circle_gray"
+
+                        android:backgroundTint="@color/colorPrimary"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginStart="3dp"
+                        android:text="@string/constancia_subtitulo_identificacion_oficial_vigente"
+                        android:textSize="12sp"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/body"/>
+
+
+
+
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -160,7 +295,6 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"/>
-
                 <Button
                     style="@style/button_app"
                     android:id="@+id/btn_consultar_constancia"
@@ -168,93 +302,6 @@
                     android:layout_marginTop="10dp"
                     android:layout_gravity="center_horizontal"
                     />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/constancia_subtitulo_registro_federal_contribuyentes"
-                    android:layout_marginStart="20dp"
-                    android:fontFamily="@font/body"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/constancia_subtitulo_1_ten_constancia_interes"
-                    android:layout_marginStart="30dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/body"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/constancia_subtitulo_2_acude_modulo_atencion"
-                    android:layout_marginStart="30dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/body"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="@string/constancia_subtitulo_3_haz_una_cita"
-                    android:layout_marginStart="30dp"
-                    android:textSize="12sp"
-                    android:fontFamily="@font/body"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="35sp">
-
-                    <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/circle_gray"
-                        android:layout_gravity="center_vertical" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/constancia_subtitulo_constancia_o_copia"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/body"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginStart="35dp"
-                    android:layout_marginBottom="20dp">
-
-                    <TextView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
-                        android:layout_marginTop="5dp"
-                        android:background="@drawable/circle_gray"
-                        android:layout_gravity="center_vertical" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="@string/constancia_subtitulo_identificacion_oficial_vigente"
-                        android:textSize="12sp"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/body"/>
-
-                </LinearLayout>
 
             </LinearLayout>
 

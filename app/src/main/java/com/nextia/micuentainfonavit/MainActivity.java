@@ -169,7 +169,6 @@ public class MainActivity extends AppCompatActivity  {
                 {
                     int z= item.getOrder() ;
                     int y=Menu.CATEGORY_SECONDARY;
-                    int finan= z & y;
                     NavigationUI.onNavDestinationSelected(item, navController);
                     //Utils.NavigateWhitBackStack(MainActivity.this,menu.getItem(0).getItemId());
                 }
@@ -265,6 +264,7 @@ public class MainActivity extends AppCompatActivity  {
                 break;
             case "1.3":
             case "2.1":
+            case "3.2":
             case "3.3":
                 menu.findItem(R.id.nav_savings).setVisible(true);
                 menu.findItem(R.id.nav_movements).setVisible(true);
@@ -272,6 +272,8 @@ public class MainActivity extends AppCompatActivity  {
                 menu.findItem(R.id.nav_constancia_interes).setVisible(true);
                 break;
             case "1.4":
+            case "2.3":
+            case "3.4":
                 menu.findItem(R.id.nav_savings).setVisible(true);
                 menu.findItem(R.id.nav_movements).setVisible(false);
                 menu.findItem(R.id.nav_aviso_suspension).setVisible(true);

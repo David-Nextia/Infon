@@ -14,6 +14,8 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -40,17 +42,18 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     UserUseCase user;
     Switch rememberUser;
     View auxView;
-    ConstraintLayout layout;
+    ConstraintLayout layout,layout2;
     LinearLayout form;
     EditText password, email;
     Button loginbtn;
     TextView aviso, title, register;
     ConstraintSet set;
+    Animation anim;
     ProgressBar progress;
     MotionLayout motionLayoutLogin;
-    ImageView emailClear;
-    ImageView passwordClear;
+    ImageView emailClear,passwordClear,redLogo,whiteLogo;
     TextView passwordMessage;
+    Boolean hasShowedKeyboard=false;
     int screenHeight;
 
     //location to determine visibility's description view
@@ -101,6 +104,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             }
         });
         setFunctions(this);//condicionales del botón y funciones de Onclick
+        anim = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.input_text);
 
     }
 
@@ -129,6 +133,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         register = findViewById(R.id.registerlink);
         title = findViewById(R.id.titletext);
         layout = (ConstraintLayout) findViewById(R.id.viewLogin);
+        layout2 = (ConstraintLayout) findViewById(R.id.motionLayoutLogin);
         aviso = findViewById(R.id.avisolink);
         password = findViewById(R.id.password_edit);
         loginbtn = findViewById(R.id.buttonlogin);
@@ -138,6 +143,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         emailClear = findViewById(R.id.email_clear);
         passwordClear = findViewById(R.id.password_clear);
         passwordMessage = findViewById(R.id.password_message);
+        redLogo= findViewById(R.id.logoimg);
+        whiteLogo=findViewById(R.id.logoimgwhite);
         //initiate variables
         user = new UserUseCase();
         screenHeight = Utils.getScreenHeight(LoginActivity.this);
@@ -160,15 +167,29 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             register.animate().alpha(0.0f).setDuration(300);
             title.animate().alpha(0.0f);
         }
+        motionLayoutLogin.transitionToState(R.id.hidetop);
         set.clone(layout);
         set.clear(R.id.register_form, ConstraintSet.TOP);
         aviso.animate().alpha(0.0f);
         aviso.setText("");
         set.applyTo(layout);
+        set.clear(R.id.topimage,ConstraintSet.BOTTOM);
+        set.applyTo(layout2);
+        hasShowedKeyboard=true;
+        redLogo.animate().setDuration(1000).alpha(1);
+        whiteLogo.animate().setDuration(1000).alpha(0);
     }
 
     //To manage functions off soft keyboard
     public void setOffKeyboardView() {
+        if(hasShowedKeyboard)
+        {
+            motionLayoutLogin.transitionToState(R.id.showtop);
+
+            redLogo.animate().setDuration(1000).alpha(0);
+            whiteLogo.animate().setDuration(1000).alpha(1);
+
+        }
         register.animate().alpha(1.0f);
         title.animate().alpha(1.0f);
         set.clone(layout);
