@@ -95,8 +95,8 @@
             android:layout_margin="8dp"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="74dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_scotiabank"
             android:layout_margin="6sp"/>
         <TextView
@@ -108,8 +108,8 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="10dp"
             android:src="@drawable/ic_banorte"
             />
         <TextView
@@ -121,8 +121,10 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="16dp"
+            android:layout_gravity="start"
+            android:adjustViewBounds="true"
             android:src="@drawable/ic_back_citibanamex" />
 
         <TextView
@@ -134,8 +136,8 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="74dp"
+            android:layout_height="15dp"
             android:src="@drawable/ic_back_santander" />
 
         <TextView
@@ -147,8 +149,8 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="22dp"
             android:src="@drawable/ic_back_bansefi" />
 
         <TextView
@@ -160,8 +162,8 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:layout_height="20dp"
             android:src="@drawable/ic_back_hsbc" />
 
         <TextView
@@ -173,8 +175,8 @@
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="38dp"
+            android:layout_height="12dp"
             android:src="@drawable/bbva" />
 
         <TextView

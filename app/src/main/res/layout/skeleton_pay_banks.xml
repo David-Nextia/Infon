@@ -105,8 +105,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
             android:layout_margin="8dp"/>
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="74dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_scotiabank"
             android:layout_margin="6sp"
             app:tint="@color/light_transparent" />
@@ -120,8 +120,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="105dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_banorte"
             app:tint="@color/light_transparent" />
         <TextView
@@ -134,8 +134,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="72dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_citibanamex"
             app:tint="@color/light_transparent" />
 
@@ -149,8 +149,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="74dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_santander"
             app:tint="@color/light_transparent" />
 
@@ -164,8 +164,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="41dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_bansefi"
             app:tint="@color/light_transparent" />
 
@@ -179,8 +179,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="43dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_hsbc"
             app:tint="@color/light_transparent" />
 
@@ -194,8 +194,8 @@ Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu
 
         <ImageView
             android:layout_margin="6sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="38dp"
+            android:layout_height="12dp"
             android:src="@drawable/ic_back_bbva_bancomer" />
 
         <TextView
