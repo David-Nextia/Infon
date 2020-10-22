@@ -1,0 +1,258 @@
+Index: build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>ext {\r\n    defaultMinSdkVersion = 24\r\n}// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nbuildscript {\r\n    ext {\r\n        kotlin_version = '1.4.10'\r\n    }\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n    dependencies {\r\n        classpath \"com.android.tools.build:gradle:4.0.1\"\r\n        classpath \"org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version\"\r\n        classpath 'com.google.gms:google-services:4.3.4'\r\n        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.3.0'\r\n        // NOTE: Do not place your application dependencies here; they belong\r\n        // in the individual module build.gradle files\r\n    }\r\n}\r\n\r\nallprojects {\r\n    repositories {\r\n        google()\r\n        jcenter()\r\n    }\r\n}\r\n\r\ntask clean(type: Delete) {\r\n    delete rootProject.buildDir\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- build.gradle	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ build.gradle	(date 1603227446903)
+@@ -10,7 +10,7 @@
+         jcenter()
+     }
+     dependencies {
+-        classpath "com.android.tools.build:gradle:4.0.1"
++        classpath 'com.android.tools.build:gradle:4.1.0'
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+         classpath 'com.google.gms:google-services:4.3.4'
+         classpath 'com.google.firebase:firebase-crashlytics-gradle:2.3.0'
+Index: .idea/codeStyles/Project.xml
+===================================================================
+--- .idea/codeStyles/Project.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ .idea/codeStyles/Project.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
+@@ -1,125 +0,0 @@
+-<component name="ProjectCodeStyleConfiguration">
+-  <code_scheme name="Project" version="173">
+-    <JetCodeStyleSettings>
+-      <option name="PACKAGES_TO_USE_STAR_IMPORTS">
+-        <value>
+-          <package name="java.util" withSubpackages="false" static="false" />
+-          <package name="kotlinx.android.synthetic" withSubpackages="true" static="false" />
+-          <package name="io.ktor" withSubpackages="true" static="false" />
+-        </value>
+-      </option>
+-    </JetCodeStyleSettings>
+-    <codeStyleSettings language="XML">
+-      <indentOptions>
+-        <option name="CONTINUATION_INDENT_SIZE" value="4" />
+-      </indentOptions>
+-      <arrangement>
+-        <rules>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>xmlns:android</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>xmlns:.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*:id</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*:name</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>name</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>style</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>^$</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>ANDROID_ATTRIBUTE_ORDER</order>
+-            </rule>
+-          </section>
+-          <section>
+-            <rule>
+-              <match>
+-                <AND>
+-                  <NAME>.*</NAME>
+-                  <XML_ATTRIBUTE />
+-                  <XML_NAMESPACE>.*</XML_NAMESPACE>
+-                </AND>
+-              </match>
+-              <order>BY_NAME</order>
+-            </rule>
+-          </section>
+-        </rules>
+-      </arrangement>
+-    </codeStyleSettings>
+-  </code_scheme>
+-</component>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectModuleManager\">\r\n    <modules>\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml\" group=\"Mi_cuenta_infonavit\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/app/app.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/app/app.iml\" group=\"Mi cuenta infonavit/app\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/data/data.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/data/data.iml\" group=\"Mi cuenta infonavit/data\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/domain/domain.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/domain/domain.iml\" group=\"Mi cuenta infonavit/domain\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml\" />\r\n      <module fileurl=\"file://$PROJECT_DIR$/.idea/modules/usecases/usecases.iml\" filepath=\"$PROJECT_DIR$/.idea/modules/usecases/usecases.iml\" group=\"Mi cuenta infonavit/usecases\" />\r\n    </modules>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ .idea/modules.xml	(date 1603228787353)
+@@ -2,16 +2,11 @@
+ <project version="4">
+   <component name="ProjectModuleManager">
+     <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" group="Mi_cuenta_infonavit" />
++      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/Mi_cuenta_infonavit.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Mi_cuenta_infonavit.app.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Mi_cuenta_infonavit.data.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Mi_cuenta_infonavit.domain.iml" />
+       <module fileurl="file://$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml" filepath="$PROJECT_DIR$/.idea/modules/usecases/Mi_cuenta_infonavit.usecases.iml" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Mi cuenta infonavit/app" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/data.iml" group="Mi cuenta infonavit/data" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/domain.iml" group="Mi cuenta infonavit/domain" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml" filepath="$PROJECT_DIR$/.idea/modules/mci-android-dev.Mi_cuenta_infonavit.iml" />
+-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/usecases/usecases.iml" filepath="$PROJECT_DIR$/.idea/modules/usecases/usecases.iml" group="Mi cuenta infonavit/usecases" />
+     </modules>
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <bytecodeTargetLevel>\r\n      <module name=\"data\" target=\"1.7\" />\r\n      <module name=\"domain\" target=\"1.7\" />\r\n      <module name=\"usecases\" target=\"1.7\" />\r\n    </bytecodeTargetLevel>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/compiler.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ .idea/compiler.xml	(date 1603228740592)
+@@ -1,10 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="CompilerConfiguration">
+-    <bytecodeTargetLevel>
+-      <module name="data" target="1.7" />
+-      <module name="domain" target="1.7" />
+-      <module name="usecases" target="1.7" />
++    <bytecodeTargetLevel target="1.7">
++      <module name="Mi_cuenta_infonavit.app" target="1.8" />
+     </bytecodeTargetLevel>
+   </component>
+ </project>
+\ No newline at end of file
+Index: gradle/wrapper/gradle-wrapper.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Mon Sep 21 10:21:21 CDT 2020\r\ndistributionBase=GRADLE_USER_HOME\r\ndistributionPath=wrapper/dists\r\nzipStoreBase=GRADLE_USER_HOME\r\nzipStorePath=wrapper/dists\r\ndistributionUrl=https\\://services.gradle.org/distributions/gradle-6.1.1-all.zip\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gradle/wrapper/gradle-wrapper.properties	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ gradle/wrapper/gradle-wrapper.properties	(date 1603227446973)
+@@ -1,6 +1,6 @@
+-#Mon Sep 21 10:21:21 CDT 2020
++#Tue Oct 20 15:57:26 CDT 2020
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-6.5-bin.zip
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ .idea/misc.xml	(date 1603228740487)
+@@ -1,4 +1,4 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"GradleMigrationSettings\" migrationVersion=\"1\" />\r\n  <component name=\"GradleSettings\">\r\n    <option name=\"linkedExternalProjectsSettings\">\r\n      <GradleProjectSettings>\r\n        <option name=\"testRunner\" value=\"PLATFORM\" />\r\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\r\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\r\n        <option name=\"gradleJvm\" value=\"1.8\" />\r\n        <option name=\"modules\">\r\n          <set>\r\n            <option value=\"$PROJECT_DIR$\" />\r\n            <option value=\"$PROJECT_DIR$/app\" />\r\n            <option value=\"$PROJECT_DIR$/data\" />\r\n            <option value=\"$PROJECT_DIR$/domain\" />\r\n            <option value=\"$PROJECT_DIR$/usecases\" />\r\n          </set>\r\n        </option>\r\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\r\n      </GradleProjectSettings>\r\n    </option>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 40e5074d7955ccae7587173710082cced0ed714a)
++++ .idea/gradle.xml	(date 1603228740784)
+@@ -1,6 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+@@ -18,6 +17,7 @@
+           </set>
+         </option>
+         <option name="resolveModulePerSourceSet" value="false" />
++        <option name="useQualifiedModuleNames" value="true" />
+       </GradleProjectSettings>
+     </option>
+   </component>
