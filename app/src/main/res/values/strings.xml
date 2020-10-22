@@ -36,7 +36,9 @@
     <string name="contrase_a">Contraseña</string>
     <string name="recuerda_tu_usuario">Recuerda tu usuario</string>
     <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
-    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> , si aún no la tienes <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">regístrate</a></string>
+    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> </string>
+    <string name="hyperlink3"><b>Si aún no la tienes</b> <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/"><b>regístrate</b></a></string>
+    <string name="hyperlink4"><b>Si aún no la tienes</b> regístrate</string>
     <string name="hyperlinkap">Aviso de privacidad</string>
     <string name="menu_ahorro">¿Cuánto ahorro tengo?</string>
     <string name="password_min">La contraseña debe tener mínimo 8 caracteres</string>
@@ -152,5 +154,6 @@
     <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona el servicio que quieres consultar desde el menú</string>
     <string name="expired_Session">Su sesión ha expirado</string>
     <string name="nonenumber">-</string>
+    <string name="correo_electr_nico">Correo electrónico</string>
 
 </resources>

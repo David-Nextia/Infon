@@ -10,5 +10,5 @@
     <dimen name="avisomargin">35dp</dimen>
     <dimen name="logoposition">250dp</dimen>
     <dimen name="WelcomeCardWidth">320dp</dimen>
-    <dimen name="spacebtweeninputs">30dp</dimen>
+    <dimen name="spacebtweeninputs">10dp</dimen>
 </resources>

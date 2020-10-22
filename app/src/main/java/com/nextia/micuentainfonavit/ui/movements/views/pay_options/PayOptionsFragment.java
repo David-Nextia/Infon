@@ -106,21 +106,6 @@ public class PayOptionsFragment extends Fragment {
         });
     }
 
-    //function before initial view to show and stop skeleton
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_pay_options);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
 
     //setting clicks on view
     public void setOnClicks(){
@@ -155,13 +140,13 @@ public class PayOptionsFragment extends Fragment {
         spinnerCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0) {
-                    Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
+               // if (position != 0) {
+                    Utils.showLoadingSkeleton(rootView, R.layout.skeleton_pay_options);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
-                }else{
-                    binding.setOpcionesPago(new OpcionesPago());
-                    binding.setPagosMensualidades(new PagosMensualidades());
-                }
+//                }else{
+//                    binding.setOpcionesPago(new OpcionesPago());
+//                    binding.setPagosMensualidades(new PagosMensualidades());
+//                }
             }
 
             @Override

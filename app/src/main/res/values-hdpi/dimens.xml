@@ -10,4 +10,5 @@
     <dimen name="desig_bottom_navigation_design_bottom_navigation_margin" tools:override="true">5dp</dimen>
     <dimen name="avisomargin">6dp</dimen>
     <dimen name="logoposition">150dp</dimen>
+    <dimen name="spacebtweeninputs">20dp</dimen>
 </resources>

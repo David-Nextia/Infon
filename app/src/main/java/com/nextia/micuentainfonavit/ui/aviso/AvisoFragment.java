@@ -73,14 +73,14 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
     public void setSpinner(){
         creditos = Utils.getSharedPreferencesUserData(getContext()).getCredito();
         Creditlist.clear();
-        Creditlist.add("Selecciona una cuenta");
+        //Creditlist.add("Selecciona una cuenta");
         for (int i = 0; i < creditos.size(); i++) {
             Creditlist.add("0000" + creditos.get(i).getNumeroCredito());
         }
         binding.spCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0) {
+               // if (position != 0) {
                     //dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), getString(R.string.message_server_error), DialogInfonavit.ONE_BUTTON_DIALOG);
                     //servicio cualquiera forzado a dar error ya que el servicio inicial falla de por sí
                     //UserUseCase user = new UserUseCase();
@@ -88,9 +88,10 @@ public class AvisoFragment extends Fragment implements OnFinishRequestListener<A
                     binding.progressBar2.animate().alpha(1.0f);
                     String credit = parent.getSelectedItem().toString();
                     noticeSuspensionCase.getConsultPDFNotice(credit, Utils.getSharedPreferencesToken(getContext()), AvisoFragment.this);
-                }else{
-                    binding.suspensionUnsucess.animate().alpha(0.0f);
-                }
+               // }
+//                else{
+//                    binding.suspensionUnsucess.animate().alpha(0.0f);
+//                }
             }
 
             @Override

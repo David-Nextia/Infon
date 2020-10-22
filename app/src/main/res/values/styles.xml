@@ -151,6 +151,14 @@
         <item name="cornerSize">50%</item>
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerSizeTopLeft">0dp</item>
-    </style>
 
+
+    </style>
+    <style name="AppThemeBlueAccent" parent="AppTheme">
+        <item name="colorAccent">@color/color_blue</item>
+        <item name="colorPrimary">@color/color_blue</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/color_blue</item>
+    </style>
 </resources>

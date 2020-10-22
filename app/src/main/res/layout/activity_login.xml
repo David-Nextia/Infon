@@ -29,14 +29,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.03009576" />
+        app:layout_constraintGuide_percent="0.10009576" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/Horizontalguidelinetop2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1504788" />
+        app:layout_constraintGuide_percent="0.2204788" />
     <ImageView
         android:id="@+id/topimage"
         android:layout_width="0dp"
@@ -54,13 +54,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2504788" />
+        app:layout_constraintGuide_percent="0.3304788" />
 
     <ImageView
         android:id="@+id/logoimg"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
         app:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
         app:layout_constraintTop_toTopOf="parent"
@@ -70,7 +70,7 @@
         android:id="@+id/logoimgwhite"
         android:layout_width="0dp"
         android:layout_height="70dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="@id/verticalguidelineright"
         app:layout_constraintStart_toStartOf="@id/verticalguidelineleft"
         app:layout_constraintTop_toTopOf="parent"
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1604788" />
+            app:layout_constraintGuide_percent="0.2204788" />
         <TextView
             android:id="@+id/registerlink"
             style="@style/TxStyleinitdescSession"
@@ -112,6 +112,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="10dp"
             android:text="@string/hyperlink2"
+            android:textColor="@color/color_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Horizontalguidelinetop7"
@@ -124,74 +125,114 @@
             android:layout_height="wrap_content"
             android:alpha="1"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/registerlink2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/registerlink">
-
+            app:layout_constraintTop_toBottomOf="@id/registerlink"
+            android:weightSum="4">
             <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                >
+                android:paddingBottom="5dp"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:layout_weight="1">
+                <View
+                    android:id="@+id/email_line23"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="bottom"
+                    android:background="#aaaaaa"
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_layout_email"
-                android:layout_width="match_parent"
-                android:animateLayoutChanges="true"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorskeleton">
+                    />
+                <View
+                    android:id="@+id/email_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorPrimary"
+                    android:visibility="invisible"
+                    />
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_layout_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:textColorHint="@color/color_blue"
+                    >
 
                     <EditText
                         android:id="@+id/email_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
+                        android:layout_gravity="center_horizontal"
                         android:layout_marginRight="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="-4dp"
                         android:drawableStart="@drawable/ic_alternate_email_24px"
                         android:drawablePadding="20dp"
-                        android:hint="Correo electrónico"
+                        android:paddingTop="8dp"
+                        android:paddingBottom="8dp"
+                        android:hint="@string/correo_electr_nico"
                         android:inputType="textEmailAddress"
                         android:fontFamily="@font/input"
-
+                        android:background="#00000000"
                         />
 
-                <View
-                    android:visibility="gone"
-                    android:id="@+id/view_username"
-                    android:layout_width="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_height="2dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginBottom="12dp"
-                    android:background="#aaaaaa" />
 
+                </com.google.android.material.textfield.TextInputLayout>
 
-
-            </com.google.android.material.textfield.TextInputLayout>
                 <ImageView
                     android:id="@+id/email_clear"
                     android:layout_width="22dp"
                     android:layout_height="22dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_gravity="right|center_vertical"
                     android:src="@drawable/ic_close"
                     android:visibility="invisible"/>
+
             </FrameLayout>
+
             <FrameLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="9dp"
-                android:padding="5dp">
+                android:layout_marginTop="@dimen/spacebtweeninputs"
+                android:padding="5dp"
+                android:layout_weight="1">
+                <View
+                    android:id="@+id/password_line23"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="bottom"
+                    android:background="#aaaaaa"
+
+                    />
+                <View
+                    android:id="@+id/password_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="14dp"
+                    android:layout_marginLeft="14dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorPrimary"
+                    android:visibility="invisible"
+                    />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/input_layout_pass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
-                    android:textColorHint="@color/colorskeleton"
+                    android:textColorHint="@color/color_blue"
                     app:passwordToggleEnabled="true">
 
                     <EditText
@@ -199,18 +240,25 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_margin="12dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginBottom="-5dp"
                         android:drawableStart="@drawable/ic_lock_24px"
                         android:drawablePadding="20dp"
+                        android:paddingBottom="1dp"
                         android:hint="@string/contrase_a"
                         android:inputType="textPassword"
-                        android:fontFamily="@font/input"/>
+                        android:fontFamily="@font/input"
+                        android:background="#00000000"
+                        />
+
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <ImageView
                     android:id="@+id/password_clear"
                     android:layout_width="22dp"
+                    android:layout_marginTop="10dp"
                     android:layout_height="22dp"
                     android:layout_marginRight="60dp"
                     android:layout_gravity="right|center_vertical"
@@ -229,6 +277,8 @@
                     android:fontFamily="@font/input"
                     android:visibility="gone"/>
 
+
+
             </FrameLayout>
 
             <LinearLayout
@@ -238,12 +288,14 @@
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
-                android:paddingBottom="10dp">
+                android:paddingBottom="10dp"
+                android:layout_weight="1">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/recuerda_tu_usuario"
+                    android:textColor="@color/color_blue"
                     android:fontFamily="@font/body"/>
 
                 <Switch
@@ -260,6 +312,7 @@
                 android:id="@+id/buttonlogin"
                 android:layout_marginBottom="10dp"
                 android:text="@string/iniciar_sesi_n"
+                android:layout_weight="1"
                 />
 
         </LinearLayout>
@@ -275,17 +328,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/registerlink" />
         <TextView
-            android:id="@+id/avisolink"
+            android:id="@+id/registerlink2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/avisomargin"
-            android:gravity="center_horizontal"
-            android:text="@string/hyperlinkap"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="40dp"
+            android:text="@string/hyperlink3"
+            android:textColor="@color/color_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:fontFamily="@font/body" />
+            app:layout_constraintTop_toBottomOf="@id/register_form"
+            app:layout_constraintBottom_toTopOf="@id/avisolink"
+            android:fontFamily="@font/body"
+            android:textColorLink="@color/color_blue"
+            style="@style/AppThemeBlueAccent"
+
+            />
+        <TextView
+            android:id="@+id/avisolink"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/hyperlinkap"
+            android:textColor="@color/color_blue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerlink2"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/body"
+            android:textColorLink="@color/color_blue"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -295,6 +369,7 @@
         android:layout_height="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

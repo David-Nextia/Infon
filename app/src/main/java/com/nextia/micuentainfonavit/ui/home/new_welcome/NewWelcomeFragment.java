@@ -22,6 +22,7 @@ public class NewWelcomeFragment extends Fragment {
     private View rootView;
     TextView name;
     UserResponse user;
+    String nameString;
     //creating view
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -30,14 +31,18 @@ public class NewWelcomeFragment extends Fragment {
         rootView = root.findViewById(R.id.rootView);
         name=root.findViewById(R.id.tv_titulo_bienvenido);
         user=Utils.getSharedPreferencesUserData(getContext());
+        nameString=user.getNombre();
+
         if(user.getNombre().equals("")){
             name.setText("¡Bienvenido!");
         }
         else{
+            nameString=nameString.substring(0,1).toUpperCase() + nameString.substring(1).toLowerCase();
+
             if(user.getScurp().charAt(10)=='M')
-            {name.setText("¡Bienvenida\n"+user.getNombre()+"!");}
+            {name.setText("¡Bienvenida\n"+nameString+"!");}
             else{
-                name.setText("¡Bienvenido\n"+user.getNombre()+"!");
+                name.setText("¡Bienvenido\n"+nameString+"!");
             }
 
         }

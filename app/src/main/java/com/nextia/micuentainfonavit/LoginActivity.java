@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     LinearLayout form;
     EditText password, email;
     Button loginbtn;
-    TextView aviso, title, register;
+    TextView aviso, title, register,registerlogin;
     ConstraintSet set;
     Animation anim;
     ProgressBar progress;
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     TextView passwordMessage;
     Boolean hasShowedKeyboard=false;
     int screenHeight;
-
+    View view_email,view_password;
     //location to determine visibility's description view
     int[] registerLocation, formLocation;
 
@@ -91,6 +91,12 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 if(!hasFocus && password.hasFocus()==false){
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }else if(hasFocus && !password.hasFocus()){
+                    view_email.setVisibility(View.VISIBLE);
+                    view_email.startAnimation(anim);
+                }
+                if(!hasFocus){
+                    view_email.setVisibility(View.GONE);
                 }
             }
         });
@@ -98,8 +104,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if(!hasFocus && email.hasFocus()==false){
+
                     InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }else if(hasFocus && !email.hasFocus()){
+                    view_password.setVisibility(View.VISIBLE);
+                    view_password.startAnimation(anim);
+                }
+                if(!hasFocus){
+                    view_password.setVisibility(View.GONE);
                 }
             }
         });
@@ -131,6 +144,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         auxView = findViewById(R.id.AuxView);
         form = findViewById(R.id.register_form);
         register = findViewById(R.id.registerlink);
+        registerlogin= findViewById(R.id.registerlink2);
         title = findViewById(R.id.titletext);
         layout = (ConstraintLayout) findViewById(R.id.viewLogin);
         layout2 = (ConstraintLayout) findViewById(R.id.motionLayoutLogin);
@@ -152,8 +166,10 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         registerLocation = new int[2];
         formLocation = new int[2];
         //setting links
-        register.setMovementMethod(LinkMovementMethod.getInstance());
+        registerlogin.setMovementMethod(LinkMovementMethod.getInstance());
         screenHeight=Utils.getScreenHeight(this);
+        view_password=findViewById(R.id.password_line);
+        view_email=findViewById(R.id.email_line);
         //aviso.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
@@ -167,14 +183,18 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             register.animate().alpha(0.0f).setDuration(300);
             title.animate().alpha(0.0f);
         }
+
+        registerlogin.animate().alpha(0.0f).setDuration(300);
+        registerlogin.setVisibility(View.GONE);
         motionLayoutLogin.transitionToState(R.id.hidetop);
         set.clone(layout);
         set.clear(R.id.register_form, ConstraintSet.TOP);
+        set.clear(R.id.register_form, ConstraintSet.BOTTOM);
+        set.connect(R.id.register_form, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 0);
         aviso.animate().alpha(0.0f);
         aviso.setText("");
+        aviso.setVisibility(View.GONE);
         set.applyTo(layout);
-        set.clear(R.id.topimage,ConstraintSet.BOTTOM);
-        set.applyTo(layout2);
         hasShowedKeyboard=true;
         redLogo.animate().setDuration(1000).alpha(1);
         whiteLogo.animate().setDuration(1000).alpha(0);
@@ -190,12 +210,16 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             whiteLogo.animate().setDuration(1000).alpha(1);
 
         }
+        registerlogin.setVisibility(View.VISIBLE);
+        registerlogin.animate().alpha(1.0f).setDuration(300);
         register.animate().alpha(1.0f);
         title.animate().alpha(1.0f);
         set.clone(layout);
         aviso.setText(R.string.hyperlinkap);
         aviso.animate().alpha(1.0f);
+
         set.connect(R.id.register_form, ConstraintSet.TOP, R.id.registerlink, ConstraintSet.BOTTOM, 0);
+        set.connect(R.id.register_form, ConstraintSet.BOTTOM, R.id.registerlink2, ConstraintSet.BOTTOM, 0);
         set.applyTo(layout);
 
     }

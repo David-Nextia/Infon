@@ -105,16 +105,7 @@ public class MensualidadesFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
+        //Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
     }
 
 
@@ -124,13 +115,13 @@ public class MensualidadesFragment extends Fragment {
         spinnerCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0) {
+//                if (position != 0) {
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
-                }else{
-                    TablaPagos1 tab= new TablaPagos1();
-                    binding.setSaldo(new TablaPagos1());
-                }
+//                }else{
+//                    TablaPagos1 tab= new TablaPagos1();
+//                    binding.setSaldo(new TablaPagos1());
+//                }
             }
 
             @Override

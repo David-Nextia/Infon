@@ -68,38 +68,24 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
     }
 
-    //function before initial view to show and stop skeleton
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(rootView,R.layout.skeleton_inner_movements);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
-
     //fill spinner and set methods
     public void setSpinner(){
         Utils.fillSpinnerWithCredit(getContext(),spinnerCredit);
         binding.spCreditType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position!=0)
-                {
+//                if(position!=0)
+//                {
                     binding.shareHistoricPdf.animate().alpha(0.0f);
                     binding.textDownloadHistoric.animate().alpha(0.0f);
-                    binding.progressBar2.animate().alpha(1.0f);
+                   // binding.progressBar2.animate().alpha(1.0f);
                     creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()),parent.getItemAtPosition(position).toString(),InnerMovementsFragment.this);
-                    //viewmodel.loadHistoric(getActivity(), parent.getItemAtPosition(position).toString());
+                    Utils.showLoadingSkeleton(rootView,R.layout.skeleton_inner_movements);
+
+                //viewmodel.loadHistoric(getActivity(), parent.getItemAtPosition(position).toString());
 
 
-                }
+                //}
 
             }
 
@@ -172,6 +158,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.shareHistoricPdf.animate().alpha(1.0f);
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);
+        Utils.hideLoadingSkeleton();
         try {
             historic=Utils.createPdfFromBase64(object.getReporte(),"historic", getActivity());
         } catch (FileNotFoundException e) {

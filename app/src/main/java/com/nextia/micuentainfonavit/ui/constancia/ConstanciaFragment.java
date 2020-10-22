@@ -84,17 +84,17 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     public void setSpinners(){
         creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
         creditList.clear();
-        creditList.add("Selecciona una cuenta");
+        //creditList.add("Selecciona una cuenta");
         for(int i=0; i<creditos.size();i++){
             creditList.add("0000"+creditos.get(i).getNumeroCredito());
         }
         binding.spSeleccionaCreditoConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position!=0)
-                {
+//                if(position!=0)
+//                {
                     creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
-                }
+                //}
             }
 
             @Override

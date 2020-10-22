@@ -91,36 +91,18 @@ public class CreditDataFragment extends Fragment {
             }
         });
     }
-
-    //function before initial view to show and stop skeleton
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
-
-    //method to fill spinner
     public void setSpinner() {
         Utils.fillSpinnerWithCredit(getContext(), spinnerCredit);
         spinnerCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position != 0) {
+               // if (position != 0) {
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
-                }else{
-                    binding.setPagosMensualidad(new PagosMensualidades());
-                    binding.setOriginacionCredito(new OriginacionCredito());
-                }
+//                }else{
+//                    binding.setPagosMensualidad(new PagosMensualidades());
+//                    binding.setOriginacionCredito(new OriginacionCredito());
+//                }
             }
 
             @Override
