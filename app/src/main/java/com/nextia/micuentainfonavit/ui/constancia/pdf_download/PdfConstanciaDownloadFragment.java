@@ -120,7 +120,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
         mViewModel.setCreditInfo(object);
         try{
-            file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity());
+            file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),1);
         }catch (Exception e){
 
         }

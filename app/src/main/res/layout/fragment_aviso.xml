@@ -231,6 +231,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:alpha="0.0"
                     android:id="@+id/suspension_unsucess"
                     android:layout_width="match_parent"
@@ -259,7 +260,72 @@
                         android:fontFamily="@font/body"/>
 
                 </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/pdfView"
+                    android:alpha="0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tipo de aviso: "
+                        android:fontFamily="@font/body"/>
+                    <TextView
+                        android:id="@+id/avisoTypeTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/body"
+                        android:text="Aviso para retención de documentos "/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/dowloadPdf"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="30dp">
 
+                        <TextView
+                            android:id="@+id/tv_btn_imprimir_pdf"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/pdfc"
+                            android:layout_gravity="center" />
+
+
+                        <TextView
+                            android:id="@+id/tv_imprimir_constancia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/descarga_tu_archivo"
+                            android:textColor="@color/colorPrimary"
+                            android:textStyle="bold"
+                            android:textSize="14sp"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/subtitle"/>
+
+                    </LinearLayout>
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_baseline_share_24"
+                        android:layout_gravity="center"
+                        android:id="@+id/sharePdf"
+                        android:layout_marginTop="20dp"/>
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Compartir Archivo"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/subtitle"/>
+                </LinearLayout>
             </LinearLayout>
 
         </ScrollView>

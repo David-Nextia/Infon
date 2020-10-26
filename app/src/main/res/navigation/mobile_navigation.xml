@@ -36,7 +36,16 @@
         android:id="@+id/nav_aviso_suspension"
         android:name="com.nextia.micuentainfonavit.ui.aviso.AvisoFragment"
         android:label="@string/menu_aviso_suspension"
-        tools:layout="@layout/fragment_aviso" />
+        tools:layout="@layout/fragment_aviso" >
+        <action
+            android:id="@+id/action_nav_aviso_suspension_to_nav_pdf_viewer"
+            app:destination="@id/nav_pdf_viewer"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_aviso_suspension" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_constancia_interes"
