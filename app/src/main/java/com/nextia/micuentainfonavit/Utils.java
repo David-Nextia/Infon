@@ -379,22 +379,22 @@ public class Utils {
             paintTextDescription2.setLinearText(true);
 
             paintBoldCS.setTextSize(7f);
-            paintBoldCS.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
+            //paintBoldCS.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
             paintBoldCS.setUnderlineText(true);
             paintBoldCS.setLinearText(true);
 
             paintBoldCS1.setTextSize(8f);
-            paintBoldCS1.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
+            //paintBoldCS1.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
             paintBoldCS1.setUnderlineText(true);
             paintBoldCS1.setLinearText(true);
 
             paintBoldCS2.setTextSize(10f);
-            paintBoldCS2.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
+            //paintBoldCS2.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
             paintBoldCS2.setUnderlineText(true);
             paintBoldCS2.setLinearText(true);
 
             paintBoldCS3.setTextSize(10f);
-            paintBoldCS3.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
+            //paintBoldCS3.setTypeface(Typeface.create("Arial", Typeface.BOLD_ITALIC));
             paintBoldCS3.setLinearText(true);
 
             paintBold.setTextSize(9f);
@@ -441,7 +441,7 @@ public class Utils {
             mypage = pdfDocument.startPage(pageInfo);
             Paint myPaint = new Paint();
             canvas= mypage.getCanvas();
-            AssetManager aset= activity.getAssets();
+
             //setting title format
             paintTitle.setTextSize(40f);
             paintTitle.setTypeface(typefaceTitle);
@@ -567,12 +567,12 @@ public class Utils {
             canvas.drawText("NOMBRE  Y  DOMICILIO  FISCAL  DE  LA  EMPRESA  RETENEDORA", 112, 123, paintBold1);
             canvas.drawRect(20, 127, 492, 172, rect);
             canvas.drawText(item.getNOMBRE_NRP(), 25, 137, paintText1);
-//                canvas.drawText(fDireccion, 25, 147, paintText1);
+            canvas.drawText(item.getCALLE_Y_NUMERO_NRP(), 25, 147, paintText1);
             canvas.drawText("aqui direccion", 25, 147, paintText1);
-            //  canvas.drawText(localAviso, 25, 157, paintText1);
+            canvas.drawText(item.getLOCALIDAD_NRP(), 25, 157, paintText1);
             canvas.drawText("aqui va localaviso", 25, 157, paintText1);
             canvas.drawText("C.P : " + item.getCP_NRP(), 337, 157, paintText1);
-            // canvas.drawText(entAviso, 25, 167, paintText1);
+            canvas.drawText(item.getENT_FED_DESCRIP_NRP(), 25, 167, paintText1);
             canvas.drawText("entAviso", 25, 167, paintText1);
             canvas.drawText("Municipio: " + item.getEDO_MUNICIPIO_NRP(), 337, 167, paintText1);
 
@@ -666,11 +666,11 @@ public class Utils {
             canvas.drawRect(20, 667, 171, 682, rect);
             canvas.drawText("PORCENTAJE", 65, 677, paintBold);
             canvas.drawRect(20, 682, 171, 697, rect);
-            //canvas.drawText(Porcen, 65, 693, paintText1);
+            canvas.drawText(item.getMONTDESC(), 65, 693, paintText1);
             canvas.drawRect(171, 667, 306, 682, rect);
             canvas.drawText("PESOS", 225, 677, paintBold);
             canvas.drawRect(171, 682, 306, 697, rect);
-            //canvas.drawText(Pesos, 225, 693, paintText1);
+            canvas.drawText(item.getMONTDESC(), 225, 693, paintText1);
             canvas.drawRect(306, 667, 461, 682, rect);
             canvas.drawText("FACTOR  DE  DESCUENTO", 321, 677, paintBold);
             canvas.drawRect(306, 682, 461, 697, rect);
@@ -706,6 +706,8 @@ public class Utils {
 
         }
         else if(mode==3){
+            AvisoViewModel viewModel=(AvisoViewModel)mViewModel;
+            Item item=viewModel.getAviso().getValue().getDatosAvisos().getItem().get(0);
             pageWidth=612;
             pageHieght=792;
             Bitmap logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
@@ -726,30 +728,29 @@ public class Utils {
             //FOLIO Y FECHA
             canvas.drawRect(435, 87, 592, 102, rect);
             canvas.drawText("FOLIO: ", 440, 97, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNroavis(), 480, 97, paintText);
+            canvas.drawText(item.getNROAVIS(), 480, 97, paintText);
             canvas.drawRect(435, 102, 592, 117, rect);
             canvas.drawText("FECHA: ", 440, 112, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getFcreavis(), 480, 112, paintText);
+            canvas.drawText(item.getFCREAVIS(), 480, 112, paintText);
 
             //NOMBRE y DIRECCIÓN NRP
             canvas.drawRect(20, 127, 415, 142, rect);
             canvas.drawText("NOMBRE  Y  DOMICILIO  FISCAL  DE  LA  EMPRESA  RETENEDORA", 90, 138, paintBold);
             canvas.drawRect(20, 142, 415, 187, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nrp(), 25, 152, paintText);
-            // canvas.drawText(fDireccion, 25, 162, paintText);
-            canvas.drawText("fDireccion", 25, 162, paintText);
-            //canvas.drawText(localAviso, 25, 172, paintText);
-            //canvas.drawText("C.P : " + response.getResponse().getItem().get(0).getCp_nrp(), 260, 172, paintText);
-            //canvas.drawText(entAviso, 25, 182, paintText);
-            //canvas.drawText("Municipio: " + response.getResponse().getItem().get(0).getEdo_municipio_nrp(), 260, 182, paintText);
+            canvas.drawText(item.getNOMBRE_NRP(), 25, 152, paintText);
+            canvas.drawText(item.getCOLONIA_NRP(), 25, 162, paintText);
+            canvas.drawText(item.getLOCALIDAD_NRP(), 25, 172, paintText);
+            canvas.drawText("C.P : " + item.getCP_NRP(), 260, 172, paintText);
+            canvas.drawText(item.getENT_FED_DESCRIP_NRP(), 25, 182, paintText);
+            canvas.drawText("Municipio: " + item.getEDO_MUNICIPIO_NRP(), 260, 182, paintText);
 
             //NRP Y RFC
             canvas.drawRect(415, 127, 592, 157, rect);
             canvas.drawText("N.R.P: ", 420, 147, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNrp(), 460, 147, paintText);
+            canvas.drawText(item.getNRP(), 460, 147, paintText);
             canvas.drawRect(415, 157, 592, 187, rect);
             canvas.drawText("R.F.C: ", 420, 177, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nrp(), 460, 177, paintText);
+            canvas.drawText(item.getRFC_NRP(), 460, 177, paintText);
 
             //TEXTO
             canvas.drawRect(20, 197, 592, 347, rect);
@@ -760,7 +761,7 @@ public class Utils {
             canvas.drawText("Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores, le notifico que a", 25, 247, paintTextDescription2);
             canvas.drawText("partir de la fecha en", 501, 247, paintBoldCS2);
             canvas.drawText("que se reciba este aviso deberá suspender los descuentos que por concepto de amortización se vienen efectuando al trabajador,", 25, 257, paintBoldCS2);
-//                canvas.drawText("", 540, 257, paintTextDescription2);
+
             canvas.drawText("cuyos datos se asientan en el presente aviso.", 25, 267, paintTextDescription2);
             canvas.drawText("Los descuentos retenidos y no enterados a la fecha de recepción de este aviso, deberán devolverse al trabajador.", 25, 287, paintTextDescription2);
             canvas.drawText("Si sus pagos los realiza a través del Sistema Único de Autodeterminación (SUA), deberá proceder a dar de baja el número de", 25, 307, paintTextDescription2);
@@ -772,21 +773,21 @@ public class Utils {
             canvas.drawRect(20, 347, 290, 367, rect);
             canvas.drawText("NÚMERO  DE  CRÉDITO", 110, 362, paintBold);
             canvas.drawRect(20, 367, 290, 387, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNumcred(), 110, 382, paintText);
+            canvas.drawText(item.getNUMCRED(), 110, 382, paintText);
             canvas.drawRect(290, 347, 592, 367, rect);
             canvas.drawText("NOMBRE  DEL  TRABAJADOR ", 400, 362, paintBold);
             canvas.drawRect(290, 367, 592, 427, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nss(), 400, 392, paintText);
+            canvas.drawText(item.getNOMBRE_NSS(), 400, 392, paintText);
 
             //NÚMERO DE SEGURIDAD SOCIAL Y RFC O CURP DEL TRABAJADOR
             canvas.drawRect(20, 387, 155, 407, rect);
             canvas.drawText("NÚMERO  DE  SEGURIDAD  SOCIAL", 30, 402, paintBold2);
             canvas.drawRect(20, 407, 155, 427, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNss(), 30, 422, paintText);
+            canvas.drawText(item.getNSS(), 30, 422, paintText);
             canvas.drawRect(155, 387, 290, 407, rect);
             canvas.drawText("RFC  O  CURP  DEL  TRABAJADOR", 165, 402, paintBold2);
             canvas.drawRect(155, 407, 290, 427, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nss(), 165, 422, paintText);
+            canvas.drawText(item.getRFC_NSS(), 165, 422, paintText);
 
             //Texto Firma
             canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, 478, paintBold2);
@@ -818,6 +819,8 @@ public class Utils {
             pdfDocument.finishPage(mypage);
         }
         else if(mode==4){
+            AvisoViewModel viewModel=(AvisoViewModel)mViewModel;
+            Item item=viewModel.getAviso().getValue().getDatosAvisos().getItem().get(0);
             pageWidth=612;
             pageHieght=792;
             Bitmap logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
@@ -838,29 +841,29 @@ public class Utils {
             //FOLIO Y FECHA
             canvas.drawRect(435, 87, 592, 102, rect);
             canvas.drawText("FOLIO: ", 440, 97, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNroavis(), 480, 97, paintText);
+            canvas.drawText(item.getNROAVIS(), 480, 97, paintText);
             canvas.drawRect(435, 102, 592, 117, rect);
             canvas.drawText("FECHA: ", 440, 112, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getFcreavis(), 480, 112, paintText);
+            canvas.drawText(item.getFCREAVIS(), 480, 112, paintText);
 
             //NOMBRE y DIRECCIÓN NRP
             canvas.drawRect(20, 127, 415, 142, rect);
             canvas.drawText("NOMBRE  Y  DOMICILIO  FISCAL  DE  LA  EMPRESA  RETENEDORA", 90, 138, paintBold);
             canvas.drawRect(20, 142, 415, 187, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nrp(), 25, 152, paintText);
+            canvas.drawText(item.getNOMBRE_NRP(), 25, 152, paintText);
             canvas.drawText("fDireccion", 25, 162, paintText);
-            //canvas.drawText(localAviso, 25, 172, paintText);
-            //canvas.drawText("C.P : " + response.getResponse().getItem().get(0).getCp_nrp(), 260, 172, paintText);
-            //canvas.drawText(entAviso, 25, 182, paintText);
-            //canvas.drawText("Municipio: " + response.getResponse().getItem().get(0).getEdo_municipio_nrp(), 260, 182, paintText);
+            canvas.drawText(item.getLOCALIDAD_NRP(), 25, 172, paintText);
+            canvas.drawText("C.P : " + item.getCP_NRP(), 260, 172, paintText);
+            canvas.drawText(item.getENT_FED_DESCRIP_NRP(), 25, 182, paintText);
+            canvas.drawText("Municipio: " + item.getEDO_MUNICIPIO_NRP(), 260, 182, paintText);
 
             //NRP Y RFC
             canvas.drawRect(415, 127, 592, 157, rect);
             canvas.drawText("N.R.P: ", 420, 147, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNrp(), 460, 147, paintText);
+            canvas.drawText(item.getNRP(), 460, 147, paintText);
             canvas.drawRect(415, 157, 592, 187, rect);
             canvas.drawText("R.F.C: ", 420, 177, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nrp(), 460, 177, paintText);
+            canvas.drawText(item.getRFC_NRP(), 460, 177, paintText);
 
             //TEXTO
             canvas.drawRect(20, 197, 592, 387, rect);
@@ -886,21 +889,21 @@ public class Utils {
             canvas.drawRect(20, 387, 290, 407, rect);
             canvas.drawText("NÚMERO  DE  CRÉDITO", 110, 402, paintBold);
             canvas.drawRect(20, 407, 290, 427, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNumcred(), 110, 422, paintText);
+            canvas.drawText(item.getNUMCRED(), 110, 422, paintText);
             canvas.drawRect(290, 387, 592, 407, rect);
             canvas.drawText("NOMBRE  DEL  TRABAJADOR ", 400, 402, paintBold);
             canvas.drawRect(290, 407, 592, 467, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nss(), 400, 432, paintText);
+            canvas.drawText(item.getNOMBRE_NSS(), 400, 432, paintText);
 
             //NÚMERO DE SEGURIDAD SOCIAL Y RFC O CURP DEL TRABAJADOR
             canvas.drawRect(20, 427, 155, 447, rect);
             canvas.drawText("NÚMERO  DE  SEGURIDAD  SOCIAL", 30, 442, paintBold2);
             canvas.drawRect(20, 447, 155, 467, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNss(), 30, 462, paintText);
+            canvas.drawText(item.getNSS(), 30, 462, paintText);
             canvas.drawRect(155, 427, 290, 447, rect);
             canvas.drawText("RFC  O  CURP  DEL  TRABAJADOR", 165, 442, paintBold2);
             canvas.drawRect(155, 447, 290, 467, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nss(), 165, 462, paintText);
+            canvas.drawText(item.getRFC_NSS(), 165, 462, paintText);
 
             //Texto Firma
             canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, 518, paintBold2);
@@ -932,6 +935,8 @@ public class Utils {
             pdfDocument.finishPage(mypage);
         }
         else if(mode==5){
+            AvisoViewModel viewModel=(AvisoViewModel)mViewModel;
+            Item item=viewModel.getAviso().getValue().getDatosAvisos().getItem().get(0);
             pageWidth=612;
             pageHieght=792;
             Bitmap logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
@@ -953,29 +958,29 @@ public class Utils {
             //FOLIO Y FECHA
             canvas.drawRect(435, 77, 592, 92, rect);
             canvas.drawText("FOLIO: ", 440, 87, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNroavis(), 480, 87, paintText);
+            canvas.drawText(item.getNROAVIS(), 480, 87, paintText);
             canvas.drawRect(435, 92, 592, 107, rect);
             canvas.drawText("FECHA: ", 440, 102, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getFcreavis(), 480, 102, paintText);
+            canvas.drawText(item.getFCREAVIS(), 480, 102, paintText);
 
             //NOMBRE y DIRECCIÓN NRP
             canvas.drawRect(20, 112, 415, 127, rect);
             canvas.drawText("NOMBRE  Y  DOMICILIO  FISCAL  DE  LA  EMPRESA  RETENEDORA", 90, 123, paintBold);
             canvas.drawRect(20, 127, 415, 172, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nrp(), 25, 137, paintText);
+            canvas.drawText(item.getNOMBRE_NRP(), 25, 137, paintText);
             canvas.drawText("fDireccion", 25, 147, paintText);
-            //canvas.drawText(localAviso, 25, 157, paintText);
-            //canvas.drawText("C.P : " + response.getResponse().getItem().get(0).getCp_nrp(), 260, 157, paintText);
-            //canvas.drawText(entAviso, 25, 167, paintText);
-            //canvas.drawText("Municipio: " + response.getResponse().getItem().get(0).getEdo_municipio_nrp(), 260, 167, paintText);
+            canvas.drawText(item.getLOCALIDAD_NRP(), 25, 157, paintText);
+            canvas.drawText("C.P : " + item.getCP_NRP(), 260, 157, paintText);
+            canvas.drawText(item.getENT_FED_DESCRIP_NRP(), 25, 167, paintText);
+            canvas.drawText("Municipio: " + item.getEDO_MUNICIPIO_NRP(), 260, 167, paintText);
 
             //NRP Y RFC
             canvas.drawRect(415, 112, 592, 142, rect);
             canvas.drawText("N.R.P: ", 420, 132, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNrp(), 460, 132, paintText);
+            canvas.drawText(item.getNRP(), 460, 132, paintText);
             canvas.drawRect(415, 142, 592, 172, rect);
             canvas.drawText("R.F.C: ", 420, 162, paintBold);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nrp(), 460, 162, paintText);
+            canvas.drawText(item.getRFC_NRP(), 460, 162, paintText);
 
             //TEXTO
             canvas.drawRect(20, 177, 592, 522, rect);
@@ -1027,31 +1032,34 @@ public class Utils {
             canvas.drawRect(20, 522, 290, 537, rect);
             canvas.drawText("NÚMERO  DE  CRÉDITO", 110, 532, paintBold);
             canvas.drawRect(20, 537, 290, 552, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNumcred(), 110, 547, paintText);
+            canvas.drawText(item.getNUMCRED(), 110, 547, paintText);
             canvas.drawRect(290, 522, 592, 537, rect);
             canvas.drawText("NOMBRE  DEL  TRABAJADOR ", 400, 532, paintBold);
             canvas.drawRect(290, 537, 592, 552, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNombre_nss(), 400, 547, paintText);
+            canvas.drawText(item.getNOMBRE_NSS(), 400, 547, paintText);
 
             //NÚMERO DE SEGURIDAD SOCIAL Y RFC O CURP DEL TRABAJADOR
             canvas.drawRect(20, 552, 155, 567, rect);
             canvas.drawText("NÚMERO  DE  SEGURIDAD  SOCIAL", 30, 562, paintBold2);
             canvas.drawRect(20, 567, 155, 582, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getNss(), 30, 577, paintText);
+            canvas.drawText(item.getNSS(), 30, 577, paintText);
             canvas.drawRect(155, 552, 290, 567, rect);
             canvas.drawText("RFC  O  CURP  DEL  TRABAJADOR", 165, 562, paintBold2);
             canvas.drawRect(155, 567, 290, 582, rect);
-            //canvas.drawText(response.getResponse().getItem().get(0).getRfc_nss(), 165, 577, paintText);
+            canvas.drawText(item.getRFC_NSS(), 165, 577, paintText);
 
             //DESCUENTO ANTERIOR Y NUEVO FACTOR DE DESCUENTO
             canvas.drawRect(290, 552, 441, 567, rect);
             canvas.drawText("DESCUENTO  ANTERIOR", 300, 562, paintBold);
             canvas.drawRect(290, 567, 441, 582, rect);
-            //canvas.drawText(DescAnterior, 300, 577, paintText);
+            if(item.getMONTDESCANTERIOR()!=null){
+                canvas.drawText(item.getMONTDESCANTERIOR(), 300, 577, paintText);
+            }
+
             canvas.drawRect(441, 552, 592, 567, rect);
             canvas.drawText("NUEVO  FACTOR  DE  DESCUENTO", 451, 562, paintBold);
             canvas.drawRect(441, 567, 592, 582, rect);
-            //canvas.drawText(NuevoFactorDesc, 451, 577, paintText);
+            canvas.drawText(item.getMONTDESC(), 451, 577, paintText);
 
             //Texto Firma
             canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, 593, paintBold2);

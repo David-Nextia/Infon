@@ -261,14 +261,15 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/pdfView"
-                    android:alpha="0"
+                    android:alpha="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

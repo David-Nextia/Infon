@@ -18,6 +18,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,7 @@ public class AvisoFragment extends Fragment {
     DialogInfonavit dialog;
     private AvisoViewModel mViewModel;
     File archivo;
+    String selectedCredit;
 
     //To create view and instance methods
     @Override
@@ -68,7 +70,9 @@ public class AvisoFragment extends Fragment {
             public void onChanged(AvisosPDFResponse avisosPDFResponse) {
                 if (avisosPDFResponse != null) {
                     binding.progressBar2.animate().alpha(0.0f);
-                    if (avisosPDFResponse.getStatusServicio().getCodigo().equals("02")) {
+                    Utils.hideLoadingSkeleton();
+                    String response=avisosPDFResponse.getStatusServicio().getCodigo();
+                    if (response.equals("02")) {
                         DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Atención", "Este crédito no tiene avisos disponibles", DialogInfonavit.ONE_BUTTON_DIALOG);
                         alertdialog.show();
                         binding.suspensionUnsucess.setVisibility(View.VISIBLE);
@@ -80,8 +84,11 @@ public class AvisoFragment extends Fragment {
                         binding.pdfView.setVisibility(View.VISIBLE);
                         binding.pdfView.animate().alpha(1.0f);
                         binding.suspensionUnsucess.animate().alpha(0.0f);
+                        binding.suspensionUnsucess.setVisibility(View.GONE);
                         String tipAvis=avisosPDFResponse.getDatosAvisos().getItem().get(0).getTIPAVIS();
                         String clasAviso=avisosPDFResponse.getDatosAvisos().getItem().get(0).getCLASE_DEL_AVISO();
+                        tipAvis="03";
+                        clasAviso="R";
                         if(tipAvis.equals("") && clasAviso.equals("R") ){
                             binding.avisoTypeTitle.setText("AVISO  PARA  RETENCIÓN  DE  DESCUENTOS");
                             archivo=Utils.createPdfFromCanvas(mViewModel,"aviso_retencion",getActivity(),2);
@@ -103,6 +110,7 @@ public class AvisoFragment extends Fragment {
                     }
                 } else {
                     dialog.show();
+                    Utils.hideLoadingSkeleton();
                     binding.progressBar2.animate().alpha(0.0f);
                     binding.pdfView.animate().alpha(0.0f);
                     binding.pdfView.setVisibility(View.VISIBLE);
@@ -147,23 +155,6 @@ public class AvisoFragment extends Fragment {
 
     }
 
-    //function before initial view to show and stop skeleton
-    @Override
-    public void onStart() {
-        super.onStart();
-        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_aviso);
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-                Utils.hideLoadingSkeleton();
-
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
-
     //fill spinner with credits from sharedpreferences and set methods
     public void setSpinner() {
         creditos = Utils.getSharedPreferencesUserData(getContext()).getCredito();
@@ -175,9 +166,10 @@ public class AvisoFragment extends Fragment {
         binding.spCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                binding.progressBar2.animate().alpha(1.0f);
-                String credit = parent.getSelectedItem().toString();
-                mViewModel.getAvisoDB(getContext(), credit, Utils.getSharedPreferencesToken(getContext()));
+                //binding.progressBar2.animate().alpha(1.0f);
+                selectedCredit = parent.getSelectedItem().toString();
+                mViewModel.getAvisoDB(getContext(), selectedCredit, Utils.getSharedPreferencesToken(getContext()));
+                Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_aviso);
             }
 
             @Override
