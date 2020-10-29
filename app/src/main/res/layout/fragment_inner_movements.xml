@@ -167,23 +167,27 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_weight="3"
+                            android:layout_marginStart="10dp"
                             android:gravity="center"
                             android:orientation="vertical">
 
                             <ImageView
+
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/pdf" />
+                                android:layout_height="40dp"
+                                android:src="@drawable/pdf_bitmap"
+                                />
 
                             <TextView
                                 android:id="@+id/text_download_historic"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/subtitle"
                                 android:gravity="center"
                                 android:text="Abrir"
                                 android:textSize="11sp"
+
                                 android:textAppearance="@android:style/TextAppearance.Small"
                                 android:textColor="@color/colorgrayblue"
                                 android:alpha="0"/>
@@ -192,14 +196,28 @@
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:layout_marginStart="18dp"
+                            >
 
                             <ImageView
                                 android:id="@+id/shareHistoricPdf"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:layout_gravity="center"
                                 android:src="@drawable/ic_baseline_share_24"
+                                android:alpha="1"/>
+                            <TextView
+                                android:id="@+id/text_share_historic"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/subtitle"
+                                android:gravity="center"
+                                android:text=""
+                                android:textSize="11sp"
+                                android:textAppearance="@android:style/TextAppearance.Small"
+                                android:textColor="@color/colorgrayblue"
                                 android:alpha="0"/>
                         </LinearLayout>
                     </LinearLayout>
