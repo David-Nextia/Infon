@@ -167,6 +167,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         formLocation = new int[2];
         //setting links
         registerlogin.setMovementMethod(LinkMovementMethod.getInstance());
+        register.setMovementMethod(LinkMovementMethod.getInstance());
         screenHeight=Utils.getScreenHeight(this);
         view_password=findViewById(R.id.password_line);
         view_email=findViewById(R.id.email_line);

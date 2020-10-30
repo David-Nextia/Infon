@@ -36,7 +36,7 @@
     <string name="contrase_a">Contraseña</string>
     <string name="recuerda_tu_usuario">Recuerda tu usuario</string>
     <string name="hyperlink">¿No tienes cuenta? \n<a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/">Registrate</a></string>
-    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <b>Mi cuenta infonavit</b> </string>
+    <string name="hyperlink2">Para acceder utiliza el mismo usuario y contraseña de <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/"><b>Mi cuenta infonavit</b> </a> </string>
     <string name="hyperlink3"><b>Si aún no la tienes</b> <a href="https://micuenta.infonavit.org.mx/wps/portal/mci2/registro/!ut/p/z1/04_Sj9CPykssy0xPLMnMz0vMAfIjo8ziDVCAo4FTkJGTsYGBu7OJfjghBVEY0sgKgfqjwEqMzBxNnJwMHQ0s3IKdDBwdA4MN3b1CDNx9jaEK8JhRkBthkOmoqAgAXY6VvA!!/dz/d5/L2dJQSEvUUt3QS80TmxFL1o2XzI2QTRCQjFBMDhGU0IwQUFRUzFHSlQwR0U1/"><b>regístrate</b></a></string>
     <string name="hyperlink4"><b>Si aún no la tienes</b> regístrate</string>
     <string name="hyperlinkap">Aviso de privacidad</string>

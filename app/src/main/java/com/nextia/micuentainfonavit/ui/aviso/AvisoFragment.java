@@ -87,8 +87,6 @@ public class AvisoFragment extends Fragment {
                         binding.suspensionUnsucess.setVisibility(View.GONE);
                         String tipAvis=avisosPDFResponse.getDatosAvisos().getItem().get(0).getTIPAVIS();
                         String clasAviso=avisosPDFResponse.getDatosAvisos().getItem().get(0).getCLASE_DEL_AVISO();
-                        tipAvis="03";
-                        clasAviso="R";
                         if(tipAvis.equals("") && clasAviso.equals("R") ){
                             binding.avisoTypeTitle.setText("AVISO  PARA  RETENCIÓN  DE  DESCUENTOS");
                             archivo=Utils.createPdfFromCanvas(mViewModel,"aviso_retencion",getActivity(),2);
