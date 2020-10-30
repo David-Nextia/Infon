@@ -112,6 +112,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="10dp"
             android:text="@string/hyperlink2"
+            android:textColorLink="@color/color_blue"
             android:textColor="@color/color_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
