@@ -34,11 +34,34 @@ public class NewWelcomeFragment extends Fragment {
         nameString=user.getNombre();
 
         if(user.getNombre().equals("")){
-            name.setText("¡Bienvenido!");
-        }
-        else{
-            nameString=nameString.substring(0,1).toUpperCase() + nameString.substring(1).toLowerCase();
+            name.setText("¡Bienvenido!");        }
 
+        else{
+            char[] charArray = nameString.toCharArray();
+            boolean foundSpace = true;
+            for(int i = 0; i < charArray.length; i++) {
+
+                // if the array element is a letter
+                if(Character.isLetter(charArray[i])) {
+                    charArray[i] = Character.toLowerCase(charArray[i]);
+                    // check space is present before the letter
+                    if(foundSpace) {
+                        // change the letter into uppercase
+                        charArray[i] = Character.toUpperCase(charArray[i]);
+                        foundSpace = false;
+                    }
+                }
+
+                else {
+                    // if the new character is not character
+                    foundSpace = true;
+                }
+            }
+
+
+
+            //nameString=nameString.substring(0,1).toUpperCase() + nameString.substring(1).toLowerCase();
+            nameString = String.valueOf(charArray);
             if(user.getScurp().charAt(10)=='M')
             {name.setText("¡Bienvenida\n"+nameString+"!");}
             else{

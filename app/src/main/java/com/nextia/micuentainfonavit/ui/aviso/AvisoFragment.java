@@ -87,15 +87,15 @@ public class AvisoFragment extends Fragment {
                         binding.suspensionUnsucess.setVisibility(View.GONE);
                         String tipAvis=avisosPDFResponse.getDatosAvisos().getItem().get(0).getTIPAVIS();
                         String clasAviso=avisosPDFResponse.getDatosAvisos().getItem().get(0).getCLASE_DEL_AVISO();
-                        if(tipAvis.equals("") && clasAviso.equals("R") ){
+                        if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
                             binding.avisoTypeTitle.setText("AVISO  PARA  RETENCIÓN  DE  DESCUENTOS");
                             archivo=Utils.createPdfFromCanvas(mViewModel,"aviso_retencion",getActivity(),2);
                         }
-                        else if(tipAvis.equals("10") && clasAviso.equals("S")){
+                        else if(tipAvis.equals("12")||tipAvis.equals("12") && clasAviso.equals("S")){
                             binding.avisoTypeTitle.setText("AVISO  DE  SUSPENSIÓN  DE  DESCUENTOS");
                             archivo=Utils.createPdfFromCanvas(mViewModel,"aviso_suspension",getActivity(),3);
                         }
-                        else if(tipAvis.equals("") && clasAviso.equals("S")){
+                        else if(tipAvis.equals("10") && clasAviso.equals("S")){
                             binding.avisoTypeTitle.setText("AVISO DE SUSPENSIÓN POR PRÓXIMA LIQUIDACIÓN DE CRÉDITO");
                             archivo=Utils.createPdfFromCanvas(mViewModel,"aviso_liquidacion",getActivity(),4);
 
@@ -166,7 +166,7 @@ public class AvisoFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 //binding.progressBar2.animate().alpha(1.0f);
                 selectedCredit = parent.getSelectedItem().toString();
-                mViewModel.getAvisoDB(getContext(), selectedCredit, Utils.getSharedPreferencesToken(getContext()));
+                mViewModel.getAvisoDB(getContext(), selectedCredit.substring(4), Utils.getSharedPreferencesToken(getContext()));
                 Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_aviso);
             }
 

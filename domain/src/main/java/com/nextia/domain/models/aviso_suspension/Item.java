@@ -87,7 +87,7 @@ public class Item {
     @Expose
     public String FACTOR_ANTERIOR;
 
-    @SerializedName("MONTDESCANTERIOR")
+    @SerializedName("MONTDESC_ANTERIOR")
     @Expose
     public String MONTDESCANTERIOR;
 
