@@ -24,6 +24,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.motion.widget.MotionLayout;
@@ -41,7 +42,7 @@ import com.nextia.micuentainfonavit.usecases.UserUseCase;
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
     UserUseCase user;
     Switch rememberUser;
-    View auxView;
+    View auxView,email_view;
     ConstraintLayout layout,layout2;
     LinearLayout form;
     EditText password, email;
@@ -53,7 +54,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     MotionLayout motionLayoutLogin;
     ImageView emailClear,passwordClear,redLogo,whiteLogo;
     TextView passwordMessage;
-    Boolean hasShowedKeyboard=false;
+
+    Boolean hasShowedKeyboard=false, LogoIntercepted=false;
     int screenHeight;
     View view_email,view_password;
     //location to determine visibility's description view
@@ -118,6 +120,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         });
         setFunctions(this);//condicionales del botón y funciones de Onclick
         anim = AnimationUtils.loadAnimation(LoginActivity.this, R.anim.input_text);
+        email_view.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {
+                if((oldTop-oldBottom)<(top-bottom)){
+
+                    LogoIntercepted=true;
+                }
+            }
+        });
 
     }
 
@@ -152,6 +163,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         password = findViewById(R.id.password_edit);
         loginbtn = findViewById(R.id.buttonlogin);
         email = findViewById(R.id.email_edit);
+        email_view=findViewById(R.id.emailView);
         rememberUser = findViewById(R.id.reminduser);
         progress = findViewById(R.id.progressBar);
         emailClear = findViewById(R.id.email_clear);
@@ -178,17 +190,22 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void setOnKeyboardView() {
         register.getLocationOnScreen(registerLocation);
         form.getLocationOnScreen(formLocation);
+        set.clone(layout);
         int bottomRegister=registerLocation[1]+register.getHeight();
         if ((formLocation[1] -bottomRegister)< 0)//condition if form is over description
         {
             register.animate().alpha(0.0f).setDuration(300);
             title.animate().alpha(0.0f);
         }
+        if(LogoIntercepted){
+            motionLayoutLogin.transitionToState(R.id.hidetopWithIcon);
+        }
+        else{
+            motionLayoutLogin.transitionToState(R.id.hidetop);
 
+        }
         registerlogin.animate().alpha(0.0f).setDuration(300);
         registerlogin.setVisibility(View.GONE);
-        motionLayoutLogin.transitionToState(R.id.hidetop);
-        set.clone(layout);
         set.clear(R.id.register_form, ConstraintSet.TOP);
         set.clear(R.id.register_form, ConstraintSet.BOTTOM);
         set.connect(R.id.register_form, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, 0);
@@ -199,6 +216,8 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         hasShowedKeyboard=true;
         redLogo.animate().setDuration(1000).alpha(1);
         whiteLogo.animate().setDuration(1000).alpha(0);
+        whiteLogo.setVisibility(View.GONE);
+
     }
 
     //To manage functions off soft keyboard
@@ -208,6 +227,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             motionLayoutLogin.transitionToState(R.id.showtop);
 
             redLogo.animate().setDuration(1000).alpha(0);
+            whiteLogo.setVisibility(View.VISIBLE);
             whiteLogo.animate().setDuration(1000).alpha(1);
 
         }
