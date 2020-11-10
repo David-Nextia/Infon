@@ -41,7 +41,23 @@ public class SavingsFragment extends Fragment {
         adapterViewpage = new ViewPagerAdapter(getChildFragmentManager());
         Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_savings);
        savingsViewModel= new ViewModelProvider(this).get(SavingsViewModel.class);
-        savingsViewModel.getSaldo(this.getContext());
+        if(Utils.isNetworkAvailable(getActivity())){
+            savingsViewModel.getSaldo(this.getContext());
+        }
+        else{
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                    "\n", DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+                @Override
+                public void onAcceptClickListener(Button button, AlertDialog dialog) {
+                    dialog.dismiss();
+                    NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                    navController.popBackStack(R.id.nav_new_welcome, false);
+                }
+            });
+            alertdialog.show();
+
+        }
+
         return binding.getRoot();
     }
 

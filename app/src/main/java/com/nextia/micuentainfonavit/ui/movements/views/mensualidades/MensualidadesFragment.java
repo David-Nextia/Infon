@@ -116,8 +116,17 @@ public class MensualidadesFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                if (position != 0) {
+                if(Utils.isNetworkAvailable(getActivity())){
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
+                }
+                else{
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    alertdialog.show();
+
+                }
+
 //                }else{
 //                    TablaPagos1 tab= new TablaPagos1();
 //                    binding.setSaldo(new TablaPagos1());

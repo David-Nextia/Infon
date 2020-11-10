@@ -18,6 +18,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -303,7 +305,7 @@ public class Utils {
     }
 
     //To create a pdf with canvas
-    public static File createPdfFromCanvas(ViewModel mViewModel, String Name, Activity activity, int mode) {
+    public static File createPdfFromCanvas(ViewModel mViewModel, String Name, Activity activity, int mode, boolean download) {
         String myFilePath;
         File myfile;
         PdfDocument.Page mypage;
@@ -1186,8 +1188,15 @@ public class Utils {
         }
 
         try {
-            myFilePath = activity.getExternalFilesDir(null).getAbsolutePath() + "/" + Name + ".pdf";
+            if(download)
+            {
+                myFilePath = activity.getExternalFilesDir(null).getAbsolutePath() + "/" + Name + ".pdf";}
+            else{
+                File dir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/AvisosInfonavit");
+                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/" + Name + ".pdf";
+            }
         } catch (Exception e) {
+            e.printStackTrace();
             myFilePath = "";
         }
         myfile = new File(myFilePath);
@@ -1228,13 +1237,20 @@ public class Utils {
     }
 
     //To create a pfd from Base64 String
-    public static File createPdfFromBase64(String pdfUrlBase64, String name, Activity context) throws FileNotFoundException {
+    public static File createPdfFromBase64(String pdfUrlBase64, String name, Activity context, boolean downloads) throws FileNotFoundException {
         String myFilePath;
         File myfile;
         try {
-            myFilePath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + name + ".pdf";
+            if(downloads)
+            {
+                myFilePath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + name + ".pdf";}
+            else{
+                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/" + name + ".pdf";
+            }
         } catch (Exception e) {
+            e.printStackTrace();
             myFilePath = "";
+
         }
 
         myfile = new File(myFilePath);
@@ -1279,5 +1295,12 @@ public class Utils {
             ex.printStackTrace();
             return dateString;
         }
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }

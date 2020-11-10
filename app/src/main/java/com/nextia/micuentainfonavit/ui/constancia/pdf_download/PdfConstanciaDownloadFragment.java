@@ -28,10 +28,12 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentPdfConstanciaDownloadBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.constancia.ConstanciaFragment;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishRequestListener<CreditYearInfoResponse> {
     CreditUseCase creditUseCase= new CreditUseCase();
@@ -55,14 +57,24 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
     //to  get data from server with teh credit and year
     public void getData(){
-        creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()),mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
+        if(Utils.isNetworkAvailable(getActivity())){
+            creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()),mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
+            Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
+        }
+        else{
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                    "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+            alertdialog.show();
+
+        }
+
     }
 
    //starts skeleton before view
     @Override
     public void onStart() {
         super.onStart();
-        Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
+        //Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
     }
 
     //setting onclick methods to see or share pdf
@@ -71,6 +83,13 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v)
             {
+                try{
+                    file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),1,true);
+                }catch (Exception e){
+
+                }
+
+                pdfViewModel.setFile(file);
                 navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                 navController.navigate(R.id.action_nav_pdf_constancia_to_nav_pdf_viewer);
             }
@@ -80,6 +99,17 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             public void onClick(View v) {
                 Utils.sharePdf(file,getActivity());
 
+            }
+        });
+        binding.tvImprimirConstancia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),1,false);
+                } catch (Exception e) {
+                }
+                DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();
             }
         });
     }
@@ -119,13 +149,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue());
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
         mViewModel.setCreditInfo(object);
-        try{
-            file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),1);
-        }catch (Exception e){
 
-        }
-
-        pdfViewModel.setFile(file);
         Utils.hideLoadingSkeleton();
 
     }

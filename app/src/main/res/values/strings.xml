@@ -14,7 +14,7 @@
     <string name="title_activity_main2">MainActivity</string>
 
     <string name="menu_saldos_movimientos">Saldos y movimientos</string>
-    <string name="menu_aviso_suspension">Aviso de suspensión, retención</string>
+    <string name="menu_aviso_suspension">Aviso de suspensión y retención</string>
     <string name="menu_constancia">Constancia de intereses</string>
     <string name="menu_info_perfil">Información de perfil</string>
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
@@ -99,7 +99,7 @@
     <string name="Advertencia_pt_2">Si hay alguna diferencia en los dígitos de tu Número de Seguridad Social (NSS).</string>
     <string name="Advertencia_pt_3">Si tu aviso sale a nombre de una empresa a la que tú no perteneces.</string>
     <string name="Advertencia_pt_4">Comunícate a Infonatel; ahí encontrarás ayuda para solucionar el problema.</string>
-    <string name="Pre_text_info_click">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos:</string>
+    <string name="Pre_text_info_click">Si tienes problemas para obtener tu Aviso de suspensión, retención y modificación de descuentos:</string>
     <string name="Text_info_click">esta información es importante para ti.</string>
     <string name="Unsucces_text">No tenemos registro de este número de crédito. Si estás haciendo tu trámite para obtenerlo, puedes encontrar tu aviso correspondiente en el portal de:</string>
     <string name="Pre_text_info_trouble">Si tienes problemas para obtener tu Aviso de Suspensión y Retención de Descuentos, está información es importante para ti.</string>
@@ -131,7 +131,7 @@
     <string name="constancia_subtitulo_identificacion_oficial_vigente">Identificación oficial vigente con fotografía.</string>
     <string name="constancia_interes_titulo">Constancia de interés para tu declaración anual</string>
     <string name="subtitulo_constancia_pdf">Con los datos que nos proporcionaste encontramos la siguiente información.</string>
-    <string name="descarga_tu_archivo">Abrir archivo</string>
+    <string name="descarga_tu_archivo">Descargar archivo</string>
 
     <string name="clabe">CLABE 021180550300050811\nBanco destino: HSBC</string>
     <string name="bank_scotian">I) Paga en línea a través de ScotiaWeb\nII) Acude a la sucursal de tu preferencia y dile al cajero la cantidad a pagar y los 10 dígitos de tu número de crédito.</string>
@@ -148,10 +148,10 @@
 <!--    vista dee new welcome-->
     <string name="bienvenido_signo">¡Bienvenido</string>
     <string name="en_esta_nueva_version">En esta nueva versión de la aplicación podrás consultar la siguiente información:</string>
-    <string name="consultar_tu_ahorro_vivienda">Consultar tu ahorro para vivienda de los diferentes periodos</string>
-    <string name="obtener_constancia_de_intereses">Obtener la constancia de intereses para la declaración anual de tu crédito</string>
-    <string name="consultar_informacion_saldos_movimientos">Consultar información para la administración de tu crédito en el servicio de saldos y movimientos</string>
-    <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona el servicio que quieres consultar desde el menú</string>
+    <string name="consultar_tu_ahorro_vivienda">Consultar tu ahorro para vivienda de los diferentes periodos.</string>
+    <string name="obtener_constancia_de_intereses">Obtener la constancia de intereses para la declaración anual de tu crédito.</string>
+    <string name="consultar_informacion_saldos_movimientos">Consultar tus saldos y movimientos para una mejor administración de tu crédito.</string>
+    <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona desde el menú el servicio que quieres consultar.</string>
     <string name="expired_Session">Su sesión ha expirado</string>
     <string name="nonenumber">-</string>
     <string name="correo_electr_nico">Correo electrónico</string>

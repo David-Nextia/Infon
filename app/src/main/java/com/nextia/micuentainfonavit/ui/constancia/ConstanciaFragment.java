@@ -93,7 +93,16 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                if(position!=0)
 //                {
+                if(Utils.isNetworkAvailable(getActivity())){
                     creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
+                }
+                else{
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    alertdialog.show();
+
+                }
+
                 //}
             }
 
@@ -165,7 +174,8 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         listanios.clear();
         listanios.add("Selecciona un año");
         for(int i = 0; i< listItemAnio.size(); i++){
-            listanios.add(listItemAnio.get(i).getEjercicioFiscal());
+            if(i<5)
+            {listanios.add(listItemAnio.get(i).getEjercicioFiscal());}
         }
         yearAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, listanios);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

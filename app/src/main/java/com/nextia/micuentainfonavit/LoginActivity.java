@@ -300,7 +300,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
                     if(!mailInput.isEmpty() && !passwordInput.isEmpty()){
                         // database.doLogin(email.getText().toString(), password.getText().toString(), context);
-                        doLogin(context);
+                        if(Utils.isNetworkAvailable(LoginActivity.this)){
+                            doLogin(context);
+                        }
+                        else{
+                            DialogInfonavit alertdialog = new DialogInfonavit(LoginActivity.this, "Aviso","Por favor revise su conexión de internet.\n" +
+                                    "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                            alertdialog.show();
+
+                        }
                         return true;
                     }
                 }
@@ -338,7 +346,17 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onClick(View v) {
-                doLogin(context);
+                if(Utils.isNetworkAvailable(LoginActivity.this)){
+                    doLogin(context);
+                    }
+                else{
+                    DialogInfonavit alertdialog = new DialogInfonavit(LoginActivity.this, "Aviso","Por favor revise su conexión de internet.\n" +
+                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    alertdialog.show();
+
+                }
+
+
             }
         });
 

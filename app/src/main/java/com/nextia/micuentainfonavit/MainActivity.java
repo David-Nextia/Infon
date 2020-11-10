@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity  {
         binding.navView.setItemIconTintList(null);
         header = binding.navView.getHeaderView(0);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_new_welcome,R.id.nav_home, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes, R.id.nav_profile)
+                R.id.nav_new_welcome, R.id.nav_savings, R.id.nav_movements, R.id.nav_aviso_suspension,R.id.nav_constancia_interes)
                 .setDrawerLayout(binding.drawerLayout)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -130,6 +130,7 @@ public class MainActivity extends AppCompatActivity  {
                 return  true;
             }
         });
+        binding.navView.getMenu().findItem(R.id.nav_separate).setEnabled(false);
 
     }
 

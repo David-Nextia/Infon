@@ -52,6 +52,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     NavController navController;
     PdfViewViewModel pdfViewModel;
     File historic;
+    HistoricResponse object_final;
 
     //creating view, and instance it
     @Override
@@ -76,11 +77,24 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                if(position!=0)
 //                {
-                    binding.shareHistoricPdf.animate().alpha(0.0f);
-                    binding.textDownloadHistoric.animate().alpha(0.0f);
-                   // binding.progressBar2.animate().alpha(1.0f);
+                binding.shareHistoricPdf.animate().alpha(0.0f);
+                binding.textDownloadHistoric.animate().alpha(0.0f);
+
+                if(Utils.isNetworkAvailable(getActivity())){
+
+                    // binding.progressBar2.animate().alpha(1.0f);
                     creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()),parent.getItemAtPosition(position).toString(),InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView,R.layout.skeleton_inner_movements);
+                }
+                else{
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    alertdialog.show();
+                    binding.historicImg.animate().alpha(0);
+                    binding.historicContainer.animate().alpha(0);
+                }
+
+
 
                 //viewmodel.loadHistoric(getActivity(), parent.getItemAtPosition(position).toString());
 
@@ -101,6 +115,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.historicImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                try {
+                    historic=Utils.createPdfFromBase64(object_final.getReporte(),"historic", getActivity(),true);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 pdfViewModel.setFile(historic);
                 navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                 navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
@@ -125,6 +145,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             @Override
             public void onClick(View v) {
                 Utils.showShareIntent(getActivity());
+            }
+        });
+        binding.textDownloadHistoric.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();
             }
         });
     }
@@ -155,14 +183,13 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle success response of server
     @Override
     public void onSuccesRequest(HistoricResponse object, String token) {
+        binding.historicContainer.animate().alpha(1);
         binding.shareHistoricPdf.animate().alpha(1.0f);
+        binding.historicImg.animate().alpha(1);
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);
         Utils.hideLoadingSkeleton();
-        try {
-            historic=Utils.createPdfFromBase64(object.getReporte(),"historic", getActivity());
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        object_final=object;
+
     }
 }

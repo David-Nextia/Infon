@@ -179,7 +179,7 @@
                         <ImageView
 
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="60dp"
                             android:src="@drawable/pdf_bitmap"
                             app:tint="@color/light_transparent"
                             />
@@ -199,6 +199,7 @@
                             android:alpha="1"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -215,7 +216,6 @@
                             app:tint="@color/light_transparent"
                             android:alpha="1"/>
                         <TextView
-                            android:id="@+id/text_share_historic"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -316,7 +316,7 @@
                         <ImageView
 
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="60dp"
                             android:src="@drawable/pdf_bitmap"
                             app:tint="@color/light_transparent"
                             />
@@ -336,6 +336,7 @@
                             android:alpha="1"/>
                     </LinearLayout>
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -344,7 +345,6 @@
                         >
 
                         <ImageView
-                            android:id="@+id/shareHistoricPdf"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
                             android:layout_gravity="center"
@@ -441,7 +441,7 @@
                         <ImageView
 
                             android:layout_width="wrap_content"
-                            android:layout_height="40dp"
+                            android:layout_height="60dp"
                             android:src="@drawable/pdf_bitmap"
                             app:tint="@color/light_transparent"
                             />
@@ -462,6 +462,7 @@
 
                     </LinearLayout>
                     <LinearLayout
+                        android:visibility="gone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

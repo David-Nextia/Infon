@@ -63,9 +63,9 @@ public class NewWelcomeFragment extends Fragment {
             //nameString=nameString.substring(0,1).toUpperCase() + nameString.substring(1).toLowerCase();
             nameString = String.valueOf(charArray);
             if(user.getScurp().charAt(10)=='M')
-            {name.setText("¡Bienvenida\n"+nameString+"!");}
+            {name.setText("¡Bienvenida!\n"+nameString);}
             else{
-                name.setText("¡Bienvenido\n"+nameString+"!");
+                name.setText("¡Bienvenido!\n"+nameString);
             }
 
         }

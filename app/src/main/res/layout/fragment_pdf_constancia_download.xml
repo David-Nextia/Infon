@@ -156,12 +156,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/dowloadPdf"
+
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp">
 
                 <TextView
-                    android:id="@+id/tv_btn_imprimir_pdf"
+                    android:id="@+id/dowloadPdf"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:background="@drawable/pdfc"
@@ -172,8 +172,9 @@
                     android:id="@+id/tv_imprimir_constancia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:text="@string/descarga_tu_archivo"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="@color/colorgrayblue"
                     android:textStyle="bold"
                     android:textSize="14sp"
                     android:layout_gravity="center"
@@ -181,6 +182,7 @@
 
             </LinearLayout>
             <ImageView
+                android:visibility="gone"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/ic_baseline_share_24"
@@ -188,7 +190,7 @@
                 android:id="@+id/sharePdf"
                 android:layout_marginTop="20dp"/>
             <TextView
-
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Compartir Archivo"

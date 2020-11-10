@@ -34,6 +34,7 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentCreditDataBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 
 import java.util.ArrayList;
@@ -97,8 +98,18 @@ public class CreditDataFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                // if (position != 0) {
+
+                if(Utils.isNetworkAvailable(getActivity())){
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
+                }
+                else{
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
+                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    alertdialog.show();
+
+                }
+
 //                }else{
 //                    binding.setPagosMensualidad(new PagosMensualidades());
 //                    binding.setOriginacionCredito(new OriginacionCredito());
