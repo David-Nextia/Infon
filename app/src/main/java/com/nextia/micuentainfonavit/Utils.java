@@ -76,6 +76,7 @@ public class Utils {
     public static UserResponse getSharedPreferencesUserData(Context context) {
         SharedPreferences mPrefs = context.getSharedPreferences("pref", Context.MODE_PRIVATE);
         Gson gson = new Gson();
+
         String json = mPrefs.getString("UsuarioData", "");
         return gson.fromJson(json, UserResponse.class);
     }
@@ -614,6 +615,7 @@ public class Utils {
                 Bitmap sign = BitmapFactory.decodeResource(activity.getResources(), R.drawable.firmanotice);
                 pageInfo = new PdfDocument.PageInfo.Builder(pageWidth, pageHieght, 1).create();
                 mypage = pdfDocument.startPage(pageInfo);
+
                 canvas = mypage.getCanvas();
                 //LOGO
                 canvas.drawBitmap(resizeBitmap(logo, 59, 45), 600, 20, null);
@@ -781,6 +783,13 @@ public class Utils {
 
                 position=0;
                 pdfDocument.finishPage(mypage);
+//                PdfDocument.PageInfo pageInfo2= new PdfDocument.PageInfo.Builder(pageWidth, pageHieght, 1).create();
+//                PdfDocument.Page myPage2=pdfDocument.startPage(pageInfo2);
+//                Canvas canvas2 = myPage2.getCanvas();
+//                canvas2.drawText("kskksksks",40,50,paintBold);
+//                pdfDocument.finishPage(myPage2);
+
+
 
             }
             else if(mode==3){

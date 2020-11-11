@@ -31,7 +31,7 @@ public class NewWelcomeFragment extends Fragment {
         rootView = root.findViewById(R.id.rootView);
         name=root.findViewById(R.id.tv_titulo_bienvenido);
         user=Utils.getSharedPreferencesUserData(getContext());
-        nameString=user.getNombre();
+        nameString=user.getNombre()+" "+user.getApPaterno();
 
         if(user.getNombre().equals("")){
             name.setText("¡Bienvenido!");        }

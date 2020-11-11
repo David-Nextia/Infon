@@ -81,7 +81,8 @@
                     <TextView
                         android:layout_width="7dp"
                         android:layout_height="7dp"
-                        android:layout_marginTop="3dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:layout_marginStart="2dp"
                         android:background="@drawable/circle_gray"
                         android:backgroundTint="@color/colorBulletsRed"
@@ -109,9 +110,9 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:layout_gravity="center"
                         android:layout_width="7dp"
                         android:layout_height="7dp"
-                        android:layout_marginTop="3dp"
                         android:background="@drawable/circle_gray"
                         android:backgroundTint="@color/colorBulletsRed" />
 
@@ -276,10 +277,10 @@
                         android:text="Tipo de aviso: "
                         android:fontFamily="@font/body"/>
                     <TextView
+                        android:textSize="12sp"
                         android:id="@+id/avisoTypeTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
                         android:fontFamily="@font/body"
                         android:text="Aviso para retención de documentos "/>
                     <LinearLayout

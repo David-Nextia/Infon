@@ -94,25 +94,25 @@ public class AvisoFragment extends Fragment {
                         if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
                             binding.avisoTypeTitle.setText("AVISO  PARA  RETENCIÓN  DE  DESCUENTOS");
                             Mode=2;
-                            pdf_title="Aviso_retención_"+ selectedCredit.substring(4);
+                            pdf_title="Aviso_retención_"+ selectedCredit;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
                         }
                         else if(tipAvis.equals("12")||tipAvis.equals("12") && clasAviso.equals("S")){
                             binding.avisoTypeTitle.setText("AVISO  DE  SUSPENSIÓN  DE  DESCUENTOS");
                             Mode=3;
-                            pdf_title="Aviso_suspensión_"+ selectedCredit.substring(4);
+                            pdf_title="Aviso_suspensión_"+ selectedCredit;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
                         }
                         else if(tipAvis.equals("10") && clasAviso.equals("S")){
                             binding.avisoTypeTitle.setText("AVISO DE SUSPENSIÓN POR PRÓXIMA LIQUIDACIÓN DE CRÉDITO");
                             Mode=4;
-                            pdf_title="Aviso_liquidación_"+ selectedCredit.substring(4);
+                            pdf_title="Aviso_liquidación_"+ selectedCredit;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
 
                         }
                         else if(tipAvis.equals("03") || tipAvis.equals("07")  && clasAviso.equals("R")){
                             binding.avisoTypeTitle.setText( "AVISO  DE  MODIFICACIÓN  AL  FACTOR  DE  DESCUENTOS");
-                            pdf_title="Aviso_modificación_"+ selectedCredit.substring(4);
+                            pdf_title="Aviso_modificación_"+ selectedCredit;
                             Mode=5;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
                         }
@@ -182,7 +182,7 @@ public class AvisoFragment extends Fragment {
         Creditlist.clear();
         //Creditlist.add("Selecciona una cuenta");
         for (int i = 0; i < creditos.size(); i++) {
-            Creditlist.add("0000" + creditos.get(i).getNumeroCredito());
+            Creditlist.add(creditos.get(i).getNumeroCredito());
         }
         binding.spCredit.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -190,7 +190,7 @@ public class AvisoFragment extends Fragment {
                 //binding.progressBar2.animate().alpha(1.0f);
                 selectedCredit = parent.getSelectedItem().toString();
                 if(Utils.isNetworkAvailable(getActivity())){
-                mViewModel.getAvisoDB(getContext(), selectedCredit.substring(4), Utils.getSharedPreferencesToken(getContext()));
+                mViewModel.getAvisoDB(getContext(), selectedCredit, Utils.getSharedPreferencesToken(getContext()));
                 Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_aviso);}
                 else{
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +

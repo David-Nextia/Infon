@@ -32,15 +32,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/perfil" />
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textSize="24sp"
+                android:layout_marginTop="50dp"
+                android:text="@{user.nombre+' '+user.apPaterno}"
+                android:textColor="@color/colorgrayblue"
+                android:fontFamily="@font/title"
+                tools:text="Juan Perez"
+                />
             <TextView
 
                 android:id="@+id/tx_name"
+                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+
                 android:gravity="center"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 tools:text="@string/NSS_profiletest"
                 android:text="@{html.fromHtml(@string/NSS_profile(user.Nss))}"
                 android:textColor="@color/colorgrayblue"
