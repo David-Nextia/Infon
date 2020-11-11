@@ -618,7 +618,7 @@ public class Utils {
                 //LOGO
                 canvas.drawBitmap(resizeBitmap(logo, 59, 45), 600, 20, null);
                 //FiRMA
-                canvas.drawBitmap(resizeBitmap(sign, 140, 60), 265, 707, null);
+                canvas.drawBitmap(resizeBitmap(sign, 140, 60), 265, 754, null);
 
                 //TITULO
                 canvas.drawRect(20, 20, 579, 63, rectPaint);
@@ -658,126 +658,126 @@ public class Utils {
                 canvas.drawRect(492, 142, 669, 172, rect);
                 canvas.drawText("R.F.C: ", 497, 162, paintBold);
                 canvas.drawText(item.getRFC_NRP(), 537, 162, paintText1);
-
+                getPosition(177);
                 //TEXTO
-                canvas.drawRect(20, 177, 669, 622, rect);
-                canvas.drawText("El Instituto del Fondo Nacional de la Vivienda para  los  Trabajadores  ha  otorgado  un  crédito  de  vivienda  al  trabajador, cuyos  datos  se  consignan al calce, quien  aceptó le sean", 25, 187, paintTextDescription1);
-                canvas.drawText("efectuados descuentos a su salario, para amortizar su crédito; según se señala en el recuadro de “DESCUENTO” de este aviso, pudiendo ser:", 25, 197, paintTextDescription1);
-                canvas.drawCircle(25, 205, 2, blckPoint);
-                canvas.drawText("Descuento en porcentaje se calcula: Salario diario integrado por el porcentaje de descuento por los días laborados con crédito con cada salario que haya percibido el  trabajador.", 40, 207, paintTextDescription1);
-                canvas.drawCircle(25, 215, 2, blckPoint);
-                canvas.drawText("Descuento en pesos se calcula: Cuota fija en pesos mensual por los meses del bimestre entre días del bimestre por días laborados con crédito.", 40, 217, paintTextDescription1);
-                canvas.drawCircle(25, 225, 2, blckPoint);
-                canvas.drawText("Factor de descuento, presenta dos variantes:", 40, 227, paintTextDescription1);
-                canvas.drawCircle(65, 235, 2, whtPoint);
-                canvas.drawText("Para efectos de los descuentos correspondientes a 2016 y años anteriores, se debe considerar para el cálculo la cuota fija en VSM por  el  SMGDF  por los meses del", 80, 237, paintTextDescription1);
-                canvas.drawText("bimestre entre los días del bimestre por los días laborados con crédito.", 80, 247, paintTextDescription1);
-                canvas.drawCircle(65, 255, 2, whtPoint);
-                canvas.drawText("Para efectos de descuentos posteriores al 1 de Enero de 2017, se debe considerar para el cálculo el factor de descuento por el valor de la  Unidad  Mixta  INFONAVIT", 80, 257, paintTextDescription1);
-                canvas.drawText("base de cálculo por los meses del bimestre entre los días del bimestre por los días laborados con crédito", 80, 267, paintTextDescription1);
-                canvas.drawText("El valor de la Unidad Mixta INFONAVIT se determina de conformidad con lo dispuesto en el artículo 6º transitorio del Decreto en materia  de   desindexación  del salario  mínimo,  de", 25, 277, paintTextDescription1);
-                canvas.drawText("la Constitución Política de los Estados Unidos Mexicanos, publicado el 27 de enero del 2016 en el Diario Oficial de la  Federación, considerando la  actualización  del  salario mínimo,", 25, 287, paintTextDescription1);
-                canvas.drawText("más el crecimiento porcentual de la inflación sustituyendo de esta manera el Salario Mínimo.", 25, 297, paintTextDescription1);
-                canvas.drawCircle(25, 305, 2, blckPoint);
-                canvas.drawText("Si el trabajador percibe un salario mínimo, no podrá exceder del 20% del mismo, con fundamento en los  artículos  47  del  Reglamento de  Inscripción, Pago  de  Aportaciones  y", 40, 307, paintTextDescription1);
-                canvas.drawText("Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 110 fracción VII de la Ley Federal del Trabajo.", 40, 317, paintTextDescription1);
-                canvas.drawCircle(25, 325, 2, blckPoint);
-                canvas.drawText("Cuando se indique el factor de descuento mensual y el periodo sea menor a los días que comprende el bimestre, deberá retener y enterar la  parte  proporcional  de  los  días del", 40, 327, paintTextDescription1);
-                canvas.drawText("bimestre efectivamente laborados por el trabajador", 40, 337, paintTextDescription1);
-                canvas.drawText("Con fundamento en los artículos 23 fracción I de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; 1, 3 fracciones XXXVII y XLV, 4 fracción IX, así  como el", 25, 347, paintTextDescription1);
-                canvas.drawText("artículo 13 del Reglamento Interior del Instituto del Fondo Nacional de la Vivienda para los Trabajadores publicado en el Diario Oficial de la  Federación  el  20  de  junio  de 2008, así", 25, 357, paintTextDescription1);
-                canvas.drawText("como su reforma publicada en el mismo Diario el 31 de julio de 2017;97 fracción III y 110 fracción III de la Ley Federal  del  Trabajo;29 fracción III  de  la  Ley  del  Instituto  del Fondo", 23, 367, paintTextDescription1);
-                canvas.drawText("Nacional de la Vivienda para los Trabajadores; 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,  53  y  54  del  Reglamento  de  Inscripción,  Pago  de  Aportaciones y Entero  de Descuentos al", 25, 377, paintTextDescription1);
-                canvas.drawText("Instituto del Fondo Nacional de la Vivienda para los Trabajadores, deberá usted descontar del salario diario integrado de aportación, sin límite superior salarial y con la  periodicidad", 25, 387, paintTextDescription1);
-                canvas.drawText("con que efectúe el pago de éste, la cantidad  que  resulte conforme  al  tipo  de  descuento   indicado  en  los  puntos anteriores, ", 25, 397, paintTextDescription1);
-                canvas.drawText("a  partir del día siguiente a aquel en que se  le  haya", 480, 397, paintBoldCS1);
-                canvas.drawText("notificado el presente aviso,", 25, 407, paintBoldCS1);
-                canvas.drawText("conforme a lo siguiente:", 88, 407, paintTextDescription1);
-                canvas.drawText("El entero de los descuentos se efectuará de manera bimestral conjuntamente con las aportaciones patronales, en la entidad receptora autorizada de su preferencia, a más  tardar el", 25, 417, paintTextDescription1);
-                canvas.drawText("día 17: del mes siguiente al bimestre que corresponda, cuando el último día para el cumplimiento de pago sea inhábil o viernes, se estará a lo dispuesto en el artículo 12  del Código ", 25, 427, paintTextDescription1);
-                canvas.drawText("Fiscal de la Federación, mediante el programa de cómputo aprobado por el Instituto o utilizando las “Cédulas de Determinación de Cuotas, Aportaciones y Amortizaciones  emitidas", 25, 437, paintTextDescription1);
-                canvas.drawText("conjuntamente por el IMSS y el INFONAVIT, cuando así proceda.", 25, 447, paintTextDescription1);
-                canvas.drawText("Los patrones son solidariamente responsables del entero de  los  descuentos ante  el Instituto, en  términos  de  lo  que  señalan  los  artículos  26 fracción I del Código  Fiscal  de la", 25, 457, paintTextDescription1);
-                canvas.drawText("Federación; 29 fracción III de la Ley del Instituto del Fondo Nacional de la Vivienda  para  los  Trabajadores; 50, 51 y 52  del Reglamento  de Inscripción antes  citado, a  partir  del día", 25, 467, paintTextDescription1);
-                canvas.drawText("siguiente a aquel en que reciban este aviso y hasta en tanto no se presente aviso de baja  del  trabajador  en  el formato Afil-04  del  IMSS-INFONAVIT  o  el equivalente, o reciban del", 25, 477, paintTextDescription1);
-                canvas.drawText("Instituto el Aviso de Suspensión de Descuentos.", 25, 487, paintTextDescription1);
-                canvas.drawText("En caso de no dar cumplimiento a las obligaciones antes señaladas, se hará acreedor a la determinación y cobro de el (los) crédito(s) fiscal(es) y a las sanciones que correspondan", 25, 497, paintTextDescription1);
-                canvas.drawText("por violaciones a la Ley y sus Reglamentos en los términos de los artículos 2, 4 y 6 del Código Fiscal de la  Federación; y 30, 55, 56 y 57 de la Ley del Instituto del Fondo Nacional de", 25, 507, paintTextDescription1);
-                canvas.drawText("la Vivienda para los Trabajadores; y 6, 7, 19, 20, 21, 22 y 25 del Reglamento para la Imposición de Multas  por Incumplimiento de las Obligaciones  que la Ley  del Instituto  del Fondo ", 25, 517, paintTextDescription1);
-                canvas.drawText("Nacional de la Vivienda para los Trabajadores y sus Reglamentos establecen a cargo de los Patrones.", 25, 527, paintTextDescription1);
-                canvas.drawText("Hacemos de su conocimiento, que por ningún motivo deberá sellar ni firmar este documento si el trabajador a que se refiere el mismo no  guarda  actualmente  relación  laboral con", 25, 537, paintTextDescription1);
-                canvas.drawText("usted, en caso contrario, será responsable del entero de las amortizaciones que correspondan, sin perjuicio de aplicar el contenido del artículo  58  de  la  Ley del Instituto del Fondo", 25, 547, paintTextDescription1);
-                canvas.drawText("Nacional de la Vivienda para los Trabajadores.", 25, 557, paintTextDescription1);
-                canvas.drawText("De conformidad con el artículo 48 del Reglamento de Inscripción, Pago de Aportaciones y Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores,", 25, 567, paintTextDescription1);
-                canvas.drawText("la omisión de los datos de un trabajador en la Cédula de Determinación emitida por el Instituto Mexicano del Seguro Social, no exime al patrón  de la obligación  de retener y  enterar", 25, 577, paintTextDescription1);
-                canvas.drawText("los descuentos a través del programa de cómputo autorizado.", 25, 587, paintTextDescription1);
-                canvas.drawText("La recepción y firma de este Aviso, implica que acepta que la relación laboral que mantiene con el trabajador que se  cita, se encuentra vigente y  que  no  existen  causas  probables", 25, 597, paintTextDescription1);
-                canvas.drawText("para que ésta se rescinda en términos de los artículos 47 y 51 de la Ley Federal del  Trabajo  o  se  termine  por  lo  previsto  en el  artículo  53  de  dicha  Ley; dentro  de  los  90  días", 25, 607, paintTextDescription1);
-                canvas.drawText("posteriores a la fecha de recepción y firma de este Aviso.", 25, 617, paintTextDescription1);
+                canvas.drawRect(20, getPosition(0), 669, 672, rect);
+                canvas.drawText("El Instituto del Fondo Nacional de la Vivienda para  los  Trabajadores  ha  otorgado  un  crédito  de  vivienda  al  trabajador, cuyos  datos  se  consignan al calce, quien  aceptó le sean", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("efectuados descuentos a su salario, para amortizar su crédito; según se señala en el recuadro de “DESCUENTO” de este aviso, pudiendo ser:", 25, getPosition(10), paintTextDescription1);
+                canvas.drawCircle(25, getPosition(13), 2, blckPoint);
+                canvas.drawText("Descuento en porcentaje se calcula: Salario diario integrado por el porcentaje de descuento por los días laborados con crédito con cada salario que haya percibido el  trabajador.", 40, getPosition(2), paintTextDescription1);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Descuento en pesos se calcula: Cuota fija en pesos mensual por los meses del bimestre entre días del bimestre por días laborados con crédito.", 40,  getPosition(2), paintTextDescription1);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Factor de descuento, presenta dos variantes:", 40,  getPosition(2), paintTextDescription1);
+                canvas.drawCircle(65, getPosition(8), 2, whtPoint);
+                canvas.drawText("Para efectos de los descuentos correspondientes a 2016 y años anteriores, se debe considerar para el cálculo la cuota fija en VSM por  el  SMGDF  por los meses del", 80, getPosition(2), paintTextDescription1);
+                canvas.drawText("bimestre entre los días del bimestre por los días laborados con crédito.", 80, getPosition(10), paintTextDescription1);
+                canvas.drawCircle(65, getPosition(8), 2, whtPoint);
+                canvas.drawText("Para efectos de descuentos posteriores al 1 de Enero de 2017, se debe considerar para el cálculo el factor de descuento por el valor de la  Unidad  Mixta  INFONAVIT", 80,  getPosition(2), paintTextDescription1);
+                canvas.drawText("base de cálculo por los meses del bimestre entre los días del bimestre por los días laborados con crédito", 80, getPosition(10), paintTextDescription1);
+                canvas.drawText("El valor de la Unidad Mixta INFONAVIT se determina de conformidad con lo dispuesto en el artículo 6º transitorio del Decreto en materia  de   desindexación  del salario  mínimo,  de", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("la Constitución Política de los Estados Unidos Mexicanos, publicado el 27 de enero del 2016 en el Diario Oficial de la  Federación, considerando la  actualización  del  salario mínimo,", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("más el crecimiento porcentual de la inflación sustituyendo de esta manera el Salario Mínimo.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawCircle(25, getPosition(13), 2, blckPoint);
+                canvas.drawText("Si el trabajador percibe un salario mínimo, no podrá exceder del 20% del mismo, con fundamento en los  artículos  47  del  Reglamento de  Inscripción, Pago  de  Aportaciones  y", 40, getPosition(2), paintTextDescription1);
+                canvas.drawText("Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 110 fracción VII de la Ley Federal del Trabajo.", 40, getPosition(10), paintTextDescription1);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Cuando se indique el factor de descuento mensual y el periodo sea menor a los días que comprende el bimestre, deberá retener y enterar la  parte  proporcional  de  los  días del", 40, getPosition(2), paintTextDescription1);
+                canvas.drawText("bimestre efectivamente laborados por el trabajador", 40, getPosition(10), paintTextDescription1);
+                canvas.drawText("Con fundamento en los artículos 23 fracción I de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; 1, 3 fracciones XXXVII y XLV, 4 fracción IX, así  como el", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("artículo 13 del Reglamento Interior del Instituto del Fondo Nacional de la Vivienda para los Trabajadores publicado en el Diario Oficial de la  Federación  el  20  de  junio  de 2008, así", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("como su reforma publicada en el mismo Diario el 31 de julio de 2017;97 fracción III y 110 fracción III de la Ley Federal  del  Trabajo;29 fracción III  de  la  Ley  del  Instituto  del Fondo", 23, getPosition(10), paintTextDescription1);
+                canvas.drawText("Nacional de la Vivienda para los Trabajadores; 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52,  53  y  54  del  Reglamento  de  Inscripción,  Pago  de  Aportaciones y Entero  de Descuentos al", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Instituto del Fondo Nacional de la Vivienda para los Trabajadores, deberá usted descontar del salario diario integrado de aportación, sin límite superior salarial y con la  periodicidad", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("con que efectúe el pago de éste, la cantidad  que  resulte conforme  al  tipo  de  descuento   indicado  en  los  puntos anteriores, ", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("a  partir del día siguiente a aquel en que se  le  haya", 480, getPosition(0), paintBoldCS1);
+                canvas.drawText("notificado el presente aviso,", 25, getPosition(10), paintBoldCS1);
+                canvas.drawText("conforme a lo siguiente:", 126, getPosition(0), paintTextDescription1);
+                canvas.drawText("El entero de los descuentos se efectuará de manera bimestral conjuntamente con las aportaciones patronales, en la entidad receptora autorizada de su preferencia, a más  tardar el", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("día 17: del mes siguiente al bimestre que corresponda, cuando el último día para el cumplimiento de pago sea inhábil o viernes, se estará a lo dispuesto en el artículo 12  del Código ", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Fiscal de la Federación, mediante el programa de cómputo aprobado por el Instituto o utilizando las “Cédulas de Determinación de Cuotas, Aportaciones y Amortizaciones  emitidas", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("conjuntamente por el IMSS y el INFONAVIT, cuando así proceda.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Los patrones son solidariamente responsables del entero de  los  descuentos ante  el Instituto, en  términos  de  lo  que  señalan  los  artículos  26 fracción I del Código  Fiscal  de la", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("Federación; 29 fracción III de la Ley del Instituto del Fondo Nacional de la Vivienda  para  los  Trabajadores; 50, 51 y 52  del Reglamento  de Inscripción antes  citado, a  partir  del día", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("siguiente a aquel en que reciban este aviso y hasta en tanto no se presente aviso de baja  del  trabajador  en  el formato Afil-04  del  IMSS-INFONAVIT  o  el equivalente, o reciban del", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Instituto el Aviso de Suspensión de Descuentos.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("En caso de no dar cumplimiento a las obligaciones antes señaladas, se hará acreedor a la determinación y cobro de el (los) crédito(s) fiscal(es) y a las sanciones que correspondan", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("por violaciones a la Ley y sus Reglamentos en los términos de los artículos 2, 4 y 6 del Código Fiscal de la  Federación; y 30, 55, 56 y 57 de la Ley del Instituto del Fondo Nacional de", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("la Vivienda para los Trabajadores; y 6, 7, 19, 20, 21, 22 y 25 del Reglamento para la Imposición de Multas  por Incumplimiento de las Obligaciones  que la Ley  del Instituto  del Fondo ", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Nacional de la Vivienda para los Trabajadores y sus Reglamentos establecen a cargo de los Patrones.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Hacemos de su conocimiento, que por ningún motivo deberá sellar ni firmar este documento si el trabajador a que se refiere el mismo no  guarda  actualmente  relación  laboral con", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("usted, en caso contrario, será responsable del entero de las amortizaciones que correspondan, sin perjuicio de aplicar el contenido del artículo  58  de  la  Ley del Instituto del Fondo", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("Nacional de la Vivienda para los Trabajadores.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("De conformidad con el artículo 48 del Reglamento de Inscripción, Pago de Aportaciones y Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores,", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("la omisión de los datos de un trabajador en la Cédula de Determinación emitida por el Instituto Mexicano del Seguro Social, no exime al patrón  de la obligación  de retener y  enterar", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("los descuentos a través del programa de cómputo autorizado.", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("La recepción y firma de este Aviso, implica que acepta que la relación laboral que mantiene con el trabajador que se  cita, se encuentra vigente y  que  no  existen  causas  probables", 25, getPosition(15), paintTextDescription1);
+                canvas.drawText("para que ésta se rescinda en términos de los artículos 47 y 51 de la Ley Federal del  Trabajo  o  se  termine  por  lo  previsto  en el  artículo  53  de  dicha  Ley; dentro  de  los  90  días", 25, getPosition(10), paintTextDescription1);
+                canvas.drawText("posteriores a la fecha de recepción y firma de este Aviso.", 25, getPosition(10), paintTextDescription1);
 //NUMERO NSS, NUMERO DE CRÉDITO Y RFC DEL TRABAJADOR
-                canvas.drawRect(20, 622, 141, 643, rect);
-                canvas.drawText("NÚMERO DE SEGURIDAD", 32, 632, paintBold);
-                canvas.drawText("SOCIAL", 68, 641, paintBold);
-                canvas.drawRect(20, 643, 141, 658, rect);
-                 canvas.drawText(item.getNSS(), 50, 655, paintText1);
-                canvas.drawRect(141, 622, 276, 643, rect);
-                 canvas.drawText("NÚMERO  DE  CRÉDITO", 163, 636, paintBold);
-                canvas.drawRect(141, 643, 276, 658, rect);
-                 canvas.drawText(item.getNUMCRED(), 181, 655, paintText1);
-                canvas.drawRect(276, 622, 431, 643, rect);
-                canvas.drawText("RFC  O  CURP  DEL", 320, 632, paintBold);
-                canvas.drawText("TRABAJADOR", 330, 641, paintBold);
-                canvas.drawRect(276, 643, 431, 658, rect);
-                canvas.drawText(item.getRFC_NSS(), 316, 655, paintText1);
+                canvas.drawRect(20, getPosition(5), 141, getPosition(21), rect);
+                canvas.drawText("NÚMERO DE SEGURIDAD", 32, getPosition(-11), paintBold);
+                canvas.drawText("SOCIAL", 68, getPosition(9), paintBold);
+                canvas.drawRect(20, getPosition(2), 141, getPosition(15), rect);//658
+                 canvas.drawText(item.getNSS(), 50, getPosition(-3), paintText1);//655
+                canvas.drawRect(141, getPosition(-33), 276, getPosition(21), rect);//643
+                 canvas.drawText("NÚMERO  DE  CRÉDITO", 163, getPosition(-7), paintBold);//636
+                canvas.drawRect(141, getPosition(7), 276, getPosition(15), rect);//658
+                 canvas.drawText(item.getNUMCRED(), 181,  getPosition(-3), paintText1);//655
+                canvas.drawRect(276,  getPosition(-33), 431, getPosition(21), rect);//643
+                canvas.drawText("RFC  O  CURP  DEL", 320, getPosition(-11), paintBold);//632
+                canvas.drawText("TRABAJADOR", 330, getPosition(9), paintBold);//641
+                canvas.drawRect(276, getPosition(2), 431, getPosition(15), rect);//658
+                canvas.drawText(item.getRFC_NSS(), 316, getPosition(-3), paintText1);//655
                 paintBold1.setTextSize(7f);
                 //NOMBRE_NSS
-                canvas.drawRect(431, 622, 669, 643, rect);
-                canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL", 435, 633, paintBold1);
-                canvas.drawText("CRÉDITO", 551, 641, paintBold1);
-                canvas.drawRect(431, 643, 669, 696, rect);//63
-                canvas.drawText(item.getNOMBRE_NSS(), 491, 667, paintText1);
+                canvas.drawRect(431, getPosition(-33), 669, getPosition(21), rect);//643
+                canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL", 435, getPosition(-10), paintBold1);//633
+                canvas.drawText("CRÉDITO", 551, getPosition(8), paintBold1);//641
+                canvas.drawRect(431, getPosition(2), 669, getPosition(53), rect);//696
+                canvas.drawText(item.getNOMBRE_NSS(), 491, getPosition(-29), paintText1);//667
                 paintBold1.setTextSize(7f);
                 //DESCUENTO MENSUAL
                 //PORCENTAJE, PESOS, FACTOR DE DESCUENTO
-                canvas.drawRect(20, 658, 431, 669, rect);
-                canvas.drawText("DESCUENTO  MENSUAL", 180, 666, paintBold1);
-                canvas.drawRect(20, 669, 141, 680, rect);
-                canvas.drawText("PORCENTAJE", 53, 677, paintBold);
-               canvas.drawRect(20, 680, 141, 696, rect);
-                canvas.drawText(Porcen, 65, 692, paintText1);
-                canvas.drawRect(141, 669, 276, 680, rect);
-                canvas.drawText("PESOS", 202, 677, paintBold);
-                canvas.drawRect(141, 680, 276, 696, rect);
-                canvas.drawText(Pesos, 215, 692, paintText1);
-                canvas.drawRect(276, 669, 431, 680, rect);
-                canvas.drawText("FACTOR  DE  DESCUENTO", 306, 677, paintBold);
-                canvas.drawRect(276, 680, 431, 696, rect);
-                canvas.drawText(item.getFACTOR(), 361, 692, paintText1);
+                canvas.drawRect(20, getPosition(-9), 431, getPosition(11), rect);//669
+                canvas.drawText("DESCUENTO  MENSUAL", 180, getPosition(-3), paintBold1);//666
+                canvas.drawRect(20, getPosition(3), 141, getPosition(11), rect);//680
+                canvas.drawText("PORCENTAJE", 53, getPosition(-3), paintBold);//677
+               canvas.drawRect(20, getPosition(3), 141, getPosition(16), rect);//696
+                canvas.drawText(Porcen, 65, getPosition(-4), paintText1);//692
+                canvas.drawRect(141, getPosition(-23), 276, getPosition(11), rect);//680
+                canvas.drawText("PESOS", 202, getPosition(-3), paintBold);//677
+                canvas.drawRect(141, getPosition(3), 276, getPosition(16), rect);//696
+                canvas.drawText(Pesos, 215, getPosition(-4), paintText1);//692
+                canvas.drawRect(276, getPosition(-23), 431, getPosition(11), rect);//680
+                canvas.drawText("FACTOR  DE  DESCUENTO", 306, getPosition(-3), paintBold);//677
+                canvas.drawRect(276, getPosition(3), 431, getPosition(16), rect);//696
+                canvas.drawText(item.getFACTOR(), 361, getPosition(-4), paintText1);//692
 
                 //Texto Firma
-                canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 290, 708, paintBold);
-                canvas.drawRect(237, 774, 447, 772, line);
-                canvas.drawText("MTRO. FERNANDO TAPIA DÍAZ", 281, 783, paintBold);
-                canvas.drawText("GERENTE  DE  FACTURACIÓN  FISCAL", 267, 792, paintBold);
+                canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 290, getPosition(16), paintBold);//708
+                canvas.drawRect(237, getPosition(66), 447, getPosition(-2), line);//772
+                canvas.drawText("MTRO. FERNANDO TAPIA DÍAZ", 281, getPosition(11), paintBold);//783
+                canvas.drawText("GERENTE  DE  FACTURACIÓN  FISCAL", 267, getPosition(9), paintBold);//792
 
                 //NOMBRE FIRMA
-                canvas.drawRect(20, 797, 345, 872, rect);
-                canvas.drawText("PERSONA  QUE  RECIBE  EL  AVISO", 112, 807, paintBold);
-                canvas.drawRect(30, 857, 172, 858, line);
-                canvas.drawText("NOMBRE", 82, 867, paintBold);
-                canvas.drawRect(192, 857, 334, 858, line);
-                canvas.drawText("FIRMA", 247, 867, paintBold);
+                canvas.drawRect(20, getPosition(5), 345, getPosition(75), rect);//872
+                canvas.drawText("PERSONA  QUE  RECIBE  EL  AVISO", 112, getPosition(-65), paintBold);//807
+                canvas.drawRect(30, getPosition(50), 172, getPosition(1), line);//858
+                canvas.drawText("NOMBRE", 82, getPosition(9), paintBold);//867
+                canvas.drawRect(192, getPosition(-10), 334, getPosition(1), line);//858
+                canvas.drawText("FIRMA", 247, getPosition(9), paintBold);//867
 
                 //FECHA DE RECEPCIÓN Y SELLO DE LA EMPRESA
-                canvas.drawRect(345, 797, 474, 812, rect);
-                canvas.drawText("FECHA  DE  RECEPCIÓN", 360, 807, paintBold);
-                canvas.drawRect(345, 812, 474, 857, rect);
-                canvas.drawRect(345, 857, 474, 872, rect);
-                canvas.drawText("DD/MM/AAAA", 382, 867, paintBold);
-                canvas.drawRect(474, 797, 669, 812, rect);
-                canvas.drawText("SELLO  DE  LA  EMPRESA", 520, 807, paintBold);
-                canvas.drawRect(474, 812, 669, 872, rect);
-                canvas.drawText("Act.07-2019/GSRyCF", 550, 882, paintBold);
+                canvas.drawRect(345, getPosition(-70), 474, getPosition(15), rect);//812
+                canvas.drawText("FECHA  DE  RECEPCIÓN", 360, getPosition(-5), paintBold);//807
+                canvas.drawRect(345, getPosition(5), 474, getPosition(45), rect);//857
+                canvas.drawRect(345, getPosition(0), 474, getPosition(15), rect);//872
+                canvas.drawText("DD/MM/AAAA", 382, getPosition(-5), paintBold);//867
+                canvas.drawRect(474, getPosition(-70), 669, getPosition(15), rect);//812
+                canvas.drawText("SELLO  DE  LA  EMPRESA", 520, getPosition(-5), paintBold);//807
+                canvas.drawRect(474, getPosition(5), 669, getPosition(60), rect);//872
+                canvas.drawText("Act.07-2019/GSRyCF", 550, getPosition(10), paintBold);//882
 
                 position=0;
                 pdfDocument.finishPage(mypage);
@@ -1041,7 +1041,7 @@ public class Utils {
                 canvas.drawBitmap(resizeBitmap(logo, 59, 45), 530, 20, null);
 
                 //FiRMA
-                canvas.drawBitmap(resizeBitmap(sign, 140, 60), 230, 595, null);
+                canvas.drawBitmap(resizeBitmap(sign, 140, 60), 230, 638, null);
 
                 //TITULO
                 canvas.drawRect(20, 20, 502, 63, rectPaint);
@@ -1083,105 +1083,106 @@ public class Utils {
                 canvas.drawText(item.getRFC_NRP(), 460, 162, paintText);
 
                 //TEXTO
-                canvas.drawRect(20, 177, 592, 522, rect);
-                canvas.drawText("Con fundamento en los artículos 23 fracción I de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; 1, 3 fracciones  XXXVII y XLV, 4  fracción IX, así  como el", 25, 187, paintTextDescription);
-                canvas.drawText("artículo 13 del Reglamento Interior del Instituto del Fondo Nacional de la  Vivienda para los  Trabajadores  publicado en el Diario Oficial de la Federación  el  20  de  junio  de 2008, así", 25, 197, paintTextDescription);
-                canvas.drawText("como su reforma publicada en el mismo Diario el 31 de julio de 2017, le notifico que ha sido modificado el factor  de  los descuentos que viene haciendo a su trabajador, cuyos datos", 25, 207, paintTextDescription);
-                canvas.drawText("se consignan en el presente documento, motivo por el cual a partir", 25, 217, paintTextDescription);
-                canvas.drawText("del primer día del  siguiente  bimestre  a aquel en  que  haya  recibido el presente,", 234, 217, paintBoldCS);
-                canvas.drawText("deberá  realizar  los  descuentos", 486, 217, paintTextDescription);
-                canvas.drawText("aplicando la modalidad que se indica en el recuadro respectivo", 25, 227, paintTextDescription);
-                canvas.drawCircle(25, 235, 2, blckPoint);
-                canvas.drawText("Descuento en porcentaje se calcula: Salario diario integrado por el porcentaje de descuento por los días laborados con crédito con cada salario que haya percibido el  trabajador.", 40, 237, paintTextDescription);
-                canvas.drawCircle(25, 245, 2, blckPoint);
-                canvas.drawText("Descuento en pesos se calcula: Cuota fija en pesos mensual por los meses del bimestre entre días del bimestre por días laborados con crédito.", 40, 247, paintTextDescription);
-                canvas.drawCircle(25, 255, 2, blckPoint);
-                canvas.drawText("Factor de descuento, presenta dos variantes:", 40, 257, paintTextDescription);
-                canvas.drawCircle(65, 265, 2, whtPoint);
-                canvas.drawText("Para efectos de los descuentos correspondientes a 2016 y años anteriores, se debe considerar para el cálculo la cuota fija en VSM por el SMGDF por los meses del", 80, 267, paintTextDescription);
-                canvas.drawText("bimestre entre los días del bimestre por los días laborados con crédito.", 80, 277, paintTextDescription);
-                canvas.drawCircle(65, 285, 2, whtPoint);
-                canvas.drawText("Para efectos de descuentos posteriores al 1 de Enero de 2017, se debe considerar para el cálculo el factor de descuento por el valor de la  unidad  Mixta INFONAVIT", 80, 287, paintTextDescription);
-                canvas.drawText("base de cálculo por los meses del bimestre entre los días del bimestre por los días laborados con crédito.", 80, 297, paintTextDescription);
-                canvas.drawText("El valor de la Unidad Mixta INFONAVIT se determina de conformidad con lo dispuesto en el artículo 6º transitorio del Decreto en  materia de  desindexación  del salario  minimo  de la", 25, 307, paintTextDescription);
-                canvas.drawText("Constitución Política de los Estados Unidos Mexicanos, publicado el 27 de enero del 2016 en el Diario Oficial de la Federación, considerando la actualización del salario  mínimo, más", 25, 317, paintTextDescription);
-                canvas.drawText("el crecimiento porcentual de la inflación sustituyendo de esta manera el Salario Mínimo.", 25, 327, paintTextDescription);
-                canvas.drawText("El entero de los descuentos deberá efectuarlo a través de los mismos medios y plazos en que lo venia haciendo hasta antes de la recepción del presente aviso.", 25, 337, paintTextDescription);
-                canvas.drawCircle(25, 345, 2, blckPoint);
-                canvas.drawText("Si el trabajador percibe un salario mínimo, no podrá exceder del 20% del mismo, con fundamento en  los  artículos  47  del  Reglamento de  Inscripción,  Pago de Aportaciones  y", 40, 347, paintTextDescription);
-                canvas.drawText("Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 110 fracción VII de la Ley Federal del Trabajo.", 40, 357, paintTextDescription);
-                canvas.drawCircle(25, 365, 2, blckPoint);
-                canvas.drawText("Cuando se indique el Factor de Descuento mensual y el periodo sea menor a los días que comprende el bimestre, deberá retener y  enterar  la parte proporcional  de  los  días del", 40, 367, paintTextDescription);
-                canvas.drawText("bimestre efectivamente laborados por el trabajador.", 40, 377, paintTextDescription);
-                canvas.drawText("Lo anterior, con apoyo en el Contrato de Crédito con Garantía Hipotecaria que el trabajador en cuestión celebró con este Instituto, mediante el cual  aceptó ésta  forma  de  descuento", 25, 387, paintTextDescription);
-                canvas.drawText("para la amortización de su crédito, y en el Convenio de Reestructura que en su caso dicho trabajador acreditado hubiese celebrado con el Instituto del Fondo Nacional de  la Vivienda", 25, 397, paintTextDescription);
-                canvas.drawText("para los Trabajadores, situación que es acorde con lo señalado en los artículos 110 fracción III de la Ley Federal del Trabajo; 29 fracción III de la Ley  del  Instituto del Fondo Nacional", 25, 407, paintTextDescription);
-                canvas.drawText("de la Vivienda para los Trabajadores; y 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 y 54 del Reglamento de Inscripción, Pago de  Aportaciones  y  Entero  de  Descuentos al Instituto del", 25, 417, paintTextDescription);
-                canvas.drawText("Fondo Nacional de la Vivienda para los Trabajadores.", 25, 427, paintTextDescription);
-                canvas.drawText("Hacemos de su conocimiento, que por ningún motivo deberá sellar ni firmar este documento si el trabajador a que se refiere el  mismo no guarda  actualmente  relación  laboral  con", 25, 437, paintTextDescription);
-                canvas.drawText("usted, ya que al hacerlo se convertirá en responsable del entero de las amortizaciones que correspondan, sin  perjuicio  de  aplicar  el  contenido del artículo 58 de la Ley del Instituto", 25, 447, paintTextDescription);
-                canvas.drawText("del Fondo Nacional de la Vivienda para los Trabajadores.", 25, 457, paintTextDescription);
-                canvas.drawText("La omisión de los datos de un trabajador en la Cédula de Determinación emitida por el Instituto o la diferencia de factor a  retener, no  exime  al  patrón  de la  obligación de retener y", 25, 467, paintTextDescription);
-                canvas.drawText(" enterar los descuentos conforme a este aviso modificatorio.", 25, 477, paintTextDescription);
-                canvas.drawText("La falta de cumplimiento a las obligaciones señaladas en el presente aviso, motivara la determinación y cobro de los  importes omitidos a  través de  el (los)  crédito(s) fiscal(es) así ", 25, 487, paintTextDescription);
-                canvas.drawText("como la imposición de las sanciones que correspondan por violaciones a la Ley y sus reglamentos en los términos de los artículos 2, 4 y 6 del Código Fiscal de la Federación; 30, 55,", 25, 497, paintTextDescription);
-                canvas.drawText(" 56, y 57 de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 6, 7, 19, 20, 21, 22, y  25 del Reglamento para la  Imposición  de Multas por  Incumplimiento", 25, 507, paintTextDescription);
-                canvas.drawText(" de las Obligaciones que la Ley de Instituto del Fondo Nacional de la Vivienda para los Trabajadores y sus reglamentos establecen a cargo de los Patrones.", 25, 517, paintTextDescription);
+                getPosition(177);
+                canvas.drawRect(20, 177, 592, 562, rect);
+                canvas.drawText("Con fundamento en los artículos 23 fracción I de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; 1, 3 fracciones  XXXVII y XLV, 4  fracción IX, así  como el", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("artículo 13 del Reglamento Interior del Instituto del Fondo Nacional de la  Vivienda para los  Trabajadores  publicado en el Diario Oficial de la Federación  el  20  de  junio  de 2008, así", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("como su reforma publicada en el mismo Diario el 31 de julio de 2017, le notifico que ha sido modificado el factor  de  los descuentos que viene haciendo a su trabajador, cuyos datos", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("se consignan en el presente documento, motivo por el cual a partir", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("del primer día del  siguiente  bimestre  a aquel en  que  haya  recibido el presente,", 234, getPosition(0), paintBoldCS);
+                canvas.drawText("deberá  realizar  los  descuentos", 486, getPosition(0), paintTextDescription);
+                canvas.drawText("aplicando la modalidad que se indica en el recuadro respectivo", 25, getPosition(10), paintTextDescription);//227
+                canvas.drawCircle(25, getPosition(13), 2, blckPoint);//235
+                canvas.drawText("Descuento en porcentaje se calcula: Salario diario integrado por el porcentaje de descuento por los días laborados con crédito con cada salario que haya percibido el  trabajador.", 40, getPosition(2), paintTextDescription);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Descuento en pesos se calcula: Cuota fija en pesos mensual por los meses del bimestre entre días del bimestre por días laborados con crédito.", 40, getPosition(2), paintTextDescription);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Factor de descuento, presenta dos variantes:", 40, getPosition(2), paintTextDescription);
+                canvas.drawCircle(65, getPosition(8), 2, whtPoint);
+                canvas.drawText("Para efectos de los descuentos correspondientes a 2016 y años anteriores, se debe considerar para el cálculo la cuota fija en VSM por el SMGDF por los meses del", 80, getPosition(2), paintTextDescription);
+                canvas.drawText("bimestre entre los días del bimestre por los días laborados con crédito.", 80, getPosition(10), paintTextDescription);
+                canvas.drawCircle(65, getPosition(8), 2, whtPoint);
+                canvas.drawText("Para efectos de descuentos posteriores al 1 de Enero de 2017, se debe considerar para el cálculo el factor de descuento por el valor de la  unidad  Mixta INFONAVIT", 80, getPosition(2), paintTextDescription);
+                canvas.drawText("base de cálculo por los meses del bimestre entre los días del bimestre por los días laborados con crédito.", 80, getPosition(10), paintTextDescription);
+                canvas.drawText("El valor de la Unidad Mixta INFONAVIT se determina de conformidad con lo dispuesto en el artículo 6º transitorio del Decreto en  materia de  desindexación  del salario  minimo  de la", 25, getPosition(15), paintTextDescription);
+                canvas.drawText("Constitución Política de los Estados Unidos Mexicanos, publicado el 27 de enero del 2016 en el Diario Oficial de la Federación, considerando la actualización del salario  mínimo, más", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("el crecimiento porcentual de la inflación sustituyendo de esta manera el Salario Mínimo.", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("El entero de los descuentos deberá efectuarlo a través de los mismos medios y plazos en que lo venia haciendo hasta antes de la recepción del presente aviso.", 25, getPosition(15), paintTextDescription);
+                canvas.drawCircle(25, getPosition(13), 2, blckPoint);
+                canvas.drawText("Si el trabajador percibe un salario mínimo, no podrá exceder del 20% del mismo, con fundamento en  los  artículos  47  del  Reglamento de  Inscripción,  Pago de Aportaciones  y", 40, getPosition(2), paintTextDescription);
+                canvas.drawText("Entero de Descuentos al Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 110 fracción VII de la Ley Federal del Trabajo.", 40, getPosition(10), paintTextDescription);
+                canvas.drawCircle(25, getPosition(8), 2, blckPoint);
+                canvas.drawText("Cuando se indique el Factor de Descuento mensual y el periodo sea menor a los días que comprende el bimestre, deberá retener y  enterar  la parte proporcional  de  los  días del", 40, getPosition(2), paintTextDescription);
+                canvas.drawText("bimestre efectivamente laborados por el trabajador.", 40, getPosition(10), paintTextDescription);
+                canvas.drawText("Lo anterior, con apoyo en el Contrato de Crédito con Garantía Hipotecaria que el trabajador en cuestión celebró con este Instituto, mediante el cual  aceptó ésta  forma  de  descuento", 25, getPosition(15), paintTextDescription);
+                canvas.drawText("para la amortización de su crédito, y en el Convenio de Reestructura que en su caso dicho trabajador acreditado hubiese celebrado con el Instituto del Fondo Nacional de  la Vivienda", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("para los Trabajadores, situación que es acorde con lo señalado en los artículos 110 fracción III de la Ley Federal del Trabajo; 29 fracción III de la Ley  del  Instituto del Fondo Nacional", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("de la Vivienda para los Trabajadores; y 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 y 54 del Reglamento de Inscripción, Pago de  Aportaciones  y  Entero  de  Descuentos al Instituto del", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("Fondo Nacional de la Vivienda para los Trabajadores.", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("Hacemos de su conocimiento, que por ningún motivo deberá sellar ni firmar este documento si el trabajador a que se refiere el  mismo no guarda  actualmente  relación  laboral  con", 25, getPosition(15), paintTextDescription);
+                canvas.drawText("usted, ya que al hacerlo se convertirá en responsable del entero de las amortizaciones que correspondan, sin  perjuicio  de  aplicar  el  contenido del artículo 58 de la Ley del Instituto", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("del Fondo Nacional de la Vivienda para los Trabajadores.", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("La omisión de los datos de un trabajador en la Cédula de Determinación emitida por el Instituto o la diferencia de factor a  retener, no  exime  al  patrón  de la  obligación de retener y", 25, getPosition(15), paintTextDescription);
+                canvas.drawText(" enterar los descuentos conforme a este aviso modificatorio.", 25, getPosition(10), paintTextDescription);
+                canvas.drawText("La falta de cumplimiento a las obligaciones señaladas en el presente aviso, motivara la determinación y cobro de los  importes omitidos a  través de  el (los)  crédito(s) fiscal(es) así ", 25, getPosition(15), paintTextDescription);
+                canvas.drawText("como la imposición de las sanciones que correspondan por violaciones a la Ley y sus reglamentos en los términos de los artículos 2, 4 y 6 del Código Fiscal de la Federación; 30, 55,", 25, getPosition(10), paintTextDescription);
+                canvas.drawText(" 56, y 57 de la Ley del Instituto del Fondo Nacional de la Vivienda para los Trabajadores; y 6, 7, 19, 20, 21, 22, y  25 del Reglamento para la  Imposición  de Multas por  Incumplimiento", 25, getPosition(10), paintTextDescription);
+                canvas.drawText(" de las Obligaciones que la Ley de Instituto del Fondo Nacional de la Vivienda para los Trabajadores y sus reglamentos establecen a cargo de los Patrones.", 25, getPosition(10), paintTextDescription);//517
 
                 //NUMERO CRÉDITO NSS y NOMBRE NSS
-                canvas.drawRect(20, 522, 240, 537, rect);
-                canvas.drawText("NÚMERO  DE  CRÉDITO", 85, 532, paintBold);
-                canvas.drawRect(20, 537, 240, 552, rect);
-                canvas.drawText(item.getNUMCRED(), 107, 547, paintText);
-                canvas.drawRect(240, 522, 592, 537, rect);
-                canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL CRÉDITO", 250, 532, paintBold);
-                canvas.drawRect(240, 537, 592, 552, rect);
-                canvas.drawText(item.getNOMBRE_NSS(), 250, 547, paintText);
+                canvas.drawRect(20, getPosition(5), 240, getPosition(15), rect);//537
+                canvas.drawText("NÚMERO  DE  CRÉDITO", 85, getPosition(-5), paintBold);//532
+                canvas.drawRect(20, getPosition(5), 240, getPosition(15), rect);//552
+                canvas.drawText(item.getNUMCRED(), 107, getPosition(-5), paintText);//547
+                canvas.drawRect(240, getPosition(-25), 592, getPosition(15), rect);//537
+                canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL CRÉDITO", 250, getPosition(-5), paintBold);//532
+                canvas.drawRect(240, getPosition(5), 592, getPosition(15), rect);//552
+                canvas.drawText(item.getNOMBRE_NSS(), 250, getPosition(-5), paintText);//547
 
                 //NÚMERO DE SEGURIDAD SOCIAL Y RFC O CURP DEL TRABAJADOR
-                canvas.drawRect(20, 552, 130, 567, rect);
-                canvas.drawText("N.S.S", 62, 562, paintBold2);
-                canvas.drawRect(20, 567, 130, 582, rect);
-                canvas.drawText(item.getNSS(), 45, 577, paintText);
-                canvas.drawRect(130, 552, 240, 567, rect);
-                canvas.drawText("R.F.C", 177, 562, paintBold2);
-                canvas.drawRect(130, 567, 240, 582, rect);
-                canvas.drawText(item.getRFC_NSS(), 148, 577, paintText);
+                canvas.drawRect(20, getPosition(5), 130, getPosition(15), rect);//567
+                canvas.drawText("NÚMERO DE SEGURIDAD SOCIAL", 23, getPosition(-5), paintBold2);//562
+                canvas.drawRect(20, getPosition(5), 130, getPosition(15), rect);//582
+                canvas.drawText(item.getNSS(), 45, getPosition(-5), paintText);//577
+                canvas.drawRect(130, getPosition(-25), 240, getPosition(15), rect);//567
+                canvas.drawText("RFC O CURP DEL TRABAJADOR", 131, getPosition(-5), paintBold2);//562
+                canvas.drawRect(130, getPosition(5), 240, getPosition(15), rect);//582
+                canvas.drawText(item.getRFC_NSS(), 148, getPosition(-5), paintText);//577
 
                 //DESCUENTO ANTERIOR Y NUEVO FACTOR DE DESCUENTO
-                canvas.drawRect(240, 552, 441, 567, rect);
-                canvas.drawText("DESCUENTO  ANTERIOR", 295, 562, paintBold);
-                canvas.drawRect(240, 567, 441, 582, rect);
-                canvas.drawText(DescAnterior, 318, 577, paintText);
-                canvas.drawRect(441, 552, 592, 567, rect);
-                canvas.drawText("NUEVO  FACTOR  DE  DESCUENTO", 449, 562, paintBold);
-                canvas.drawRect(441, 567, 592, 582, rect);
-                canvas.drawText(NuevoFactorDesc, 499, 577, paintText);
+                canvas.drawRect(240, getPosition(-25), 441, getPosition(15), rect);//567
+                canvas.drawText("DESCUENTO  ANTERIOR", 295, getPosition(-5), paintBold);//562
+                canvas.drawRect(240, getPosition(5), 441, getPosition(15), rect);//582
+                canvas.drawText(DescAnterior, 318, getPosition(-5), paintText);//577
+                canvas.drawRect(441, getPosition(-25), 592, getPosition(15), rect);//567
+                canvas.drawText("NUEVO  FACTOR  DE  DESCUENTO", 449, getPosition(-5), paintBold);//562
+                canvas.drawRect(441, getPosition(5), 592, getPosition(15), rect);//582
+                canvas.drawText(NuevoFactorDesc, 499, getPosition(-5), paintText);//577
 
                 //Texto Firma
-                canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, 593, paintBold2);
-                canvas.drawRect(205, 659, 395, 660, line);
-                canvas.drawText("MTRO. FERNANDO TAPIA DÍAZ", 255, 670, paintBold2);
-                canvas.drawText("GERENTE  DE  FACTURACIÓN  FISCAL", 245, 679, paintBold2);
+                canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, getPosition(16), paintBold2);//593
+                canvas.drawRect(205, getPosition(66), 395, getPosition(1), line);//660
+                canvas.drawText("MTRO. FERNANDO TAPIA DÍAZ", 255, getPosition(10), paintBold2);//670
+                canvas.drawText("GERENTE  DE  FACTURACIÓN  FISCAL", 245, getPosition(9), paintBold2);//679
 
                 //NOMBRE FIRMA
-                canvas.drawRect(20, 682, 306, 757, rect);
-                canvas.drawText("PERSONA  QUE  RECIBE  EL  AVISO", 105, 692, paintBold2);
-                canvas.drawRect(30, 742, 160, 743, line);
-                canvas.drawText("NOMBRE", 80, 752, paintBold2);
-                canvas.drawRect(170, 742, 296, 743, line);
-                canvas.drawText("FIRMA", 220, 752, paintBold2);
+                canvas.drawRect(20, getPosition(3), 306, getPosition(75), rect);//757
+                canvas.drawText("PERSONA  QUE  RECIBE  EL  AVISO", 105, getPosition(-65), paintBold2);//692
+                canvas.drawRect(30, getPosition(50), 160, getPosition(1), line);//743
+                canvas.drawText("NOMBRE", 80, getPosition(9), paintBold2);//752
+                canvas.drawRect(170, getPosition(-10), 296, getPosition(1), line);//743
+                canvas.drawText("FIRMA", 220, getPosition(9), paintBold2);//752
 
                 //FECHA DE RECEPCIÓN Y SELLO DE LA EMPRESA
-                canvas.drawRect(306, 682, 420, 697, rect);
-                canvas.drawText("FECHA  DE  RECEPCIÓN", 326, 692, paintBold2);
-                canvas.drawRect(306, 697, 420, 742, rect);
-                canvas.drawRect(306, 742, 420, 757, rect);
-                canvas.drawText("DD/MM/AAAA", 342, 752, paintBold2);
-                canvas.drawRect(420, 682, 592, 697, rect);
-                canvas.drawText("SELLO  DE  LA  EMPRESA", 465, 692, paintBold2);
-                canvas.drawRect(420, 697, 592, 757, rect);
-                canvas.drawText("Act.07-2019/GSRyCF", 500, 767, paintBold2);
+                canvas.drawRect(306, getPosition(-70), 420, getPosition(15), rect);//697
+                canvas.drawText("FECHA  DE  RECEPCIÓN", 326, getPosition(-5), paintBold2);//692
+                canvas.drawRect(306, getPosition(5), 420, getPosition(45), rect);//742
+                canvas.drawRect(306, getPosition(0), 420, getPosition(15), rect);//757
+                canvas.drawText("DD/MM/AAAA", 342, getPosition(-5), paintBold2);//752
+                canvas.drawRect(420, getPosition(-70), 592, getPosition(15), rect);//697
+                canvas.drawText("SELLO  DE  LA  EMPRESA", 465, getPosition(-5), paintBold2);//692
+                canvas.drawRect(420, getPosition(5), 592, getPosition(60), rect);//757
+                canvas.drawText("Act.07-2019/GSRyCF", 500, getPosition(10), paintBold2);//767
                 position=0;
                 pdfDocument.finishPage(mypage);
             }
