@@ -63,6 +63,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import static java.security.AccessController.getContext;
@@ -545,7 +546,29 @@ public class Utils {
         else{
             AvisoViewModel viewModel=(AvisoViewModel)mViewModel;
             Item item=viewModel.getAviso().getValue().getDatosAvisos().getItem().get(0);
-            String ClasAviso = item.getCLASE_DEL_AVISO();
+            List<Item> listItem=viewModel.getAviso().getValue().getDatosAvisos().getItem();
+            for(int i=0;i<listItem.size();i++){
+            String clasAviso =listItem.get(i).getCLASE_DEL_AVISO();
+            String tipAvis=listItem.get(i).getTIPAVIS();
+            if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
+                            mode=2;
+
+                        }
+                        else if(tipAvis.equals("14")||tipAvis.equals("12") && clasAviso.equals("S")){
+                            mode=3;
+
+                        }
+                        else if(tipAvis.equals("10") && clasAviso.equals("S")){
+                            mode=4;
+
+
+                        }
+                        else if(tipAvis.equals("03") || tipAvis.equals("07")  && clasAviso.equals("R")){
+
+                            mode=5;
+                        }
+
+
             String calleAviso = item.getCALLE_Y_NUMERO_NRP();
             String coloAviso = item.getCOLONIA_NRP();
             String localAviso = item.getLOCALIDAD_NRP();
@@ -613,7 +636,7 @@ public class Utils {
 
             if(mode==2) {
                 pageWidth = 689;
-                pageHieght = 892;
+                pageHieght = 1000;
                 Bitmap logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
                 Bitmap sign = BitmapFactory.decodeResource(activity.getResources(), R.drawable.firmanotice);
                 pageInfo = new PdfDocument.PageInfo.Builder(pageWidth, pageHieght, 1).create();
@@ -740,7 +763,7 @@ public class Utils {
                 canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL", 435, getPosition(-10), paintBold1);//633
                 canvas.drawText("CRÉDITO", 551, getPosition(8), paintBold1);//641
                 canvas.drawRect(431, getPosition(2), 669, getPosition(53), rect);//696
-                canvas.drawText(item.getNOMBRE_NSS(), 491, getPosition(-29), paintText1);//667
+                canvas.drawText(item.getNOMBRE_NSS(), 435, getPosition(-29), paintText1);//667
                 paintBold1.setTextSize(7f);
                 //DESCUENTO MENSUAL
                 //PORCENTAJE, PESOS, FACTOR DE DESCUENTO
@@ -1198,7 +1221,7 @@ public class Utils {
                 position=0;
                 pdfDocument.finishPage(mypage);
             }
-        }
+        }}
 
         try {
             if(download)

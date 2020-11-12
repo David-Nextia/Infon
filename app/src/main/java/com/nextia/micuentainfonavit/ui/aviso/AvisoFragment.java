@@ -89,6 +89,7 @@ public class AvisoFragment extends Fragment {
                         binding.pdfView.animate().alpha(1.0f);
                         binding.suspensionUnsucess.animate().alpha(0.0f);
                         binding.suspensionUnsucess.setVisibility(View.GONE);
+
                         String tipAvis=avisosPDFResponse.getDatosAvisos().getItem().get(0).getTIPAVIS();
                         String clasAviso=avisosPDFResponse.getDatosAvisos().getItem().get(0).getCLASE_DEL_AVISO();
                         if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
@@ -97,7 +98,7 @@ public class AvisoFragment extends Fragment {
                             pdf_title="Aviso_retención_"+ selectedCredit;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
                         }
-                        else if(tipAvis.equals("12")||tipAvis.equals("12") && clasAviso.equals("S")){
+                        else if(tipAvis.equals("14")||tipAvis.equals("12") && clasAviso.equals("S")){
                             binding.avisoTypeTitle.setText("AVISO  DE  SUSPENSIÓN  DE  DESCUENTOS");
                             Mode=3;
                             pdf_title="Aviso_suspensión_"+ selectedCredit;
