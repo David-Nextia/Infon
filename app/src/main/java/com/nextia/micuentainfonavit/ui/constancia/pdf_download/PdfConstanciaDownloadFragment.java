@@ -62,8 +62,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
         }
         else{
-            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                    "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
             alertdialog.show();
 
         }

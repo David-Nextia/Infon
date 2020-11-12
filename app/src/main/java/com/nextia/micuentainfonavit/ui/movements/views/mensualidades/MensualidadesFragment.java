@@ -121,8 +121,7 @@ public class MensualidadesFragment extends Fragment {
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }
                 else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
 
                 }

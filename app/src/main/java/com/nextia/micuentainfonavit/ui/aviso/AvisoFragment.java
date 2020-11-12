@@ -194,8 +194,7 @@ public class AvisoFragment extends Fragment {
                 mViewModel.getAvisoDB(getContext(), selectedCredit, Utils.getSharedPreferencesToken(getContext()));
                 Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_aviso);}
                 else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
                     binding.dowloadPdf.animate().alpha(0);
                     binding.tvImprimirConstancia.animate().alpha(0);

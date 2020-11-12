@@ -87,8 +87,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     Utils.showLoadingSkeleton(rootView,R.layout.skeleton_inner_movements);
                 }
                 else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
                     binding.historicImg.animate().alpha(0);
                     binding.historicContainer.animate().alpha(0);

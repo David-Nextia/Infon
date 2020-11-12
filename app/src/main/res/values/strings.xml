@@ -155,5 +155,6 @@
     <string name="expired_Session">Su sesión ha expirado</string>
     <string name="nonenumber">-</string>
     <string name="correo_electr_nico">Correo electrónico</string>
+    <string name="no_internet">Por favor revisa tu conexión de internet.\n</string>
 
 </resources>

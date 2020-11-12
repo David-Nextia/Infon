@@ -45,8 +45,7 @@ public class SavingsFragment extends Fragment {
             savingsViewModel.getSaldo(this.getContext());
         }
         else{
-            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                    "\n", DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG, new DialogInfonavit.OnButtonClickListener() {
                 @Override
                 public void onAcceptClickListener(Button button, AlertDialog dialog) {
                     dialog.dismiss();

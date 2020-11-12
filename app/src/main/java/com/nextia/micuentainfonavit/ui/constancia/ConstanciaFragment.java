@@ -97,8 +97,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
                     creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
                 }
                 else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso","Por favor revise su conexión de internet.\n" +
-                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
 
                 }
