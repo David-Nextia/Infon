@@ -303,6 +303,8 @@ public class Utils {
         share.putExtra(Intent.EXTRA_STREAM, fileUri);
 
         activity.startActivity(Intent.createChooser(share, "Share it"));
+
+
     }
 
     //To create a pdf with canvas
@@ -436,6 +438,7 @@ public class Utils {
              pageWidth=1200;
              pageHieght=2100;
              paddingTop=pageWidth/20;
+
              paddingSide=pageWidth/20;
             CreditYearInfoResponse credit=viewmodel.getCreditInfo().getValue();
             String credutNum= viewmodel.getCredit().getValue();
