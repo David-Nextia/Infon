@@ -243,6 +243,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
@@ -252,6 +253,7 @@
                         android:fontFamily="@font/body"/>
 
                     <TextView
+                        android:textSize="12sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"

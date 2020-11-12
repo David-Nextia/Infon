@@ -891,24 +891,24 @@ public class Utils {
                 canvas.drawText("inscripción, Pago de Aportaciones y Entero de Descuentos  al  Instituto del Fondo Nacional de la Vivienda para los Trabajadores.", 25, 337, paintTextDescription2);
 
                 //NUMERO CRÉDITO NSS y NOMBRE NSS
-                canvas.drawRect(LeftTab, 347, 290, 367, rect);
-                canvas.drawText("NÚMERO  DE  CRÉDITO", 110, 362, paintBold);
-                canvas.drawRect(LeftTab, 367, 290, 387, rect);
-                canvas.drawText(item.getNUMCRED(), 130, 382, paintText);
-                canvas.drawRect(290, 347, rightTab, 367, rect);
-                canvas.drawText("NOMBRE  DEL  TRABAJADOR ", 400, 362, paintBold);
-                canvas.drawRect(290, 367, rightTab, 427, rect);
-                canvas.drawText(item.getNOMBRE_NSS(), 400, 392, paintText);
+                canvas.drawRect(LeftTab, 347, 250, 367, rect);
+                canvas.drawText("NÚMERO  DE  CRÉDITO", 100, 362, paintBold);
+                canvas.drawRect(LeftTab, 367, 250, 387, rect);
+                canvas.drawText(item.getNUMCRED(), 120, 382, paintText);
+                canvas.drawRect(250, 347, rightTab, 367, rect);
+                canvas.drawText("NOMBRE  DEL  TRABAJADOR Y DOMICILIO DE LA VIVIENDA OBJETO DEL CRÉDITO ", 253, 362, paintBold);
+                canvas.drawRect(250, 367, rightTab, 427, rect);
+                canvas.drawText(item.getNOMBRE_NSS(), 385, 392, paintText);
 
                 //NÚMERO DE SEGURIDAD SOCIAL Y RFC O CURP DEL TRABAJADOR
-                canvas.drawRect(LeftTab, 387, 155, 407, rect);
-                canvas.drawText("N.S.S", 80, 402, paintBold2);
-                canvas.drawRect(LeftTab, 407, 155, 427, rect);
-                canvas.drawText(item.getNSS(), 60, 422, paintText);
-                canvas.drawRect(155, 387, 290, 407, rect);
-                canvas.drawText("R.F.C", 215, 402, paintBold2);
-                canvas.drawRect(155, 407, 290, 427, rect);
-                canvas.drawText(item.getRFC_NSS(), 189, 422, paintText);
+                canvas.drawRect(LeftTab, 387, 133, 407, rect);
+                canvas.drawText("N.S.S", 65, 402, paintBold2);
+                canvas.drawRect(LeftTab, 407, 133, 427, rect);
+                canvas.drawText(item.getNSS(), 45, 422, paintText);
+                canvas.drawRect(133, 387, 250, 407, rect);
+                canvas.drawText("R.F.C", 185, 402, paintBold2);
+                canvas.drawRect(133, 407, 250, 427, rect);
+                canvas.drawText(item.getRFC_NSS(), 159, 422, paintText);
 
                 //Texto Firma
                 canvas.drawText("A  T  E  N  T  A  M  E  N  T  E", 260, 478, paintBold2);
@@ -1065,7 +1065,7 @@ public class Utils {
             }
             else if(mode==5){
                 pageWidth=612;
-                pageHieght=792;
+                pageHieght=950;
                 Bitmap logo = BitmapFactory.decodeResource(activity.getResources(), R.drawable.logo_pdf);
                 Bitmap sign = BitmapFactory.decodeResource(activity.getResources(), R.drawable.firmanotice);
                 pageInfo = new PdfDocument.PageInfo.Builder(pageWidth, pageHieght, 1).create();

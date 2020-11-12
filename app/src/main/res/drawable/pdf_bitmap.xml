@@ -1,7 +1,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:width="75dp"
-        android:height="80dp"
+        android:width="10000dp"
+        android:height="10000dp"
         android:drawable="@drawable/pdfc"
         android:gravity="center" />
 </layer-list>
