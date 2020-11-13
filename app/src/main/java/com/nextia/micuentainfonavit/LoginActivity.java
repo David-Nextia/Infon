@@ -349,8 +349,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                     doLogin(context);
                     }
                 else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(LoginActivity.this, "Aviso","Por favor revise su conexión de internet.\n" +
-                            "\n", DialogInfonavit.ONE_BUTTON_DIALOG);
+                    DialogInfonavit alertdialog = new DialogInfonavit(LoginActivity.this, "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
 
                 }

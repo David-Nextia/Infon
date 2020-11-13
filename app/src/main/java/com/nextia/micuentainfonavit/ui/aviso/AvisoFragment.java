@@ -89,10 +89,19 @@ public class AvisoFragment extends Fragment {
                         binding.pdfView.animate().alpha(1.0f);
                         binding.suspensionUnsucess.animate().alpha(0.0f);
                         binding.suspensionUnsucess.setVisibility(View.GONE);
-
+                        binding.avisoUser.setText(avisosPDFResponse.getDatosAvisos().item.get(0).getNOMBRE_NSS());
                         String tipAvis=avisosPDFResponse.getDatosAvisos().getItem().get(0).getTIPAVIS();
                         String clasAviso=avisosPDFResponse.getDatosAvisos().getItem().get(0).getCLASE_DEL_AVISO();
-                        if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
+                         if (avisosPDFResponse.getDatosAvisos().getItem().size() == 2){
+                            if ((tipAvis.equals("02") && clasAviso.equals("R")) &&
+                                    (avisosPDFResponse.getDatosAvisos().getItem().get(1).getTIPAVIS().equals("14") && avisosPDFResponse.getDatosAvisos().getItem().get(1).getCLASE_DEL_AVISO().equals("S"))){
+                                binding.avisoTypeTitle.setText("AVISO  DE RETENCIÓN Y SUSPENSIÓN");
+                                pdf_title="Aviso_suspension_retencion"+ selectedCredit;
+                                Mode = 6;
+                                archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
+                            }
+                        }
+                        else if(tipAvis.equals("")|| tipAvis.equals("02") && clasAviso.equals("R") ){
                             binding.avisoTypeTitle.setText("AVISO  PARA  RETENCIÓN  DE  DESCUENTOS");
                             Mode=2;
                             pdf_title="Aviso_retención_"+ selectedCredit;
@@ -117,6 +126,7 @@ public class AvisoFragment extends Fragment {
                             Mode=5;
                             archivo=Utils.createPdfFromCanvas(mViewModel,pdf_title,getActivity(),Mode,true);
                         }
+
 
                     }
                 } else {

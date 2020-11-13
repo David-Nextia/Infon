@@ -86,7 +86,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         creditList.clear();
         //creditList.add("Selecciona una cuenta");
         for(int i=0; i<creditos.size();i++){
-            creditList.add("0000"+creditos.get(i).getNumeroCredito());
+            creditList.add(creditos.get(i).getNumeroCredito());
         }
         binding.spSeleccionaCreditoConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -94,7 +94,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 //                if(position!=0)
 //                {
                 if(Utils.isNetworkAvailable(getActivity())){
-                    creditUseCase.getInfoCredit(parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
+                    creditUseCase.getInfoCredit("0000"+parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
                 }
                 else{
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
@@ -116,7 +116,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
                 if(position!=0)
                 {
                     binding.btnConsultarConstancia.setEnabled(true);
-                    ViewModelPdf.setCredit(creditList.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
+                    ViewModelPdf.setCredit("0000"+creditList.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
                     ViewModelPdf.setYear(parent.getItemAtPosition(position).toString());
                     //Toast.makeText(getContext(),ViewModelPdf.getCredit().getValue()+" "+ViewModelPdf.getYear().getValue(),Toast.LENGTH_LONG).show();
                 }

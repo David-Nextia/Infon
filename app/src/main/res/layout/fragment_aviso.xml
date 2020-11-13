@@ -276,6 +276,19 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="Nombre del Responsable: "
+                        android:fontFamily="@font/body"/>
+                    <TextView
+                        android:textSize="12sp"
+                        android:id="@+id/aviso_user"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/body"
+                        android:text="Aviso para retención de documentos "/>
+                    <TextView
+                        android:layout_marginTop="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Tipo de aviso: "
                         android:fontFamily="@font/body"/>
                     <TextView
