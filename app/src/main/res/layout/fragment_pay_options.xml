@@ -75,6 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textSize="14sp"
                 android:text="Saldo a liquidar"
                 android:fontFamily="@font/subtitle"/>
 
@@ -101,7 +102,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Información actualizada:"
-                    android:fontFamily="@font/body"/>
+                    android:fontFamily="@font/body"
+                    android:textSize="14sp"/>
 
                 <TextView
                     android:id="@+id/txt_updated_date"
@@ -112,6 +114,7 @@
                     android:text="@{pagosMensualidades.v6FechaActualAls != null ? utils.formatDate(pagosMensualidades.v6FechaActualAls, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                     tools:text="day de month del year"
                     android:textStyle="bold"
+                    android:textSize="14sp"
                     android:fontFamily="@font/subtitle"/>
 
             </LinearLayout>
@@ -154,7 +157,7 @@
                 android:layout_marginTop="20dp"
                 android:gravity="center"
                 android:text="@string/haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado"
-                android:textSize="12dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/body"/>
 
             <TextView
@@ -205,7 +208,9 @@
                         android:layout_height="wrap_content"
                         android:text="Pago en bancos"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/subtitle"/>
 
                 </LinearLayout>
@@ -230,7 +235,9 @@
                         android:layout_height="wrap_content"
                         android:text="Pago en tiendas de autoservicio"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -238,7 +245,7 @@
                         android:layout_height="wrap_content"
                         android:text="y comercios afiliados"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
                         android:fontFamily="@font/subtitle"/>
 
                 </LinearLayout>
@@ -263,7 +270,9 @@
                         android:layout_height="wrap_content"
                         android:text="Paga desde"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/subtitle"/>
 
                     <TextView
@@ -271,7 +280,9 @@
                         android:layout_height="wrap_content"
                         android:text="Estados Unidos"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="10sp"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:fontFamily="@font/subtitle"/>
 
                 </LinearLayout>

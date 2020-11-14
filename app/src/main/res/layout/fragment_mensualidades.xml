@@ -113,7 +113,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Pagar antes del día:"
-                    android:textSize="10sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/body" />
 
                 <TextView
@@ -123,7 +123,7 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
                     android:text="@{saldo.tp17PgoCorriente!=null ? utils.formatDate(saldo.tp17PgoCorriente, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
-                    android:textSize="10sp"
+                    android:textSize="14sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/subtitle"
                     tools:text="day de month del year"/>
@@ -282,7 +282,7 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginEnd="35dp"
                 android:gravity="center"
-                android:textSize="12sp"
+                android:textSize="14sp"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/body" />
 
@@ -293,7 +293,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:gravity="center"
-                android:textSize="12dp"
+                android:textSize="14sp"
                 android:visibility="gone" />
 
             <TextView
@@ -307,7 +307,7 @@
                 android:gravity="center"
                 android:text="@string/consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos"
                 android:textColor="@color/colorgrayblue"
-                android:textSize="12dp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/subtitle" />
 
