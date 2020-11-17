@@ -377,6 +377,15 @@
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/body"
             android:textColorLink="@color/color_blue"/>
+        <TextView
+            android:id="@+id/version"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/avisolink"
+            app:layout_constraintStart_toStartOf="@id/avisolink"
+            app:layout_constraintEnd_toEndOf="@id/avisolink"
+            android:text="3.2.6_QADPS"
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
