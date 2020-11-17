@@ -44,7 +44,8 @@
             <TextView
                 android:layout_width="@dimen/d10dp"
                 android:layout_height="@dimen/d10dp"
-                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:background="@drawable/circle_gray"
                 android:backgroundTint="@color/colorPrimary"/>
 
@@ -67,7 +68,8 @@
             <TextView
                 android:layout_width="@dimen/d10dp"
                 android:layout_height="@dimen/d10dp"
-                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:background="@drawable/circle_gray"
                 android:backgroundTint="@color/colorPrimary"/>
 
@@ -90,7 +92,8 @@
             <TextView
                 android:layout_width="@dimen/d10dp"
                 android:layout_height="@dimen/d10dp"
-                android:layout_marginTop="5dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
                 android:background="@drawable/circle_gray"
                 android:backgroundTint="@color/colorPrimary"/>
 

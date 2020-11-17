@@ -603,18 +603,40 @@ public class Utils {
 
             if (entAviso.startsWith("Oficinas")) {
                 entAviso = "";
+            }else {
+                entAviso = entAviso.toUpperCase();
             }
 
             if (Factor.equals("0") || Factor.equals("0.0")) {
-                NuevoFactorDesc = item.get(0).getMONTDESC();
+                //Conversión requerida
+                String originNuevoFactor = "";
+                originNuevoFactor = item.get(0).getMONTDESC();
+                Double dNumber = Double.parseDouble(originNuevoFactor);
+                DecimalFormat formatter = new DecimalFormat("#,###.00##");
+                NuevoFactorDesc  = formatter.format(dNumber);
             } else {
-                NuevoFactorDesc = Factor;
+                //Conversión requerida
+                String originNuevoFactor = "";
+                originNuevoFactor = Factor;
+                Double dNumber = Double.parseDouble(originNuevoFactor);
+                DecimalFormat formatter = new DecimalFormat("#,###.00##");
+                NuevoFactorDesc  = formatter.format(dNumber);
             }
 
             if (FactorAnt.equals("0") || FactorAnt.equals("0.0")) {
-                DescAnterior = item.get(0).getMONTDESCANTERIOR();
+                //Conversión requerida
+                String originFactorAnt = "";
+                originFactorAnt = item.get(0).getMONTDESCANTERIOR();
+                Double dNumber = Double.parseDouble(originFactorAnt);
+                DecimalFormat formatter = new DecimalFormat("#,###.00##");
+                DescAnterior  = formatter.format(dNumber);
             } else {
-                DescAnterior = FactorAnt;
+                //Conversión requerida
+                String originFactorAnt = "";
+                originFactorAnt = FactorAnt;
+                Double dNumber = Double.parseDouble(originFactorAnt);
+                DecimalFormat formatter = new DecimalFormat("#,###.00##");
+                DescAnterior  = formatter.format(dNumber);
             }
 
             if (TipDesc.equals("1") || TipDesc.equals("01")) {
@@ -768,9 +790,19 @@ public class Utils {
                     pdfContentByte.setTextMatrix(157,191);
                     pdfContentByte.showText(Pesos);
 
+
                     // Factor de descuento
-                    pdfContentByte.setTextMatrix(245,191);
-                    pdfContentByte.showText(item.get(0).getFACTOR());
+                    //Conversión requerida
+                    String originFac = "";
+                    originFac = item.get(0).getFACTOR();
+                    Double dNumber = Double.parseDouble(originFac);
+                    DecimalFormat formatter = new DecimalFormat("#,###.0000");
+                    String convertFac = formatter.format(dNumber);
+                    if(convertFac.equals(".0000")){
+                        convertFac = "0.0000";
+                    }
+                    pdfContentByte.setTextMatrix(245, 191);
+                    pdfContentByte.showText(convertFac);
 
                     // Se termina de escribir en el PDF
 
