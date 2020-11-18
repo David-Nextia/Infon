@@ -18,7 +18,7 @@
             android:title="@string/menu_saldos_movimientos" />
         <item
             android:id="@+id/nav_aviso_suspension"
-            android:icon="@drawable/ic_aviso_suspension_retencion"
+            android:icon="@drawable/avisos"
             android:title="@string/menu_aviso_suspension" />
         <item
             android:id="@+id/nav_constancia_interes"
