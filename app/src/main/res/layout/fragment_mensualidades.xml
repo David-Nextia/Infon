@@ -42,10 +42,15 @@
                     android:text="@string/Saldos_movimientos"
                     style="@style/TxStyleSubTitle" />
             </LinearLayout>
-
+            <TextView
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crédito"
+                android:layout_marginStart="25dp"
+                android:textColor="@color/colorPrimary"/>
 
             <Spinner
-                android:layout_marginTop="12dp"
                 android:id="@+id/sp_credit_type"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"

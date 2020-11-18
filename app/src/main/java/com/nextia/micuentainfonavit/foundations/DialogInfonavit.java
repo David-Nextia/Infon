@@ -90,9 +90,9 @@ public class DialogInfonavit extends AlertDialog implements View.OnClickListener
         else if (type==TWO_BUTTON_DIALOG){
             try{
                 if (Build.VERSION.SDK_INT >= 21) {
-                    accept.getBackground().setTint(ContextCompat.getColor(getContext(),R.color.colorskeleton));
+                    //accept.getBackground().setTint(ContextCompat.getColor(getContext(),R.color.colorskeleton));
                 }else{
-                    accept.setBackgroundColor(R.color.color_black);
+                    //accept.setBackgroundColor(R.color.color_black);
                    // accept.getBackground().setColorFilter(ContextCompat.getColor(getContext(), R.color.colorskeleton), PorterDuff.Mode.SRC_IN);
                 }
                 //

@@ -152,7 +152,7 @@
     <string name="obtener_constancia_de_intereses">Obtener la constancia de intereses para la declaración anual de tu crédito.</string>
     <string name="consultar_informacion_saldos_movimientos">Consultar tus saldos y movimientos para una mejor administración de tu crédito.</string>
     <string name="para_iniciar_selecciona_el_servicio">Para iniciar selecciona desde el menú el servicio que quieres consultar.</string>
-    <string name="expired_Session">Su sesión ha expirado</string>
+    <string name="expired_Session">Tu sesión ha expirado</string>
     <string name="nonenumber">-</string>
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="no_internet">Por favor revisa tu conexión de internet.\n</string>

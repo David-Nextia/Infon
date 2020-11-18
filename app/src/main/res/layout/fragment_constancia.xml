@@ -37,11 +37,18 @@
                     android:layout_marginTop="5dp"
                     android:background="@color/color_blue" />
 
+                <TextView
+                    android:layout_marginTop="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crédito"
+                    android:textColor="@color/colorPrimary"/>
+
                 <Spinner
                     android:id="@+id/sp_selecciona_credito_constancia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp" />
+                     />
 
                 <View
                     android:layout_width="match_parent"

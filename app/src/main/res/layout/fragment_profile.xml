@@ -37,9 +37,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:layout_marginTop="50dp"
-                android:text="@{user.nombre+' '+user.apPaterno}"
+                android:text="@{user.nombre+' '+user.apPaterno+' '+user.apMaterno}"
                 android:textColor="@color/colorgrayblue"
                 android:fontFamily="@font/title"
                 tools:text="Juan Perez"
@@ -68,7 +68,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -86,6 +86,7 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:text="@{user.scurp}"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:fontFamily="@font/body"/>
 
@@ -101,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 
@@ -120,6 +121,7 @@
                         android:text="@{user.rfc}"
                         android:textAppearance="@android:style/TextAppearance.Small"
                         android:textStyle="bold"
+                        android:textSize="13sp"
                         android:fontFamily="@font/body"/>
 
                 </LinearLayout>
@@ -133,7 +135,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="16dp"
                     android:layout_weight="1"
                     android:orientation="vertical">
 

@@ -549,17 +549,27 @@ public class Utils {
             position=0;
             pdfDocument.finishPage(mypage);
             try {
-                if(download)
-                {
-                    myFilePath = activity.getExternalFilesDir(null).getAbsolutePath() + "/" + Name + ".pdf";}
+                File root;
+                File myDir;
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
                 else{
-                    myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/" + Name + ".pdf";
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
                 }
+                myDir = new File(root + "/ConstanciaInfonavit");
+                if (!myDir.exists()) {
+                    myDir.mkdirs();
+                }
+
+                //Se define el tipo de aviso y el nombre del archivo
+                String name = "Constancia";
+                String fname = name + ".pdf";
+                myfile = new File(myDir, fname);
             } catch (Exception e) {
                 e.printStackTrace();
                 myFilePath = "";
             }
-            myfile = new File(myFilePath);
+
             try {
                 pdfDocument.writeTo(new FileOutputStream(myfile));
             } catch (Exception e) {
@@ -670,7 +680,11 @@ public class Utils {
                 OutputStream fos = null;
                 PdfReader pdfReader = null;
                 PdfStamper pdfStamper = null;
-                root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+                else{
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+                }
                 myDir = new File(root + "/AvisosInfonavit");
                 if (!myDir.exists()) {
                     myDir.mkdirs();
@@ -838,7 +852,11 @@ public class Utils {
                 OutputStream fos = null;
                 PdfReader pdfReader = null;
                 PdfStamper pdfStamper = null;
-                root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+                else{
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+                }
                 myDir = new File(root + "/AvisosInfonavit");
                 if (!myDir.exists()) {
                     myDir.mkdirs();
@@ -969,7 +987,11 @@ public class Utils {
                 OutputStream fos = null;
                 PdfReader pdfReader = null;
                 PdfStamper pdfStamper = null;
-                root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+                else{
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+                }
                 myDir = new File(root + "/AvisosInfonavit");
                 if (!myDir.exists()) {
                     myDir.mkdirs();
@@ -1104,7 +1126,11 @@ public class Utils {
                 // PLANTILLA 4 (Aviso de Modificación)
 
                 //Se crea la dirección de guardado
-                root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+                else{
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+                }
                 myDir = new File(root + "/AvisosInfonavit");
                 if (!myDir.exists()) {
                     myDir.mkdirs();
@@ -1245,7 +1271,11 @@ public class Utils {
                 // PLANTILLA 1 (Aviso de Retención)
 
                 //Se crea la dirección de guardado
-                root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                if(!download)
+                {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+                else{
+                    root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+                }
                 myDir = new File(root + "/AvisosInfonavit");
                 if (!myDir.exists()) {
                     myDir.mkdirs();

@@ -75,7 +75,13 @@
 
                         android:text="Estados de cuenta" />
                 </LinearLayout>
+                <TextView
 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crédito"
+                    android:layout_marginStart="25dp"
+                    android:textColor="@color/colorPrimary"/>
                 <Spinner
                     android:id="@+id/sp_credit_type"
                     style="@style/Base.Widget.AppCompat.Spinner.Underlined"

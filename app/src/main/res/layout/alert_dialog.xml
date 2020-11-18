@@ -60,24 +60,25 @@
                     android:weightSum="2">
 
                         <Button
-                            android:id="@+id/buttonacept"
+                            android:id="@+id/buttoncancel"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/ripple_button"
                             android:backgroundTint="@color/colorskeleton"
                             android:textColor="@color/color_white"
-                            android:text="Si"
+                            android:text="No"
                             android:fontFamily="@font/body"
                             android:textAllCaps="false"/>
                         <Button
-                            android:id="@+id/buttoncancel"
+                            android:id="@+id/buttonacept"
+
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:background="@drawable/ripple_button"
                             android:textColor="@color/color_white"
-                            android:text="No"
+                            android:text="Sí"
                             android:fontFamily="@font/body"
                             android:textAllCaps="false"/>
 
