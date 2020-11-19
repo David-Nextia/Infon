@@ -35,8 +35,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
+
                     android:layout_marginTop="5dp"
                     android:background="@color/color_blue" />
 
@@ -45,8 +44,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="-3dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="-15dp"
 
                     android:weightSum="5">
                     <TextView
@@ -78,8 +77,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/color_black"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
 
                     android:layout_marginBottom="15dp"/>
 
