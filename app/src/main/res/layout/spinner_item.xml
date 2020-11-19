@@ -6,12 +6,12 @@
     android:id="@+id/spinneritem"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:textAlignment="center"
+
+    android:textAlignment="textEnd"
     android:textColor="#000000"
     android:text="@string/welcome"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    android:fontFamily="@font/subtitle"/>
+    android:fontFamily="@font/body"/>
 

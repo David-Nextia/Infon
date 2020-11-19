@@ -290,7 +290,7 @@ public class Utils {
         for (int i = 0; i < creditos.size(); i++) {
             lista.add(creditos.get(i).getNumeroCredito());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, lista);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.spinner_item, lista);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
     }
@@ -1392,8 +1392,16 @@ public class Utils {
                 pdfContentByte.showText(Pesos);
 
                 // Factor de descuento
+                String originFac = "";
+                originFac = item.get(0).getFACTOR();
+                Double dNumber = Double.parseDouble(originFac);
+                DecimalFormat formatter = new DecimalFormat("#,###.0000");
+                String convertFac = formatter.format(dNumber);
+                if(convertFac.equals(".0000")){
+                    convertFac = "0.0000";
+                }
                 pdfContentByte.setTextMatrix(245,191);
-                pdfContentByte.showText(item.get(0).getFACTOR());
+                pdfContentByte.showText(convertFac);
 
                 // Se termina de escribir en el PDF
                 pdfContentByte.endText();

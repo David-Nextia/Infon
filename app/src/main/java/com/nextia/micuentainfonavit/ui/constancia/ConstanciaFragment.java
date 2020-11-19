@@ -129,7 +129,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         });
 
         binding.btnConsultarConstancia.setEnabled(false);
-        creditAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, creditList);
+        creditAdapter = new ArrayAdapter<String>(getContext(),R.layout.spinner_item, creditList);
         creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
     }

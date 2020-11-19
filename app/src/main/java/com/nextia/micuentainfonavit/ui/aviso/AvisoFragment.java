@@ -216,7 +216,7 @@ public class AvisoFragment extends Fragment {
 
             }
         });
-        arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, Creditlist);
+        arrayAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, Creditlist);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spCredit.setAdapter(arrayAdapter);
     }
