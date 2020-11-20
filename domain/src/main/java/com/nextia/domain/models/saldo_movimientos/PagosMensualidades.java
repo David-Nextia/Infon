@@ -46,7 +46,7 @@ public class PagosMensualidades {
 
     @SerializedName("v9FechaAsignacion")
     @Expose
-    private int v9FechaAsignacion;
+    private String v9FechaAsignacion;
 
     public String getV10TipoCreditoFam() {
         return v10TipoCreditoFam;
@@ -120,11 +120,11 @@ public class PagosMensualidades {
         this.v8NombreReestructur = v8NombreReestructur;
     }
 
-    public int getV9FechaAsignacion() {
+    public String getV9FechaAsignacion() {
         return v9FechaAsignacion;
     }
 
-    public void setV9FechaAsignacion(int v9FechaAsignacion) {
+    public void setV9FechaAsignacion(String v9FechaAsignacion) {
         this.v9FechaAsignacion = v9FechaAsignacion;
     }
 }

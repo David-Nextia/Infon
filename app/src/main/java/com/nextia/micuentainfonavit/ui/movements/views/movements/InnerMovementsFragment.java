@@ -2,6 +2,7 @@ package com.nextia.micuentainfonavit.ui.movements.views.movements;
 /**
  * view of movimientos inside movements
  */
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
@@ -46,12 +47,13 @@ import okhttp3.internal.Util;
 public class InnerMovementsFragment extends Fragment implements OnFinishRequestListener<HistoricResponse> {
     private View rootView;
     FragmentInnerMovementsBinding binding;
-    CreditUseCase creditUseCase= new CreditUseCase();
+    CreditUseCase creditUseCase = new CreditUseCase();
 
     Spinner spinnerCredit;
     NavController navController;
     PdfViewViewModel pdfViewModel;
     File historic;
+    String credit;
     HistoricResponse object_final;
 
     //creating view, and instance it
@@ -59,8 +61,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
 
-        spinnerCredit=binding.spCreditType;
-        pdfViewModel= new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
+        spinnerCredit = binding.spCreditType;
+        pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
         binding.progressBar2.animate().alpha(0.0f);
         setSpinner();
@@ -70,8 +72,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     }
 
     //fill spinner and set methods
-    public void setSpinner(){
-        Utils.fillSpinnerWithCredit(getContext(),spinnerCredit);
+    public void setSpinner() {
+        Utils.fillSpinnerWithCredit(getContext(), spinnerCredit);
         binding.spCreditType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -80,19 +82,18 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 binding.shareHistoricPdf.animate().alpha(0.0f);
                 binding.textDownloadHistoric.animate().alpha(0.0f);
 
-                if(Utils.isNetworkAvailable(getActivity())){
+                if (Utils.isNetworkAvailable(getActivity())) {
 
                     // binding.progressBar2.animate().alpha(1.0f);
-                    creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()),parent.getItemAtPosition(position).toString(),InnerMovementsFragment.this);
-                    Utils.showLoadingSkeleton(rootView,R.layout.skeleton_inner_movements);
-                }
-                else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
+                    credit=parent.getItemAtPosition(position).toString();
+                    creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
+                    Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
+                } else {
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
                     binding.historicImg.animate().alpha(0);
                     binding.historicContainer.animate().alpha(0);
                 }
-
 
 
                 //viewmodel.loadHistoric(getActivity(), parent.getItemAtPosition(position).toString());
@@ -110,12 +111,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     }
 
     //set Onclicks methods
-    public void setOnclicks(){
+    public void setOnclicks() {
         binding.historicImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    historic=Utils.createPdfFromBase64(object_final.getReporte(),"historic", getActivity(),true);
+                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "historic_"+credit, getActivity(), true);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -129,8 +130,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.shareHistoricPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(historic!=null){
-                    Utils.sharePdf(historic,getActivity());
+                if (historic != null) {
+                    Utils.sharePdf(historic, getActivity());
                 }
             }
         });
@@ -150,8 +151,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             @Override
             public void onClick(View v) {
 
-                DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
+                try {
+                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "historic_"+credit, getActivity(), false);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -159,11 +166,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle fail response of server
     @Override
     public void onFailureRequest(String message) {
-       DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),message, DialogInfonavit.ONE_BUTTON_DIALOG);
+        DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), message, DialogInfonavit.ONE_BUTTON_DIALOG);
         binding.progressBar2.animate().alpha(0.0f);
-       dialog.show();
+        dialog.show();
 
     }
+
     //to manage token expired
     @Override
     public void onTokenExpired() {
@@ -179,6 +187,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         });
         alertdialog.show();
     }
+
     //handle success response of server
     @Override
     public void onSuccesRequest(HistoricResponse object, String token) {
@@ -188,7 +197,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);
         Utils.hideLoadingSkeleton();
-        object_final=object;
+        object_final = object;
 
     }
 }
