@@ -998,7 +998,7 @@ public class Utils {
                 }
 
                 //Se define el tipo de aviso y el nombre del archivo
-                name = "Aviso_suspensión_" + item.get(0).getNUMCRED();
+                name = "Aviso_suspensión_liquidación_" + item.get(0).getNUMCRED();
                 fname = name + ".pdf";
                 myfile = new File(myDir, fname);
 
@@ -1282,7 +1282,7 @@ public class Utils {
                 }
 
                 //Se define el tipo de aviso y el nombre del archivo
-                name = "Aviso_retención_suspensión_" + item.get(0).getNUMCRED();
+                name = "Aviso_retención_y_suspensión_" + item.get(0).getNUMCRED();
                 fname = name + ".pdf";
                 myfile = new File(myDir, fname);
 
@@ -1570,7 +1570,12 @@ public class Utils {
             {
                 myFilePath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + name + ".pdf";}
             else{
-                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/" + name + ".pdf";
+                String myfilepath2=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"MovimientosInfonavit";
+                File myfile2=new File(myfilepath2);
+                if(!myfile2.exists()){
+                    myfile2.mkdirs();
+                }
+                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"MovimientosInfonavit"+"/" + name + ".pdf";
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -1578,7 +1583,9 @@ public class Utils {
 
         }
 
+
         myfile = new File(myFilePath);
+
         FileOutputStream out = new FileOutputStream(myfile);
 
         try {

@@ -98,6 +98,43 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:layout_margin="8dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:layout_height="75dp"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginEnd="30dp"
+                        android:orientation="vertical"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/card_background">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:textAlignment="center"
+                            android:layout_marginTop="10dp"
+                            android:textSize="13sp"
+                            android:text="Fecha de otorgamiento:"
+                            android:textAppearance="@android:style/TextAppearance.Small"
+                            android:fontFamily="@font/subtitle" />
+
+                        <TextView
+                            android:id="@+id/txt_create_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textSize="13sp"
+                            android:text="@{originacionCredito.v17FechaOtorgamiento != null ? utils.formatDate(originacionCredito.v17FechaOtorgamiento, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
+                            tools:text="-"
+                            android:textColor="@color/colorTextsTitle"
+                            android:textAlignment="center"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/body" />
+
+                    </LinearLayout>
+
 
                     <LinearLayout
                         android:orientation="horizontal"
@@ -106,14 +143,16 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="15dp">
+                        android:layout_marginBottom="10dp"
+                        >
+
 
                         <LinearLayout
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="75dp"
                             android:orientation="vertical"
-                            android:layout_marginBottom="10dp"
+
                             android:background="@drawable/card_background">
 
                             <TextView
@@ -121,38 +160,7 @@
                                 android:layout_height="35dp"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
-                                android:text="Fecha de\notorgamiento:"
-                                android:textAppearance="@android:style/TextAppearance.Small"
-                                android:fontFamily="@font/subtitle" />
-
-                            <TextView
-                                android:id="@+id/txt_create_date"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:text="@{originacionCredito.v17FechaOtorgamiento != null ? utils.formatDate(originacionCredito.v17FechaOtorgamiento, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
-                                tools:text="-"
-                                android:textColor="@color/colorTextsTitle"
-                                android:textAlignment="center"
-                                android:textStyle="bold"
-                                android:fontFamily="@font/body" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="75dp"
-                            android:orientation="vertical"
-                            android:layout_marginStart="5dp"
-                            android:background="@drawable/card_background">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:textAlignment="center"
+                                android:textSize="13sp"
                                 android:gravity="center"
                                 android:text="Tipo de interés:"
                                 android:fontFamily="@font/subtitle" />
@@ -165,6 +173,7 @@
                                 android:gravity="center"
                                 android:text="@{originacionCredito.v22TipoTasaInteres != null ? originacionCredito.v22TipoTasaInteres.trim() : @string/nonenumber}"
                                 tools:text="-"
+                                android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
@@ -186,6 +195,7 @@
                                 android:textAlignment="center"
                                 android:gravity="center"
                                 android:text="Plazo:"
+                                android:textSize="13sp"
                                 android:textAppearance="@android:style/TextAppearance.Small"
                                 android:fontFamily="@font/subtitle" />
 
@@ -195,8 +205,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="@{originacionCredito.v25Plazo != null ? originacionCredito.v25Plazo.trim() : @string/nonenumber}"
+                                android:text="@{originacionCredito.v25Plazo != null ? originacionCredito.v25Plazo.trim()+` Años` : @string/nonenumber}"
                                 tools:text="-"
+                                android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
@@ -227,6 +238,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
+                                android:textSize="13sp"
                                 android:text="Tipo de crédito:"
                                 android:fontFamily="@font/subtitle" />
 
@@ -236,6 +248,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
+                                android:textSize="13sp"
                                 android:text="@{pagosMensualidad.v1TipoCredito != null ? pagosMensualidad.v1TipoCredito.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textColor="@color/colorTextsTitle"
@@ -269,7 +282,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
-                                android:text="Saldo de otorgamiento en VSM:"
+                                android:textSize="13sp"
+                                android:text="Monto de otorgamiento en VSM:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -280,6 +294,7 @@
                                 android:layout_marginTop="15dp"
                                 android:text="@{originacionCredito.v19MtoOtorgaVsm != null ? originacionCredito.v19MtoOtorgaVsm.trim() : @string/nonenumber}"
                                 android:textAlignment="center"
+                                android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
                                 android:fontFamily="@font/body" />
 
@@ -310,7 +325,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
-                                android:text="Saldo de otorgamiento en pesos:"
+                                android:textSize="13sp"
+                                android:text="Monto de otorgamiento en pesos:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -321,6 +337,7 @@
                                 android:layout_marginTop="15dp"
                                 android:text="@{originacionCredito.v20MtoOtorgaPes != null ? utils.formatMoney(originacionCredito.v20MtoOtorgaPes.trim()) : @string/nonenumber}"
                                 tools:text="-"
+                                android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
@@ -354,7 +371,8 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
-                                android:text="Tasa de interés:"
+                                android:textSize="13sp"
+                                android:text="Tipo de tasa de interés:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -363,6 +381,7 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
+                                android:textSize="13sp"
                                 android:text="@{originacionCredito.v21TasaInteres != null ? originacionCredito.v21TasaInteresPercent : @string/nonenumber}"
                                 tools:text="-"
                                 android:textColor="@color/colorTextsTitle"
@@ -387,6 +406,7 @@
                                 android:textAlignment="center"
                                 android:gravity="center"
                                 android:text="Tipo de moneda:"
+                                android:textSize="13sp"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -397,6 +417,7 @@
                                 android:gravity="center"
                                 android:text="@{originacionCredito.v18Moneda != null ? originacionCredito.v18Moneda.trim() : @string/nonenumber}"
                                 tools:text="-"
+                                android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
 
@@ -419,11 +440,13 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
+                                android:textSize="14sp"
                                 android:text="Tipo de pago:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
                                 android:id="@+id/txt_pay_type"
+                                android:textSize="13sp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"

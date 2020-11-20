@@ -26,6 +26,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.saldo_movimientos.TablaPagos1;
@@ -75,6 +76,10 @@ public class MensualidadesFragment extends Fragment {
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1() != null){
                     binding.setSaldo(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1());
                     Utils.hideLoadingSkeleton();
+                    //binding.txtMonthlyAmount.setText(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion());
+                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().contains("CREDITO LIQUIDADO POR PAGOS")){
+                        Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
+                    }
                 }else {
                     dialogError();
                 }

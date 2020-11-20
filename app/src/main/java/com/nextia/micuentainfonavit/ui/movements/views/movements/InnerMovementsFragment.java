@@ -154,7 +154,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "historic_"+credit, getActivity(), false);
+                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "Reporte_histórico_movtos_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
