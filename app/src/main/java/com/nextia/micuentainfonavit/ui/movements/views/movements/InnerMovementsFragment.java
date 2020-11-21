@@ -19,6 +19,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,13 @@ import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.reports.HistoricResponse;
+import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
 import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
@@ -55,7 +58,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     File historic;
     String credit;
     HistoricResponse object_final;
-
+    private MovementsViewModel viewModel;
     //creating view, and instance it
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,8 +68,20 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
         binding.progressBar2.animate().alpha(0.0f);
+        viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
         setSpinner();
         setOnclicks();
+        viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
+            @Override
+            public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
+                String type="";
+                try{
+                    type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
+                }catch (Exception e){}
+                String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
+                binding.creditType.setText(Html.fromHtml(sourceString));
+            }
+        });
         return binding.getRoot();
 
     }
@@ -88,6 +103,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     credit=parent.getItemAtPosition(position).toString();
                     creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
+                    viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 } else {
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
@@ -124,6 +140,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 pdfViewModel.setFile(historic);
                 navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
                 navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+
             }
         });
 

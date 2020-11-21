@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,10 +64,16 @@ public class CreditDataFragment extends Fragment {
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
+                String type="";
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOriginacionCredito() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades() != null){
                     binding.setOriginacionCredito(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOriginacionCredito());
                     binding.setPagosMensualidad(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades());
                     Utils.hideLoadingSkeleton();
+                    try{
+                        type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
+                    }catch (Exception e){}
+                    String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
+                    binding.creditType.setText(Html.fromHtml(sourceString));
                 }else {
                     dialogError();
                 }

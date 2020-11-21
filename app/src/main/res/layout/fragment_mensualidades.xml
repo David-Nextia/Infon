@@ -15,18 +15,30 @@
             type="java.lang.Integer"/>
     </data>
 
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/back"
+        android:id="@+id/rootView1"
         tools:context=".ui.movements.views.mensualidades.MensualidadesFragment">
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_margin="8dp"
-            android:id="@+id/rootView">
+            android:id="@+id/rootView"
+            android:alpha="1">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -79,14 +91,26 @@
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <View
+
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/color_black"
                 android:layout_marginStart="38dp"
                 android:layout_marginEnd="38dp"
 
-                android:layout_marginBottom="15dp"/>
-
+                />
+            <TextView
+                android:id="@+id/creditType"
+                android:layout_marginStart="38dp"
+                android:layout_marginEnd="38dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/color_black"
+                android:textSize="14sp"
+                tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -337,15 +361,94 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="30dp"
                 android:layout_marginEnd="30dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="@string/consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos"
                 android:textColor="@color/colorgrayblue"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/subtitle" />
+            <TextView
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="15dp"
+                android:gravity="center"
+                android:text="Si quieres saber si tu crédito tiene pagos en exceso consulta la informacion en Mi cuenta infonavit."
+                android:textColor="@color/colorgrayblue"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/subtitle" />
+
+        </LinearLayout>
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blurView"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="20dp"
+            app:realtimeOverlayColor="#00F0F8FF"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:orientation="vertical"
+            android:id="@+id/viewAdvice"
+            android:layout_gravity="center"
+            android:gravity="center"
+            >
+            <TextView
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/typeCredit2"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"/>
+            <TextView
+                android:id="@+id/liquidType"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"/>
+
+            <TextView
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="30dp"
+                android:layout_marginStart="30dp"
+                android:text="SI QUIERES SABER SI TU CRÉDITO TIENE PAGOS EN EXCESO CONSULTA LA INFORMACIÓN EN MI CUENTA INFONAVIT."/>
+
 
         </LinearLayout>
 
     </FrameLayout>
+
+
+    </ScrollView>
+
 </layout>

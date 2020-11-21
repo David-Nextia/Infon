@@ -18,6 +18,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.os.CountDownTimer;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +39,10 @@ import com.nextia.micuentainfonavit.databinding.FragmentPayOptionsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class PayOptionsFragment extends Fragment {
 
@@ -71,6 +75,7 @@ public class PayOptionsFragment extends Fragment {
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
+                String type="";
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades() != null){
                     binding.setPagosMensualidades(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades());
                     binding.setOpcionesPago(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago());
@@ -80,6 +85,33 @@ public class PayOptionsFragment extends Fragment {
                         binding.sectionDebtAmountDiscount.setVisibility(View.GONE);
                     }
                     Utils.hideLoadingSkeleton();
+                    try{
+                        type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
+                    }catch (Exception e){}
+                    String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
+                    binding.creditType.setText(Html.fromHtml(sourceString));
+                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().contains("CREDITO LIQUIDADO POR PAGOS")){
+                        //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
+                        try{
+                            String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
+                            String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
+                            type= one+" "+two;
+                        }catch (Exception e){}
+                        String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
+                        //String date=item.get(0).getFCREAVIS();
+                        SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
+                        Date newDate= null;
+                        try {
+                            newDate = spf.parse(date);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+                        spf= new SimpleDateFormat("dd.MM.yyyy");
+                        date = spf.format(newDate);
+                        String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
+                        String liquid1="TIPO DE LIQUIDACIÓN: \n"+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
+                        blurView(credit1,liquid1);
+                    }
                 }else {
                     dialogError();
                 }
@@ -176,5 +208,15 @@ public class PayOptionsFragment extends Fragment {
             }
         });
         alertdialog.show();
+    }
+    void blurView(String credit, String liquid){
+        binding.viewAdvice.animate().alpha(1);
+        //binding.rootView.animate().alpha(0.1f);
+        binding.typeCredit2.setText(credit);
+        binding.liquidType.setText(liquid);
+        binding.blurView.animate().alpha(1);
+
+
+
     }
 }
