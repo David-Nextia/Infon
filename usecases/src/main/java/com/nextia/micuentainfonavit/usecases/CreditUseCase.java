@@ -6,6 +6,8 @@ import com.nextia.data.Database;
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
+import com.nextia.domain.models.mensual_report.MensualReportBody;
+import com.nextia.domain.models.mensual_report.creditBody;
 
 public class CreditUseCase {
     Database database = new Database();
@@ -30,6 +32,17 @@ public class CreditUseCase {
         database.getCredifInfoHistoric(credit,token,listener);
     }
 
+    public void getPeriodosDisponibles(String token,String credito, OnFinishRequestListener listener){
+        creditBody credit= new creditBody();
+        credit.setCredito(credito);
+        database.getPeriodosDisponibles(credit,token,listener);
+    }
+    public void getMensualReport(String token,String credito, String periodo, OnFinishRequestListener listener){
+        MensualReportBody report= new MensualReportBody();
+        report.setNumeroCredito(credito);
+        report.setPeriodo(periodo);
+        database.getMensualReport(report,token,listener);
+    }
 
 
 }

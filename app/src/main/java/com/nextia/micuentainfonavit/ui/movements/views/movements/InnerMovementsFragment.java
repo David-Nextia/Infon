@@ -12,24 +12,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
+import com.nextia.domain.models.mensual_report.MensualReportResponse;
+import com.nextia.domain.models.mensual_report.PeriodResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.LoginActivity;
@@ -39,23 +38,20 @@ import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
-import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import okhttp3.internal.Util;
-
-public class InnerMovementsFragment extends Fragment implements OnFinishRequestListener<HistoricResponse> {
+public class InnerMovementsFragment extends Fragment implements OnFinishRequestListener {
     private View rootView;
     FragmentInnerMovementsBinding binding;
     CreditUseCase creditUseCase = new CreditUseCase();
-
     Spinner spinnerCredit;
     NavController navController;
     PdfViewViewModel pdfViewModel;
-    File historic;
+    File historic, mensual;
+    String mensualReporturl;
     String credit;
     HistoricResponse object_final;
     private MovementsViewModel viewModel;
@@ -108,6 +104,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     // binding.progressBar2.animate().alpha(1.0f);
                     credit=parent.getItemAtPosition(position).toString();
                     creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
+                    creditUseCase.getPeriodosDisponibles(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 } else {
@@ -138,7 +135,22 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             @Override
             public void onClick(View v) {
                 try {
-                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "historic_"+credit, getActivity(), true);
+                    mensual= Utils.createPdfFromBase64(object_final.getReporte(), "mensual_"+credit, getActivity(), true);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                pdfViewModel.setFile(mensual);
+                navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+
+            }
+        });
+        binding.mensualImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    historic = Utils.createPdfFromBase64(mensualReporturl, "historic_"+credit, getActivity(), true);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -158,12 +170,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 }
             }
         });
-        binding.mensualImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Utils.showShareIntent(getActivity());
-            }
-        });
+
         binding.movementsImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -178,6 +185,20 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 dialog.show();
                 try {
                     historic = Utils.createPdfFromBase64(object_final.getReporte(), "Reporte_histórico_movtos_"+credit, getActivity(), false);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        binding.textDownloadMensual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();
+                try {
+                    mensual= Utils.createPdfFromBase64(mensualReporturl, "mensual_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -213,14 +234,36 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
     //handle success response of server
     @Override
-    public void onSuccesRequest(HistoricResponse object, String token) {
+    public void onSuccesRequest(Object object, String token) {
         binding.historicContainer.animate().alpha(1);
         binding.shareHistoricPdf.animate().alpha(1.0f);
         binding.historicImg.animate().alpha(1);
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);
         Utils.hideLoadingSkeleton();
-        object_final = object;
+
+        //respuesta del historico
+        if(object instanceof HistoricResponse)
+        {object_final = (HistoricResponse) object;}
+
+        //respuesta de periodos
+        else if(object instanceof PeriodResponse)
+        {
+           if( ((PeriodResponse)object).getRoot().getPeriodo()!=null)
+           {
+               //Toast.makeText(getActivity(),((PeriodResponse)object).getRoot().getPeriodo().toString(),Toast.LENGTH_LONG).show();
+               creditUseCase.getMensualReport(Utils.getSharedPreferencesToken(getContext()),credit,((PeriodResponse)object).getRoot().getPeriodo(),InnerMovementsFragment.this);
+
+
+           }
+        }
+
+        //respuesta de reporte mensual
+        else if(object instanceof MensualReportResponse){
+            mensualReporturl=((MensualReportResponse)object).getReporte();
+            binding.monthlyContainer.setVisibility(View.VISIBLE);
+        }
+
 
 
     }

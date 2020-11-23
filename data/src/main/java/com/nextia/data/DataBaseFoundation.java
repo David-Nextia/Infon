@@ -5,13 +5,8 @@ package com.nextia.data;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
-import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
-import com.nextia.domain.models.user.UserBody;
-import com.nextia.domain.models.user.UserResponse;
-
-import java.util.Base64;
 
 import retrofit2.Call;
 import retrofit2.Callback;
