@@ -46,7 +46,12 @@ public class Database {
                 if(response.code()>400){
                     try {
                         JSONObject jObjError = new JSONObject(response.errorBody().string());
-                        listener.onFailureRequest(jObjError.getJSONObject("StatusServicio").getString("mensaje"));
+                        if(jObjError.getJSONObject("StatusServicio").getString("codigo").equals("LOGINMCI20025")){
+                            listener.onFailureRequest("Con este usuario no podemos proporcionarte acceso, para más información comunícate a Infonatel al 55 9172 5050 en la Ciudad de México al 800 008 3900 desde cualquier parte del país");
+                        }
+                        else
+                        { listener.onFailureRequest(jObjError.getJSONObject("StatusServicio").getString("mensaje"));}
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -54,6 +59,10 @@ public class Database {
                     String t=response.body().getStatusServicio().getCodigo();
                     if(t.contains("LOGINMCI20010") || t.contains("LOGINMCI20001")){
                         listener.onSuccesRequest(response.body(),response.headers().get("Authorization"));}
+                    else if(t.contains("LOGINMCI20025")){
+                        listener.onFailureRequest("Con este usuario no podemos proporcionarte acceso, para más información comunícate a Infonatel al 55 9172 5050 en la Ciudad de México al 800 008 3900 desde cualquier parte del país");
+
+                    }
                     else { listener.onFailureRequest(response.body().getStatusServicio().getMensaje());
                     }
                 }
