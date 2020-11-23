@@ -69,6 +69,12 @@ public class CreditDataFragment extends Fragment {
                     binding.setOriginacionCredito(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOriginacionCredito());
                     binding.setPagosMensualidad(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades());
                     Utils.hideLoadingSkeleton();
+                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
+                            !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")){
+                        binding.prorroga.setAlpha(0);
+                        binding.prorroga.setVisibility(View.VISIBLE);
+                        binding.prorroga.animate().alpha(1);
+                    }
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
                     }catch (Exception e){}

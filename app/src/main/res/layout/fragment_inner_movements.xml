@@ -123,21 +123,23 @@
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
                     android:textSize="14sp"
                     android:textColor="@color/color_black"
                     tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                     />
-
                 <TextView
-                    android:id="@+id/txtMsg"
+                    android:id="@+id/prorroga"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center"
-                    android:textSize="12dp"
-                    android:visibility="gone" />
+                    android:layout_marginStart="38dp"
+                    android:layout_marginEnd="38dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/color_black"
+                    android:textSize="14sp"
+                    android:text="@string/prorroga"   />
+
 
                 <LinearLayout
                     android:id="@+id/lyEmty"
@@ -161,10 +163,13 @@
                     android:id="@+id/historic_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="20dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="20dp"
+                    android:paddingStart="20dp"
+                    android:paddingBottom="20dp"
                     android:paddingLeft="10dp"
                     android:visibility="visible">
 
@@ -172,7 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="5dp"
                         android:gravity="center"
                         android:orientation="horizontal">
 

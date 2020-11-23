@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.icu.text.UnicodeSetSpanner;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -88,6 +89,13 @@ public class MensualidadesFragment extends Fragment {
                     }catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
+                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
+                            !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")
+                    ){
+                        binding.prorroga.setAlpha(0);
+                        binding.prorroga.setVisibility(View.VISIBLE);
+                        binding.prorroga.animate().alpha(1);
+                    }
 
                     if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
                         //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();

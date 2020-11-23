@@ -23,6 +23,10 @@ public class RespuestasDoMovs {
     @SerializedName("tabOriginacionCredito")
     @Expose
     private OriginacionCredito originacionCredito;
+    @SerializedName("tablaPagos2")
+    @Expose
+    private TablaPagos2 tablaPagos2;
+
 
     public void setOpcionesPago(OpcionesPago opcionesPago) {
         this.opcionesPago = opcionesPago;
@@ -54,6 +58,13 @@ public class RespuestasDoMovs {
 
     public OpcionesPago getOpcionesPago() {
         return opcionesPago;
+    }
+    public TablaPagos2 getTablaPagos2() {
+        return tablaPagos2;
+    }
+
+    public void setTablaPagos2(TablaPagos2 tablaPagos2) {
+        this.tablaPagos2 = tablaPagos2;
     }
 
 }

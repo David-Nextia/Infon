@@ -27,6 +27,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.nextia.domain.models.saldo_movimientos.OpcionesPago;
 import com.nextia.domain.models.saldo_movimientos.PagosMensualidades;
@@ -85,6 +86,12 @@ public class PayOptionsFragment extends Fragment {
                         binding.sectionDebtAmountDiscount.setVisibility(View.GONE);
                     }
                     Utils.hideLoadingSkeleton();
+                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00")&&
+                            !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")){
+                        binding.prorroga.setAlpha(0);
+                        binding.prorroga.setVisibility(View.VISIBLE);
+                        binding.prorroga.animate().alpha(1);
+                    }
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
                     }catch (Exception e){}
