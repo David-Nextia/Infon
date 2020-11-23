@@ -89,7 +89,7 @@ public class MensualidadesFragment extends Fragment {
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
 
-                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().contains("LIQUIDADO")){
+                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
                         //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
                         try{
                             String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
