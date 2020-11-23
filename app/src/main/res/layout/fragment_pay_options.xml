@@ -28,26 +28,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="100dp"
             android:orientation="vertical"
-            android:id="@+id/rootView">
+            android:id="@+id/rootView"
+            android:layout_marginStart="@dimen/margin_view"
+            android:layout_marginEnd="@dimen/margin_view"
+            android:layout_marginTop="20dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="3dp"
                     android:text="@string/saldos_y_movimientos"
-                    style="@style/TxStyleSubTitle"
-                    />
+                    style="@style/TxStyleSubTitle" />
 
             </LinearLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -55,9 +55,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="20dp"
-
                 android:weightSum="5">
                 <TextView
                     android:id="@+id/creditTitle"
@@ -87,18 +84,12 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/color_black"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
-                />
+                android:background="@color/color_black" />
             <TextView
                 android:id="@+id/creditType"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:textSize="14sp"
                 android:textColor="@color/color_black"
                 tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
@@ -108,8 +99,6 @@
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/color_black"
@@ -117,7 +106,7 @@
                 android:text="@string/prorroga"/>
             <TextView
                 style="@style/TxStyleSubSubTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="10dp"
@@ -127,7 +116,7 @@
 
             <TextView
                 style="@style/TxStyleSubSubSubTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textSize="14sp"
@@ -136,7 +125,7 @@
 
             <TextView
                 android:id="@+id/txt_debt_amount"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@{opcionesPago.v11Sdoliqpes != null ? utils.formatMoney(opcionesPago.v11Sdoliqpes.trim()) : @string/nonenumber}"
@@ -226,7 +215,7 @@
                 android:visibility="gone" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="40dp"
@@ -359,8 +348,7 @@
             android:orientation="vertical"
             android:id="@+id/viewAdvice"
             android:layout_gravity="center"
-            android:gravity="center"
-            >
+            android:gravity="center">
             <TextView
                 android:textColor="@color/color_black"
                 android:textStyle="bold"
@@ -368,11 +356,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:id="@+id/typeCredit2"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"/>
             <TextView
                 android:id="@+id/liquidType"
@@ -382,11 +367,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"/>
 
             <TextView
@@ -396,11 +378,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="SI QUIERES SABER SI TU CRÉDITO TIENE PAGOS EN EXCESO CONSULTA LA INFORMACIÓN EN MI CUENTA INFONAVIT."/>
 
 

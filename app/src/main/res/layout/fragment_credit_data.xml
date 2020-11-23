@@ -29,11 +29,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:id="@+id/rootView">
+                android:id="@+id/rootView"
+                android:layout_marginStart="@dimen/margin_view"
+                android:layout_marginEnd="@dimen/margin_view"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="56dp">
 
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_gravity="center"
@@ -43,7 +47,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="18dp"
                         android:text="@string/saldos_y_movimientos"
                         style="@style/TxStyleSubTitle" />
                 </LinearLayout>
@@ -53,9 +56,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="20dp"
-
                     android:weightSum="5">
                     <TextView
                         android:id="@+id/creditTitle"
@@ -85,29 +85,21 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@color/color_black"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
+                    android:background="@color/color_black" />
 
-                    />
                 <TextView
                     android:id="@+id/creditType"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="14sp"
+                    android:layout_marginTop="5dp"
                     android:textColor="@color/color_black"
-                    tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
-                    />
+                    android:textSize="14sp"
+                    tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual" />
                 <TextView
                     android:id="@+id/prorroga"
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/color_black"
@@ -121,13 +113,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_margin="8dp">
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="86dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_weight="1"
                         android:layout_height="75dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp"
                         android:orientation="vertical"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/card_background">
@@ -163,12 +155,8 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp"
                         android:layout_gravity="center"
-                        android:layout_marginBottom="10dp"
-                        >
-
+                        android:layout_marginBottom="10dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -244,9 +232,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp">
+                        android:layout_gravity="center">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -287,9 +273,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginLeft="30dp"
-                        android:layout_marginRight="30dp">
+                        android:layout_marginTop="12dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -330,9 +314,7 @@
                         android:orientation="horizontal"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="12dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp">
+                        android:layout_marginTop="12dp">
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -376,9 +358,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="30dp">
+                        android:layout_marginTop="10dp">
 
                         <LinearLayout
                             android:layout_width="0dp"

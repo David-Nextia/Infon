@@ -23,4 +23,5 @@
     <dimen name="d18sp">18sp</dimen>
     <dimen name="d10sp">10sp</dimen>
     <dimen name="spacebtweeninputs">10dp</dimen>
+    <dimen name="margin_view">36dp</dimen>
 </resources>
