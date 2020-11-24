@@ -101,6 +101,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.prorroga.setVisibility(View.VISIBLE);
                     binding.prorroga.animate().alpha(1);
                 }}
+                if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
+                    //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
+
+                    String liquid1="<b>" + "Tipo de liquidación: "+ "</b> " +saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
+                    binding.LiquidType.setText(Html.fromHtml(liquid1));
+                    binding.LiquidType.setVisibility(View.VISIBLE);
+
+                }
             }
         });
         return binding.getRoot();
@@ -210,7 +218,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    movs= Utils.createPdfFromBase64(movsReporturl, "movs_"+credit, getActivity(), false);
+                    movs= Utils.createPdfFromBase64(movsReporturl, "EstadoCuentaMovimientos_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -224,7 +232,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "Reporte_histórico_movtos_"+credit, getActivity(), false);
+                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "EstadoCuentaHistorico_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -238,7 +246,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    mensual= Utils.createPdfFromBase64(mensualReporturl, "mensual_"+credit, getActivity(), false);
+                    mensual= Utils.createPdfFromBase64(mensualReporturl, "EstadoCuentaMensual_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

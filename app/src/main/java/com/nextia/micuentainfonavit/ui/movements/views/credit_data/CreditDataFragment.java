@@ -38,7 +38,10 @@ import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class CreditDataFragment extends Fragment {
     FragmentCreditDataBinding binding;
@@ -84,6 +87,20 @@ public class CreditDataFragment extends Fragment {
                     }catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
+
+                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
+                        //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
+                        if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
+                            //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
+
+                            String liquid1="<b>" + "Tipo de liquidación: "+ "</b> " +saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
+                            binding.LiquidType.setText(Html.fromHtml(liquid1));
+                            binding.LiquidType.setVisibility(View.VISIBLE);
+
+                        }
+                    }
+
+
                 }else {
                     dialogError();
                 }
