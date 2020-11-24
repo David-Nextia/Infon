@@ -31,17 +31,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:id="@+id/rootView"
-            android:layout_marginStart="@dimen/margin_view"
-            android:layout_marginEnd="@dimen/margin_view"
-            android:layout_marginTop="20dp">
+            android:id="@+id/rootView">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginBottom="10dp"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
+                android:layout_marginTop="@dimen/top_margins">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -57,7 +57,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="5">
+                android:weightSum="5"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
                 <TextView
                     android:id="@+id/creditTitle"
                     app:layout_constraintStart_toStartOf="parent"
@@ -86,7 +88,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/color_black" />
+                android:background="@color/color_black"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
                 android:id="@+id/creditType"
                 android:layout_marginTop="5dp"
@@ -95,7 +99,8 @@
                 android:textSize="14sp"
                 android:textColor="@color/color_black"
                 tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
-                />
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
                 android:id="@+id/prorroga"
                 android:visibility="gone"
@@ -105,7 +110,9 @@
                 android:layout_marginTop="5dp"
                 android:textColor="@color/color_black"
                 android:textSize="14sp"
-                android:text="@string/prorroga"/>
+                android:text="@string/prorroga"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
                 style="@style/TxStyleSubSubTitle"
                 android:layout_width="match_parent"
@@ -114,7 +121,9 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Opciones de pago"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 style="@style/TxStyleSubSubSubTitle"
@@ -123,7 +132,9 @@
                 android:layout_gravity="center"
                 android:textSize="14sp"
                 android:text="Saldo a liquidar"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 android:id="@+id/txt_debt_amount"
@@ -133,7 +144,9 @@
                 android:text="@{opcionesPago.v11Sdoliqpes != null ? utils.formatMoney(opcionesPago.v11Sdoliqpes.trim()) : @string/nonenumber}"
                 tools:text="$ -"
                 style="@style/TxStyleSubTitle"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -141,7 +154,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -173,7 +188,9 @@
                 android:layout_marginTop="10dp"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -204,7 +221,9 @@
                 android:gravity="center"
                 android:text="@string/haz_tus_pagos_completos_antes_del_ltimo_d_a_del_mes_actual_si_vas_a_liquidar_tu_cr_dito_paga_directamente_en_cualquier_banco_autorizado"
                 android:textSize="14sp"
-                android:fontFamily="@font/body"/>
+                android:fontFamily="@font/body"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 android:id="@+id/txtMsg"
@@ -214,7 +233,9 @@
                 android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:textSize="12dp"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -224,14 +245,18 @@
                 android:gravity="center"
                 android:text="Consulta en qué lugares puedes pagar"
                 android:textStyle="bold"
-                android:fontFamily="@font/subtitle"/>
+                android:fontFamily="@font/subtitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:layout_marginTop="6dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
 
                 <LinearLayout
                     android:id="@+id/ly_bank"
@@ -363,7 +388,9 @@
                 android:id="@+id/typeCredit2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"/>
+                android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
                 android:id="@+id/liquidType"
                 android:textColor="@color/color_black"
@@ -374,7 +401,9 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"/>
+                android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 android:textColor="@color/color_black"
@@ -385,7 +414,9 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/exces_payments"/>
+                android:text="@string/exces_payments"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
 
         </LinearLayout>

@@ -40,18 +40,18 @@
 
             <LinearLayout
                 android:id="@+id/rootView"
-                android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/d10dp"
+                    android:layout_marginTop="@dimen/top_margins"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:orientation="vertical">
 
                     <TextView
@@ -70,14 +70,13 @@
 
                         android:text="Estados de cuenta" />
                 </LinearLayout>
-                <androidx.constraintlayout.widget.ConstraintLayout
 
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="20dp"
-
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:weightSum="5">
                     <TextView
                         android:id="@+id/creditTitle"
@@ -104,49 +103,49 @@
                         android:layout_height="30dp"
                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/color_black"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
-                    />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins" />
+
                 <TextView
                     android:id="@+id/creditType"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:textColor="@color/color_black"
                     tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
-                    />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
+
                 <TextView
                     android:visibility="gone"
                     android:id="@+id/LiquidType"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
                     android:textColor="@color/color_black"
                     tools:text="Tipo de Liquidación: CRÉDITO LIQUIDADO POR PAGOS"
-                    />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
+
                 <TextView
                     android:id="@+id/prorroga"
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/color_black"
                     android:textSize="14sp"
-                    android:text="@string/prorroga"   />
-
+                    android:text="@string/prorroga"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
                     android:id="@+id/lyEmty"
@@ -154,7 +153,9 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:id="@+id/txtEnty"
@@ -174,11 +175,10 @@
                     android:gravity="center"
                     android:orientation="vertical"
                     android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingStart="20dp"
                     android:paddingBottom="20dp"
-                    android:paddingLeft="10dp"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -291,9 +291,9 @@
                     android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:padding="20dp"
-                    android:paddingLeft="10dp"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <ImageView
                         android:id="@+id/imageView15"
@@ -392,9 +392,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:orientation="vertical"
-                    android:padding="20dp"
-                    android:paddingLeft="10dp"
-                    android:visibility="visible">
+                    android:visibility="visible"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <ImageView
                         android:id="@+id/imageView16"
