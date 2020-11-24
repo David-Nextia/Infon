@@ -266,7 +266,7 @@
                     android:id="@+id/monthly_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="0dp"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:padding="20dp"
@@ -277,7 +277,7 @@
                         android:id="@+id/imageView15"
                         android:layout_width="match_parent"
                         android:layout_height="2dp"
-                        app:srcCompat="@color/colorAccent" />
+                        app:srcCompat="@color/colorskeleton2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -296,7 +296,7 @@
                         android:layout_gravity="left|center"
                         android:fontFamily="@font/subtitle"
                         android:text="Movimientos de tu crédito mes con mes."
-                        android:textStyle="bold" />
+                      />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -329,7 +329,6 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:id="@+id/mensualImg"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -338,34 +337,28 @@
                             android:orientation="vertical">
 
                             <ImageView
+                                android:id="@+id/mensualImg"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/pdf" />
+                                android:layout_height="60dp"
+                                android:src="@drawable/pdf_bitmap" />
 
                             <TextView
-                                android:id="@+id/btn_download_monthly"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/text_download_mensual"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:fontFamily="@font/subtitle"
                                 android:gravity="center"
+                                android:layout_marginTop="10dp"
                                 android:text="Descargar"
+                                android:textSize="11sp"
+
                                 android:textAppearance="@android:style/TextAppearance.Small"
-                                android:textColor="@color/colorgrayblue" />
+                                android:textColor="@color/colorgrayblue"
+                                android:alpha="1" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
 
-                            <ImageView
-                                android:id="@+id/shareMonthPdf"
-                                android:layout_width="35dp"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
-                                android:src="@drawable/ic_baseline_share_24" />
-                        </LinearLayout>
                     </LinearLayout>
 
 

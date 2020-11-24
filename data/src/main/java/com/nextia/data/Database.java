@@ -10,6 +10,10 @@ import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_info.CreditInfoResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
+import com.nextia.domain.models.mensual_report.MensualReportBody;
+import com.nextia.domain.models.mensual_report.MensualReportResponse;
+import com.nextia.domain.models.mensual_report.PeriodResponse;
+import com.nextia.domain.models.mensual_report.creditBody;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
@@ -17,19 +21,14 @@ import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.user.UserResponse;
 import com.nextia.domain.models.user.UserBody;
-import com.nextia.domain.models.welcome.WelcomeCard;
 
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Base64;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.HEAD;
-import sun.rmi.runtime.Log;
 
 
 public class Database {
@@ -117,6 +116,21 @@ public class Database {
         DataBaseFoundation database = new DataBaseFoundation<SaldoBody>();
         Call<SaldoMovimientosResponse> getSaldoMovimientos = RetrofitService.getApiService().getSaldoMovimientos(body, token);
         database.getData(getSaldoMovimientos, listener);
+    }
+
+
+    //To get periods
+    public void getPeriodosDisponibles(creditBody body, String token, final OnFinishRequestListener<PeriodResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<creditBody>();
+        Call<PeriodResponse> getperiodosDisponibles = RetrofitService.getApiService().getperiodosDisponibles(body,token);
+        database.getData(getperiodosDisponibles, listener);
+    }
+
+    //To get mensual report
+    public void getMensualReport(MensualReportBody body, String token, final OnFinishRequestListener<MensualReportResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<MensualReportBody>();
+        Call<MensualReportResponse> getMensualReport = RetrofitService.getApiService().getReporteMensual(body,token);
+        database.getData(getMensualReport, listener);
     }
 
 }
