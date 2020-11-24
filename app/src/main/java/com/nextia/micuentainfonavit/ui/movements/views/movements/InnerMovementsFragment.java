@@ -23,6 +23,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -32,6 +34,8 @@ import com.nextia.domain.models.mensual_report.PeriodResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 import com.nextia.domain.models.reports.ReportMovsBody;
 import com.nextia.domain.models.reports.ReportMovsResponse;
+import com.nextia.domain.models.saldo_movimientos.Movimiento;
+import com.nextia.domain.models.saldo_movimientos.MovsResponse;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
@@ -39,6 +43,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.views.movements.adapter.AdapterMovements;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
@@ -47,16 +52,22 @@ import java.io.FileNotFoundException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 public class InnerMovementsFragment extends Fragment implements OnFinishRequestListener {
     private View rootView;
     FragmentInnerMovementsBinding binding;
     CreditUseCase creditUseCase = new CreditUseCase();
     Spinner spinnerCredit;
+    int expandedListHeight=0;
     NavController navController;
     PdfViewViewModel pdfViewModel;
     String period;
+    boolean started=false;
     File historic, mensual,movs;
     String mensualReporturl, movsReporturl;
     String credit;
@@ -70,7 +81,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         spinnerCredit = binding.spCreditType;
         pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
-        binding.progressBar2.animate().alpha(0.0f);
+        //binding.progressBar2.animate().alpha(0.0f);
         viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
         setSpinner();
         setOnclicks();
@@ -199,7 +210,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    movs= Utils.createPdfFromBase64(object_final.getReporte(), "movs_"+credit, getActivity(), false);
+                    movs= Utils.createPdfFromBase64(movsReporturl, "movs_"+credit, getActivity(), false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -240,7 +251,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     @Override
     public void onFailureRequest(String message) {
         DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), message, DialogInfonavit.ONE_BUTTON_DIALOG);
-        binding.progressBar2.animate().alpha(0.0f);
+        //binding.progressBar2.animate().alpha(0.0f);
         dialog.show();
 
     }
@@ -268,12 +279,19 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.shareHistoricPdf.animate().alpha(1.0f);
         binding.historicImg.animate().alpha(1);
         binding.textDownloadHistoric.animate().alpha(1.0f);
-        binding.progressBar2.animate().alpha(0.0f);
+       // binding.progressBar2.animate().alpha(0.0f);
         //Utils.hideLoadingSkeleton();
 
         //respuesta del historico
         if(object instanceof HistoricResponse)
-        {object_final = (HistoricResponse) object;}
+        {
+
+            object_final = (HistoricResponse) object;
+
+
+
+
+        }
 
         //respuesta de periodos
         else if(object instanceof PeriodResponse)
@@ -285,6 +303,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
                creditUseCase.getMensualReport(Utils.getSharedPreferencesToken(getContext()),credit,period,InnerMovementsFragment.this);
                creditUseCase.getReportMovs(Utils.getSharedPreferencesToken(getContext()),credit,"",InnerMovementsFragment.this);
+               creditUseCase.getMovsData(Utils.getSharedPreferencesToken(getContext()),credit,InnerMovementsFragment.this);
 
                SimpleDateFormat spf=new SimpleDateFormat("yyyyMM");
                Date newDate= null;
@@ -301,6 +320,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
            }else{
                Utils.hideLoadingSkeleton();
+               binding.movementsContainer.setVisibility(View.GONE);
            }
         }
 
@@ -312,6 +332,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             binding.txtLastPeriod.setText(period);
         }
 
+        //respuesta movimientos
         else if(object instanceof ReportMovsResponse){
             //Toast.makeText(getActivity(),((ReportMovsResponse)object).getReturn().getReporte(),Toast.LENGTH_LONG).show();
 
@@ -322,8 +343,91 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
 
         }
+        else if(object instanceof MovsResponse){
+
+            Map<String, List<String>> movementsCollection = new LinkedHashMap<String, List<String>>();
+            List<String> groupList = new ArrayList<String>();
+            List<String> childList;
+           MovsResponse movItems=((MovsResponse)object);
+            for (int i = 0; i < Integer.parseInt(movItems.getNumeroMovimientos()); i++) {
+                childList = new ArrayList<String>();
+                String fecha = movItems.getMovimientos().get(i).getFecha();
+                String montoTransaccion = movItems.getMovimientos().get(i).getMontoTransaccion();
+
+                groupList.add(fecha + "&" + montoTransaccion);
+
+                String pagoASeguro = movItems.getMovimientos().get(i).getPagoASeguro();
+                String pagoAIntereses = movItems.getMovimientos().get(i).getPagoAIntereses();
+                String pagoACapital = movItems.getMovimientos().get(i).getPagoACapital();
+
+                childList.add("Pagos a seguros y cuotas" + "&" + pagoASeguro);
+                childList.add("Pagos a interés" + "&" + pagoAIntereses);
+                childList.add("Pagos a capital" + "&" + pagoACapital);
+
+                movementsCollection.put(groupList.get(i), childList);
+            }
+            AdapterMovements adapterMovements = new AdapterMovements(getActivity(), groupList, movementsCollection);
+            binding.listMovements.setAdapter(adapterMovements);
+
+            /*problem with neste scroll*/
+            binding.listMovements.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+                @Override
+                public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                    setListViewHeight(parent, groupPosition,true);
+                    return false;
+                }
+            });
+                setListViewHeight(binding.listMovements, -1,false);
+                started=true;
 
 
+
+        }
+
+
+
+    }
+    private void setListViewHeight(ExpandableListView listView, int group, boolean expand) {
+        ExpandableListAdapter listAdapter = (ExpandableListAdapter) listView.getExpandableListAdapter();
+        int totalHeight = 0;
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        if(expand || !started){
+
+        int desiredWidth = View.MeasureSpec.makeMeasureSpec(listView.getWidth(),
+                View.MeasureSpec.EXACTLY);
+        for (int i = 0; i < listAdapter.getGroupCount(); i++) {
+            View groupItem = listAdapter.getGroupView(i, false, null, listView);
+            groupItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+            totalHeight += groupItem.getMeasuredHeight();
+
+            if (((listView.isGroupExpanded(i)) && (i != group))
+                    || ((!listView.isGroupExpanded(i)) && (i == group))) {
+                for (int j = 0; j < listAdapter.getChildrenCount(i); j++) {
+                    View listItem = listAdapter.getChildView(i, j, false, null,
+                            listView);
+                    listItem.measure(desiredWidth, View.MeasureSpec.UNSPECIFIED);
+
+                    totalHeight += listItem.getMeasuredHeight();
+
+                }
+            }
+        }
+
+            int height = totalHeight
+                    + (listView.getDividerHeight() * (listAdapter.getGroupCount() - 1));
+            if (height < 10)
+                height = 200;
+            params.height = height + 30;
+            expandedListHeight=params.height;
+        }
+        else{
+            params.height=expandedListHeight;
+        }
+
+
+        listView.setLayoutParams(params);
+        listView.requestLayout();
 
     }
 }

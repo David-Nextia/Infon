@@ -27,6 +27,8 @@ public class ReturnData {
     @Expose
     private StatusServicio statusServicio;
 
+
+
     public String getCodigo() {
         return codigo;
     }
@@ -66,4 +68,5 @@ public class ReturnData {
     public void setStatusServicio(StatusServicio statusServicio) {
         this.statusServicio = statusServicio;
     }
+
 }

@@ -27,7 +27,9 @@ public class RespuestasDoMovs {
     @Expose
     private TablaPagos2 tablaPagos2;
 
-
+    @SerializedName("movilidad")
+    @Expose
+    private Movilidad movilidad;
     public void setOpcionesPago(OpcionesPago opcionesPago) {
         this.opcionesPago = opcionesPago;
     }
@@ -65,6 +67,13 @@ public class RespuestasDoMovs {
 
     public void setTablaPagos2(TablaPagos2 tablaPagos2) {
         this.tablaPagos2 = tablaPagos2;
+    }
+    public Movilidad getMovilidad() {
+        return movilidad;
+    }
+
+    public void setMovilidad(Movilidad movilidad) {
+        this.movilidad = movilidad;
     }
 
 }

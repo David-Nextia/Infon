@@ -10,6 +10,9 @@
         <variable
             name="pagosMensualidad"
             type="com.nextia.domain.models.saldo_movimientos.PagosMensualidades" />
+        <variable
+            name="movilidad"
+            type="com.nextia.domain.models.saldo_movimientos.Movilidad" />
         <import
             alias="utils"
             type="com.nextia.micuentainfonavit.Utils"/>
@@ -508,7 +511,7 @@
 
                         <TextView
                             android:id="@+id/txt_resp_button"
-                            android:layout_width="80dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Responsabilidad Compartida"
@@ -566,6 +569,7 @@
                                 android:layout_height="35dp"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
+                                android:textSize="13sp"
                                 android:text="Fecha de\notorgamiento:"
                                 android:fontFamily="@font/subtitle" />
 
@@ -575,7 +579,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="-"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorTextsTitle"
+                                android:text="@{movilidad.smovilFecOri != null ? utils.formatDate(movilidad.smovilFecOri, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
 
@@ -597,6 +603,7 @@
                                 android:textAlignment="center"
                                 android:gravity="center"
                                 android:text="Plazo:"
+                                android:textSize="13sp"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -605,7 +612,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="-"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorTextsTitle"
+                                android:text="@{movilidad.smovilPlazo}"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
 
@@ -636,6 +645,7 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:text="Tipo de movimiento"
+                                android:textSize="13sp"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -644,7 +654,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
-                                android:text="-"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorTextsTitle"
+                                android:text="@{movilidad.smovilTipmovi}"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
 
@@ -676,6 +688,7 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
+                                android:textSize="13sp"
                                 android:text="Tipo de moneda:"
                                 android:textAppearance="@android:style/TextAppearance.Small"
                                 android:fontFamily="@font/subtitle" />
@@ -686,7 +699,9 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="-"
+                                android:textSize="13sp"
+                                android:textColor="@color/colorTextsTitle"
+                                android:text="@{movilidad.smovilMoneda}"
                                 android:textAlignment="center"
 
                                 android:fontFamily="@font/body" />
@@ -708,6 +723,7 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
+                                android:textSize="13sp"
                                 android:text="Tipo de pago:"
                                 android:fontFamily="@font/subtitle" />
 
@@ -716,9 +732,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
+                                android:textSize="13sp"
                                 android:gravity="center"
-                                android:text="-"
+                                android:text="@{movilidad.smovilDescTipag.trim()}"
                                 android:textAlignment="center"
+                                android:textColor="@color/colorTextsTitle"
 
                                 android:fontFamily="@font/body" />
 
@@ -750,6 +768,7 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
+                                android:textSize="13sp"
                                 android:text="Tasa de interés:"
                                 android:fontFamily="@font/subtitle" />
 
@@ -758,9 +777,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
+                                android:textSize="13sp"
                                 android:gravity="center"
-                                android:text="-"
+                                android:text="@{movilidad.smovilTasaint!=null? utils.formatPercentage(movilidad.smovilTasaint.trim()): @string/nonenumber}"
                                 android:textAlignment="center"
+                                android:textColor="@color/colorTextsTitle"
                                 android:fontFamily="@font/body" />
                         </LinearLayout>
 
@@ -777,6 +798,7 @@
                                 android:layout_height="35dp"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
+                                android:textSize="13sp"
                                 android:gravity="center"
                                 android:text="Tipo de interés:"
                                 android:fontFamily="@font/subtitle" />
@@ -787,8 +809,10 @@
                                 android:layout_height="match_parent"
                                 android:layout_gravity="center"
                                 android:gravity="center"
-                                android:text="-"
+                                android:textSize="13sp"
+                                android:text="@{movilidad.smovilDescTas.trim()}"
                                 android:textAlignment="center"
+                                android:textColor="@color/colorTextsTitle"
                                 android:fontFamily="@font/body" />
 
                         </LinearLayout>
@@ -832,6 +856,7 @@
                         <LinearLayout
                             android:layout_weight="1"
                             android:gravity="end"
+                            android:visibility="gone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="10dp"

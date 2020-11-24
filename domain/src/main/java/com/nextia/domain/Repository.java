@@ -17,6 +17,9 @@ import com.nextia.domain.models.reports.ReportMovsBody;
 import com.nextia.domain.models.reports.ReportMovsResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
+import com.nextia.domain.models.saldo_movimientos.Movilidad;
+import com.nextia.domain.models.saldo_movimientos.MovsBody;
+import com.nextia.domain.models.saldo_movimientos.MovsResponse;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.domain.models.user.UserResponse;
@@ -39,7 +42,7 @@ public interface Repository {
     String GET_PERIODOS_DISPONIBLES="/RESTAdapter/SndPeriodosDisponiblesAppMovil";
     String GET_REPORTE_MENSUAL="/RESTAdapter/SndEdoCuentaMensualConsultar";
     String GET_REPORTE_MOVS="/RESTAdapter/SndReporteSaldosMovsAppmovil";
-
+    String GET_MOVS_DATA="RESTAdapter/SndConsultaSaldosMovimientosAppMovil";
     @POST(LOGIN_BASE)
     Call<UserResponse> logInMethod(@Body UserBody user);
     @POST(GET_SALDO_BASE)
@@ -60,4 +63,6 @@ public interface Repository {
     Call<MensualReportResponse>  getReporteMensual(@Body MensualReportBody saldo, @Header("Authorization") String auth);
     @POST(GET_REPORTE_MOVS)
     Call<ReportMovsResponse>  getReporteMovs(@Body ReportMovsBody saldo, @Header("Authorization") String auth);
+    @POST(GET_MOVS_DATA)
+    Call<MovsResponse> getMovsData(@Body MovsBody body, @Header("Authorization") String auth);
 }

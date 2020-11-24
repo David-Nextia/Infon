@@ -113,6 +113,14 @@ public class Utils {
 
         return money;
     }
+    public static String formatPercentage(String por) {
+       String percentage="";
+       double a=Double.valueOf(por);
+
+ String number= String.format("%.1f", a);
+ percentage=number+"%";
+        return percentage ;
+    }
 
     //To format String as money String
     public static String formatMoney(String stringNum) {
@@ -1634,5 +1642,14 @@ public class Utils {
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+    public static String textDate(String sDate) throws ParseException {
+
+        SimpleDateFormat originalFormat, newFormat;
+        originalFormat = new SimpleDateFormat("yyyyMMdd");
+        Date date = originalFormat.parse(sDate);
+        newFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+        return newFormat.format(date);
     }
 }

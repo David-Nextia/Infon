@@ -75,6 +75,10 @@ public class CreditDataFragment extends Fragment {
                         binding.prorroga.setVisibility(View.VISIBLE);
                         binding.prorroga.animate().alpha(1);
                     }
+                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getMovilidad().getSmovilInd().trim().equals("1")){
+                        binding.responLayout.setVisibility(View.VISIBLE);
+                        binding.setMovilidad(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getMovilidad());
+                    }
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
                     }catch (Exception e){}
@@ -102,6 +106,22 @@ public class CreditDataFragment extends Fragment {
                     });
                     alertdialog.show();
                 }
+            }
+        });
+
+        binding.responLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.lay1InfoMovs.setVisibility(View.GONE);
+                binding.lay2InfoMovs.setVisibility(View.VISIBLE);
+
+            }
+        });
+        binding.prevInfoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                binding.lay1InfoMovs.setVisibility(View.VISIBLE);
+                binding.lay2InfoMovs.setVisibility(View.GONE);
             }
         });
     }

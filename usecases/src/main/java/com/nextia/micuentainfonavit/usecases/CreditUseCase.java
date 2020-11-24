@@ -9,6 +9,7 @@ import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
 import com.nextia.domain.models.mensual_report.MensualReportBody;
 import com.nextia.domain.models.mensual_report.creditBody;
 import com.nextia.domain.models.reports.ReportMovsBody;
+import com.nextia.domain.models.saldo_movimientos.MovsBody;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -84,6 +85,45 @@ public class CreditUseCase {
         report.setNombreAcreditado(nombre);
         report.setTipoCantidades("PESOS");
         database.getReportMovs(report,token,listener);
+    }
+
+    public void getMovsData(String token,String credito, OnFinishRequestListener listener){
+       MovsBody report= new MovsBody();
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        String day1="";
+        String month1="";
+        String month2="";
+        c2.set(Calendar.MONTH,c2.get(Calendar.MONTH)-2);
+        c1.set(Calendar.MONTH,c1.get(Calendar.MONTH)+1);
+        if(String.valueOf(c2.get(Calendar.MONTH)).length()==1){
+            month2="0"+String.valueOf(c2.get(Calendar.MONTH));
+        }else{
+            month2=String.valueOf(c2.get(Calendar.MONTH));
+        }
+        if(String.valueOf(c1.get(Calendar.MONTH)).length()==1){
+            month1="0"+String.valueOf(c1.get(Calendar.MONTH));
+        }
+        else{
+            month1=String.valueOf(c1.get(Calendar.MONTH));
+        }
+        if(String.valueOf(c1.get(Calendar.DAY_OF_YEAR)).length()==1){
+            day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_YEAR));
+        }
+        else{
+            day1=String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
+        }
+
+
+
+        String period1=c2.get(Calendar.YEAR)+month2+"01";
+        String period2=c1.get(Calendar.YEAR)+month1+day1;
+        report.setNumeroCreditoEntrada(credito);
+        report.setFechaInicioEntrada(period1);
+        report.setFechaFinEntrada(period2);
+        report.setTipoTransaccion("1");
+
+        database.getDataMovs(report,token,listener);
     }
 
 

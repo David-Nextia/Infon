@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="20dp"
+    android:orientation="horizontal"
+    android:background="@color/color_white"
+    android:weightSum="4">
+
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/expandable_background"
+        android:text=""
+
+        />
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="fill_parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_weight="2"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textColor="@color/color_black"
+        android:text="Pagos a seguros y coutas"
+        android:textSize="10dp"
+        android:background="@color/expandable_background" />
+
+    <View
+
+        android:layout_width="5dp"
+        android:layout_height="fill_parent" />
+
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:textColor="@color/color_black"
+        android:textSize="10dp"
+        android:text="$ 3,700"
+        android:background="@color/expandable_background" />
+
+</LinearLayout>
