@@ -238,15 +238,15 @@
                             <TextView
                                 android:id="@+id/txt_plazo"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="32dp"
                                 android:layout_gravity="center"
+                                android:fontFamily="@font/body"
                                 android:gravity="center"
                                 android:text="@{originacionCredito.v25Plazo != null ? originacionCredito.v25Plazo.trim()+` años` : @string/nonenumber}"
-                                tools:text="-"
-                                android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:textColor="@color/colorTextsTitle"
+                                android:textSize="13sp"
+                                tools:text="-" />
 
                         </LinearLayout>
 
@@ -618,7 +618,7 @@
                                 android:gravity="center"
                                 android:textSize="13sp"
                                 android:textColor="@color/colorTextsTitle"
-                                android:text="@{movilidad.smovilPlazo}"
+                                android:text="@{movilidad.smovilPlazo+` años`}"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body" />
 
@@ -804,7 +804,7 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:gravity="center"
-                                android:text="Tipo de interés:"
+                                android:text="Tipo de tasa \n de interés:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView

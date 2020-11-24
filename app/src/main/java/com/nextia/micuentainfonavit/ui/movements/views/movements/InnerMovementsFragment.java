@@ -67,6 +67,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     NavController navController;
     PdfViewViewModel pdfViewModel;
     String period;
+    String token1="";
     boolean started=false;
     File historic, mensual,movs;
     String mensualReporturl, movsReporturl;
@@ -130,8 +131,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
                     // binding.progressBar2.animate().alpha(1.0f);
                     credit=parent.getItemAtPosition(position).toString();
-                    creditUseCase.getInfoCreditHistoric(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
-                    creditUseCase.getPeriodosDisponibles(Utils.getSharedPreferencesToken(getContext()), parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
+                    token1=Utils.getSharedPreferencesToken(getContext());
+                    creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
+                    creditUseCase.getPeriodosDisponibles(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 } else {
@@ -309,9 +311,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                //Toast.makeText(getActivity(),((PeriodResponse)object).getRoot().getPeriodo().toString(),Toast.LENGTH_LONG).show();
                period=((PeriodResponse)object).getRoot().getPeriodo();
 
-               creditUseCase.getMensualReport(Utils.getSharedPreferencesToken(getContext()),credit,period,InnerMovementsFragment.this);
-               creditUseCase.getReportMovs(Utils.getSharedPreferencesToken(getContext()),credit,"",InnerMovementsFragment.this);
-               creditUseCase.getMovsData(Utils.getSharedPreferencesToken(getContext()),credit,InnerMovementsFragment.this);
+               creditUseCase.getMensualReport(token1,credit,period,InnerMovementsFragment.this);
+               creditUseCase.getReportMovs(token1,credit,"",InnerMovementsFragment.this);
+               creditUseCase.getMovsData(token1,credit,InnerMovementsFragment.this);
 
                SimpleDateFormat spf=new SimpleDateFormat("yyyyMM");
                Date newDate= null;
