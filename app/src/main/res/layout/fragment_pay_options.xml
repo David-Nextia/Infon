@@ -24,7 +24,9 @@
         android:layout_height="match_parent"
         android:background="@drawable/back"
         tools:context=".ui.movements.views.pay_options.PayOptionsFragment">
-
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -289,6 +291,8 @@
                         android:layout_height="wrap_content"
                         android:text="y comercios afiliados"
                         android:textColor="@color/colorPrimary"
+                        android:gravity="center"
+                        android:layout_gravity="center"
                         android:textSize="12sp"
                         android:fontFamily="@font/subtitle"/>
 
@@ -334,6 +338,7 @@
             </LinearLayout>
 
         </LinearLayout>
+        </ScrollView>
         <com.github.mmin18.widget.RealtimeBlurView
             android:id="@+id/blurView"
             android:alpha="0"
@@ -385,5 +390,6 @@
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </layout>
