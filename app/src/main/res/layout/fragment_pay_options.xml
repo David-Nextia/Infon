@@ -385,7 +385,7 @@
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SI QUIERES SABER SI TU CRÉDITO TIENE PAGOS EN EXCESO CONSULTA LA INFORMACIÓN EN MI CUENTA INFONAVIT."/>
+                android:text="@string/exces_payments"/>
 
 
         </LinearLayout>

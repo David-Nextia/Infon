@@ -118,6 +118,9 @@ public class PayOptionsFragment extends Fragment {
                         String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
                         String liquid1="TIPO DE LIQUIDACIÓN: \n"+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
                         blurView(credit1,liquid1);
+                        binding.lyBank.setEnabled(false);
+                        binding.lyMarket.setEnabled(false);
+                        binding.lyUsa.setEnabled(false);
                     }
                 }else {
                     dialogError();
