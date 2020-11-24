@@ -8,6 +8,12 @@ import com.nextia.domain.models.credit_info.CreditInfoBody;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoBody;
 import com.nextia.domain.models.mensual_report.MensualReportBody;
 import com.nextia.domain.models.mensual_report.creditBody;
+import com.nextia.domain.models.reports.ReportMovsBody;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class CreditUseCase {
     Database database = new Database();
@@ -43,6 +49,43 @@ public class CreditUseCase {
         report.setPeriodo(periodo);
         database.getMensualReport(report,token,listener);
     }
+    public void getReportMovs(String token,String credito, String nombre, OnFinishRequestListener listener){
+        ReportMovsBody report= new ReportMovsBody();
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
+        String day1="";
+        String month1="";
+        String month2="";
+        c2.set(Calendar.MONTH,c2.get(Calendar.MONTH)-2);
+        c1.set(Calendar.MONTH,c1.get(Calendar.MONTH)+1);
+        if(String.valueOf(c2.get(Calendar.MONTH)).length()==1){
+            month2="0"+String.valueOf(c2.get(Calendar.MONTH));
+        }else{
+            month2=String.valueOf(c2.get(Calendar.MONTH));
+        }
+        if(String.valueOf(c1.get(Calendar.MONTH)).length()==1){
+            month1="0"+String.valueOf(c1.get(Calendar.MONTH));
+        }
+        else{
+            month1=String.valueOf(c1.get(Calendar.MONTH));
+        }
+        if(String.valueOf(c1.get(Calendar.DAY_OF_YEAR)).length()==1){
+           day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_YEAR));
+        }
+        else{
+            day1=String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
+        }
+
+
+
+        String period=c2.get(Calendar.YEAR)+month2+"01"+"-"+c1.get(Calendar.YEAR)+month1+day1;
+        report.setCredito(credito);
+        report.setDesde(period);
+        report.setNombreAcreditado(nombre);
+        report.setTipoCantidades("PESOS");
+        database.getReportMovs(report,token,listener);
+    }
+
 
 
 }

@@ -30,6 +30,8 @@ import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.mensual_report.MensualReportResponse;
 import com.nextia.domain.models.mensual_report.PeriodResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
+import com.nextia.domain.models.reports.ReportMovsBody;
+import com.nextia.domain.models.reports.ReportMovsResponse;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.LoginActivity;
 import com.nextia.micuentainfonavit.R;
@@ -42,6 +44,10 @@ import com.nextia.micuentainfonavit.usecases.CreditUseCase;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class InnerMovementsFragment extends Fragment implements OnFinishRequestListener {
     private View rootView;
@@ -50,8 +56,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     Spinner spinnerCredit;
     NavController navController;
     PdfViewViewModel pdfViewModel;
-    File historic, mensual;
-    String mensualReporturl;
+    String period;
+    File historic, mensual,movs;
+    String mensualReporturl, movsReporturl;
     String credit;
     HistoricResponse object_final;
     private MovementsViewModel viewModel;
@@ -76,12 +83,13 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 }catch (Exception e){}
                 String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                 binding.creditType.setText(Html.fromHtml(sourceString));
-                if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00")&&
+             if(saldoMovimientosResponse!=null)
+             {if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00")&&
                         !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")){
                     binding.prorroga.setAlpha(0);
                     binding.prorroga.setVisibility(View.VISIBLE);
                     binding.prorroga.animate().alpha(1);
-                }
+                }}
             }
         });
         return binding.getRoot();
@@ -171,10 +179,31 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             }
         });
 
-        binding.movementsImg.setOnClickListener(new View.OnClickListener() {
+        binding.movsImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.showShareIntent(getActivity());
+                try {
+                    movs = Utils.createPdfFromBase64(movsReporturl, "movs_"+credit, getActivity(), true);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                pdfViewModel.setFile(movs);
+                navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+            }
+        });
+        binding.textDownloadMovs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();
+                try {
+                    movs= Utils.createPdfFromBase64(object_final.getReporte(), "movs_"+credit, getActivity(), false);
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             }
         });
         binding.textDownloadHistoric.setOnClickListener(new View.OnClickListener() {
@@ -240,7 +269,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.historicImg.animate().alpha(1);
         binding.textDownloadHistoric.animate().alpha(1.0f);
         binding.progressBar2.animate().alpha(0.0f);
-        Utils.hideLoadingSkeleton();
+        //Utils.hideLoadingSkeleton();
 
         //respuesta del historico
         if(object instanceof HistoricResponse)
@@ -252,9 +281,26 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
            if( ((PeriodResponse)object).getRoot().getPeriodo()!=null)
            {
                //Toast.makeText(getActivity(),((PeriodResponse)object).getRoot().getPeriodo().toString(),Toast.LENGTH_LONG).show();
-               creditUseCase.getMensualReport(Utils.getSharedPreferencesToken(getContext()),credit,((PeriodResponse)object).getRoot().getPeriodo(),InnerMovementsFragment.this);
+               period=((PeriodResponse)object).getRoot().getPeriodo();
+
+               creditUseCase.getMensualReport(Utils.getSharedPreferencesToken(getContext()),credit,period,InnerMovementsFragment.this);
+               creditUseCase.getReportMovs(Utils.getSharedPreferencesToken(getContext()),credit,"",InnerMovementsFragment.this);
+
+               SimpleDateFormat spf=new SimpleDateFormat("yyyyMM");
+               Date newDate= null;
+               try {
+                   newDate = spf.parse(period);
+               } catch (ParseException e) {
+                   e.printStackTrace();
+               }
+               spf= new SimpleDateFormat("MMMM yyyy");
+               period = spf.format(newDate);
 
 
+
+
+           }else{
+               Utils.hideLoadingSkeleton();
            }
         }
 
@@ -262,6 +308,19 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         else if(object instanceof MensualReportResponse){
             mensualReporturl=((MensualReportResponse)object).getReporte();
             binding.monthlyContainer.setVisibility(View.VISIBLE);
+            Utils.hideLoadingSkeleton();
+            binding.txtLastPeriod.setText(period);
+        }
+
+        else if(object instanceof ReportMovsResponse){
+            //Toast.makeText(getActivity(),((ReportMovsResponse)object).getReturn().getReporte(),Toast.LENGTH_LONG).show();
+
+            movsReporturl=((ReportMovsResponse)object).getReturn().getReporte();
+            if(((ReportMovsResponse)object).getReturn().getCodigo().equals("00")){
+                binding.movementsContainer.setVisibility(View.VISIBLE);
+            }
+
+
         }
 
 

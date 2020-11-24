@@ -15,6 +15,8 @@ import com.nextia.domain.models.mensual_report.MensualReportResponse;
 import com.nextia.domain.models.mensual_report.PeriodResponse;
 import com.nextia.domain.models.mensual_report.creditBody;
 import com.nextia.domain.models.reports.HistoricResponse;
+import com.nextia.domain.models.reports.ReportMovsBody;
+import com.nextia.domain.models.reports.ReportMovsResponse;
 import com.nextia.domain.models.saldo.SaldoBody;
 import com.nextia.domain.models.saldo.SaldoResponse;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
@@ -131,6 +133,13 @@ public class Database {
         DataBaseFoundation database = new DataBaseFoundation<MensualReportBody>();
         Call<MensualReportResponse> getMensualReport = RetrofitService.getApiService().getReporteMensual(body,token);
         database.getData(getMensualReport, listener);
+    }
+
+    //To get period movs report
+    public void getReportMovs(ReportMovsBody body, String token, final OnFinishRequestListener<ReportMovsResponse> listener) {
+        DataBaseFoundation database = new DataBaseFoundation<ReportMovsBody>();
+        Call<ReportMovsResponse> getReportMovs = RetrofitService.getApiService().getReporteMovs(body,token);
+        database.getData(getReportMovs, listener);
     }
 
 }
