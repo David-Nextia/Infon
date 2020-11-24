@@ -46,7 +46,9 @@
 
             <LinearLayout
                 android:id="@+id/rootView"
-                android:layout_margin="8dp"
+                android:layout_marginStart="@dimen/margin_view"
+                android:layout_marginEnd="@dimen/margin_view"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -56,7 +58,7 @@
                     android:gravity="center"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/d10dp"
+                    android:layout_marginBottom="@dimen/d10dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -71,8 +73,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="10dp"
-
                         android:text="Estados de cuenta" />
                 </LinearLayout>
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -80,9 +80,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="20dp"
-
                     android:weightSum="5">
                     <TextView
                         android:id="@+id/creditTitle"
@@ -112,14 +109,9 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
-                    android:background="@color/color_black"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
-                    />
+                    android:background="@color/color_black" />
                 <TextView
                     android:id="@+id/creditType"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -132,8 +124,6 @@
                     android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
-                    android:layout_marginEnd="38dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="5dp"
                     android:textColor="@color/color_black"
@@ -163,14 +153,9 @@
                     android:id="@+id/historic_container"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+                    android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:paddingTop="5dp"
-                    android:paddingEnd="20dp"
-                    android:paddingStart="20dp"
-                    android:paddingBottom="20dp"
-                    android:paddingLeft="10dp"
                     android:visibility="visible">
 
                     <LinearLayout

@@ -36,7 +36,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_margin="8dp"
+            android:layout_marginStart="@dimen/margin_view"
+            android:layout_marginEnd="@dimen/margin_view"
+            android:layout_marginTop="20dp"
             android:id="@+id/rootView"
             android:alpha="1">
 
@@ -51,7 +53,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
                     android:text="@string/Saldos_movimientos"
                     style="@style/TxStyleSubTitle" />
             </LinearLayout>
@@ -61,9 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="20dp"
-
                 android:weightSum="5">
                 <TextView
                     android:id="@+id/creditTitle"
@@ -91,18 +89,11 @@
                     />
             </androidx.constraintlayout.widget.ConstraintLayout>
             <View
-
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/color_black"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
-
-                />
+                android:background="@color/color_black" />
             <TextView
                 android:id="@+id/creditType"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,8 +107,6 @@
                 android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="38dp"
-                android:layout_marginEnd="38dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="5dp"
                 android:textColor="@color/color_black"
@@ -125,13 +114,13 @@
                 android:text="@string/prorroga"  />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/pago_de_mi_mensualidad"
                 android:layout_gravity="center"
                 android:layout_marginTop="15dp"
                 style="@style/TxStyleSubSubTitle"
-                android:fontFamily="@font/subtitle" />
+                android:fontFamily="@font/subtitle"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -162,13 +151,13 @@
             <TextView
                 android:id="@+id/txt_monthly_amount"
                 style="@style/TxStyleSubTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/subtitle"
                 android:text="@{saldo.tp14PesPgoMensualidad!=null ? utils.formatMoney(saldo.tp14PesPgoMensualidad.trim()):@string/nonenumber}"
-                tools:text="$ -" />
+                tools:text="$ -"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -339,8 +328,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_gravity="center"
-                android:layout_marginStart="45dp"
-                android:layout_marginEnd="45dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/colorgrayblue" />
 
@@ -349,8 +336,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tu_pago_se_refleja_10_di_as_despue_s_de_efectuado_consu_ltalo_en_la_seccio_n_mis_movimientos_y_estados_de_cuenta"
                 android:layout_gravity="center"
-                android:layout_marginStart="35dp"
-                android:layout_marginEnd="35dp"
                 android:gravity="center"
                 android:textSize="14sp"
                 android:layout_marginTop="20dp"
@@ -371,8 +356,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="@string/consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos"
@@ -411,8 +394,8 @@
             android:orientation="vertical"
             android:id="@+id/viewAdvice"
             android:layout_gravity="center"
-            android:gravity="center"
-            >
+            android:gravity="center">
+
             <TextView
                 android:textColor="@color/color_black"
                 android:textStyle="bold"
@@ -420,11 +403,8 @@
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:id="@+id/typeCredit2"
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"/>
             <TextView
                 android:id="@+id/liquidType"
@@ -434,11 +414,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"/>
 
             <TextView
@@ -448,11 +425,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_gravity="center"
                 android:gravity="center"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="30dp"
-                android:layout_marginStart="30dp"
                 android:text="SI QUIERES SABER SI TU CRÉDITO TIENE PAGOS EN EXCESO CONSULTA LA INFORMACIÓN EN MI CUENTA INFONAVIT."/>
 
 
