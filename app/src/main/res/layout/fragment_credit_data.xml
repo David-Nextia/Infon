@@ -99,6 +99,17 @@
                     android:textSize="14sp"
                     tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual" />
                 <TextView
+                    android:visibility="gone"
+                    android:id="@+id/LiquidType"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="@color/color_black"
+                    tools:text="Tipo de Liquidación: CRÉDITO LIQUIDADO POR PAGOS"
+                    />
+
+                <TextView
                     android:id="@+id/prorroga"
                     android:visibility="gone"
                     android:layout_width="match_parent"

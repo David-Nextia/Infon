@@ -157,5 +157,6 @@
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="no_internet">Por favor revisa tu conexión de internet.\n</string>
     <string name="prorroga">Tu crédito se encuentra en prórroga especial y durante el periodo que abarca no se exige el pago de tu mensualidad. Recuerda realizar tus pagos al término de este apoyo para que tu deuda no se incremente.</string>
+    <string name="exces_payments">Si quieres saber si tu crédito tiene pagos en exceso consulta la información en Mi Cuenta Infonavit.</string>
 
 </resources>
