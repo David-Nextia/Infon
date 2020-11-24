@@ -8,8 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -21,37 +20,33 @@
                 android:layout_height="wrap_content"
                 android:paddingBottom="15dp"
                 android:orientation="vertical"
-                android:id="@+id/rootView"
-
-                >
+                android:id="@+id/rootView">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
+                    android:layout_marginTop="@dimen/top_margins"
                     android:text="@string/title_retencion"
                     style="@style/TxStyleTitle"
-                    android:textColor="@color/color_blue"
-
-                    />
+                    android:textColor="@color/color_blue" />
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/color_blue"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp" />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins" />
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="12dp"
+                    android:weightSum="5"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
-                    android:weightSum="5">
                     <TextView
                         android:id="@+id/creditTitle"
                         app:layout_constraintStart_toStartOf="parent"
@@ -74,16 +69,16 @@
                         android:layout_weight="1.2"
                         android:layout_gravity="center"
                         android:layout_width="0dp"
-                        android:layout_height="30dp"
-                        />
+                        android:layout_height="30dp" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/color_black"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
-
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginBottom="15dp"/>
 
                 <TextView
@@ -92,8 +87,8 @@
                     android:textSize="14sp"
                     android:text="@string/Advertencia_pt_1"
                     android:layout_gravity="left"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="12dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/body"/>
@@ -101,8 +96,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="6dp"
                     android:layout_gravity="left"
                     android:orientation="horizontal">
@@ -133,8 +128,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="6dp"
                     android:orientation="horizontal">
 
@@ -164,8 +159,8 @@
                     android:text="@string/Advertencia_pt_4"
                     android:layout_gravity="left"
                     android:textStyle="bold"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/body" />
 
@@ -173,8 +168,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@color/color_blue"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginRight="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="18dp" />
 
                 <TextView
@@ -183,8 +178,8 @@
                     android:textColor="@color/color_drak_gray"
                     android:text="@string/Pre_text_info_click"
                     android:layout_gravity="center"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="24dp"
                     android:fontFamily="@font/body"
                     android:textSize="14sp"/>
@@ -195,9 +190,9 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Text_info_click"
                     android:textColor="#9e1b31"
-                    android:layout_marginStart="30dp"
                     android:textSize="14sp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_gravity="center"
                     android:fontFamily="@font/body"
                     android:clickable="true" />
@@ -207,8 +202,8 @@
                     android:id="@+id/suspension_sucess"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="24dp"
                     android:orientation="vertical">
 
@@ -268,8 +263,8 @@
                     android:id="@+id/suspension_unsucess"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginEnd="30dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="24dp"
                     android:orientation="vertical">
 
@@ -294,6 +289,7 @@
                         android:fontFamily="@font/body"/>
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:visibility="visible"
                     android:id="@+id/pdfView"
@@ -301,9 +297,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="30dp">
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -381,6 +378,7 @@
                         android:layout_gravity="center"
                         android:fontFamily="@font/subtitle"/>
                 </LinearLayout>
+
             </LinearLayout>
 
         </ScrollView>

@@ -19,35 +19,34 @@
                 android:id="@+id/rootView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="15dp"
                 android:orientation="vertical">
 
                 <TextView
                     style="@style/TxStyleTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3dp"
                     android:text="Constancia de interés para tu declaracion anual"
                     android:textColor="@color/color_blue"
-
-                    />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="2dp"
-
                     android:layout_marginTop="5dp"
-                    android:background="@color/color_blue" />
+                    android:background="@color/color_blue"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_marginTop="25dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="0dp"
-                    android:layout_marginEnd="-15dp"
-
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:weightSum="5">
+
                     <TextView
                         android:id="@+id/creditTitle"
                         app:layout_constraintStart_toStartOf="parent"
@@ -73,11 +72,13 @@
                         android:layout_height="30dp"
                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp"
                     android:background="@color/color_black"
-
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginBottom="15dp"/>
 
 
@@ -88,14 +89,18 @@
                     android:fontFamily="@font/body"
                     android:text="En este servicio puedes obtener la constancia de intereses de los últimos ejercicios fiscales disponibles de tu crédito hipotecario."
                     android:textAlignment="gravity"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="7dp"
@@ -119,7 +124,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="7dp"
@@ -143,7 +150,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="7dp"
@@ -167,29 +176,33 @@
                     android:layout_height="1dp"
                     android:layout_marginTop="10dp"
                     android:background="@color/colorskeleton"
-                    android:visibility="gone" />
+                    android:visibility="gone"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/body"
                     android:text="@string/constancia_subtitulo_registro_federal_contribuyentes"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
                         android:background="@drawable/circle_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:gravity="center_vertical" />
@@ -197,7 +210,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginStart="3dp"
                         android:fontFamily="@font/body"
                         android:text="@string/constancia_subtitulo_1_ten_constancia_interes"
@@ -208,13 +220,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
                         android:background="@drawable/circle_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:gravity="center_vertical" />
@@ -223,7 +236,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="3dp"
-
                         android:fontFamily="@font/body"
                         android:text="@string/constancia_subtitulo_2_acude_modulo_atencion"
                         android:textSize="14sp" />
@@ -233,13 +245,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="30dp"
                         android:background="@drawable/circle_gray"
                         android:backgroundTint="@color/colorPrimary"
                         android:gravity="center_vertical" />
@@ -257,9 +270,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
                     android:layout_marginTop="15dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="10dp"
@@ -284,10 +298,11 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="38dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="20dp"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
                         android:layout_width="10dp"
@@ -313,11 +328,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="32dp"
                     android:layout_marginTop="20dp"
                     android:fontFamily="@font/body"
                     android:text="@string/elige_anio_fiscal"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <!--        Este textview se va a elimar cuando el spinner sea llenado con la información-->
 
@@ -326,25 +342,25 @@
                     android:id="@+id/sp_anios_constancia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-
-                    />
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
                     android:layout_marginBottom="20dp"
-                    android:background="@color/colorskeleton" />
+                    android:background="@color/colorskeleton"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
                 <Button
                     android:id="@+id/btn_consultar_constancia"
                     style="@style/button_app"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="10dp"
-                    android:text="@string/consultar" />
+                    android:text="@string/consultar"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
 
             </LinearLayout>
 

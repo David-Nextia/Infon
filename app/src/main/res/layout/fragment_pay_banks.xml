@@ -9,22 +9,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="12dp"
-        android:id="@+id/rootView"
-        >
+        android:paddingLeft="@dimen/side_margins"
+        android:paddingRight="@dimen/side_margins"
+        android:id="@+id/rootView">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/top_margins">
 
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
                style="@style/TxStyleSubTitle" />
