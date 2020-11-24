@@ -11,7 +11,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/rootView"
-        android:background="@drawable/back">
+        android:background="@drawable/back"
+        android:paddingLeft="@dimen/side_margins"
+        android:paddingRight="@dimen/side_margins">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -24,7 +26,7 @@
                 android:id="@+id/textView30"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/top_margins"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
                style="@style/TxStyleSubTitle" />
@@ -72,8 +74,6 @@
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:text="Llama por teléfono al 1 888 246 2527, proporciona tu código postal y te indicarán la sucursal DolEx más cercana a tu domicilio para que puedas hacer tu pago."
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/body"/>
 
@@ -89,8 +89,6 @@
             android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"
             android:layout_marginTop="12dp"
             android:text="En la sucursal DolEx proporciona los 10 dígitos de tu número de crédito y da el importe en pesos."
             android:fontFamily="@font/body"

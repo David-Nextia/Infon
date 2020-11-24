@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/rootView">
+        android:id="@+id/rootView"
+        android:paddingRight="@dimen/side_margins"
+        android:paddingLeft="@dimen/side_margins">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/top_margins"
                 android:text=" Opciones de pago"
                 android:textAlignment="center"
                 android:textSize="18sp"

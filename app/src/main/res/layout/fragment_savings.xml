@@ -26,8 +26,8 @@
                 android:id="@+id/view5"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginStart="35dp"
-                android:layout_marginEnd="35dp"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:layout_weight="50"
                 android:background="@color/colorgrayblue"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +48,8 @@
                 android:textColor="@color/color_blue"
                 android:textSize="26sp"
                 android:textStyle="bold"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
@@ -63,7 +65,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtPatronActual"
-                android:textColor="@color/color_blue"/>
+                android:textColor="@color/color_blue"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <TextView
                 android:id="@+id/txtPatronActual"
@@ -79,6 +83,8 @@
                 android:textAppearance="@android:style/TextAppearance.Small"
                 android:textSize="12sp"
                 android:textStyle="bold"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contribution_company2"
@@ -98,6 +104,8 @@
                 android:padding="3dp"
                 android:text="@string/contribution_patron_actual"
                 android:textAppearance="@android:style/TextAppearance.Small"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -111,16 +119,17 @@
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tabs">
+                app:layout_constraintTop_toBottomOf="@+id/tabs"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
 
             </androidx.viewpager.widget.ViewPager>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
-
                 android:layout_width="match_parent"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -128,7 +137,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
                 app:tabIndicatorColor="@color/colorPrimary"
                 app:tabIndicatorHeight="2dp"
-
                 app:tabIndicatorFullWidth="false"
                 app:tabBackground="@drawable/tab_background"
                 app:tabSelectedTextColor="@color/color_white"
@@ -137,7 +145,7 @@
 
             <TextView
                 android:id="@+id/textView6"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:fontFamily="@font/subtitle"
@@ -145,8 +153,9 @@
                 android:text="Ley de subcuenta de vivienda"
                 android:textColor="@color/color_blue"
                 android:textSize="18sp"
-
                 android:textStyle="bold"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ahorroview" />
@@ -162,8 +171,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
                 android:orientation="vertical"
-                android:background="@drawable/banner_savings"
-                >
+                android:background="@drawable/banner_savings">
 
                 <TextView
                     android:id="@+id/txtAhorroTotal"
@@ -180,16 +188,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView5"
-                    tools:text="$-" />
+                    tools:text="$-"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"/>
                 <TextView
                     android:id="@+id/txtMySavingDesc2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="@dimen/side_margins"
+                    android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="2dp"
                     android:layout_marginBottom="5dp"
                     android:textColor="@color/color_white"
-                    android:layout_marginEnd="40dp"
                     android:fontFamily="@font/subtitle"
                     android:text="@string/savings_description"
                     android:textAlignment="center"
@@ -205,17 +215,20 @@
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/subtitle"
                 android:text="@string/savings_ahorro"
+                android:textAlignment="center"
                 android:layout_marginBottom="15dp"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="@color/colorPrimary"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline2"
@@ -252,7 +265,6 @@
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-
                 android:layout_marginStart="80dp"
                 android:layout_marginEnd="80dp"
                 android:background="@color/color_blue"
@@ -266,9 +278,11 @@
                 style="@style/TxStyleTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="@dimen/top_margins"
                 android:text="@string/savings_title"
-               android:textColor="@color/color_blue"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
+                android:textColor="@color/color_blue"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -280,7 +294,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtAportacion"
-                app:layout_constraintBottom_toBottomOf="parent">
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins">
 
                 <TextView
                     android:id="@+id/contribution_year"
