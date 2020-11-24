@@ -389,7 +389,7 @@
                                 android:textAlignment="center"
                                 android:gravity="center"
                                 android:textSize="13sp"
-                                android:text="Tasa de interés:"
+                                android:text="Tasa de\n interés:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -458,7 +458,7 @@
                                 android:textAlignment="center"
                                 android:gravity="center"
                                 android:textSize="13sp"
-                                android:text="Tipo de pago:"
+                                android:text="Tipo de \n pago:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
