@@ -50,7 +50,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="@string/saldos_y_movimientos"
-                        style="@style/TxStyleSubTitle" />
+                        style="@style/TxStyleSubTitle"
+                        android:textColor="@color/color_black"/>
                 </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,9 +72,7 @@
                         android:layout_height="wrap_content"
                         android:text="Crédito:"
                         android:layout_gravity="center"
-                        android:layout_weight="3.8"
-                        android:textColor="@color/color_black"
-                        android:textStyle="bold"/>
+                        android:layout_weight="3.8" />
 
                     <Spinner
                         app:layout_constraintStart_toEndOf="@id/creditTitle"
@@ -99,7 +98,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:textColor="@color/color_black"
                     android:textSize="14sp"
                     tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                     android:layout_marginStart="@dimen/side_margins"
@@ -112,7 +110,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:textColor="@color/color_black"
                     tools:text="Tipo de Liquidación: CRÉDITO LIQUIDADO POR PAGOS"
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
@@ -124,7 +121,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
                     android:layout_marginTop="5dp"
-                    android:textColor="@color/color_black"
                     android:textSize="14sp"
                     android:text="@string/prorroga"
                     android:layout_marginStart="@dimen/side_margins"
@@ -170,9 +166,10 @@
                             android:textSize="13sp"
                             android:text="@{originacionCredito.v17FechaOtorgamiento != null ? utils.formatDate(originacionCredito.v17FechaOtorgamiento, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                             tools:text="-"
-                            android:textColor="@color/colorTextsTitle"
                             android:textAlignment="center"
-                            android:fontFamily="@font/body" />
+                            android:fontFamily="@font/body"
+                            android:textColor="@color/color_black"
+                            android:textStyle="bold"/>
 
                     </LinearLayout>
 
@@ -212,9 +209,10 @@
                                 android:text="@{originacionCredito.v22TipoTasaInteres != null ? originacionCredito.v22TipoTasaInteres.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -248,9 +246,10 @@
                                 android:gravity="center"
                                 android:text="@{originacionCredito.v25Plazo != null ? originacionCredito.v25Plazo.trim()+` años` : @string/nonenumber}"
                                 android:textAlignment="center"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textSize="13sp"
-                                tools:text="-" />
+                                tools:text="-"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -291,9 +290,10 @@
                                 android:textSize="13sp"
                                 android:text="@{pagosMensualidad.v1TipoCredito != null ? pagosMensualidad.v1TipoCredito.trim() : @string/nonenumber}"
                                 tools:text="-"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -334,8 +334,9 @@
                                 android:text="@{originacionCredito.v19MtoOtorgaVsm != null ? originacionCredito.v19MtoOtorgaVsm.trim() : @string/nonenumber}"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -375,9 +376,10 @@
                                 android:text="@{originacionCredito.v20MtoOtorgaPes != null ? utils.formatMoney(originacionCredito.v20MtoOtorgaPes.trim()) : @string/nonenumber}"
                                 tools:text="-"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -421,9 +423,10 @@
                                 android:textSize="13sp"
                                 android:text="@{originacionCredito.v21TasaInteres != null ? originacionCredito.v21TasaInteresPercent : @string/nonenumber}"
                                 tools:text="-"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
                         </LinearLayout>
 
 
@@ -457,10 +460,10 @@
                                 android:text="@{originacionCredito.v18Moneda != null ? originacionCredito.v18Moneda.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -494,9 +497,10 @@
                                 android:gravity="center"
                                 android:text="@{originacionCredito.v23DescTipPago != null ? originacionCredito.v23DescTipPago.trim() : @string/nonenumber}"
                                 tools:text="-"
-                                android:textColor="@color/colorTextsTitle"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -601,10 +605,11 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:text="@{movilidad.smovilFecOri != null ? utils.formatDate(movilidad.smovilFecOri, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -637,10 +642,11 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:text="@{movilidad.smovilPlazo+` años`}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -681,10 +687,11 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:text="@{movilidad.smovilTipmovi}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -728,11 +735,11 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textSize="13sp"
-                                android:textColor="@color/colorTextsTitle"
                                 android:text="@{movilidad.smovilMoneda}"
                                 android:textAlignment="center"
-
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -766,9 +773,9 @@
                                 android:gravity="center"
                                 android:text="@{movilidad.smovilDescTipag.trim()}"
                                 android:textAlignment="center"
-                                android:textColor="@color/colorTextsTitle"
-
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 
@@ -814,8 +821,9 @@
                                 android:gravity="center"
                                 android:text="@{movilidad.smovilTasaint!=null? utils.formatPercentage(movilidad.smovilTasaint.trim()): @string/nonenumber}"
                                 android:textAlignment="center"
-                                android:textColor="@color/colorTextsTitle"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -848,8 +856,9 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilDescTas.trim()}"
                                 android:textAlignment="center"
-                                android:textColor="@color/colorTextsTitle"
-                                android:fontFamily="@font/body" />
+                                android:fontFamily="@font/body"
+                                android:textColor="@color/color_black"
+                                android:textStyle="bold"/>
 
                         </LinearLayout>
 

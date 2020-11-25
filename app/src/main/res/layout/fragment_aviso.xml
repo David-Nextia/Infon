@@ -30,7 +30,7 @@
                     android:layout_marginTop="@dimen/top_margins"
                     android:text="@string/title_retencion"
                     style="@style/TxStyleTitle"
-                    android:textColor="@color/color_blue" />
+                    android:textColor="@color/color_black" />
 
                 <View
                     android:layout_width="match_parent"
@@ -56,10 +56,7 @@
                         android:layout_height="wrap_content"
                         android:text="Crédito:"
                         android:layout_gravity="center"
-                        android:layout_weight="3.8"
-
-                        android:textColor="@color/color_black"
-                        android:textStyle="bold"/>
+                        android:layout_weight="3.8" />
                     <Spinner
                         app:layout_constraintStart_toEndOf="@id/creditTitle"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -90,8 +87,7 @@
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="12dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/body"/>
+                    android:fontFamily="@font/body" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -119,8 +115,7 @@
                         android:layout_gravity="center"
                         android:layout_marginStart="3dp"
                         android:text="@string/Advertencia_pt_2"
-                        android:fontFamily="@font/body"
-                        android:textStyle="bold"/>
+                        android:fontFamily="@font/body" />
 
                 </LinearLayout>
 
@@ -146,7 +141,6 @@
                         android:textSize="14sp"
                         android:layout_gravity="center"
                         android:layout_marginStart="3dp"
-                        android:textStyle="bold"
                         android:text="@string/Advertencia_pt_3"
                         android:fontFamily="@font/body"/>
 
@@ -158,7 +152,6 @@
                     android:textSize="14sp"
                     android:text="@string/Advertencia_pt_4"
                     android:layout_gravity="left"
-                    android:textStyle="bold"
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"
                     android:layout_marginTop="6dp"
@@ -175,7 +168,6 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/color_drak_gray"
                     android:text="@string/Pre_text_info_click"
                     android:layout_gravity="center"
                     android:layout_marginStart="@dimen/side_margins"
@@ -216,8 +208,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
-                            android:text="Nombre del Responsable:"
-                            android:textStyle="bold" />
+                            android:text="Nombre del Responsable:" />
 
                     </LinearLayout>
 
@@ -231,8 +222,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
-                            android:text="Tipo de Aviso:"
-                            android:textStyle="bold" />
+                            android:text="Tipo de Aviso:" />
 
                     </LinearLayout>
 
@@ -252,8 +242,7 @@
                         android:text="Descarga tu archivo"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
-                        android:textColor="#9e1b31"
-                        android:textStyle="bold" />
+                        android:textColor="#9e1b31" />
 
                 </LinearLayout>
 
@@ -305,7 +294,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Nombre del Responsable: "
-                        android:textStyle="bold"
                         android:fontFamily="@font/body"
                         android:textSize="14sp"/>
                     <TextView
@@ -314,14 +302,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/body"
-                        android:text="Aviso para retención de documentos "/>
+                        android:text="Aviso para retención de documentos "
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_marginTop="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Tipo de aviso: "
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         android:fontFamily="@font/body"/>
                     <TextView
                         android:textSize="14sp"
@@ -329,7 +317,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/body"
-                        android:text="Aviso para retención de documentos "/>
+                        android:text="Aviso para retención de documentos "
+                        android:textStyle="bold"/>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -352,7 +341,6 @@
                             android:layout_height="wrap_content"
                             android:text="@string/descarga_tu_archivo"
                             android:textColor="@color/colorgrayblue"
-                            android:textStyle="bold"
                             android:layout_marginTop="10dp"
                             android:textSize="14sp"
                             android:layout_gravity="center"

@@ -27,7 +27,8 @@
                 android:layout_height="wrap_content"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
-               style="@style/TxStyleSubTitle" />
+                style="@style/TxStyleSubTitle"
+                android:textColor="@color/color_black"/>
 
             <View
                 android:id="@+id/view"
@@ -44,7 +45,8 @@
                 android:text="Opciones de pago"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                 />
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
         </LinearLayout>
 
         <TextView
@@ -54,7 +56,9 @@
             android:gravity="center"
             android:textSize="13sp"
             android:text="Todos los bancos"
-            style="@style/TxStyleSubTitle"/>
+            style="@style/TxStyleSubTitle"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -63,7 +67,6 @@
             android:gravity="center"
             android:textSize="11sp"
             android:text="En ventanilla o a través de la banca electrónica, vía SPEI. haz una transferencia electrónica, con los siguientes datos: "
-            android:textColor="@color/color_black"
             android:fontFamily="@font/body"/>
 
         <TextView
@@ -73,8 +76,9 @@
             android:gravity="center"
             android:textSize="11sp"
             android:text="@string/clabe"
-            style="@style/TxStyleSubTitle"
-            android:textColor="@color/colorTexts"/>
+            android:fontFamily="@font/body"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"/>
 
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
@@ -84,7 +88,6 @@
             android:text="En el campo, Referencia o Referencia Numérica, digita el número 5503; lo puedes distinguir porque no admite más de 7 dígitos.
 \nEn el campo, Concepto de pago, Motivo de pago o Referencia alfanumérica; digita tu número de crédito que consta de 10 dígitos.
 \n Al hacer tu pago por Banca electrónica, el mismo medio te notificará si tu pago fue aceptado o rechazado, también te proporcionará la clave de rastreo correspondiente."
-            android:textColor="@color/color_black"
             android:fontFamily="@font/body"/>
 
         <View
@@ -103,8 +106,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_scotian"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -117,8 +119,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_banor"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -133,8 +134,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_city"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -147,8 +147,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_santan"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -161,8 +160,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_bans"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -175,8 +173,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_hsbc"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <ImageView
             android:layout_margin="6sp"
@@ -189,8 +186,7 @@
             android:layout_height="wrap_content"
             android:text="@string/bank_bbva"
             android:textSize="12sp"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"/>
+            android:fontFamily="@font/body" />
 
         <include layout="@layout/view_desc_pay"/>
 

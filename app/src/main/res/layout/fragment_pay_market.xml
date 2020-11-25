@@ -28,7 +28,8 @@
                 android:layout_marginTop="10dp"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
-               style="@style/TxStyleSubTitle" />
+                style="@style/TxStyleSubTitle"
+                android:textColor="@color/color_black"/>
 
             <View
                 android:id="@+id/view"
@@ -45,7 +46,8 @@
                 android:text=" Opciones de pago"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                 />
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 
@@ -55,7 +57,8 @@
             android:layout_gravity="center"
             android:text="Pago en tiendas de autoservicio y comercios afiliados"
             android:gravity="center"
-            style="@style/TxStyleSubTitle"/>
+            android:fontFamily="@font/body"
+            android:textSize="@dimen/d20sp"/>
 
         <TextView
             android:layout_marginTop="12sp"

@@ -54,7 +54,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:text="@string/Saldos_movimientos"
-                    style="@style/TxStyleSubTitle" />
+                    style="@style/TxStyleSubTitle"
+                    android:textColor="@color/color_black"/>
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -74,10 +75,7 @@
                     android:layout_height="wrap_content"
                     android:text="Crédito:"
                     android:layout_gravity="center"
-                    android:layout_weight="3.8"
-
-                    android:textColor="@color/color_black"
-                    android:textStyle="bold"/>
+                    android:layout_weight="3.8"/>
                 <Spinner
                     app:layout_constraintStart_toEndOf="@id/creditTitle"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +99,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/color_black"
                 android:textSize="14sp"
                 tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                 android:layout_marginStart="@dimen/side_margins"
@@ -113,7 +110,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:layout_marginTop="5dp"
-                android:textColor="@color/color_black"
                 android:textSize="14sp"
                 android:text="@string/prorroga"
                 android:layout_marginStart="@dimen/side_margins"
@@ -169,7 +165,9 @@
                 android:text="@{saldo.tp14PesPgoMensualidad!=null ? utils.formatMoney(saldo.tp14PesPgoMensualidad.trim()):@string/nonenumber}"
                 tools:text="$ -"
                 android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"/>
+                android:layout_marginEnd="@dimen/side_margins"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -289,9 +287,10 @@
                         android:layout_gravity="center"
                         android:text="@{saldo.tp11MensPgoCorriente!=null ? saldo.tp11MensPgoCorriente:@string/nonenumber }"
                         style="@style/TxStyleSubTitle"
-
                         android:fontFamily="@font/subtitle"
-                        tools:text="-"/>
+                        tools:text="-"
+                        android:textColor="@color/color_black"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
@@ -335,7 +334,9 @@
                         android:text="@{saldo.tp13PesPgoCorriente!=null ? utils.formatMoney(saldo.tp13PesPgoCorriente.trim()): @string/nonenumber}"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/subtitle"
-                        tools:text="$ -"/>
+                        tools:text="$ -"
+                        android:textColor="@color/color_black"
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
@@ -383,10 +384,8 @@
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:text="@string/consulta_los_establecimientos_en_los_que_puedes_realizar_tus_pagos"
-                android:textColor="@color/colorgrayblue"
                 android:textSize="14sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/subtitle"
+                android:fontFamily="@font/body"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
