@@ -55,6 +55,7 @@ public class MensualidadesFragment extends Fragment {
     private View rootView;
     private MovementsViewModel viewModel;
     FragmentMensualidadesBinding binding;
+
     public static MensualidadesFragment newInstance() {
         return new MensualidadesFragment();
     }
@@ -116,7 +117,7 @@ public class MensualidadesFragment extends Fragment {
                         spf= new SimpleDateFormat("dd.MM.yyyy");
                         date = spf.format(newDate);
                         String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
-                        String liquid1="TIPO DE LIQUIDACIÓN: \n"+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
+                        String liquid1="Tipo de liquidación: \n"+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
                         blurView(credit1,liquid1);
                     }
                 }else {

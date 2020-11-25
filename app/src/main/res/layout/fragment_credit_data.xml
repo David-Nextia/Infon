@@ -131,7 +131,7 @@
                     android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/lay_1_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -540,7 +540,7 @@
 
 
                 <LinearLayout
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/lay_2_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -574,7 +574,7 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
-                                android:text="Fecha de\notorgamiento:"
+                                android:text="Fecha de\n movimiento:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView

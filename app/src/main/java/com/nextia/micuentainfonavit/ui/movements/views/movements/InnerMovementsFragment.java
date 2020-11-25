@@ -77,7 +77,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //creating view, and instance it
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
+
+       if(getActivity()!=null && isAdded())
+       {binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
 
         spinnerCredit = binding.spCreditType;
         pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
@@ -112,7 +114,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 }
             }
         });
-        return binding.getRoot();
+        return binding.getRoot();}
+       else return null;
 
     }
 
@@ -398,7 +401,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
     }
     private void setListViewHeight(ExpandableListView listView, int group, boolean expand) {
-        ExpandableListAdapter listAdapter = (ExpandableListAdapter) listView.getExpandableListAdapter();
+
+        if(getActivity()!=null)
+        { ExpandableListAdapter listAdapter = (ExpandableListAdapter) listView.getExpandableListAdapter();
         int totalHeight = 0;
         ViewGroup.LayoutParams params = listView.getLayoutParams();
         if(expand || !started){
@@ -437,7 +442,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
 
         listView.setLayoutParams(params);
-        listView.requestLayout();
+        listView.requestLayout();}
 
     }
 }

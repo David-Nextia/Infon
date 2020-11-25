@@ -57,7 +57,8 @@ public class AdapterMovements extends BaseExpandableListAdapter {
         TextView description = (TextView) convertView.findViewById(R.id.description);
 
         title.setText(childArr[0]);
-        description.setText(childArr[1]);
+        description.setText( Utils.formatMoney(childArr[1]));
+
 
         return convertView;
     }
@@ -127,7 +128,7 @@ public class AdapterMovements extends BaseExpandableListAdapter {
             fecha.setText(groupArr[0]);
             e.printStackTrace();
         }
-        montoTransaccion.setText("$"+groupArr[1].trim());
+        montoTransaccion.setText(Utils.formatMoney(groupArr[1].trim()));
        // montoTransaccion.setGravity(Gravity.CENTER);
         return convertView;
     }
