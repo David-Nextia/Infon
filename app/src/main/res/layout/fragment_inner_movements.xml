@@ -59,7 +59,8 @@
                         style="@style/TxStyleSubTitle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/saldos_y_movimientos" />
+                        android:text="@string/saldos_y_movimientos"
+                        android:textColor="@color/color_black"/>
 
                     <TextView
                         style="@style/TxStyleSubSubTitle"
@@ -67,8 +68,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginTop="10dp"
-
-                        android:text="Estados de cuenta" />
+                        android:text="Estados de cuenta"
+                        android:textColor="@color/color_black"
+                        android:textStyle="bold"/>
                 </LinearLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -87,10 +89,7 @@
                         android:layout_height="wrap_content"
                         android:text="Crédito:"
                         android:layout_gravity="center"
-                        android:layout_weight="3.8"
-
-                        android:textColor="@color/color_black"
-                        android:textStyle="bold"/>
+                        android:layout_weight="3.8" />
                     <Spinner
                         app:layout_constraintStart_toEndOf="@id/creditTitle"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +116,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:textColor="@color/color_black"
                     tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
@@ -129,7 +127,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="14sp"
-                    android:textColor="@color/color_black"
                     tools:text="Tipo de Liquidación: CRÉDITO LIQUIDADO POR PAGOS"
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
@@ -141,7 +138,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="12dp"
                     android:layout_marginTop="5dp"
-                    android:textColor="@color/color_black"
                     android:textSize="14sp"
                     android:text="@string/prorroga"
                     android:layout_marginStart="@dimen/side_margins"
@@ -200,9 +196,7 @@
                                 android:layout_gravity="left"
                                 android:fontFamily="@font/subtitle"
                                 android:text="Histórico."
-
-                                android:textAppearance="@android:style/TextAppearance.Medium"
-                                android:textStyle="bold" />
+                                android:textAppearance="@android:style/TextAppearance.Medium" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -309,8 +303,7 @@
                         android:fontFamily="@font/subtitle"
                         android:text="Mensual"
                         android:textAlignment="center"
-                        android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textAppearance="@android:style/TextAppearance.Medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -408,8 +401,7 @@
                         android:layout_marginTop="20dp"
                         android:fontFamily="@font/subtitle"
                         android:text="Movimientos de los 3 últimos meses"
-                        android:textAppearance="@android:style/TextAppearance.Medium"
-                        android:textStyle="bold" />
+                        android:textAppearance="@android:style/TextAppearance.Medium" />
 
 
                     <ExpandableListView

@@ -29,7 +29,8 @@
                 android:layout_marginTop="@dimen/top_margins"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
-               style="@style/TxStyleSubTitle" />
+                style="@style/TxStyleSubTitle"
+                android:textColor="@color/color_black"/>
 
             <View
                 android:id="@+id/view"
@@ -47,7 +48,8 @@
                 android:textAlignment="center"
                 android:fontFamily="@font/subtitle"
                 android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
 
         </LinearLayout>
 

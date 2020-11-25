@@ -44,7 +44,8 @@
                     android:text="Mi ahorro"
                     android:textSize="15sp"
                     android:textStyle="bold"
-                    android:fontFamily="@font/title"/>
+                    android:fontFamily="@font/title"
+                    android:textColor="@color/color_black"/>
 
                 <TextView
                     android:id="@+id/tv_description"
@@ -57,7 +58,8 @@
                     android:text="Utiliza tu ahorro "
                     android:textSize="12sp"
                     android:padding="10dp"
-                    android:fontFamily="@font/subtitle"/>
+                    android:fontFamily="@font/subtitle"
+                    android:textColor="@color/color_black"/>
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

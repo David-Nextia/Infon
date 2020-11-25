@@ -27,7 +27,7 @@
                 android:text="@string/constancia_interes_titulo"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 style="@style/TxStyleSubTitle"
-                android:textColor="@color/color_blue" />
+                android:textColor="@color/color_black" />
 
             <View
                 android:layout_width="match_parent"

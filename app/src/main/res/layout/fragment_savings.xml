@@ -45,15 +45,15 @@
                 android:text="@{utils.formatMoney(saldo.getAportacion)}"
                 android:textAlignment="center"
                 android:textAppearance="@android:style/TextAppearance.Small"
-                android:textColor="@color/color_blue"
                 android:textSize="26sp"
-                android:textStyle="bold"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
-                tools:text="$-" />
+                tools:text="$-"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textView7"
@@ -65,7 +65,6 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/txtPatronActual"
-                android:textColor="@color/color_blue"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
 
@@ -82,14 +81,14 @@
                 android:text="@{saldo.getNombreEmpresa}"
                 android:textAppearance="@android:style/TextAppearance.Small"
                 android:textSize="12sp"
-                android:textStyle="bold"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/contribution_company2"
                 tools:text="..."
-                android:textColor="@color/color_blue"/>
+                android:textColor="@color/color_black"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/contribution_company2"
@@ -99,7 +98,6 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:fontFamily="@font/subtitle"
-                android:textColor="@color/color_blue"
                 android:gravity="center"
                 android:padding="3dp"
                 android:text="@string/contribution_patron_actual"
@@ -151,7 +149,7 @@
                 android:fontFamily="@font/subtitle"
                 android:gravity="center_horizontal"
                 android:text="Ley de subcuenta de vivienda"
-                android:textColor="@color/color_blue"
+                android:textColor="@color/color_black"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_marginStart="@dimen/side_margins"
@@ -282,7 +280,7 @@
                 android:text="@string/savings_title"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"
-                android:textColor="@color/color_blue"
+                android:textColor="@color/color_black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -305,8 +303,7 @@
                     android:fontFamily="@font/subtitle"
                     android:padding="3dp"
                     android:text="@string/contribution_ultima_aportacion"
-                    android:textAppearance="@android:style/TextAppearance.Small"
-                    android:textColor="@color/color_blue"/>
+                    android:textAppearance="@android:style/TextAppearance.Small" />
 
                 <TextView
                     android:id="@+id/txtFecha"
@@ -318,7 +315,7 @@
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textStyle="bold"
                     tools:text="..."
-                    android:textColor="@color/color_blue"/>
+                    android:textColor="@color/color_black"/>
             </LinearLayout>
 
 
