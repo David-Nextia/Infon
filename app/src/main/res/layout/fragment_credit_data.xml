@@ -156,7 +156,7 @@
                             android:textAlignment="center"
                             android:layout_marginTop="10dp"
                             android:textSize="13sp"
-                            android:text="Fecha de otorgamiento:"
+                            android:text="Fecha de movimiento:"
                             android:textAppearance="@android:style/TextAppearance.Small"
                             android:fontFamily="@font/subtitle" />
 
@@ -570,12 +570,14 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center|top"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:text="Fecha de\n movimiento:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:gravity="center|top"
+                                android:paddingTop="8dp"/>
 
                             <TextView
                                 android:id="@+id/txt_create_date2"
@@ -602,13 +604,14 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
-                                android:layout_gravity="center"
+                                android:layout_height="45dp"
+                                android:layout_gravity="center|top"
                                 android:textAlignment="center"
-                                android:gravity="center"
                                 android:text="Plazo:"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:gravity="center|top"
+                                android:paddingTop="8dp"/>
 
                             <TextView
                                 android:id="@+id/txt_plazo2"
@@ -768,12 +771,13 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
+                                android:layout_height="45dp"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
-                                android:gravity="center"
+                                android:gravity="center|top"
                                 android:textSize="13sp"
                                 android:text="Tasa de interés:"
+                                android:paddingTop="8dp"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -799,12 +803,13 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="35dp"
+                                android:layout_height="45dp"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
-                                android:gravity="center"
-                                android:text="Tipo de tasa \n de interés:"
+                                android:gravity="center|top"
+                                android:paddingTop="8dp"
+                                android:text="Tipo de tasa\nde interés:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
