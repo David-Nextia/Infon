@@ -93,7 +93,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
                 try{
-                    type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(0,1)+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().substring(1).toLowerCase()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().toLowerCase();
+                    type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
                 }catch (Exception e){}
                 String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                 binding.creditType.setText(Html.fromHtml(sourceString));

@@ -424,7 +424,7 @@
             android:layout_gravity="center"
             android:gravity="center">
 
-            <com.codesgood.views.JustifiedTextView
+            <TextView
                 android:textColor="@color/color_black"
                 android:textStyle="bold"
                 android:textSize="15sp"
@@ -436,7 +436,7 @@
                 android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
-            <com.codesgood.views.JustifiedTextView
+            <TextView
                 android:id="@+id/liquidType"
                 android:textColor="@color/color_black"
                 android:textStyle="bold"

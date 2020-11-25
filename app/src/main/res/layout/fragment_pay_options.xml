@@ -101,7 +101,7 @@
                 tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:id="@+id/prorroga"
                 android:visibility="gone"
                 android:layout_width="match_parent"
