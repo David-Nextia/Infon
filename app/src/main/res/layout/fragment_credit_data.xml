@@ -127,7 +127,7 @@
                     android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/lay_1_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -195,7 +195,7 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:gravity="center"
-                                android:text="Tipo de tasa de interés:"
+                                android:text="Tipo de tasa \n de interés:"
                                 android:fontFamily="@font/subtitle" />
 
                             <TextView
@@ -544,7 +544,7 @@
 
 
                 <LinearLayout
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/lay_2_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
