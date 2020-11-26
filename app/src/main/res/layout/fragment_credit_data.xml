@@ -114,7 +114,7 @@
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
 
-                <TextView
+                <com.codesgood.views.JustifiedTextView
                     android:id="@+id/prorroga"
                     android:visibility="gone"
                     android:layout_width="match_parent"
@@ -127,7 +127,7 @@
                     android:layout_marginEnd="@dimen/side_margins"/>
 
                 <LinearLayout
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:id="@+id/lay_1_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -557,7 +557,7 @@
 
 
                 <LinearLayout
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/lay_2_info_movs"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -687,7 +687,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
                                 android:textSize="13sp"
-                                android:text="@{movilidad.smovilTipmovi}"
+                                android:text="@{movilidad.smovilTipmovi.trim()}"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body"
                                 android:textColor="@color/color_black"

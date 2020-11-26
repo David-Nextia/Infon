@@ -66,6 +66,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textSize="11sp"
+            android:textColor="@color/color_black"
             android:text="En ventanilla o a través de la banca electrónica, vía SPEI. haz una transferencia electrónica, con los siguientes datos: "
             android:fontFamily="@font/body"/>
 
@@ -84,6 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:textColor="@color/color_black"
             android:textSize="11sp"
             android:text="En el campo, Referencia o Referencia Numérica, digita el número 5503; lo puedes distinguir porque no admite más de 7 dígitos.
 \nEn el campo, Concepto de pago, Motivo de pago o Referencia alfanumérica; digita tu número de crédito que consta de 10 dígitos.
@@ -103,6 +105,7 @@
             android:layout_margin="6sp"/>
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
+            android:textColor="@color/color_black"
             android:layout_height="wrap_content"
             android:text="@string/bank_scotian"
             android:textSize="12sp"
@@ -116,6 +119,7 @@
             />
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
+            android:textColor="@color/color_black"
             android:layout_height="wrap_content"
             android:text="@string/bank_banor"
             android:textSize="12sp"
@@ -131,6 +135,7 @@
 
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
+            android:textColor="@color/color_black"
             android:layout_height="wrap_content"
             android:text="@string/bank_city"
             android:textSize="12sp"
@@ -144,6 +149,7 @@
 
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
+            android:textColor="@color/color_black"
             android:layout_height="wrap_content"
             android:text="@string/bank_santan"
             android:textSize="12sp"
@@ -158,6 +164,7 @@
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/color_black"
             android:text="@string/bank_bans"
             android:textSize="12sp"
             android:fontFamily="@font/body" />
@@ -171,6 +178,7 @@
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/color_black"
             android:text="@string/bank_hsbc"
             android:textSize="12sp"
             android:fontFamily="@font/body" />
@@ -184,6 +192,7 @@
         <com.codesgood.views.JustifiedTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/color_black"
             android:text="@string/bank_bbva"
             android:textSize="12sp"
             android:fontFamily="@font/body" />

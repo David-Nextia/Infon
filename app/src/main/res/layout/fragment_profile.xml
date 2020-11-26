@@ -41,7 +41,7 @@
                 android:textSize="20sp"
                 android:layout_marginTop="50dp"
                 android:text="@{user.nombre+' '+user.apPaterno+' '+user.apMaterno}"
-                android:textColor="@color/colorgrayblue"
+                android:textColor="@color/color_black"
                 android:fontFamily="@font/title"
                 tools:text="Juan Perez"
                 />
@@ -55,7 +55,7 @@
                 android:textSize="18sp"
                 tools:text="@string/NSS_profiletest"
                 android:text="@{html.fromHtml(@string/NSS_profile(user.Nss))}"
-                android:textColor="@color/colorgrayblue"
+                android:textColor="@color/color_black"
                 android:fontFamily="@font/title"/>
 
             <LinearLayout

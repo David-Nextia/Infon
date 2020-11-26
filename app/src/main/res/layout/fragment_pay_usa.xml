@@ -24,13 +24,13 @@
 
             <TextView
                 android:id="@+id/textView30"
+                android:textColor="@color/color_black"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margins"
                 android:text="Saldos y movimientos"
                 android:textAlignment="center"
-                style="@style/TxStyleSubTitle"
-                android:textColor="@color/color_black"/>
+                style="@style/TxStyleSubTitle" />
 
             <View
                 android:id="@+id/view"
@@ -54,14 +54,15 @@
         </LinearLayout>
 
         <TextView
-            android:textSize="14sp"
-            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:fontFamily="@font/subtitle"
-            android:text="Paga desde Estados Unidos" />
+            android:gravity="center"
+            android:text="Paga desde Estados Unidos"
+            android:textColor="@color/color_black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -77,6 +78,7 @@
             android:textSize="12sp"
             android:text="Llama por teléfono al 1 888 246 2527, proporciona tu código postal y te indicarán la sucursal DolEx más cercana a tu domicilio para que puedas hacer tu pago."
             android:layout_marginTop="12dp"
+            android:textColor="@color/color_black"
             android:fontFamily="@font/body"/>
 
         <ImageView
@@ -94,6 +96,7 @@
             android:layout_marginTop="12dp"
             android:text="En la sucursal DolEx proporciona los 10 dígitos de tu número de crédito y da el importe en pesos."
             android:fontFamily="@font/body"
+            android:textColor="@color/color_black"
             />
 
         <ImageView
@@ -110,6 +113,7 @@
             android:text="@string/desc_pay"
             android:layout_gravity="center"
             android:gravity="center"
+            android:textColor="@color/color_black"
             android:fontFamily="@font/body"/>
 
         <include layout="@layout/view_desc_pay"/>

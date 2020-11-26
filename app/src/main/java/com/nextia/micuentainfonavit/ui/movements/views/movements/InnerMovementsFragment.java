@@ -104,14 +104,15 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.prorroga.setVisibility(View.VISIBLE);
                     binding.prorroga.animate().alpha(1);
                 }}
-                if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
+             if(saldoMovimientosResponse!=null)
+             { if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
                     //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
 
                     String liquid1="<b>" + "Tipo de liquidación: "+ "</b> " +saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
                     binding.LiquidType.setText(Html.fromHtml(liquid1));
                     binding.LiquidType.setVisibility(View.VISIBLE);
 
-                }
+                }}
             }
         });
         return binding.getRoot();}
@@ -349,9 +350,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         else if(object instanceof ReportMovsResponse){
             //Toast.makeText(getActivity(),((ReportMovsResponse)object).getReturn().getReporte(),Toast.LENGTH_LONG).show();
 
-            movsReporturl=((ReportMovsResponse)object).getReturn().getReporte();
+
             if(((ReportMovsResponse)object).getReturn().getCodigo().equals("00")){
                 binding.movementsContainer.setVisibility(View.VISIBLE);
+                movsReporturl=((ReportMovsResponse)object).getReturn().getReporte();
+            }else{
+                binding.movementsContainer.setVisibility(View.GONE);
             }
 
 

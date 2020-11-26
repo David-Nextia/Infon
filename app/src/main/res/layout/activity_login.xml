@@ -127,8 +127,8 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="10dp"
             android:text="@string/hyperlink2"
-            android:textColorLink="@color/color_blue"
-            android:textColor="@color/color_blue"
+            android:textColorLink="@color/color_black"
+            android:textColor="@color/color_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -180,7 +180,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
-                    android:textColorHint="@color/color_blue"
+                    android:textColorHint="@color/colorskeleton"
                     >
 
                     <EditText
@@ -249,7 +249,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:animateLayoutChanges="true"
-                    android:textColorHint="@color/color_blue"
+                    android:textColorHint="@color/colorskeleton"
                     app:passwordToggleEnabled="true">
 
                     <EditText
@@ -312,7 +312,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/recuerda_tu_usuario"
-                    android:textColor="@color/color_blue"
+                    android:textColor="@color/color_black"
                     android:fontFamily="@font/body"/>
 
                 <Switch
@@ -352,13 +352,13 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="40dp"
             android:text="@string/hyperlink3"
-            android:textColor="@color/color_blue"
+            android:textColor="@color/color_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/register_form"
             app:layout_constraintBottom_toTopOf="@id/avisolink"
             android:fontFamily="@font/body"
-            android:textColorLink="@color/color_blue"
+            android:textColorLink="@color/color_black"
             style="@style/AppThemeBlueAccent"
 
             />
@@ -369,20 +369,20 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="@string/hyperlinkap"
-            android:textColor="@color/color_blue"
+            android:textColor="@color/color_black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/registerlink2"
             android:layout_marginBottom="10dp"
             app:layout_constraintStart_toStartOf="parent"
             android:fontFamily="@font/body"
-            android:textColorLink="@color/color_blue"/>
+            android:textColorLink="@color/color_black"/>
         <TextView
             android:id="@+id/version"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/body"
-            android:textColor="@color/color_blue"
+            android:textColor="@color/color_black"
             app:layout_constraintTop_toBottomOf="@id/avisolink"
             app:layout_constraintStart_toStartOf="@id/avisolink"
             app:layout_constraintEnd_toEndOf="@id/avisolink"
