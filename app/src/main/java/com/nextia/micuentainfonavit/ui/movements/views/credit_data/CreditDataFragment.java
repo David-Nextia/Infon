@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import android.os.CountDownTimer;
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,6 +39,7 @@ import com.nextia.micuentainfonavit.databinding.FragmentCreditDataBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.constancia.pdf_download.PdfConstanciaDownloadFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -55,6 +58,7 @@ public class CreditDataFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_credit_data, container, false);
         spinnerCredit = binding.spCreditType;
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
+        viewModel.setInit(false);
         rootView = binding.rootView;
         setSpinner();
         return binding.getRoot();
@@ -65,6 +69,7 @@ public class CreditDataFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
@@ -77,6 +82,18 @@ public class CreditDataFragment extends Fragment {
                         binding.prorroga.setAlpha(0);
                         binding.prorroga.setVisibility(View.VISIBLE);
                         binding.prorroga.animate().alpha(1);
+                    }
+                    if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.CREDIT_DATA))
+                    {
+                        setBlur(saldoMovimientosResponse);
+                        binding.scrollview.setOnTouchListener(new View.OnTouchListener() {
+                            @Override
+                            public boolean onTouch(View v, MotionEvent event) {
+                                return true;
+                            }
+                        });
+
+
                     }
                     if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getMovilidad().getSmovilInd().trim().equals("1")){
                         binding.responLayout.setVisibility(View.VISIBLE);
@@ -102,7 +119,8 @@ public class CreditDataFragment extends Fragment {
 
 
                 }else {
-                    dialogError();
+                    if(viewModel.getInit().getValue())
+                    {dialogError();}
                 }
             }
         });
@@ -183,5 +201,38 @@ public class CreditDataFragment extends Fragment {
             }
         });
         alertdialog.show();
+    }
+    void blurView(String credit, String liquid){
+        binding.viewAdvice.animate().alpha(1);
+        // binding.rootView.animate().alpha(0.1f);
+        binding.typeCredit2.setText(credit);
+        binding.liquidType.setText(liquid);
+        binding.blurView.animate().alpha(1);
+
+
+
+    }
+
+    void setBlur(SaldoMovimientosResponse saldoMovimientosResponse){
+        String type="";
+        try{
+            String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
+            String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
+            type= one+" "+two;
+        }catch (Exception e){}
+        String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
+        //String date=item.get(0).getFCREAVIS();
+        SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
+        Date newDate= null;
+        try {
+            newDate = spf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spf= new SimpleDateFormat("dd.MM.yyyy");
+        date = spf.format(newDate);
+        String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
+        String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
+        blurView(credit1,liquid1);
     }
 }
