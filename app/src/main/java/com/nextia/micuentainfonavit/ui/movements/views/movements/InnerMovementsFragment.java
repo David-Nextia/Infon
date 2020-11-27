@@ -289,9 +289,10 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle fail response of server
     @Override
     public void onFailureRequest(String message) {
-        DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
+        if(getContext()!=null)
+        { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         //binding.progressBar2.animate().alpha(0.0f);
-        dialog.show();
+        dialog.show();}
 
     }
 
@@ -507,7 +508,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
             type= one+" "+two;
         }catch (Exception e){}
-        String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
+        if(saldoMovimientosResponse!=null)
+        {String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
         //String date=item.get(0).getFCREAVIS();
         SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
         Date newDate= null;
@@ -520,6 +522,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         date = spf.format(newDate);
         String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
         String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
-        blurView(credit1,liquid1);
+        binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
+        blurView(credit1,liquid1);}
     }
 }

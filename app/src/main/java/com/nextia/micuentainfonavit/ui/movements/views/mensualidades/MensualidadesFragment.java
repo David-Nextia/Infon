@@ -237,6 +237,7 @@ public class MensualidadesFragment extends Fragment {
         date = spf.format(newDate);
         String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
         String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
+        binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
         blurView(credit1,liquid1);
     }
 }

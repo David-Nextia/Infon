@@ -435,6 +435,7 @@
         android:gravity="center">
 
         <TextView
+            android:visibility="gone"
             android:textColor="@color/color_black"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -447,7 +448,22 @@
             android:layout_marginStart="@dimen/side_margins"
             android:layout_marginEnd="@dimen/side_margins"/>
         <TextView
+            android:visibility="gone"
             android:id="@+id/liquidType"
+            android:textColor="@color/color_black"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"
+            android:layout_marginStart="@dimen/side_margins"
+            android:layout_marginEnd="@dimen/side_margins"/>
+        <TextView
+            android:visibility="visible"
+            android:id="@+id/info"
             android:textColor="@color/color_black"
             android:textStyle="bold"
             android:textSize="15sp"
@@ -461,6 +477,7 @@
             android:layout_marginEnd="@dimen/side_margins"/>
 
         <com.codesgood.views.JustifiedTextView
+            android:visibility="gone"
             android:textColor="@color/color_black"
             android:textStyle="bold"
             android:textSize="15sp"
