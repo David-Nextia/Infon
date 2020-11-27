@@ -1,4 +1,7 @@
 package com.nextia.micuentainfonavit.ui.movements.logic_views;
+/**
+ * file to determine the views configuration on movements fragment
+ */
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -53,7 +56,7 @@ public class ViewsConfig {
         this.mensaje = mensaje;
         getNombreAndConditions(tipoCaso);
     }
-
+    //setting conditions of views
     private void getNombreAndConditions(String tipoCaso){
 
         if(tipoCaso.equals("00010")){

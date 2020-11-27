@@ -55,11 +55,11 @@ public class MessageConfig {
                                 messageString = messageString.replace("%c" + (x + 1), getValueByKey(respuestasDoMovs, field));
                             }
 
-                            message_return = message_return + (message_return.isEmpty() ? "" : "\n") + messageString;
+                            message_return = message_return + (message_return.isEmpty() ? "" : "\n\n") + messageString;
 
                         } else {
                             //In case of not having fields, the description value is appended as it is in the json
-                            message_return = message_return + (message_return.isEmpty() ? "" : "\n") + mJsonObjectMessage.getString(jsonColumnDescription);
+                            message_return = message_return + (message_return.isEmpty() ? "" : "\n\n") + mJsonObjectMessage.getString(jsonColumnDescription);
                         }
                     }
                 }
