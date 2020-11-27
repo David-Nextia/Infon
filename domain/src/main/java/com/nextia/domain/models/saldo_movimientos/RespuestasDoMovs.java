@@ -30,6 +30,10 @@ public class RespuestasDoMovs {
     @SerializedName("movilidad")
     @Expose
     private Movilidad movilidad;
+
+    @SerializedName("salidagrals")
+    @Expose
+    private Salidagrals salidagrals;
     public void setOpcionesPago(OpcionesPago opcionesPago) {
         this.opcionesPago = opcionesPago;
     }
@@ -74,6 +78,14 @@ public class RespuestasDoMovs {
 
     public void setMovilidad(Movilidad movilidad) {
         this.movilidad = movilidad;
+    }
+
+    public Salidagrals getSalidagrals() {
+        return salidagrals;
+    }
+
+    public void setSalidagrals(Salidagrals salidagrals) {
+        this.salidagrals = salidagrals;
     }
 
 }

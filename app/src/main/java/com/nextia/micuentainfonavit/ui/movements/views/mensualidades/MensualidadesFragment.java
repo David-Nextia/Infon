@@ -69,7 +69,7 @@ public class MensualidadesFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mensualidades, container, false);
         rootView = binding.rootView;
         spinnerCredit = binding.spCreditType;
-        viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         setSpinner();
         return binding.getRoot();
     }

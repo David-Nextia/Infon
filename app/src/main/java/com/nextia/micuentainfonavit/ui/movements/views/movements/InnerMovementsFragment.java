@@ -85,7 +85,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
         //binding.progressBar2.animate().alpha(0.0f);
-        viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         setSpinner();
         setOnclicks();
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
