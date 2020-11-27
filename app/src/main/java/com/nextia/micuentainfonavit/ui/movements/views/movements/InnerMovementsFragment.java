@@ -291,6 +291,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public void onFailureRequest(String message) {
         if(getContext()!=null)
         { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
+        Utils.hideLoadingSkeleton();
         //binding.progressBar2.animate().alpha(0.0f);
         dialog.show();}
 

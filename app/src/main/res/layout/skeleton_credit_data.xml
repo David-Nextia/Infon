@@ -61,17 +61,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:layout_margin="8dp">
+                >
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp">
 
                     <LinearLayout
+
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="75dp"
@@ -125,6 +127,8 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:layout_weight="1"
                         android:layout_height="100dp"
                         android:orientation="vertical"
@@ -153,6 +157,8 @@
                         android:layout_height="100dp"
                         android:orientation="vertical"
                         android:background="@drawable/card_background"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:backgroundTint="@color/light_transparent"
                         android:padding="12dp">
 
@@ -176,6 +182,8 @@
                         android:layout_weight="1"
                         android:layout_height="100dp"
                         android:orientation="vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:padding="12dp"
                         android:backgroundTint="@color/light_transparent"
                         android:background="@drawable/card_background">
@@ -193,6 +201,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
               >
 
@@ -247,6 +257,8 @@
                     android:layout_marginBottom="40dp"
                     android:gravity="center"
                     android:textSize="12dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:visibility="gone"
                     android:textColor="@android:color/transparent"
                     android:background="@color/light_transparent"/>
@@ -254,9 +266,11 @@
                 <LinearLayout
                     android:id="@+id/respon_layout"
                     android:visibility="visible"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="20dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginBottom="40dp"
                     android:gravity="right"
@@ -271,6 +285,7 @@
                         android:text="Responsabilidad Compartida"
                         android:textSize="10sp"
                         android:layout_gravity="center_vertical"
+
                         android:fontFamily="@font/subtitle"
                         android:textColor="@android:color/transparent"
                         android:background="@color/light_transparent"/>

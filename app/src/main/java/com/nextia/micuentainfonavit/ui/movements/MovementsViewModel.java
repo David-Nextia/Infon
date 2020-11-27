@@ -13,6 +13,7 @@ import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.Utils;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
@@ -59,7 +60,7 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
     //method to handle the success response of the service
     @Override
     public void onSuccesRequest(SaldoMovimientosResponse object, String token) {
-        ViewsConfig config= new ViewsConfig(object.getReturnData().getRespuestasDoMovs().getSalidagrals().getTipoCaso(),"hellow");
+        ViewsConfig config= new ViewsConfig(object.getReturnData().getRespuestasDoMovs().getSalidagrals().getTipoCaso(), MessageConfig.buildMessage(object.getReturnData().getRespuestasDoMovs()));
         setConfig(config);
         _movements.setValue(object);
         setInit(true);
