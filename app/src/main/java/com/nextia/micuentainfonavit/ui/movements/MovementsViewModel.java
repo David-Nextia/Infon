@@ -13,11 +13,13 @@ import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosBody;
 import com.nextia.domain.models.saldo_movimientos.SaldoMovimientosResponse;
 import com.nextia.micuentainfonavit.Utils;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 
 public class MovementsViewModel extends ViewModel implements OnFinishRequestListener<SaldoMovimientosResponse> {
     SaldosUseCase saldos = new SaldosUseCase();
     private MutableLiveData<SaldoMovimientosResponse> _movements = new MutableLiveData<>();
+    private MutableLiveData<ViewsConfig> _config = new MutableLiveData<>();
     private MutableLiveData<Boolean> _initiated = new MutableLiveData<>();
     private MutableLiveData<Boolean> _availableToken = new MutableLiveData<>();
 
@@ -32,15 +34,19 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
     public LiveData<SaldoMovimientosResponse> getSaldosMovimientos() {
         return _movements;
     }
-
+    public LiveData<ViewsConfig> getConfig() {
+        return _config;
+    }
     public LiveData<Boolean>getTokenExpired(){return _availableToken;}
     public void setInit(boolean test){_initiated.setValue(test);}
     public LiveData<Boolean>getInit(){return _initiated;}
+    public void setConfig(ViewsConfig config){_config.setValue(config);}
 
 
     //method to handle the fail response of the service
     @Override
     public void onFailureRequest(String message) {
+        setInit(true);
         _movements.setValue(null);
     }
 
@@ -53,6 +59,12 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
     //method to handle the success response of the service
     @Override
     public void onSuccesRequest(SaldoMovimientosResponse object, String token) {
+        ViewsConfig config= new ViewsConfig(object.getReturnData().getRespuestasDoMovs().getSalidagrals().getTipoCaso(),"hellow");
+        setConfig(config);
         _movements.setValue(object);
+        setInit(true);
+
+
+
     }
 }

@@ -39,6 +39,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentPayOptionsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -64,6 +65,7 @@ public class PayOptionsFragment extends Fragment {
         spinnerCredit=binding.spCreditType;
         rootView = binding.rootView;
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
+        viewModel.setInit(false);
         setSpinner();
         setOnClicks();
         return binding.getRoot();
@@ -97,33 +99,11 @@ public class PayOptionsFragment extends Fragment {
                         }catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
-                    if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
-                        //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
-                        try{
-                            String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
-                            String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
-                            type= one+" "+two;
-                        }catch (Exception e){}
-                        String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
-                        //String date=item.get(0).getFCREAVIS();
-                        SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
-                        Date newDate= null;
-                        try {
-                            newDate = spf.parse(date);
-                        } catch (ParseException e) {
-                            e.printStackTrace();
-                        }
-                        spf= new SimpleDateFormat("dd.MM.yyyy");
-                        date = spf.format(newDate);
-                        String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
-                        String liquid1="Tipo de liquidación: \n"+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
-                        blurView(credit1,liquid1);
-                        binding.lyBank.setEnabled(false);
-                        binding.lyMarket.setEnabled(false);
-                        binding.lyUsa.setEnabled(false);
-                    }
+                    if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.PAY_OPTIONS))
+                    { setBlur(saldoMovimientosResponse);}
                 }else {
-                    dialogError();
+                    if(viewModel.getInit().getValue())
+                    {dialogError();}
                 }
             }
         });
@@ -228,5 +208,28 @@ public class PayOptionsFragment extends Fragment {
 
 
 
+    }
+    void setBlur(SaldoMovimientosResponse saldoMovimientosResponse){
+        String type="";
+        try{
+            String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
+            String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
+            type= one+" "+two;
+        }catch (Exception e){}
+        String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
+        //String date=item.get(0).getFCREAVIS();
+        SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
+        Date newDate= null;
+        try {
+            newDate = spf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spf= new SimpleDateFormat("dd.MM.yyyy");
+        date = spf.format(newDate);
+        String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
+        String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
+        binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
+        blurView(credit1,liquid1);
     }
 }
