@@ -63,7 +63,7 @@ public class PayOptionsFragment extends Fragment {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pay_options, container, false);
         spinnerCredit=binding.spCreditType;
         rootView = binding.rootView;
-        viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         setSpinner();
         setOnClicks();
         return binding.getRoot();

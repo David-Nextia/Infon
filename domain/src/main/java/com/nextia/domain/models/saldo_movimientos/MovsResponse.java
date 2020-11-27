@@ -22,6 +22,8 @@ public class MovsResponse {
     @Expose
     private List<Movimiento> movimientos = null;
 
+
+
     public String getRetorno() {
         return retorno;
     }

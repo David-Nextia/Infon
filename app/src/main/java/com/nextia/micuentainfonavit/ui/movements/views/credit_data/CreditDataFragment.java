@@ -54,7 +54,7 @@ public class CreditDataFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_credit_data, container, false);
         spinnerCredit = binding.spCreditType;
-        viewModel = new ViewModelProvider(this).get(MovementsViewModel.class);
+        viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         rootView = binding.rootView;
         setSpinner();
         return binding.getRoot();
