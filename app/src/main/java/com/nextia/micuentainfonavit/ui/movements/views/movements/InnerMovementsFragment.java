@@ -45,6 +45,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.ui.movements.views.movements.adapter.AdapterMovements;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
@@ -96,20 +97,37 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
-                try{
-                    type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
-                }catch (Exception e){}
-                String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
-                binding.creditType.setText(Html.fromHtml(sourceString));
-             if(saldoMovimientosResponse!=null)
-             {if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00")&&
+                String messagesTypeCredit = "";
+                if(saldoMovimientosResponse!=null) {
+                    try{
+                        type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
+                        messagesTypeCredit = MessageConfig.buildMessage(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs());
+                    }catch (Exception e){}
+                    String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
+                    binding.creditType.setText(Html.fromHtml(sourceString));
+                    if(!messagesTypeCredit.equals("")) {
+                        binding.prorroga.setText(messagesTypeCredit);
+                        binding.imgMoreInfo.setVisibility(View.VISIBLE);
+                    }
+                    /*if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00")&&
                         !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")){
-                    binding.prorroga.setAlpha(0);
-                    binding.prorroga.setVisibility(View.VISIBLE);
-                    binding.prorroga.animate().alpha(1);
-                }}
-                if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MOVEMENTS))
-                {
+                        binding.prorroga.setAlpha(0);
+                        binding.prorroga.setVisibility(View.VISIBLE);
+                        binding.prorroga.animate().alpha(1);
+                    }*/
+                    binding.imgMoreInfo.setOnClickListener(view-> {
+                        if(binding.prorroga.getVisibility() == View.VISIBLE) {
+                            binding.prorroga.animate().alpha(1);
+                            binding.prorroga.setVisibility(View.GONE);
+                            binding.prorroga.setAlpha(0);
+                        } else {
+                            binding.prorroga.setAlpha(0);
+                            binding.prorroga.setVisibility(View.VISIBLE);
+                            binding.prorroga.animate().alpha(1);
+                        }
+                    });
+                }
+                if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MOVEMENTS)) {
                     setBlur(saldoMovimientosResponse);
                     binding.scrollview.setOnTouchListener(new View.OnTouchListener() {
                         @SuppressLint("ClickableViewAccessibility")
@@ -124,18 +142,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.textDownloadMovs.setOnClickListener(null);
                     binding.textDownloadMensual.setOnClickListener(null);
                     binding.textDownloadHistoric.setOnClickListener(null);
-
-
+                    binding.lnrTypeLinear.setVisibility(View.GONE);
                 }
-             if(saldoMovimientosResponse!=null)
-             { if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
-                    //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
-
-                    String liquid1="<b>" + "Tipo de liquidación: "+ "</b> " +saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion().trim();
-                    binding.LiquidType.setText(Html.fromHtml(liquid1));
-                    binding.LiquidType.setVisibility(View.VISIBLE);
-
-                }}
             }
         });
         return binding.getRoot();}
@@ -446,6 +454,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
 
     }
+
     private void setListViewHeight(ExpandableListView listView, int group, boolean expand) {
 
         if(getActivity()!=null)
@@ -491,6 +500,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         listView.requestLayout();}
 
     }
+
     void blurView(String credit, String liquid){
         binding.viewAdvice.animate().alpha(1);
         // binding.rootView.animate().alpha(0.1f);

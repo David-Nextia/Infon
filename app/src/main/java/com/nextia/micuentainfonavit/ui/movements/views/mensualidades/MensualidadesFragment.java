@@ -42,6 +42,7 @@ import com.nextia.micuentainfonavit.databinding.FragmentMensualidadesBinding;
 import com.nextia.micuentainfonavit.databinding.FragmentSavingsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
 
@@ -87,21 +88,27 @@ public class MensualidadesFragment extends Fragment {
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
+                String messagesTypeCredit = "";
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1() != null){
                     binding.setSaldo(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1());
                     Utils.hideLoadingSkeleton();
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
-                        }catch (Exception e){}
+                        messagesTypeCredit = MessageConfig.buildMessage(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs());
+                    } catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
+                    if(!messagesTypeCredit.equals("")) {
+                        binding.prorroga.setText(messagesTypeCredit);
+                        binding.imgMoreInfo.setVisibility(View.VISIBLE);
+                    }
                     binding.creditType.setText(Html.fromHtml(sourceString));
-                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
+                    /* if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
                             !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")
                     ){
                         binding.prorroga.setAlpha(0);
                         binding.prorroga.setVisibility(View.VISIBLE);
                         binding.prorroga.animate().alpha(1);
-                    }
+                    } */
 
                    if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MENSUALIDADES))
                    {
@@ -113,12 +120,22 @@ public class MensualidadesFragment extends Fragment {
                                return true;
                            }
                        });
-
-
+                       binding.lnrTypeLinear.setVisibility(View.GONE);
                    }
 
+                   binding.imgMoreInfo.setOnClickListener(view-> {
+                       if(binding.prorroga.getVisibility() == View.VISIBLE) {
+                           binding.prorroga.animate().alpha(1);
+                           binding.prorroga.setVisibility(View.GONE);
+                           binding.prorroga.setAlpha(0);
+                       } else {
+                           binding.prorroga.setAlpha(0);
+                           binding.prorroga.setVisibility(View.VISIBLE);
+                           binding.prorroga.animate().alpha(1);
+                       }
+                   });
 
-                }else {
+                } else {
                     if(viewModel.getInit().getValue())
                     {dialogError();}
                 }
