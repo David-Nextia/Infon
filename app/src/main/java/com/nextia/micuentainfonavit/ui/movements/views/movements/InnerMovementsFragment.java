@@ -140,6 +140,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     creditUseCase.getPeriodosDisponibles(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
+                    binding.movementsContainer.setVisibility(View.GONE);
+
                 } else {
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
@@ -299,8 +301,15 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         //respuesta del historico
         if(object instanceof HistoricResponse)
         {
+            if(((HistoricResponse)object).getStatusServicio().getCodigo().equals("00"))
 
-            object_final = (HistoricResponse) object;
+            {object_final = (HistoricResponse) object;
+                binding.historicContainer.setVisibility(View.VISIBLE);
+
+            }
+            else{
+                binding.historicContainer.setVisibility(View.GONE);
+            }
 
 
 

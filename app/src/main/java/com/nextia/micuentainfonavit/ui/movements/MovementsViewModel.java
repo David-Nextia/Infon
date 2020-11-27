@@ -18,7 +18,9 @@ import com.nextia.micuentainfonavit.usecases.SaldosUseCase;
 public class MovementsViewModel extends ViewModel implements OnFinishRequestListener<SaldoMovimientosResponse> {
     SaldosUseCase saldos = new SaldosUseCase();
     private MutableLiveData<SaldoMovimientosResponse> _movements = new MutableLiveData<>();
+    private MutableLiveData<Boolean> _initiated = new MutableLiveData<>();
     private MutableLiveData<Boolean> _availableToken = new MutableLiveData<>();
+
 
     //method to call the DB service and get data
     public void getMovements(Context context, String credito) {
@@ -32,6 +34,9 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
     }
 
     public LiveData<Boolean>getTokenExpired(){return _availableToken;}
+    public void setInit(boolean test){_initiated.setValue(test);}
+    public LiveData<Boolean>getInit(){return _initiated;}
+
 
     //method to handle the fail response of the service
     @Override

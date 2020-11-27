@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -35,6 +36,7 @@ import androidx.core.view.MenuCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.NavOptions;
@@ -51,6 +53,7 @@ import com.nextia.micuentainfonavit.databinding.ActivityMainBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.AvisoPrivacidadActivity;
 import com.nextia.micuentainfonavit.ui.avisoprivacidad.TermConditionsActivity;
+import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 
 import okhttp3.internal.Util;
 
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity  {
     private ImageView ivCloseMenu;
     private Toolbar toolbar;
     private Intent intent;
-
+    private MovementsViewModel viewModel;
     private ActivityMainBinding binding;
     private static String FACEBOOK_URL = "https://m.facebook.com/ComunidadInfonavit";
     private static String FACEBOOK_PAGE_ID = "ComunidadInfonavit";
@@ -75,7 +78,8 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
+        viewModel = new ViewModelProvider(MainActivity.this).get(MovementsViewModel.class);
+        viewModel.setInit(false);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         setContentView(binding.getRoot());
 
@@ -107,9 +111,9 @@ public class MainActivity extends AppCompatActivity  {
                 .setDrawerLayout(binding.drawerLayout)
                 .build();
         navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
     }
 
     //setting the logout method
@@ -130,6 +134,13 @@ public class MainActivity extends AppCompatActivity  {
                 return  true;
             }
         });
+//        binding.navView.getMenu().findItem(R.id.nav_movements).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+//                return true;
+//            }
+//        });
         binding.navView.getMenu().findItem(R.id.nav_separate).setEnabled(false);
 
     }
@@ -283,4 +294,25 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void disablemenu(){
+
+                binding.navView.getMenu().findItem(R.id.nav_movements).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                //navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+                binding.drawerLayout.close();
+                return true;
+            }
+        });
+    }
+
+    public void enablemenu(){
+
+        binding.navView.getMenu().findItem(R.id.nav_movements).setOnMenuItemClickListener(null);
+    }
 }
