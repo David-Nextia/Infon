@@ -7,8 +7,12 @@
     <data>
 
     </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:id="@+id/scrollview"
         android:layout_height="match_parent"
         android:background="@drawable/back"
         tools:context=".ui.movements.views.movements.InnerMovementsFragment">
@@ -477,4 +481,81 @@
 
 
     </androidx.core.widget.NestedScrollView>
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/blurView"
+            android:alpha="0"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="20dp"
+            app:realtimeOverlayColor="#00F0F8FF"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:orientation="vertical"
+            android:id="@+id/viewAdvice"
+            android:layout_gravity="center"
+            android:gravity="center">
+            <TextView
+                android:visibility="visible"
+                android:id="@+id/info"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
+            <TextView
+                android:visibility="gone"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:id="@+id/typeCredit2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/liquidType"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:visibility="gone"
+                android:textColor="@color/color_black"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/exces_payments"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"/>
+
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

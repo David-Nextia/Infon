@@ -6,6 +6,7 @@ package com.nextia.micuentainfonavit.ui.movements.views.movements;
 import androidx.appcompat.app.AlertDialog;
 import androidx.databinding.DataBindingUtil;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -19,6 +20,7 @@ import androidx.navigation.Navigation;
 
 import android.text.Html;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -43,6 +45,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.ui.movements.views.movements.adapter.AdapterMovements;
 import com.nextia.micuentainfonavit.ui.pdf_view.PdfViewViewModel;
 import com.nextia.micuentainfonavit.usecases.CreditUseCase;
@@ -89,6 +92,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         setSpinner();
         setOnclicks();
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
+            @SuppressLint("ClickableViewAccessibility")
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
@@ -104,6 +108,25 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.prorroga.setVisibility(View.VISIBLE);
                     binding.prorroga.animate().alpha(1);
                 }}
+                if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MOVEMENTS))
+                {
+                    setBlur(saldoMovimientosResponse);
+                    binding.scrollview.setOnTouchListener(new View.OnTouchListener() {
+                        @SuppressLint("ClickableViewAccessibility")
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            return true;
+                        }
+                    });
+                    binding.mensualImg.setOnClickListener(null);
+                    binding.historicImg.setOnClickListener(null);
+                    binding.movsImg.setOnClickListener(null);
+                    binding.textDownloadMovs.setOnClickListener(null);
+                    binding.textDownloadMensual.setOnClickListener(null);
+                    binding.textDownloadHistoric.setOnClickListener(null);
+
+
+                }
              if(saldoMovimientosResponse!=null)
              { if(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV11Sdoliqpes().trim().equals("0.00")){
                     //Toast.makeText(getContext(),"es cer",Toast.LENGTH_LONG).show();
@@ -266,9 +289,10 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle fail response of server
     @Override
     public void onFailureRequest(String message) {
-        DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), message, DialogInfonavit.ONE_BUTTON_DIALOG);
+        if(getContext()!=null)
+        { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         //binding.progressBar2.animate().alpha(0.0f);
-        dialog.show();
+        dialog.show();}
 
     }
 
@@ -303,12 +327,15 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         {
             if(((HistoricResponse)object).getStatusServicio().getCodigo().equals("00"))
 
-            {object_final = (HistoricResponse) object;
+            {
+                object_final = (HistoricResponse) object;
                 binding.historicContainer.setVisibility(View.VISIBLE);
+                Utils.hideLoadingSkeleton();
 
             }
             else{
                 binding.historicContainer.setVisibility(View.GONE);
+                Utils.hideLoadingSkeleton();
             }
 
 
@@ -351,7 +378,6 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         else if(object instanceof MensualReportResponse){
             mensualReporturl=((MensualReportResponse)object).getReporte();
             binding.monthlyContainer.setVisibility(View.VISIBLE);
-            Utils.hideLoadingSkeleton();
             binding.txtLastPeriod.setText(period);
         }
 
@@ -363,8 +389,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             if(((ReportMovsResponse)object).getReturn().getCodigo().equals("00")){
                 binding.movementsContainer.setVisibility(View.VISIBLE);
                 movsReporturl=((ReportMovsResponse)object).getReturn().getReporte();
+                if(object_final!=null){
+                    Utils.hideLoadingSkeleton();
+                }
             }else{
                 binding.movementsContainer.setVisibility(View.GONE);
+                if(object_final!=null){
+                    Utils.hideLoadingSkeleton();
+                }
             }
 
 
@@ -457,5 +489,40 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         listView.setLayoutParams(params);
         listView.requestLayout();}
 
+    }
+    void blurView(String credit, String liquid){
+        binding.viewAdvice.animate().alpha(1);
+        // binding.rootView.animate().alpha(0.1f);
+        binding.typeCredit2.setText(credit);
+        binding.liquidType.setText(liquid);
+        binding.blurView.animate().alpha(1);
+
+
+
+    }
+
+    void setBlur(SaldoMovimientosResponse saldoMovimientosResponse){
+        String type="";
+        try{
+            String one=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito().trim();
+            String two=saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam().trim();
+            type= one+" "+two;
+        }catch (Exception e){}
+        if(saldoMovimientosResponse!=null)
+        {String date= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV2FechaLiquidacion().trim();
+        //String date=item.get(0).getFCREAVIS();
+        SimpleDateFormat spf=new SimpleDateFormat("yyyyMMdd");
+        Date newDate= null;
+        try {
+            newDate = spf.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        spf= new SimpleDateFormat("dd.MM.yyyy");
+        date = spf.format(newDate);
+        String credit1="TU CRÉDITO "+type+" FUE LIQUIDADO EL "+date;
+        String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
+        binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
+        blurView(credit1,liquid1);}
     }
 }
