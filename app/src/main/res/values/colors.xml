@@ -21,6 +21,7 @@
     <color name="colorYellow">#F59E27</color>
     <color name="colorGray">#F0F0F0</color>
     <color name="colorBulletsRed">#C01F3F</color>
+    <color name="colorBlueAlert">#3891f1</color>
     <!--degraded color -->
     <color name="blue_degraded">@drawable/gradient_blue</color>
     <color name="red_degraded">@drawable/gradient_red</color>

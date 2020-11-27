@@ -92,7 +92,8 @@ public class MensualidadesFragment extends Fragment {
                     Utils.hideLoadingSkeleton();
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
-                        }catch (Exception e){}
+                        messagesTypeCredit = MessageConfig.buildMessage(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs());
+                    } catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
                     if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
@@ -113,11 +114,20 @@ public class MensualidadesFragment extends Fragment {
                                return true;
                            }
                        });
-
-
-
+                       binding.lnrTypeLinear.setVisibility(View.GONE);
                    }
 
+                   binding.imgMoreInfo.setOnClickListener(view-> {
+                       if(binding.prorroga.getVisibility() == View.VISIBLE) {
+                           binding.prorroga.animate().alpha(1);
+                           binding.prorroga.setVisibility(View.GONE);
+                           binding.prorroga.setAlpha(0);
+                       } else {
+                           binding.prorroga.setAlpha(0);
+                           binding.prorroga.setVisibility(View.VISIBLE);
+                           binding.prorroga.animate().alpha(1);
+                       }
+                   });
 
                 }else {
                     if(viewModel.getInit().getValue())

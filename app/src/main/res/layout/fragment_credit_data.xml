@@ -94,38 +94,69 @@
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
 
-                <TextView
-                    android:id="@+id/creditType"
+                <LinearLayout
+                    android:id="@+id/lnr_type_linear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textSize="14sp"
-                    tools:text="Tipo de crédito: Hipotecario línea 3 crédito infonavit individual"
                     android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
+                    android:layout_marginEnd="@dimen/side_margins"
+                    android:background="@color/colorBlueAlert"
+                    android:orientation="vertical">
 
-                <com.codesgood.views.JustifiedTextView
-                    android:visibility="gone"
-                    android:id="@+id/LiquidType"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="14sp"
-                    tools:text="Tipo de Liquidación: CRÉDITO LIQUIDADO POR PAGOS"
-                    android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="20">
 
-                <com.codesgood.views.JustifiedTextView
-                    android:id="@+id/prorroga"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="5dp"
-                    android:textSize="14sp"
-                    android:text="@string/prorroga"
-                    android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="35dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            app:tint="@color/color_white"
+                            android:layout_marginStart="4dp"
+                            android:src="@drawable/ic_info_circle" />
+
+                        <TextView
+                            android:id="@+id/creditType"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="18"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:textSize="14sp"
+                            tools:text="@string/type_of_credit"
+                            android:textColor="@color/color_white"/>
+
+                        <ImageView
+                            android:id="@+id/img_more_info"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="4dp"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_expand_more" />
+
+                    </LinearLayout>
+
+                    <com.codesgood.views.JustifiedTextView
+                        android:id="@+id/prorroga"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="14sp"
+                        android:text="@string/prorroga"
+                        android:textColor="@color/color_white"
+                        android:layout_marginStart="@dimen/side_margins"
+                        android:layout_marginEnd="@dimen/side_margins"/>
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:visibility="visible"
