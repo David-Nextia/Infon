@@ -289,7 +289,7 @@ public class MessageConfig {
             "\t},\n" +
             "\t{\n" +
             "\t\t\"IdMessage\": \"40\",\n" +
-            "\t\t\"Description\": \"Información actualizada al %s.\",\n" +
+            "\t\t\"Description\": \"Información actualizada al %c1.\",\n" +
             "\t\t\"Fields\": [\n" +
             "\t\t\t\"v9FechaAsignacion\"\n" +
             "\t\t]\n" +
