@@ -97,18 +97,14 @@ public class MensualidadesFragment extends Fragment {
                         messagesTypeCredit = MessageConfig.buildMessage(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs());
                     } catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
-                    if(!messagesTypeCredit.equals("")) {
-                        binding.prorroga.setText(messagesTypeCredit);
-                        binding.imgMoreInfo.setVisibility(View.VISIBLE);
-                    }
                     binding.creditType.setText(Html.fromHtml(sourceString));
-                    /* if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
+                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
                             !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")
                     ){
                         binding.prorroga.setAlpha(0);
                         binding.prorroga.setVisibility(View.VISIBLE);
                         binding.prorroga.animate().alpha(1);
-                    } */
+                    }
 
                    if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MENSUALIDADES))
                    {
@@ -135,7 +131,7 @@ public class MensualidadesFragment extends Fragment {
                        }
                    });
 
-                } else {
+                }else {
                     if(viewModel.getInit().getValue())
                     {dialogError();}
                 }
