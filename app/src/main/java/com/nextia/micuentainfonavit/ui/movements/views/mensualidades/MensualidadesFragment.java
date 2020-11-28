@@ -98,12 +98,16 @@ public class MensualidadesFragment extends Fragment {
                     } catch (Exception e){}
                     String sourceString = "<b>" + "Tipo de crédito: "+ "</b> " +type ;
                     binding.creditType.setText(Html.fromHtml(sourceString));
-                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
-                            !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")
-                    ){
-                        binding.prorroga.setAlpha(0);
-                        binding.prorroga.setVisibility(View.VISIBLE);
-                        binding.prorroga.animate().alpha(1);
+//                    if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp33MesesDispProrr().trim().equals("00") &&
+//                            !saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos2().getTp37IniProrr().trim().equals("")
+//                    ){
+//                        binding.prorroga.setAlpha(0);
+//                        binding.prorroga.setVisibility(View.VISIBLE);
+//                        binding.prorroga.animate().alpha(1);
+//                    }
+                    if(!messagesTypeCredit.equals("")) {
+                        binding.prorroga.setText(messagesTypeCredit);
+                        binding.imgMoreInfo.setVisibility(View.VISIBLE);
                     }
 
                    if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MENSUALIDADES))
