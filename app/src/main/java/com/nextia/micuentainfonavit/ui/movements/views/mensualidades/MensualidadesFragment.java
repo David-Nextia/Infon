@@ -42,6 +42,7 @@ import com.nextia.micuentainfonavit.databinding.FragmentMensualidadesBinding;
 import com.nextia.micuentainfonavit.databinding.FragmentSavingsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
+import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
 import com.nextia.micuentainfonavit.ui.savings.SavingsViewModel;
 
@@ -87,6 +88,7 @@ public class MensualidadesFragment extends Fragment {
             @Override
             public void onChanged(SaldoMovimientosResponse saldoMovimientosResponse) {
                 String type="";
+                String messagesTypeCredit = "";
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1() != null){
                     binding.setSaldo(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1());
                     Utils.hideLoadingSkeleton();
