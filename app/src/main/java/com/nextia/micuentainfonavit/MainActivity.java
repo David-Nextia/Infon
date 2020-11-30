@@ -303,7 +303,6 @@ public class MainActivity extends AppCompatActivity  {
                 binding.navView.getMenu().findItem(R.id.nav_movements).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                //navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
                 binding.drawerLayout.close();
                 return true;
             }

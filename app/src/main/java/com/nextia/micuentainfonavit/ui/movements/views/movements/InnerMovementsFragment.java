@@ -127,7 +127,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                         }
                     });
                 }
-                if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MOVEMENTS)) {
+                if(viewModel.getConfig().getValue()!=null)
+                { if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.MOVEMENTS)) {
                     setBlur(saldoMovimientosResponse);
                     binding.scrollview.setOnTouchListener(new View.OnTouchListener() {
                         @SuppressLint("ClickableViewAccessibility")
@@ -143,7 +144,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.textDownloadMensual.setOnClickListener(null);
                     binding.textDownloadHistoric.setOnClickListener(null);
                     binding.lnrTypeLinear.setVisibility(View.GONE);
-                }
+                }}
             }
         });
         return binding.getRoot();}
