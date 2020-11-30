@@ -188,7 +188,9 @@
                             android:textSize="13sp"
                             android:text="Fecha de otorgamiento:"
                             android:textAppearance="@android:style/TextAppearance.Small"
-                            android:fontFamily="@font/subtitle" />
+                            android:fontFamily="@font/subtitle"
+                            android:textColor="@color/color_black"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txt_create_date"
@@ -200,9 +202,7 @@
                             android:text="@{originacionCredito.v17FechaOtorgamiento != null ? utils.formatDate(originacionCredito.v17FechaOtorgamiento, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                             tools:text="-"
                             android:textAlignment="center"
-                            android:fontFamily="@font/body"
-                            android:textColor="@color/color_black"
-                            android:textStyle="bold"/>
+                            android:fontFamily="@font/body"/>
 
                     </LinearLayout>
 
@@ -231,7 +231,8 @@
                                 android:textSize="13sp"
                                 android:gravity="center"
                                 android:text="Tipo de tasa \n de interés:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_interest_type"
@@ -243,9 +244,7 @@
                                 tools:text="-"
                                 android:textSize="13sp"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -268,7 +267,8 @@
                                 android:text="Plazo:"
                                 android:textSize="13sp"
                                 android:textAppearance="@android:style/TextAppearance.Small"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_plazo"
@@ -280,9 +280,7 @@
                                 android:text="@{originacionCredito.v25Plazo != null ? originacionCredito.v25Plazo.trim()+` años` : @string/nonenumber}"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
-                                tools:text="-"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                tools:text="-"/>
 
                         </LinearLayout>
 
@@ -312,7 +310,8 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:text="Tipo de crédito:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_credit_type"
@@ -324,9 +323,7 @@
                                 android:text="@{pagosMensualidad.v1TipoCredito != null ? pagosMensualidad.v1TipoCredito.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -356,7 +353,8 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:text="Monto de otorgamiento en VSM:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_amount_vsm"
@@ -367,9 +365,7 @@
                                 android:text="@{originacionCredito.v19MtoOtorgaVsm != null ? originacionCredito.v19MtoOtorgaVsm.trim() : @string/nonenumber}"
                                 android:textAlignment="center"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -398,7 +394,8 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:text="Monto de otorgamiento en pesos:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_amount_pesos"
@@ -410,9 +407,7 @@
                                 tools:text="-"
                                 android:textSize="13sp"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -445,7 +440,8 @@
                                 android:gravity="center"
                                 android:textSize="13sp"
                                 android:text="Tasa de\n interés:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_interest_rate"
@@ -457,9 +453,7 @@
                                 android:text="@{originacionCredito.v21TasaInteres != null ? originacionCredito.v21TasaInteresPercent : @string/nonenumber}"
                                 tools:text="-"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
                         </LinearLayout>
 
 
@@ -482,7 +476,8 @@
                                 android:gravity="center"
                                 android:text="Tipo de moneda:"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_currency_type"
@@ -494,9 +489,7 @@
                                 tools:text="-"
                                 android:textSize="13sp"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -519,7 +512,8 @@
                                 android:gravity="center"
                                 android:textSize="13sp"
                                 android:text="Tipo de \n pago:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_pay_type"
@@ -531,9 +525,7 @@
                                 android:text="@{originacionCredito.v23DescTipPago != null ? originacionCredito.v23DescTipPago.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -627,9 +619,10 @@
                                 android:textAlignment="center"
                                 android:textSize="13sp"
                                 android:text="Fecha de\n movimiento:"
-                                android:fontFamily="@font/subtitle"
                                 android:gravity="center|top"
-                                android:paddingTop="8dp"/>
+                                android:paddingTop="8dp"
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_create_date2"
@@ -640,9 +633,7 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilFecOri != null ? utils.formatDate(movilidad.smovilFecOri, utils.PATTERN_YYYYMMDD) : @string/nonenumber}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -664,9 +655,10 @@
                                 android:textAlignment="center"
                                 android:text="Plazo:"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/subtitle"
                                 android:gravity="center|top"
-                                android:paddingTop="8dp"/>
+                                android:paddingTop="8dp"
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_plazo2"
@@ -677,9 +669,7 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilPlazo+` años`}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -711,7 +701,8 @@
                                 android:textAlignment="center"
                                 android:text="Tipo de movimiento:"
                                 android:textSize="13sp"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_movement_type"
@@ -722,9 +713,7 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilTipmovi.trim()}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -759,7 +748,8 @@
                                 android:textSize="13sp"
                                 android:text="Tipo de moneda:"
                                 android:textAppearance="@android:style/TextAppearance.Small"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_currency_type2"
@@ -770,9 +760,7 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilMoneda}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -795,7 +783,8 @@
                                 android:gravity="center"
                                 android:textSize="13sp"
                                 android:text="Tipo de pago:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_pay_type2"
@@ -806,9 +795,7 @@
                                 android:gravity="center"
                                 android:text="@{movilidad.smovilDescTipag.trim()}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -843,7 +830,8 @@
                                 android:textSize="13sp"
                                 android:text="Tasa de interés:"
                                 android:paddingTop="8dp"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_interest_rate2"
@@ -854,9 +842,7 @@
                                 android:gravity="center"
                                 android:text="@{movilidad.smovilTasaint!=null? utils.formatPercentage(movilidad.smovilTasaint.trim()): @string/nonenumber}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
                         </LinearLayout>
 
                         <LinearLayout
@@ -878,7 +864,8 @@
                                 android:gravity="center|top"
                                 android:paddingTop="8dp"
                                 android:text="Tipo de tasa\nde interés:"
-                                android:fontFamily="@font/subtitle" />
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_interest_type2"
@@ -889,9 +876,7 @@
                                 android:textSize="13sp"
                                 android:text="@{movilidad.smovilDescTas.trim()}"
                                 android:textAlignment="center"
-                                android:fontFamily="@font/body"
-                                android:textColor="@color/color_black"
-                                android:textStyle="bold"/>
+                                android:fontFamily="@font/body"/>
 
                         </LinearLayout>
 
@@ -1000,7 +985,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
-                                android:text="Tipo de movimiento:" />
+                                android:text="Tipo de movimiento:"
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <TextView
                                 android:id="@+id/txt_movement_type2"
@@ -1037,7 +1024,9 @@
                                 android:layout_gravity="center"
                                 android:gravity="center"
                                 android:textAlignment="center"
-                                android:text="Guía para conocer los detalles del Seguro de Calidad" />
+                                android:text="Guía para conocer los detalles del Seguro de Calidad"
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <ImageButton
                                 android:id="@+id/pdf_guia_seguro_calidad"
@@ -1065,7 +1054,9 @@
                                 android:layout_gravity="center"
                                 android:textAlignment="center"
                                 android:gravity="center"
-                                android:text="Certificado de Seguro de Calidad" />
+                                android:text="Certificado de Seguro de Calidad"
+                                android:fontFamily="@font/subtitle"
+                                android:textColor="@color/color_black"/>
 
                             <ImageButton
                                 android:id="@+id/pdf_certificado_seguro_calidad"
