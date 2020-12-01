@@ -25,7 +25,7 @@
                 android:id="@+id/textView30"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:text="Saldos y movimientos"
+                android:text="Pago en Bancos"
                 android:textAlignment="center"
                 style="@style/TxStyleSubTitle"
                 android:textColor="@color/color_black"/>
