@@ -23,8 +23,6 @@
     <color name="colorBulletsRed">#C01F3F</color>
     <color name="colorBlueAlert">#3891f1</color>
     <!--degraded color -->
-    <color name="blue_degraded">@drawable/gradient_blue</color>
-    <color name="red_degraded">@drawable/gradient_red</color>
     <color name="expandable_background">#dedede</color>
 
 </resources>

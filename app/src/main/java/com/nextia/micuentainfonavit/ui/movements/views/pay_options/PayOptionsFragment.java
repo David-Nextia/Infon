@@ -109,6 +109,9 @@ public class PayOptionsFragment extends Fragment {
                     if(!viewModel.getConfig().getValue().getModulos().get(ViewsConfig.PAY_OPTIONS)) {
                         setBlur(saldoMovimientosResponse);
                         binding.lnrTypeLinear.setVisibility(View.GONE);
+                        binding.lyUsa.setOnClickListener(null);
+                        binding.lyMarket.setOnClickListener(null);
+                        binding.lyBank.setOnClickListener(null);
                     }
                     binding.imgMoreInfo.setOnClickListener(view-> {
                         if(binding.prorroga.getVisibility() == View.VISIBLE) {
