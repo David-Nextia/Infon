@@ -24,5 +24,7 @@
     <dimen name="d10sp">10sp</dimen>
     <dimen name="spacebtweeninputs">10dp</dimen>
     <dimen name="side_margins">20dp</dimen>
+    <dimen name="side_margins_table">10dp</dimen>
     <dimen name="top_margins">10dp</dimen>
+    <dimen name="tableTextSize">12sp</dimen>
 </resources>
