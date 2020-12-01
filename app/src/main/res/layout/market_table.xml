@@ -1,158 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/back">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:id="@+id/rootView"
-        android:paddingRight="@dimen/side_margins"
-        android:paddingBottom="30dp"
-        android:paddingLeft="@dimen/side_margins">
+        android:layout_height="wrap_content"
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp">
-
-            <TextView
-                android:id="@+id/textView30"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Pago en tiendas de autoservicio y comercios afiliados"
-                android:textAlignment="center"
-                android:textSize="20sp"
-                style="@style/TxStyleSubTitle"
-                android:textColor="@color/color_black"/>
-
-            <View
-                android:id="@+id/view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/colorTexts" />
-
-            <TextView
-                style="@style/TxStyleSubTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/top_margins"
-                android:text=" Opciones de pago"
-                android:textAlignment="center"
-                android:textSize="18sp"
-                android:textColor="@color/color_black"
-                android:textStyle="bold"/>
-
-        </LinearLayout>
-
-
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12sp"
-            android:layout_marginEnd="5dp"
-            >
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="El pago mínimo es de $50.00 y en efectivo."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="En estos establecimientos no se cobra comisión por este servicio."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-
-        </TableLayout>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:visibility="gone"
-            android:id="@+id/rv_market"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+        android:orientation="horizontal">
 
         <TableLayout
             android:stretchColumns="*"
             android:layout_width="match_parent"
-
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
 
             <TableRow
-
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                >
+                android:layout_height="match_parent">
                 <TextView
                     android:id="@+id/textView1"
                     android:layout_width="match_parent"
                     android:textColor="@color/color_white"
-                    android:paddingStart="@dimen/side_margins_table"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/header_shape_gray"
+                    android:paddingStart="@dimen/side_margins"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/header_shape"
                     android:fontFamily="@font/subtitle"
-                    android:gravity="center_vertical"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/tiendas" />
                 <TextView
                     android:id="@+id/textView2"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
                     android:layout_width="match_parent"
                     android:textColor="@color/color_white"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/tableTextSize"
                     android:fontFamily="@font/subtitle"
-                    android:background="@drawable/header_shape_gray"
+                    android:background="@drawable/header_shape"
                     android:text="@string/corresponsales_filiales_de_pago" />
             </TableRow>
 
@@ -162,10 +50,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="Chedraui" />
@@ -173,11 +61,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/chedraui_commers" />
@@ -188,10 +74,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/soriana" />
@@ -199,11 +85,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/soriana_commers" />
@@ -214,10 +98,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/la_comer" />
@@ -225,11 +109,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/lacomer_commers" />
@@ -240,22 +122,20 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/elektra" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/elektra_commers" />
@@ -266,10 +146,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/famsa_muebleros" />
@@ -277,11 +157,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/famsa_muebleros_commers" />
@@ -292,10 +170,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/gesto_pagos_voltra" />
@@ -303,11 +181,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/gesto_pagos_voltra_commers" />
@@ -318,10 +194,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/regali" />
@@ -329,11 +205,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/regali_commers" />
@@ -344,10 +218,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/datalogic" />
@@ -355,11 +229,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/datalogic_commers" />
@@ -370,10 +242,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/xdc" />
@@ -381,33 +253,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:textColor="@color/color_black"
-                    android:paddingStart="@dimen/side_margins_table"
+                    android:paddingStart="@dimen/side_margins"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="5dp"
-                    android:paddingTop="5dp"
-                    android:background="@drawable/row_shape_gray"
+                    android:background="@drawable/row_shape"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/xdc_commers" />
             </TableRow>
 
+
         </TableLayout>
-
-        <TextView
-            android:visibility="gone"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_black"
-            android:text="Lugares donde se encuetre el logotipo con la leyenda de Akinet."
-            android:fontFamily="@font/subtitle"
-            android:layout_marginTop="16dp"
-            />
-
-        <include
-            android:visibility="gone"
-            layout="@layout/view_desc_pay"/>
-
     </LinearLayout>
 
-</androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+</LinearLayout>

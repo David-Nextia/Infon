@@ -172,5 +172,27 @@
     <string name="exces_payments">Si quieres saber si tu crédito tiene pagos en exceso consulta la información en \n Mi Cuenta Infonavit.</string>
 
     <string name="type_of_credit"><b>Tipo de crédito:</b> Hipotecario línea 3 crédito infonavit individual</string>
-
+    <string name="tiendas">Tiendas</string>
+    <string name="corresponsales_filiales_de_pago">Corresponsales/Filiales \n de Pago</string>
+    <string name="soriana">Soriana</string>
+    <string name="soriana_commers">Soriana Express\nSoriana Hiper\nSoriana Mercado\nSoriana Súper\nBodega Comercial Mexicana\nCity Club\nMega\nAlprecio</string>
+    <string name="chedraui_commers">Almacenes Chedraui\nSelecto Chedraui\nSúper City\nSúperche\nSúper Chedraui</string>
+    <string name="la_comer">La Comer</string>
+    <string name="lacomer_commers">Fresko<br/>City Market\nLa Comer\nSumesa</string>
+    <string name="elektra">Elektra</string>
+    <string name="elektra_commers">Banco Azteca\nFarmacias del Ahorro\nModatelas\nPrestaprenda\nTiendas Neto</string>
+    <string name="famsa_muebleros">Famsa Muebleros</string>
+    <string name="famsa_muebleros_commers">Famsa Muebleros</string>
+    <string name="gesto_pagos_voltra">Gesto Pago -\n Voltra</string>
+    <string name="gesto_pagos_voltra_commers">Botica Central\nBPINK\nCaja Hipódromo\nCaja Tepic\nCash Apoyo Efectivo\nCrediConfía\nFinanciera Súmate\nLa Ferre\nPrestoCash\nSuperRED</string>
+    <string name="regali">Regalii</string>
+    <string name="regali_commers">Actinver\nAirpack\nBanregio\nUnodostres</string>
+    <string name="datalogic">Datalogic</string>
+    <string name="datalogic_commers">Abarrotes Cordobeses - \nSuper Iberia\nAkala\nAl Super\nBancamóvil / Virtual Market\nCircle K\nExtra\nK\nDnu\nEl Asturiano\nEquipat\nEspecias Moy\nFarmacias Bazar\nFarmacias del Ahorro\nFarmacias Benavides\nFundación Dondé\nBanco y Rafael\nGanamás\nWalmart\nSams\nBodega Aurrerá\nSuperama\nIgt / Vía Servicios\nIsstezac\nLa Argentina\nLa Misió\nLdi\nMaxilana\nMilano y Melody\nMuebles América\nMultired\nNetpay\nPago Rápido\nPuntos Recarga\nQuantum Capital / Epesos\n7 Eleven\nSuburbia\nSuper Fasti\nSuper Kiosko\nSupertiendas Rico\nTe Creemos\nTudi\nUnipagos\nEleczion\nWaldos\nYastás</string>
+    <string name="xdc">XDC\nDesarrolladora</string>
+    <string name="xdc_commers">Almacenes Ánfora\nFarmacias Sufacen\nIntercam\nLdi\nMerza\nOficce Max\nQpagos\nSersimpplo\nSúper del Norte\nSuper San Francisco\nde Asís\nSuper Willys\nTiendas Garay</string>
+    <string name="header_markets_pay">·   El pago mínimo es de $50.00 y en efectivo\n
+·   Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar\n
+·   En estos establecimientos no se cobra comisión por este servicio.\n
+De manera que estén alineados a la izquierda.</string>
 </resources>
