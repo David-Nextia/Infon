@@ -25,4 +25,5 @@
     <dimen name="spacebtweeninputs">10dp</dimen>
     <dimen name="side_margins">20dp</dimen>
     <dimen name="top_margins">10dp</dimen>
+    <dimen name="tableTextSize">12sp</dimen>
 </resources>

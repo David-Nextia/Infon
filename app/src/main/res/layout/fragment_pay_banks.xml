@@ -49,153 +49,319 @@
                 android:textStyle="bold"/>
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="13sp"
-            android:text="Todos los bancos"
-            style="@style/TxStyleSubTitle"
-            android:textColor="@color/color_black"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="11sp"
-            android:textColor="@color/color_black"
-            android:text="En ventanilla o a través de la banca electrónica, vía SPEI. haz una transferencia electrónica, con los siguientes datos: "
-            android:fontFamily="@font/body"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textSize="11sp"
-            android:text="@string/clabe"
-            android:fontFamily="@font/body"
-            android:textColor="@color/color_black"
-            android:textStyle="bold"/>
-
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/color_black"
-            android:textSize="11sp"
-            android:text="En el campo, Referencia o Referencia Numérica, digita el número 5503; lo puedes distinguir porque no admite más de 7 dígitos.
-\nEn el campo, Concepto de pago, Motivo de pago o Referencia alfanumérica; digita tu número de crédito que consta de 10 dígitos.
-\n Al hacer tu pago por Banca electrónica, el mismo medio te notificará si tu pago fue aceptado o rechazado, también te proporcionará la clave de rastreo correspondiente."
-            android:fontFamily="@font/body"/>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/colorTexts"
             android:layout_margin="8dp"/>
 
-        <ImageView
-            android:layout_width="74dp"
-            android:layout_height="12dp"
-            android:src="@drawable/ic_back_scotiabank"
-            android:layout_margin="6sp"/>
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/color_black"
-            android:layout_height="wrap_content"
-            android:text="@string/bank_scotian"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+        <TableLayout
+            android:stretchColumns="*"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="80dp"
-            android:layout_height="10dp"
-            android:src="@drawable/ic_banorte"
-            />
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/color_black"
-            android:layout_height="wrap_content"
-            android:text="@string/bank_banor"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_white"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/header_shape"
+                    android:fontFamily="@font/subtitle"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="Bancos"
+                    android:layout_weight="0.35"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"/>
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="80dp"
-            android:layout_height="16dp"
-            android:layout_gravity="start"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_back_citibanamex" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_white"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/tableTextSize"
+                    android:fontFamily="@font/subtitle"
+                    android:background="@drawable/header_shape"
+                    android:text="¿Qué debo hacer?"
+                    android:layout_weight="1"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"/>
+            </TableRow>
 
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/color_black"
-            android:layout_height="wrap_content"
-            android:text="@string/bank_city"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="74dp"
-            android:layout_height="15dp"
-            android:src="@drawable/ic_back_santander" />
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_all"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
 
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:textColor="@color/color_black"
-            android:layout_height="wrap_content"
-            android:text="@string/bank_santan"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_all"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="60dp"
-            android:layout_height="22dp"
-            android:src="@drawable/ic_back_bansefi" />
+            </TableRow>
 
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_black"
-            android:text="@string/bank_bans"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="50dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_back_hsbc" />
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_scotia"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
 
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_black"
-            android:text="@string/bank_hsbc"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_scotian"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
 
-        <ImageView
-            android:layout_margin="6sp"
-            android:layout_width="38dp"
-            android:layout_height="12dp"
-            android:src="@drawable/bbva" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_bansefi"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
 
-        <com.codesgood.views.JustifiedTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_black"
-            android:text="@string/bank_bbva"
-            android:textSize="12sp"
-            android:fontFamily="@font/body" />
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_bans"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_bancoppel"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_bancoppel"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_banamex"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_city"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_bbva"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_bbva"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_santander"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_santan"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/row_shape"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:text="@string/bank_name_hsbc"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="0.35"/>
+
+                <com.codesgood.views.JustifiedTextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/color_black"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/row_shape"
+                    android:text="@string/bank_hsbc"
+                    android:fontFamily="@font/body"
+                    android:textSize="@dimen/tableTextSize"
+                    android:paddingStart="@dimen/d10dp"
+                    android:paddingEnd="@dimen/d10dp"
+                    android:paddingTop="@dimen/d5dp"
+                    android:paddingBottom="@dimen/d5dp"
+                    android:layout_weight="1"/>
+            </TableRow>
+
+        </TableLayout>
 
         <include layout="@layout/view_desc_pay"/>
 
