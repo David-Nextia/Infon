@@ -137,7 +137,7 @@
                     android:textColor="@color/color_white"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
-                    android:background="@drawable/header_shape"
+                    android:background="@drawable/header_shape_gray"
                     android:fontFamily="@font/subtitle"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/tableTextSize"
@@ -152,7 +152,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/tableTextSize"
                     android:fontFamily="@font/subtitle"
-                    android:background="@drawable/header_shape"
+                    android:background="@drawable/header_shape_gray"
                     android:text="@string/corresponsales_filiales_de_pago" />
             </TableRow>
 
@@ -165,7 +165,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="Chedraui" />
@@ -177,7 +177,7 @@
                     android:paddingTop="5dp"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/chedraui_commers" />
@@ -191,7 +191,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/soriana" />
@@ -203,7 +203,7 @@
                     android:paddingTop="5dp"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/soriana_commers" />
@@ -217,7 +217,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/la_comer" />
@@ -229,7 +229,7 @@
                     android:paddingTop="5dp"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/lacomer_commers" />
@@ -243,7 +243,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/elektra" />
@@ -255,7 +255,7 @@
                     android:textColor="@color/color_black"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/elektra_commers" />
@@ -269,7 +269,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/famsa_muebleros" />
@@ -281,7 +281,7 @@
                     android:paddingTop="5dp"
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/famsa_muebleros_commers" />
@@ -295,7 +295,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/gesto_pagos_voltra" />
@@ -307,7 +307,7 @@
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/gesto_pagos_voltra_commers" />
@@ -321,7 +321,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/regali" />
@@ -333,7 +333,7 @@
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/regali_commers" />
@@ -347,7 +347,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/datalogic" />
@@ -359,7 +359,7 @@
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/datalogic_commers" />
@@ -373,7 +373,7 @@
                     android:paddingStart="@dimen/side_margins_table"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/xdc" />
@@ -385,7 +385,7 @@
                     android:layout_height="wrap_content"
                     android:paddingBottom="5dp"
                     android:paddingTop="5dp"
-                    android:background="@drawable/row_shape"
+                    android:background="@drawable/row_shape_gray"
                     android:fontFamily="@font/body"
                     android:textSize="@dimen/tableTextSize"
                     android:text="@string/xdc_commers" />
