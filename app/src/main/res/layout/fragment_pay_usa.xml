@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/back"
     android:orientation="vertical">
 
     <LinearLayout
@@ -11,7 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:id="@+id/rootView"
-        android:background="@drawable/back"
+
         android:paddingLeft="@dimen/side_margins"
         android:paddingRight="@dimen/side_margins">
 
@@ -28,7 +29,7 @@
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margins"
-                android:text="Saldos y movimientos"
+                android:text="Paga desde Estados Unidos"
                 android:textAlignment="center"
                 style="@style/TxStyleSubTitle" />
 
@@ -53,16 +54,7 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/subtitle"
-            android:gravity="center"
-            android:text="Paga desde Estados Unidos"
-            android:textColor="@color/color_black"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+
 
         <ImageView
             android:layout_width="wrap_content"
@@ -116,7 +108,9 @@
             android:textColor="@color/color_black"
             android:fontFamily="@font/body"/>
 
-        <include layout="@layout/view_desc_pay"/>
+        <include
+            android:visibility="gone"
+            layout="@layout/view_desc_pay"/>
 
     </LinearLayout>
 
