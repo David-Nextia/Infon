@@ -134,6 +134,17 @@
     <string name="descarga_tu_archivo">Descargar archivo</string>
 
     <string name="clabe">CLABE 021180550300050811\nBanco destino: HSBC</string>
+
+    <string name="bank_name_all">Todos los bancos</string>
+    <string name="bank_name_scotia">Scotiabank</string>
+    <string name="bank_name_bansefi">Bansefi (Banco Bienestar)</string>
+    <string name="bank_name_bancoppel">BanCoppel</string>
+    <string name="bank_name_banamex">Banamex</string>
+    <string name="bank_name_bbva">BBVA</string>
+    <string name="bank_name_santander">Santander</string>
+    <string name="bank_name_hsbc">HSBC</string>
+
+    <string name="bank_all"><p>En ventanilla o a través de la banca electrónica, vía SPEI, haz una transferencia electrónica, con los siguientes datos:</p>\n\n<ol><li>CLABE 021180550300050811</li>\n<li>Banco destino: HSBC</li>\n<li>El número 5503, en el campo que pide la referencia o referencia numérica y que puedes distinguir porque no admite más de 7 dígitos.</li>\n<li>Tu número de crédito que consta de 10 dígitos, en el campo nombrado como: concepto de pago, motivo de pago o referencia alfanumérica entre otros.</li></ol>\n\n<p>Al hacer tu pago por banca electrónica, por el mismo medio se te enviará si tu pago fue aceptado o rechazado, así como la clave de rastreo correspondiente.</p></string>
     <string name="bank_scotian">I) Paga en línea a través de ScotiaWeb\nII) Acude a la sucursal de tu preferencia y dile al cajero la cantidad a pagar y los 10 dígitos de tu número de crédito.</string>
     <string name="bank_banor">I) Puedes pagar en línea en Banorte por internet.\nII) Acude a la sucursal de tu preferencia y dile al cajero la cantidad a pagar y los 10 dígitos de tu número de crédito.</string>
     <string name="bank_city">I) Paga en línea en BancaNet Banamex.\nII) Acude a la sucursal de tu preferencia y dile al cajero la cantidad a pagar y los 10 dígitos de tu número de crédito.</string>
@@ -141,6 +152,7 @@
     <string name="bank_bans">I) Acude a la sucursal de tu preferencia, dale al cajero los 10 dígitos de tu número de crédito e indícale la cantidad a pagar.</string>
     <string name="bank_hsbc">I) Si lo prefieres paga en Banca personal por Internet.\nII) Cajeros automáticos las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito, la cantidad a pagar se descontará del saldo de tu tarjeta de débito HSBC.\nIII) Acude a la sucursal de tu preferencia y dile al cajero que deseas depositar en el RAP 5081 a nombre de Infonavit. Indícale la cantidad a pagar, y cuando te pida el número de referencia, dale los 10 dígitos de tu número de crédito.</string>
     <string name="bank_bbva">I) Pagar en su Banca en línea\nII) Cajeros automáticos las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito; la cantidad a pagar se descontará del saldo de tu tarjeta de débito BBVA Bancomer.\nIII) Practicajas (cajeros receptores) de este banco las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito.\nIV) Acude a la sucursal de tu preferencia dale al cajero los 10 dígitos de tu número de crédito e indícale la cantidad a pagar así como el número de convenio con el Infonavit CIE 828289.</string>
+    <string name="bank_bancoppel">I) Acude a la sucursal de tu preferencia, dale al cajero lso 10 dígitos de tu número de crédito e indícale la cantidad a pagar.</string>
 
     <string name="desc_pay">Tu pago se hará en dólares\ny aplicará al tipo de cambio del día.</string>
 
