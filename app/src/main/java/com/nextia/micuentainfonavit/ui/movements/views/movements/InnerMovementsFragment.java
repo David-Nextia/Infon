@@ -117,13 +117,21 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     }*/
                     binding.imgMoreInfo.setOnClickListener(view-> {
                         if(binding.prorroga.getVisibility() == View.VISIBLE) {
+                            binding.imgMoreInfo.setImageResource(R.drawable.ic_expand_more);
                             binding.prorroga.animate().alpha(1);
                             binding.prorroga.setVisibility(View.GONE);
                             binding.prorroga.setAlpha(0);
                         } else {
+                            binding.imgMoreInfo.setImageResource(R.drawable.ic_arrow_up);
                             binding.prorroga.setAlpha(0);
                             binding.prorroga.setVisibility(View.VISIBLE);
                             binding.prorroga.animate().alpha(1);
+                        }
+                    });
+
+                    binding.lnrTypeLinear.setOnClickListener(v -> {
+                        if(binding.imgMoreInfo.getVisibility() == View.VISIBLE){
+                            binding.imgMoreInfo.performClick();
                         }
                     });
                 }
