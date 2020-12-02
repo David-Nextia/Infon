@@ -85,6 +85,7 @@
                     android:layout_marginEnd="@dimen/side_margins"
                     android:weightSum="5">
                     <TextView
+                        android:fontFamily="@font/body"
                         android:id="@+id/creditTitle"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
@@ -165,6 +166,7 @@
                     </LinearLayout>
 
                     <TextView
+                        android:fontFamily="@font/subtitle"
                         android:id="@+id/prorroga"
                         android:justificationMode="inter_word"
                         android:visibility="gone"
@@ -376,6 +378,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text=""
+                                android:fontFamily="@font/body"
                                 android:textAlignment="textStart"
                                 android:textAppearance="@android:style/TextAppearance.Small" />
                         </LinearLayout>
@@ -533,6 +536,7 @@
             android:layout_gravity="center"
             android:gravity="center">
             <TextView
+                android:fontFamily="@font/body"
                 android:visibility="visible"
                 android:id="@+id/info"
                 android:textColor="@color/color_black"
@@ -547,6 +551,7 @@
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
+                android:fontFamily="@font/body"
                 android:visibility="gone"
                 android:textColor="@color/color_black"
                 android:textStyle="bold"
@@ -560,6 +565,7 @@
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
             <TextView
+                android:fontFamily="@font/body"
                 android:visibility="gone"
                 android:id="@+id/liquidType"
                 android:textColor="@color/color_black"
@@ -575,6 +581,7 @@
                 android:layout_marginEnd="@dimen/side_margins"/>
 
             <com.codesgood.views.JustifiedTextView
+                android:fontFamily="@font/body"
                 android:visibility="gone"
                 android:textColor="@color/color_black"
                 android:textStyle="bold"
