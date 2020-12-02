@@ -441,8 +441,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 childList = new ArrayList<String>();
                 String fecha = movItems.getMovimientos().get(i).getFecha();
                 String montoTransaccion = movItems.getMovimientos().get(i).getMontoTransaccion();
+                String Concept = movItems.getMovimientos().get(i).getConcepto();
 
-                groupList.add(fecha + "&" + montoTransaccion);
+                groupList.add(fecha + "&" + montoTransaccion +"&"+Concept);
 
                 String pagoASeguro = movItems.getMovimientos().get(i).getPagoASeguro();
                 String pagoAIntereses = movItems.getMovimientos().get(i).getPagoAIntereses();

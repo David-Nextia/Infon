@@ -129,6 +129,7 @@ public class AdapterMovements extends BaseExpandableListAdapter {
             e.printStackTrace();
         }
         montoTransaccion.setText(Utils.formatMoney(groupArr[1].trim()));
+        pagoRegular.setText(((String)groupArr[2]).trim());
        // montoTransaccion.setGravity(Gravity.CENTER);
         return convertView;
     }

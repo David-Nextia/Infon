@@ -14,6 +14,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
@@ -54,7 +55,6 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     MotionLayout motionLayoutLogin;
     ImageView emailClear,passwordClear,redLogo,whiteLogo;
     TextView passwordMessage;
-
     Boolean hasShowedKeyboard=false, LogoIntercepted=false;
     int screenHeight;
     View view_email,view_password;
@@ -69,6 +69,29 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
             getWindow().setBackgroundDrawable(getDrawable(R.drawable.back));
         }
         instanceActivity(); //iniciar vista y variables
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        motionLayoutLogin.setTransitionListener(new MotionLayout.TransitionListener() {
+            @Override
+            public void onTransitionStarted(MotionLayout motionLayout, int i, int i1) {
+
+            }
+
+            @Override
+            public void onTransitionChange(MotionLayout motionLayout, int i, int i1, float v) {
+
+            }
+
+            @Override
+            public void onTransitionCompleted(MotionLayout motionLayout, int i) {
+                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+            }
+
+            @Override
+            public void onTransitionTrigger(MotionLayout motionLayout, int i, boolean b, float v) {
+
+            }
+        });
         auxView.addOnLayoutChangeListener(new View.OnLayoutChangeListener() {
             @Override
             public void onLayoutChange(View v, int left, int top, int right, int bottom, int oldLeft, int oldTop, int oldRight, int oldBottom) {

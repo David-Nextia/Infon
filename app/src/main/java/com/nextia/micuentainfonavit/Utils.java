@@ -117,7 +117,7 @@ public class Utils {
        String percentage="";
        double a=Double.valueOf(por);
 
- String number= String.format("%.1f", a);
+ String number= String.format("%.2f", a);
  percentage=number+"%";
         return percentage ;
     }
