@@ -17,7 +17,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="10dp"
-        android:fontFamily="@font/body" />
+        android:fontFamily="@font/body"
+        android:justificationMode="inter_word"/>
 
     <Button
         android:id="@+id/bt_back"

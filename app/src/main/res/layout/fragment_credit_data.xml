@@ -1169,7 +1169,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/exces_payments"
                 android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"/>
+                android:layout_marginEnd="@dimen/side_margins"
+                android:justificationMode="inter_word"/>
 
 
         </LinearLayout>

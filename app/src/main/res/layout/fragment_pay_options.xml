@@ -455,7 +455,8 @@
                 android:layout_height="wrap_content"
                 android:text="Tu crédito Hipotecrio Linea 3 crédito infonavit familiar fue liquidado el 19.01.2019"
                 android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"/>
+                android:layout_marginEnd="@dimen/side_margins"
+                android:justificationMode="inter_word"/>
             <com.codesgood.views.JustifiedTextView
                 android:visibility="gone"
                 android:id="@+id/liquidType"
@@ -469,7 +470,8 @@
                 android:layout_height="wrap_content"
                 android:text="Tipo de liquidación: Crédito liquidado por incapacidad parcial"
                 android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"/>
+                android:layout_marginEnd="@dimen/side_margins"
+                android:justificationMode="inter_word"/>
 
             <com.codesgood.views.JustifiedTextView
                 android:visibility="gone"
@@ -483,7 +485,8 @@
                 android:layout_height="wrap_content"
                 android:text="@string/exces_payments"
                 android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"/>
+                android:layout_marginEnd="@dimen/side_margins"
+                android:justificationMode="inter_word"/>
 
 
         </LinearLayout>

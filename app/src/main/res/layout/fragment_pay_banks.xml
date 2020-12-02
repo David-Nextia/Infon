@@ -111,7 +111,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -125,7 +126,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
 
             </TableRow>
 
@@ -146,7 +148,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -160,7 +163,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -179,7 +183,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -193,7 +198,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -212,7 +218,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -226,7 +233,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -245,7 +253,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -259,7 +268,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -278,7 +288,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -292,7 +303,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -311,7 +323,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -325,7 +338,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
             <TableRow
@@ -344,7 +358,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="0.35"/>
+                    android:layout_weight="0.35"
+                    android:justificationMode="inter_word"/>
 
                 <com.codesgood.views.JustifiedTextView
                     android:layout_width="wrap_content"
@@ -358,7 +373,8 @@
                     android:paddingEnd="@dimen/d10dp"
                     android:paddingTop="@dimen/d5dp"
                     android:paddingBottom="@dimen/d5dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:justificationMode="inter_word"/>
             </TableRow>
 
         </TableLayout>
