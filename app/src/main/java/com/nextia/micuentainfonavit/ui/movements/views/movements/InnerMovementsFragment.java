@@ -171,13 +171,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 binding.shareHistoricPdf.animate().alpha(0.0f);
                 binding.textDownloadHistoric.animate().alpha(0.0f);
 
+
                 if (Utils.isNetworkAvailable(getActivity())) {
 
                     // binding.progressBar2.animate().alpha(1.0f);
                     credit=parent.getItemAtPosition(position).toString();
                     token1=Utils.getSharedPreferencesToken(getContext());
                     creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
-                    creditUseCase.getPeriodosDisponibles(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
+
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                     binding.movementsContainer.setVisibility(View.GONE);
@@ -209,6 +210,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         binding.historicImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     mensual= Utils.createPdfFromBase64(object_final.getReporte(), "mensual_"+credit, getActivity(), true);
 
@@ -217,13 +219,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 }
                 pdfViewModel.setFile(mensual);
                 navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);
+                navController.navigate(R.id.action_nav_movements_to_nav_pdf_viewer);}
 
-            }
+
         });
         binding.mensualImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     historic = Utils.createPdfFromBase64(mensualReporturl, "historic_"+credit, getActivity(), true);
 
@@ -308,7 +311,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public void onFailureRequest(String message) {
         if(getContext()!=null)
         { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
-        Utils.hideLoadingSkeleton();
+        //Utils.hideLoadingSkeleton();
         //binding.progressBar2.animate().alpha(0.0f);
         dialog.show();}
 
@@ -343,6 +346,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         //respuesta del historico
         if(object instanceof HistoricResponse)
         {
+            creditUseCase.getPeriodosDisponibles(token1, credit, InnerMovementsFragment.this);
             if(((HistoricResponse)object).getStatusServicio().getCodigo().equals("00"))
 
             {
