@@ -53,64 +53,31 @@
 
         </LinearLayout>
 
-
-        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <com.codesgood.views.JustifiedTextView
             android:layout_width="match_parent"
+            android:textColor="@color/color_black"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12sp"
-            android:layout_marginEnd="5dp"
-            >
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
+            android:text="@string/header_pay_market1"
+            android:fontFamily="@font/body"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp"/>
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="El pago mínimo es de $50.00 y en efectivo."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
+        <com.codesgood.views.JustifiedTextView
+            android:layout_width="match_parent"
+            android:textColor="@color/color_black"
+            android:layout_height="wrap_content"
+            android:text="@string/header_pay_market2"
+            android:fontFamily="@font/body"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp"/>
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-            <TableRow>
-                <TextView
-                    android:layout_column="1"
-                    android:text="•"
-                    android:textColor="@color/color_black"/>
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:textColor="@color/color_black"
-                    android:textSize="12sp"
-                    android:text="En estos establecimientos no se cobra comisión por este servicio."
-                    android:fontFamily="@font/body"
-                    android:gravity="left"/>
-            </TableRow>
-
-        </TableLayout>
-
+        <com.codesgood.views.JustifiedTextView
+            android:layout_width="match_parent"
+            android:textColor="@color/color_black"
+            android:layout_height="wrap_content"
+            android:text="@string/header_pay_market3"
+            android:fontFamily="@font/body"
+            android:textSize="12sp"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:visibility="gone"

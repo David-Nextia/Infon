@@ -195,4 +195,8 @@
 ·   Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar\n
 ·   En estos establecimientos no se cobra comisión por este servicio.\n
 De manera que estén alineados a la izquierda.</string>
+    <string name="header_pay_market1">•El pago mínimo es de $50.00 y en efectivo.</string>
+    <string name="header_pay_market2">•Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar.</string>
+    <string name="header_pay_market3">•En estos establecimientos no se cobra comisión por este servicio.</string>
+
 </resources>

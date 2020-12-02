@@ -11,7 +11,7 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"/>
 
-    <TextView
+    <com.codesgood.views.JustifiedTextView
         android:id="@+id/tx_bank"
         android:textColor="@color/color_black"
         android:layout_width="match_parent"
