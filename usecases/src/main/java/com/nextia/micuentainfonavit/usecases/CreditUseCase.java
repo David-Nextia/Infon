@@ -57,21 +57,24 @@ public class CreditUseCase {
         String day1="";
         String month1="";
         String month2="";
-        c2.set(Calendar.MONTH,c2.get(Calendar.MONTH)-2);
-        c1.set(Calendar.MONTH,c1.get(Calendar.MONTH)+1);
+        //c2.set(Calendar.MONTH,c2.get(Calendar.MONTH)-2);
+        //c1.set(Calendar.MONTH,c1.get(Calendar.MONTH)+1);
+        //c1.add(Calendar.MONTH,1);
+        c2.add(Calendar.MONTH,-2);
+        int monthActual= c1.get(Calendar.MONTH)+1;
         if(String.valueOf(c2.get(Calendar.MONTH)).length()==1){
             month2="0"+String.valueOf(c2.get(Calendar.MONTH));
         }else{
             month2=String.valueOf(c2.get(Calendar.MONTH));
         }
-        if(String.valueOf(c1.get(Calendar.MONTH)).length()==1){
-            month1="0"+String.valueOf(c1.get(Calendar.MONTH));
+        if(String.valueOf(monthActual).length()==1){
+            month1="0"+String.valueOf(monthActual);
         }
         else{
-            month1=String.valueOf(c1.get(Calendar.MONTH));
+            month1=String.valueOf(monthActual);
         }
-        if(String.valueOf(c1.get(Calendar.DAY_OF_YEAR)).length()==1){
-           day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_YEAR));
+        if(String.valueOf(c1.get(Calendar.DAY_OF_MONTH)).length()==1){
+           day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
         }
         else{
             day1=String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
@@ -94,21 +97,21 @@ public class CreditUseCase {
         String day1="";
         String month1="";
         String month2="";
-        c2.set(Calendar.MONTH,c2.get(Calendar.MONTH)-2);
-        c1.set(Calendar.MONTH,c1.get(Calendar.MONTH)+1);
+        c2.add(Calendar.MONTH,-2);
+        int monthActual= c1.get(Calendar.MONTH)+1;
         if(String.valueOf(c2.get(Calendar.MONTH)).length()==1){
             month2="0"+String.valueOf(c2.get(Calendar.MONTH));
         }else{
             month2=String.valueOf(c2.get(Calendar.MONTH));
         }
-        if(String.valueOf(c1.get(Calendar.MONTH)).length()==1){
-            month1="0"+String.valueOf(c1.get(Calendar.MONTH));
+        if(String.valueOf(monthActual).length()==1){
+            month1="0"+String.valueOf(monthActual);
         }
         else{
-            month1=String.valueOf(c1.get(Calendar.MONTH));
+            month1=String.valueOf(monthActual);
         }
-        if(String.valueOf(c1.get(Calendar.DAY_OF_YEAR)).length()==1){
-            day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_YEAR));
+        if(String.valueOf(c1.get(Calendar.DAY_OF_MONTH)).length()==1){
+            day1="0"+String.valueOf(c1.get(Calendar.DAY_OF_MONTH));
         }
         else{
             day1=String.valueOf(c1.get(Calendar.DAY_OF_MONTH));

@@ -71,6 +71,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     NavController navController;
     PdfViewViewModel pdfViewModel;
     String period;
+    boolean historicreq,periodsreq,movsreq,mensreq,movsdatareq;
     String token1="";
     boolean started=false;
     File historic, mensual,movs;
@@ -84,7 +85,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
        if(getActivity()!=null && isAdded())
        {binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
-
+        historicreq=false;
+        periodsreq=false;
+        movsreq=false;
+        mensreq=false;
+        movsreq=false;
         spinnerCredit = binding.spCreditType;
         pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         rootView = binding.rootView;
@@ -178,7 +183,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     credit=parent.getItemAtPosition(position).toString();
                     token1=Utils.getSharedPreferencesToken(getContext());
                     creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
-
+                    creditUseCase.getReportMovs(token1,credit,"",InnerMovementsFragment.this);
+                    creditUseCase.getMovsData(token1,credit,InnerMovementsFragment.this);
+                    creditUseCase.getPeriodosDisponibles(token1, credit, InnerMovementsFragment.this);
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                     binding.movementsContainer.setVisibility(View.GONE);
@@ -311,7 +318,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public void onFailureRequest(String message) {
         if(getContext()!=null)
         { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
-        //Utils.hideLoadingSkeleton();
+        Utils.hideLoadingSkeleton();
         //binding.progressBar2.animate().alpha(0.0f);
         dialog.show();}
 
@@ -346,18 +353,19 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         //respuesta del historico
         if(object instanceof HistoricResponse)
         {
-            creditUseCase.getPeriodosDisponibles(token1, credit, InnerMovementsFragment.this);
+            historicreq=true;
+
             if(((HistoricResponse)object).getStatusServicio().getCodigo().equals("00"))
 
             {
+                hideSkeleton();
                 object_final = (HistoricResponse) object;
                 binding.historicContainer.setVisibility(View.VISIBLE);
-                Utils.hideLoadingSkeleton();
 
             }
             else{
                 binding.historicContainer.setVisibility(View.GONE);
-                Utils.hideLoadingSkeleton();
+                hideSkeleton();
             }
 
 
@@ -368,14 +376,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         //respuesta de periodos
         else if(object instanceof PeriodResponse)
         {
+            periodsreq=true;
            if( ((PeriodResponse)object).getRoot().getPeriodo()!=null)
            {
                //Toast.makeText(getActivity(),((PeriodResponse)object).getRoot().getPeriodo().toString(),Toast.LENGTH_LONG).show();
                period=((PeriodResponse)object).getRoot().getPeriodo();
 
                creditUseCase.getMensualReport(token1,credit,period,InnerMovementsFragment.this);
-               creditUseCase.getReportMovs(token1,credit,"",InnerMovementsFragment.this);
-               creditUseCase.getMovsData(token1,credit,InnerMovementsFragment.this);
+
 
                SimpleDateFormat spf=new SimpleDateFormat("yyyyMM");
                Date newDate= null;
@@ -391,13 +399,15 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
 
            }else{
-               Utils.hideLoadingSkeleton();
+               hideSkeleton();
                binding.movementsContainer.setVisibility(View.GONE);
+               mensreq=true;
            }
         }
 
         //respuesta de reporte mensual
         else if(object instanceof MensualReportResponse){
+            mensreq=true;
             mensualReporturl=((MensualReportResponse)object).getReporte();
             binding.monthlyContainer.setVisibility(View.VISIBLE);
             binding.txtLastPeriod.setText(period);
@@ -406,14 +416,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         //respuesta movimientos
         else if(object instanceof ReportMovsResponse){
             //Toast.makeText(getActivity(),((ReportMovsResponse)object).getReturn().getReporte(),Toast.LENGTH_LONG).show();
-
+            movsreq=true;
 
             if(((ReportMovsResponse)object).getReturn().getCodigo().equals("00")){
                 binding.movementsContainer.setVisibility(View.VISIBLE);
                 movsReporturl=((ReportMovsResponse)object).getReturn().getReporte();
-                if(object_final!=null){
-                    Utils.hideLoadingSkeleton();
-                }
+                hideSkeleton();
             }else{
                 binding.movementsContainer.setVisibility(View.GONE);
                 if(object_final!=null){
@@ -424,7 +432,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
         }
         else if(object instanceof MovsResponse){
-
+            movsdatareq=true;
             Map<String, List<String>> movementsCollection = new LinkedHashMap<String, List<String>>();
             List<String> groupList = new ArrayList<String>();
             List<String> childList;
@@ -459,6 +467,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             });
                 setListViewHeight(binding.listMovements, -1,false);
                 started=true;
+                hideSkeleton();
 
 
 
@@ -548,5 +557,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
         binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
         blurView(credit1,liquid1);}
+    }
+
+    public void hideSkeleton(){
+        if(movsreq && periodsreq && historicreq && mensreq && movsdatareq){
+            Utils.hideLoadingSkeleton();
+        }
     }
 }
