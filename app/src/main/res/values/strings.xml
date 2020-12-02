@@ -154,7 +154,7 @@
     <string name="bank_bbva">I) Pagar en su Banca en línea\nII) Cajeros automáticos las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito; la cantidad a pagar se descontará del saldo de tu tarjeta de débito BBVA Bancomer.\nIII) Practicajas (cajeros receptores) de este banco las 24 horas de los 365 días del año. Si quieres hacerlo sólo necesitas los 10 dígitos de tu número de crédito.\nIV) Acude a la sucursal de tu preferencia dale al cajero los 10 dígitos de tu número de crédito e indícale la cantidad a pagar así como el número de convenio con el Infonavit CIE 828289.</string>
     <string name="bank_bancoppel">I) Acude a la sucursal de tu preferencia, dale al cajero lso 10 dígitos de tu número de crédito e indícale la cantidad a pagar.</string>
 
-    <string name="desc_pay">Tu pago se hará en dólares\ny aplicará al tipo de cambio del día.</string>
+    <string name="desc_pay">Tu pago se hará en dólares y aplicará al tipo de cambio del día.</string>
 
 
 <!--    vista dee new welcome-->

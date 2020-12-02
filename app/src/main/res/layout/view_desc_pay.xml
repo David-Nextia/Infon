@@ -11,12 +11,14 @@
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"/>
 
-    <com.codesgood.views.JustifiedTextView
+    <TextView
+
         android:id="@+id/tx_bank"
         android:textColor="@color/color_black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="10dp"
+        android:text="aqui va texto"
+        android:textSize="12sp"
         android:fontFamily="@font/body"
         android:justificationMode="inter_word"/>
 
