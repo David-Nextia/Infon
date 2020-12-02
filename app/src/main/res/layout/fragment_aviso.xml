@@ -49,6 +49,7 @@
 
                     <TextView
                         android:id="@+id/creditTitle"
+                        android:fontFamily="@font/body"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -208,6 +209,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
+                            android:fontFamily="@font/body"
                             android:text="Nombre del Responsable:" />
 
                     </LinearLayout>
@@ -222,6 +224,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="12sp"
+                            android:fontFamily="@font/body"
                             android:text="Tipo de Aviso:" />
 
                     </LinearLayout>
@@ -239,6 +242,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
+                        android:fontFamily="@font/body"
                         android:text="Descarga tu archivo"
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
@@ -331,6 +335,7 @@
                             android:id="@+id/dowloadPdf"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
+                            android:fontFamily="@font/body"
                             android:background="@drawable/pdfc"
                             android:layout_gravity="center" />
 

@@ -65,9 +65,11 @@
             android:layout_marginTop="25dp"/>
 
         <TextView
+            android:justificationMode="inter_word"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
+            android:gravity="center"
             android:text="Llama por teléfono al 1 888 246 2527, proporciona tu código postal y te indicarán la sucursal DolEx más cercana a tu domicilio para que puedas hacer tu pago."
             android:layout_marginTop="12dp"
             android:textColor="@color/color_black"
@@ -85,7 +87,9 @@
             android:textSize="12sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:justificationMode="inter_word"
             android:layout_marginTop="12dp"
+            android:gravity="center"
             android:text="En la sucursal DolEx proporciona los 10 dígitos de tu número de crédito y da el importe en pesos."
             android:fontFamily="@font/body"
             android:textColor="@color/color_black"
@@ -100,9 +104,12 @@
             android:layout_marginTop="30dp" />
 
         <TextView
+            android:justificationMode="inter_word"
+            android:layout_marginTop="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/desc_pay"
+            android:textSize="12sp"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/color_black"
