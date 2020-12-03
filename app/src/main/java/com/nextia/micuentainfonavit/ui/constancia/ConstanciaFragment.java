@@ -45,18 +45,18 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     PdfConstanciaDownloadViewModel ViewModelPdf;
     FragmentConstanciaBinding binding;
     ArrayList<Credito> creditos;
-    ArrayList<String> creditList =new ArrayList<>();
+    ArrayList<String> creditList = new ArrayList<>();
     ArrayAdapter<String> creditAdapter;
     ArrayAdapter<String> yearAdapter;
-    CreditUseCase creditUseCase= new CreditUseCase();
+    CreditUseCase creditUseCase = new CreditUseCase();
     List<RespuestUm> listItemAnio;
-    ArrayList<String> listanios=new ArrayList<>();
+    ArrayList<String> listanios = new ArrayList<>();
     NavController navController;
 
     //creating and instancing view
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,@Nullable Bundle savedInstanceState) {
-        ViewModelPdf= new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ViewModelPdf = new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
         setSpinners();
         setButton();
@@ -67,7 +67,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     @Override
     public void onStart() {
         super.onStart();
-        Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_constancia);
+        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_constancia);
         new CountDownTimer(1500, 1000) {
             public void onFinish() {
                 Utils.hideLoadingSkeleton();
@@ -81,11 +81,18 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     }
 
     //fill spinner with credits from sharedpreferences and set methods
-    public void setSpinners(){
-        creditos=Utils.getSharedPreferencesUserData(getContext()).getCredito();
+    public void setSpinners() {
+        //Set Data year
+        listanios.clear();
+        listanios.add("Selecciona un año");
+        yearAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, listanios);
+        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        binding.spAniosConstancia.setAdapter(yearAdapter);
+
+        creditos = Utils.getSharedPreferencesUserData(getContext()).getCredito();
         creditList.clear();
         //creditList.add("Selecciona una cuenta");
-        for(int i=0; i<creditos.size();i++){
+        for (int i = 0; i < creditos.size(); i++) {
             creditList.add(creditos.get(i).getNumeroCredito());
         }
         binding.spSeleccionaCreditoConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -93,11 +100,10 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 //                if(position!=0)
 //                {
-                if(Utils.isNetworkAvailable(getActivity())){
-                    creditUseCase.getInfoCredit("0000"+parent.getItemAtPosition(position).toString(),Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
-                }
-                else{
-                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
+                if (Utils.isNetworkAvailable(getActivity())) {
+                    creditUseCase.getInfoCredit("0000" + parent.getItemAtPosition(position).toString(), Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
+                } else {
+                    DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
                     alertdialog.show();
 
                 }
@@ -113,12 +119,12 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         binding.spAniosConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position!=0)
-                {
+                if (position != 0) {
                     binding.btnConsultarConstancia.setEnabled(true);
-                    ViewModelPdf.setCredit("0000"+creditList.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
+                    ViewModelPdf.setCredit("0000" + creditList.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
                     ViewModelPdf.setYear(parent.getItemAtPosition(position).toString());
-                    //Toast.makeText(getContext(),ViewModelPdf.getCredit().getValue()+" "+ViewModelPdf.getYear().getValue(),Toast.LENGTH_LONG).show();
+                }else{
+                    binding.btnConsultarConstancia.setEnabled(false);
                 }
             }
 
@@ -129,13 +135,13 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         });
 
         binding.btnConsultarConstancia.setEnabled(false);
-        creditAdapter = new ArrayAdapter<String>(getContext(),R.layout.spinner_item, creditList);
+        creditAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, creditList);
         creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
     }
 
     //setButton methods and states
-    public void setButton(){
+    public void setButton() {
         binding.btnConsultarConstancia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,8 +155,9 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     //To manage on fail request
     @Override
     public void onFailureRequest(String message) {
-        Toast.makeText(getContext(),"No se pudieron obtener los datos",Toast.LENGTH_LONG).show();
+        Toast.makeText(getContext(), "No se pudieron obtener los datos", Toast.LENGTH_LONG).show();
     }
+
     //to manage token expired
     @Override
     public void onTokenExpired() {
@@ -166,20 +173,28 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         });
         alertdialog.show();
     }
+
     //To manage on Succes request
     @Override
     public void onSuccesRequest(CreditInfoResponse object, String token) {
-        listItemAnio =object.getRespuesta();
         listanios.clear();
         listanios.add("Selecciona un año");
-        for(int i = 0; i< listItemAnio.size(); i++){
-            if(i<5)
-            {listanios.add(listItemAnio.get(i).getEjercicioFiscal());}
+
+        if(object != null && object.getRespuesta() != null) {
+            listItemAnio = object.getRespuesta();
+            for (int i = 0; i < listItemAnio.size(); i++) {
+                if (i < 5) {
+                    listanios.add(listItemAnio.get(i).getEjercicioFiscal());
+                }
+            }
         }
-        yearAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, listanios);
+        
+        yearAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, listanios);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spAniosConstancia.setAdapter(yearAdapter);
 
-
+        if(listanios.size() > 1){
+            binding.spAniosConstancia.setSelection(1);
+        }
     }
 }
