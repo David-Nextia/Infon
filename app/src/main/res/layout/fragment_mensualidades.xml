@@ -333,6 +333,15 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:orientation="vertical">
+                    <TextView
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pago_para_estar_al_corriente"
+                        style="@style/TxRedDefault"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:textColor="@color/colorgrayblue"
+                        android:fontFamily="@font/body" />
 
                     <TextView
                         android:id="@+id/txt_months"
@@ -370,15 +379,7 @@
                     android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:text="@string/pago_para_estar_al_corriente"
-                        style="@style/TxRedDefault"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:textColor="@color/colorgrayblue"
-                        android:fontFamily="@font/body" />
+
 
                     <TextView
                         android:id="@+id/txt_debt_amount"

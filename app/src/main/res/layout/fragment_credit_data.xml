@@ -323,7 +323,7 @@
                                 android:layout_gravity="center"
                                 android:layout_marginTop="5dp"
                                 android:textSize="13sp"
-                                android:text="@{pagosMensualidad.v1TipoCredito != null ? pagosMensualidad.v1TipoCredito.trim() : @string/nonenumber}"
+                                android:text="@{pagosMensualidad.v1TipoCredito != null ? pagosMensualidad.v1TipoCredito.trim()+` `+pagosMensualidad.v10TipoCreditoFam.trim() : @string/nonenumber}"
                                 tools:text="-"
                                 android:textAlignment="center"
                                 android:fontFamily="@font/body"/>
