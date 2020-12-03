@@ -240,6 +240,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         redLogo.animate().setDuration(1000).alpha(1);
         whiteLogo.animate().setDuration(1000).alpha(0);
         whiteLogo.setVisibility(View.GONE);
+        registerlogin.setMovementMethod(null);
 
     }
 
@@ -261,7 +262,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         set.clone(layout);
         aviso.setText(R.string.hyperlinkap);
         aviso.animate().alpha(1.0f);
-
+        registerlogin.setMovementMethod(LinkMovementMethod.getInstance());
         set.connect(R.id.register_form, ConstraintSet.TOP, R.id.registerlink, ConstraintSet.BOTTOM, 0);
         set.connect(R.id.register_form, ConstraintSet.BOTTOM, R.id.registerlink2, ConstraintSet.BOTTOM, 0);
         set.applyTo(layout);
