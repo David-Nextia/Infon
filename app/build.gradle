@@ -2,6 +2,14 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 android {
+    signingConfigs {
+        nextia {
+            storeFile file('/Users/david_llanes/Desktop/nextia')
+            storePassword '123456'
+            keyAlias 'Nextia'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
 
