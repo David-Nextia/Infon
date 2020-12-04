@@ -386,7 +386,7 @@
             app:layout_constraintTop_toBottomOf="@id/avisolink"
             app:layout_constraintStart_toStartOf="@id/avisolink"
             app:layout_constraintEnd_toEndOf="@id/avisolink"
-            android:text="3.2.7.17_QADPS"
+            android:text="3.2.7.18_QADPS"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

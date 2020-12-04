@@ -60,7 +60,6 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         ViewModelPdf = new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_constancia, container, false);
         setSpinners();
-//        setButton();
         return binding.getRoot();
     }
 
@@ -68,10 +67,10 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
     @Override
     public void onStart() {
         super.onStart();
-        Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_constancia);
+
         new CountDownTimer(1500, 1000) {
             public void onFinish() {
-                Utils.hideLoadingSkeleton();
+
 
             }
 
@@ -112,6 +111,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 //                if(position!=0)
 //                {
                 if (Utils.isNetworkAvailable(getActivity())) {
+                    Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_constancia);
                     creditUseCase.getInfoCredit("0000" + parent.getItemAtPosition(position).toString(), Utils.getSharedPreferencesToken(getContext()), ConstanciaFragment.this);
                 } else {
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
@@ -127,41 +127,13 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
 
             }
         });
-//        binding.spAniosConstancia.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                if (position != 0) {
-//                    binding.btnConsultarConstancia.setEnabled(true);
-//                    ViewModelPdf.setCredit("0000" + creditList.get(binding.spSeleccionaCreditoConstancia.getSelectedItemPosition()));
-//                    ViewModelPdf.setYear(parent.getItemAtPosition(position).toString());
-//                }else{
-//                    binding.btnConsultarConstancia.setEnabled(false);
-//                }
-//            }
 
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-//        binding.btnConsultarConstancia.setEnabled(false);
         creditAdapter = new ArrayAdapter<String>(getContext(), R.layout.spinner_item, creditList);
         creditAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         binding.spSeleccionaCreditoConstancia.setAdapter(creditAdapter);
     }
 
-    //setButton methods and states
-//    public void setButton() {
-//        binding.btnConsultarConstancia.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-//                navController.navigate(R.id.action_nav_constancia_interes_to_nav_pdf_constancia);
-//
-//            }
-//        });
-//    }
+
 
     //To manage on fail request
     @Override
@@ -193,7 +165,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         List<RespuestUm> listItemAnio2=new ArrayList<>();
         if(object != null && object.getRespuesta() != null) {
             listItemAnio = object.getRespuesta();
-            for (int i = 0; i <=7; i++) {
+            for (int i = 0; i <7; i++) {
                 if (listItemAnio.size() > i) {
                     listItemAnio2.add(listItemAnio.get(i));
                 }
@@ -203,7 +175,7 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         yearAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, listanios);
         yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        binding.spAniosConstancia.setAdapter(yearAdapter);
-
+        Utils.hideLoadingSkeleton();
         if(listanios.size() > 1){
 //            binding.spAniosConstancia.setSelection(1);
         }

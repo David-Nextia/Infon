@@ -569,7 +569,7 @@ public class Utils {
                 pdfContentByte.setTextMatrix(218, (float) 448);
                 //pdfContentByte.showText("GONZAGA RODRIGUEZ JOSE GERARDO");
                 pdfContentByte.showText(credit.getDatosGenerales().getNombre());
-                pdfContentByte.setTextMatrix(218, (float) 434);
+                pdfContentByte.setTextMatrix(218, (float) 433.6);
                 //pdfContentByte.showText("BENEMERITO DE LAS AMERICAS 21 E SMZ 31");
                 pdfContentByte.showText(credit.getDatosGenerales().getDomicilio().getCalleNumero());
 
@@ -1782,7 +1782,7 @@ public class Utils {
         String month = c.getDisplayName(Calendar.MONTH, Calendar.LONG, new Locale("es", "ES"));
         int year = c.get(Calendar.YEAR);
         int day = c.get(Calendar.DAY_OF_MONTH);
-        return month.toUpperCase() + " " + day + " DEL " + year;
+        return month.substring(0, 1).toUpperCase()+ month.substring(1) + " de " + year;
     }
 
     //to get actual date in format dd MMMM yyy

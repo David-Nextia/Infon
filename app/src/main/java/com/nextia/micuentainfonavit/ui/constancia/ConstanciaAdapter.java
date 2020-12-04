@@ -57,27 +57,33 @@ public class ConstanciaAdapter extends  RecyclerView.Adapter {
 
         TextView anio,message;
         ImageView arrow;
+        View view;
 
         private ViewHolderItemMenu(View itemView){
             super(itemView);
             anio=itemView.findViewById(R.id.year);
             message=itemView.findViewById(R.id.message);
             arrow=itemView.findViewById(R.id.arrow);
+            view=itemView;
 
         }
         public void bindView(RespuestUm item){
             anio.setText(item.getEjercicioFiscal());
             if(item.getCodigoRespuesta().trim().equals("00"))
-            {message.setText("Constancia de intereses disponible");}
+            {message.setText("Constancia de intereses disponible");
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        listener.Onclick(item.getEjercicioFiscal());
+                    }
+                });
+
+            }
            else{ message.setText(item.getDescripcionRespuesta());
            arrow.setVisibility(View.GONE);
+           view.setOnClickListener(null);
            }
-            arrow.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    listener.Onclick(item.getEjercicioFiscal());
-                }
-            });
+
         }
 
     }

@@ -145,7 +145,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
     @Override
     public void onSuccesRequest(CreditYearInfoResponse object, String token) {
        binding.setCredit(object);
-        binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue());
+        binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue().substring(4));
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
         mViewModel.setCreditInfo(object);
 

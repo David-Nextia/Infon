@@ -122,9 +122,9 @@
         (RFC) con el que expedimos la constancia de interés para tu declaración anual de impuestos
         es el que tenemos en el Infonavit. Revísalo y, si no es correcto, haz lo siguiente:</string>
     <string name="constancia_subtitulo_1_ten_constancia_interes">Ten a la mano la constancia de RFC que te
-        dio el Servicio de Administración Tributaría</string>
-    <string name="constancia_subtitulo_2_acude_modulo_atencion">Si todavía no la tienes acude a un modulo de
-        atención del SAT que corresponda para solicitarle</string>
+        dio el Servicio de Administración Tributaria</string>
+    <string name="constancia_subtitulo_2_acude_modulo_atencion">Si todavía no la tienes acude a un módulo de
+        atención del SAT que corresponda para solicitarla</string>
     <string name="constancia_subtitulo_3_haz_una_cita">Si tienes firma electrónica avanzada (e.firma) o tu recibo de nómina digital (.XML) haz el trámite en línea, de lo contrario
         agenda una cita para que acudas al Centro de Servicio Infonavit más cercano y solicites que te lo corrijan. Debes llevar el original y copia de los siguientes documentos:</string>
     <string name="constancia_subtitulo_constancia_o_copia">Constancia o copia de cédula de RFC emitida por el SAT.</string>
