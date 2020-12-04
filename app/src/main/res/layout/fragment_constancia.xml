@@ -1,5 +1,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -333,35 +334,23 @@
                     android:fontFamily="@font/body"
                     android:text="@string/elige_anio_fiscal"
                     android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_black"
                     android:layout_marginStart="@dimen/side_margins"
                     android:layout_marginEnd="@dimen/side_margins"/>
 
                 <!--        Este textview se va a elimar cuando el spinner sea llenado con la información-->
 
 
-                <Spinner
-                    android:id="@+id/sp_anios_constancia"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@color/colorskeleton"
-                    android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
-
-                <Button
-                    android:id="@+id/btn_consultar_constancia"
-                    style="@style/button_app"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/consultar"
-                    android:layout_marginStart="@dimen/side_margins"
-                    android:layout_marginEnd="@dimen/side_margins"/>
+           <androidx.recyclerview.widget.RecyclerView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:id="@+id/recycler"
+               android:layout_marginTop="15dp"
+               app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+               android:orientation="vertical"
+               tools:listitem="@layout/constancia_item"
+               />
 
             </LinearLayout>
 

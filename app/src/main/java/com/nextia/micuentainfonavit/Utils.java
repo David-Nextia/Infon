@@ -139,6 +139,22 @@ public class Utils {
         }
         return money;
     }
+    public static String formatMoneyWhitout(String stringNum) {
+        String money;
+        try {
+            double num = Double.parseDouble(stringNum.trim());
+            if (num == 0.0) {
+                money = "0.00";
+            } else {
+                DecimalFormat formatter = new DecimalFormat("#,###.00");
+                money =formatter.format(num);
+            }
+        }catch (Exception ex){
+            ex.printStackTrace();
+            money = "0.00";
+        }
+        return money;
+    }
 
     //To save data on shared preferences
     public static void saveToSharedPreferences(Context context, String tag, String object) {
@@ -447,6 +463,158 @@ public class Utils {
 
             whtPoint.setStyle(Paint.Style.STROKE);
             whtPoint.setStrokeWidth(1);
+        }
+        if(mode==7){
+            File root = null;
+            File myDir =  null;
+            String name = "";
+            String fname = "";
+            OutputStream fos = null;
+            PdfReader pdfReader = null;
+            PdfStamper pdfStamper = null;
+            PdfConstanciaDownloadViewModel viewmodel=(PdfConstanciaDownloadViewModel)mViewModel;
+            CreditYearInfoResponse credit=viewmodel.getCreditInfo().getValue();
+            String creditNum= viewmodel.getCredit().getValue();
+            String creditYear=viewmodel.getYear().getValue();
+            // PLANTILLA 4 (Aviso de Modificación)
+
+            //Se crea la dirección de guardado
+            if(!download)
+            {root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);}
+            else{
+                root = new File (activity.getExternalFilesDir(null).getAbsolutePath());
+            }
+            myDir = new File(root + "/ConstanciaInfonavit");
+            if (!myDir.exists()) {
+                myDir.mkdirs();
+            }
+
+            //Se define el tipo de aviso y el nombre del archivo
+            name = "Constancia_interés_" + creditNum.substring(4);
+            fname = name + ".pdf";
+            myfile = new File(myDir, fname);
+
+            //Función para agregar numeros si se repite el archivo
+            for (int num = 1; myfile.exists(); num++) {
+                fname = name + "(" + num + ")" + ".pdf";
+                myfile = new File(myDir, fname);
+            }
+
+            //Se define la plantilla que se usara
+            try {
+                fos = new FileOutputStream(myfile);
+                pdfReader = new PdfReader(activity.getResources().openRawResource(R.raw.interest_proof));
+                pdfStamper = new PdfStamper(pdfReader, fos);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+
+            //Se toma el total de las paginas
+            for (int i = 1; i <= pdfReader.getNumberOfPages(); i++) {
+                PdfContentByte pdfContentByte = pdfStamper.getOverContent(i);
+
+                //se comienza el archivo y se define el tamaño y letra
+                pdfContentByte.beginText();
+                try {
+                    pdfContentByte.setFontAndSize(BaseFont.createFont(
+                            BaseFont.HELVETICA,
+                            BaseFont.CP1257,
+                            BaseFont.EMBEDDED
+                    ),11);
+                } catch (DocumentException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+//                // Número de aviso
+//                pdfContentByte.setTextMatrix(475, 705);
+//                pdfContentByte.showText("item.get(0).getNROAVIS()");
+//
+//                // Fecha
+//                String date="item.get(0).getFCREAVIS()";
+//                SimpleDateFormat spf=new SimpleDateFormat("yyyy-MM-dd");
+//                Date newDate= null;
+//                try {
+//                    newDate = spf.parse(date);
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+//                spf= new SimpleDateFormat("dd.MM.yyyy");
+//                date = spf.format(newDate);
+//                pdfContentByte.setTextMatrix(475,688 );
+//                pdfContentByte.showText(date);
+
+                // N.R.P
+//                pdfContentByte.setTextMatrix(455,663 );
+//                pdfContentByte.showText("item.get(0).getNRP()");
+
+                // R.F.C (NRP)
+                pdfContentByte.setTextMatrix(456, (float) 628);
+                //pdfContentByte.showText("GORG560923UL7");
+                pdfContentByte.showText(credit.getDatosGenerales().getRfc());
+
+                pdfContentByte.setTextMatrix(456, (float) 613.5);
+                //pdfContentByte.showText("2905013614");
+                pdfContentByte.showText(creditNum.substring(4));
+
+                pdfContentByte.setTextMatrix(57, (float) 597);
+                //pdfContentByte.showText("Febrero de 2020");
+                pdfContentByte.showText(getDate());
+
+                pdfContentByte.setTextMatrix(218, (float) 448);
+                //pdfContentByte.showText("GONZAGA RODRIGUEZ JOSE GERARDO");
+                pdfContentByte.showText(credit.getDatosGenerales().getNombre());
+                pdfContentByte.setTextMatrix(218, (float) 434);
+                //pdfContentByte.showText("BENEMERITO DE LAS AMERICAS 21 E SMZ 31");
+                pdfContentByte.showText(credit.getDatosGenerales().getDomicilio().getCalleNumero());
+
+                pdfContentByte.setTextMatrix(220, (float) 406.3);
+
+                //pdfContentByte.showText("LOS VOLCANES II");
+                pdfContentByte.showText(credit.getDatosGenerales().getDomicilio().getColonia());
+                pdfContentByte.setTextMatrix(220, (float) 391.5);
+
+                //pdfContentByte.showText("HUAMANTLA");
+                pdfContentByte.showText( credit.getDatosGenerales().getDomicilio().getPoblacion());
+                pdfContentByte.setTextMatrix(220, (float) 377.1);
+
+                //pdfContentByte.showText("TLAXCALA");
+                pdfContentByte.showText(credit.getDatosGenerales().getDomicilio().getEstado());
+                pdfContentByte.setTextMatrix(220, (float) 361.6);
+
+                //pdfContentByte.showText("90500");
+                pdfContentByte.showText(credit.getDatosGenerales().getDomicilio().getCp().toString());
+
+                pdfContentByte.setTextMatrix(339, (float) 302);
+
+               // pdfContentByte.showText("1,487.19");
+                pdfContentByte.showText(formatMoneyWhitout(credit.getDatosFinancieros().getInteresDevengado()));
+                pdfContentByte.setTextMatrix(339, (float) 287);
+
+                //pdfContentByte.showText("1,639.66");
+                pdfContentByte.showText(formatMoneyWhitout(credit.getDatosFinancieros().getInteresPagado()));
+                pdfContentByte.setTextMatrix(339, (float) 272);
+
+                //pdfContentByte.showText("1,074.78");
+                pdfContentByte.showText(formatMoneyWhitout(credit.getDatosFinancieros().getInteresReal()));
+
+                // Se termina de escribir en el PDF
+                pdfContentByte.endText();
+            }
+
+            try {
+                pdfStamper.close();
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return myfile;
         }
         if(mode==1){
             PdfConstanciaDownloadViewModel viewmodel=(PdfConstanciaDownloadViewModel)mViewModel;

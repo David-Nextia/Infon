@@ -449,9 +449,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 String pagoAIntereses = movItems.getMovimientos().get(i).getPagoAIntereses();
                 String pagoACapital = movItems.getMovimientos().get(i).getPagoACapital();
 
-                childList.add("Pagos a seguros y cuotas" + "&" + pagoASeguro);
-                childList.add("Pagos a interés" + "&" + pagoAIntereses);
-                childList.add("Pagos a capital" + "&" + pagoACapital);
+                childList.add("Pago a seguros y cuotas" + "&" + pagoASeguro);
+                childList.add("Pago a interés" + "&" + pagoAIntereses);
+                childList.add("Pago a capital" + "&" + pagoACapital);
 
                 movementsCollection.put(groupList.get(i), childList);
             }
