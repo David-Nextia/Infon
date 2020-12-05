@@ -63,23 +63,6 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
         return binding.getRoot();
     }
 
-    //function before initial view to show and stop skeleton
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        new CountDownTimer(1500, 1000) {
-            public void onFinish() {
-
-
-            }
-
-            public void onTick(long millisUntilFinished) {
-
-            }
-        }.start();
-    }
-
     //fill spinner with credits from sharedpreferences and set methods
     public void setSpinners() {
         //Set Data year

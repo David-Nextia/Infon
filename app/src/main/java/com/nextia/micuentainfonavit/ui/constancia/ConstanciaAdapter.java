@@ -81,7 +81,7 @@ public class ConstanciaAdapter extends  RecyclerView.Adapter {
             }
            else{ message.setText(item.getDescripcionRespuesta());
            arrow.setVisibility(View.GONE);
-           view.setOnClickListener(null);
+
            }
 
         }

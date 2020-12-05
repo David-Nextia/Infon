@@ -490,7 +490,7 @@ public class Utils {
             }
 
             //Se define el tipo de aviso y el nombre del archivo
-            name = "Constancia_interés_" + creditNum.substring(4);
+            name =creditNum.substring(4)+"_"+Name+"_"+"ConstanciaDeIntereses";
             fname = name + ".pdf";
             myfile = new File(myDir, fname);
 

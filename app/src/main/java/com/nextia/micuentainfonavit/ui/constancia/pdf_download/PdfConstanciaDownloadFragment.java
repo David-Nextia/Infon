@@ -83,7 +83,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             public void onClick(View v)
             {
                 try{
-                    file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),7,true);
+                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,true);
                 }catch (Exception e){
 
                 }
@@ -104,7 +104,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v) {
                 try {
-                    file= Utils.createPdfFromCanvas(mViewModel,"Constancia",getActivity(),7,false);
+                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,false);
                 } catch (Exception e) {
                 }
                 DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
