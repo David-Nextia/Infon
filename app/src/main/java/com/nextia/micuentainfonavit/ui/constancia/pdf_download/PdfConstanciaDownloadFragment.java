@@ -183,6 +183,8 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             {
                 //mostrar aviso de revisar portal
                 binding.downloadPanel.setVisibility(View.GONE);
+                binding.nonePDF.setVisibility(View.VISIBLE);
+                binding.nonePDF.setText("Institución financiera de "+object.getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.");
 
             }
 
