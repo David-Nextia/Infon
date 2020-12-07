@@ -43,6 +43,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
     FragmentPdfConstanciaDownloadBinding binding;
     NavController navController;
     File file;
+    boolean start=false;
 
     //to create the view and instances view models
     @Override
@@ -74,22 +75,35 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         binding.dowloadPdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 try {
                     if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
+                        if(!mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
+                            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                            alertdialog.show();
+
+                        }
+                        else{
                         file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, false);
+                            pdfViewModel.setFile(file);
+                            navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                            navController.navigate(R.id.action_nav_pdf_constancia_to_nav_pdf_viewer);
+
+                        }
                     }
                     else{
                         String name = mViewModel.getCredit().getValue().substring(4) + "_" + mViewModel.getYear().getValue() + "_ConstanciaDeIntereses";
                         file = Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(), name, getActivity(), 2, false);
+                        pdfViewModel.setFile(file);
+                        navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                        navController.navigate(R.id.action_nav_pdf_constancia_to_nav_pdf_viewer);
                     }
 
                 } catch (Exception e) {
 
                 }
 
-                pdfViewModel.setFile(file);
-                navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
-                navController.navigate(R.id.action_nav_pdf_constancia_to_nav_pdf_viewer);
+
             }
         });
         binding.sharePdf.setOnClickListener(new View.OnClickListener() {
@@ -104,18 +118,28 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             public void onClick(View v) {
                 try {
                     if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
+                        if(!mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
+                            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                            alertdialog.show();
+
+                        }
+                        else{
                         file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, false);
+                            DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                            dialog.show();
+                        }
                     }
                     else{
                         String name = mViewModel.getCredit().getValue().substring(4) + "_" + mViewModel.getYear().getValue() + "_ConstanciaDeIntereses";
                         file = Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(), name, getActivity(), 2, false);
+                        DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                        dialog.show();
                     }
 
 
                 } catch (Exception e) {
                 }
-                DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
-                dialog.show();
+
             }
         });
         binding.xmlDownload.setOnClickListener(new View.OnClickListener() {
@@ -177,26 +201,13 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             binding.infoRFCGeneric.setVisibility(View.VISIBLE);
         }
         //si el pdf viene vacio
-        if(object.getDatoCFDI().getPdf().trim().equals("") &&object.getDatoCFDI().getXml().trim().equals("")){
-            //si es institución financiera y no hay pdf
-            if(!object.getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000"))
-            {
-                //mostrar aviso de revisar portal
-                binding.downloadPanel.setVisibility(View.GONE);
-                binding.nonePDF.setVisibility(View.VISIBLE);
-                binding.nonePDF.setText("Institución financiera de "+object.getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.");
-
+        if(!object.getDatoCFDI().getPdf().trim().equals("") && !object.getDatoCFDI().getXml().trim().equals("")){
+            if(!object.getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
+                binding.xmlDownload.setVisibility(View.VISIBLE);
             }
 
         }
-        else{
-            // si hay pdf y es institución financiera
-           if(!object.getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
-               binding.xmlDownload.setVisibility(View.VISIBLE);
-           }
 
-
-        }
         mViewModel.setCreditInfo(object);
         Utils.hideLoadingSkeleton();
 

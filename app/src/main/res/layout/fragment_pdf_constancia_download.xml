@@ -152,17 +152,7 @@
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
-            <TextView
-                android:layout_marginTop="15dp"
-                android:visibility="gone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/nonePDF"
-                android:textSize="12sp"
-                android:justificationMode="inter_word"
-                android:fontFamily="@font/body"
 
-                />
             <LinearLayout
                 android:id="@+id/downloadPanel"
                 android:visibility="visible"
