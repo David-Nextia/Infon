@@ -75,11 +75,12 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v) {
                 try {
-                    if (!mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc().trim().equals("XAXX010101111")) {
-                        file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, true);
-                    } else {
+                    if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
+                        file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, false);
+                    }
+                    else{
                         String name = mViewModel.getCredit().getValue().substring(4) + "_" + mViewModel.getYear().getValue() + "_ConstanciaDeIntereses";
-                        file = Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(), name, getActivity(), 2, true);
+                        file = Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(), name, getActivity(), 2, false);
                     }
 
                 } catch (Exception e) {
@@ -102,12 +103,15 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v) {
                 try {
-                    if (!mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc().trim().equals("XAXX010101111")) {
+                    if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
                         file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, false);
-                    } else {
+                    }
+                    else{
                         String name = mViewModel.getCredit().getValue().substring(4) + "_" + mViewModel.getYear().getValue() + "_ConstanciaDeIntereses";
                         file = Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(), name, getActivity(), 2, false);
                     }
+
+
                 } catch (Exception e) {
                 }
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
@@ -168,11 +172,28 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue().substring(4));
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
         if (object.getDatosGenerales().getRfc().trim().equals("XAXX010101111")) {
-            binding.xmlDownload.setVisibility(View.VISIBLE);
-
             String description = getString(R.string.rfc_generico_constancia, mViewModel.getYear().getValue());
             binding.infoRFCGeneric.setText(description);
             binding.infoRFCGeneric.setVisibility(View.VISIBLE);
+        }
+        //si el pdf viene vacio
+        if(object.getDatoCFDI().getPdf().trim().equals("") &&object.getDatoCFDI().getXml().trim().equals("")){
+            //si es institución financiera y no hay pdf
+            if(!object.getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000"))
+            {
+                //mostrar aviso de revisar portal
+                binding.downloadPanel.setVisibility(View.GONE);
+
+            }
+
+        }
+        else{
+            // si hay pdf y es institución financiera
+           if(!object.getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
+               binding.xmlDownload.setVisibility(View.VISIBLE);
+           }
+
+
         }
         mViewModel.setCreditInfo(object);
         Utils.hideLoadingSkeleton();

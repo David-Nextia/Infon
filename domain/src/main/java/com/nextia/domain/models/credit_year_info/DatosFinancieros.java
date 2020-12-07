@@ -30,6 +30,8 @@ public class DatosFinancieros {
     @Expose
     private String pool;
 
+
+
     public String getInteresDevengado() {
         return interesDevengado;
     }
