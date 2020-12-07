@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.nextia.domain.OnFinishRequestListener;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
@@ -55,7 +56,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         return binding.getRoot();
     }
 
-    //to  get data from server with teh credit and year
+    //to  get data from server with the credit and year
     public void getData(){
         if(Utils.isNetworkAvailable(getActivity())){
             creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()),mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
@@ -69,13 +70,6 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
     }
 
-   //starts skeleton before view
-    @Override
-    public void onStart() {
-        super.onStart();
-        //Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
-    }
-
     //setting onclick methods to see or share pdf
     public void setOnClicks(){
         binding.dowloadPdf.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +77,14 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             public void onClick(View v)
             {
                 try{
-                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,true);
+                    if(!mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc().trim().equals("XAXX010101111")){
+                        file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,true);
+                    }
+                    else{
+                        String name=mViewModel.getCredit().getValue().substring(4)+"_"+mViewModel.getYear().getValue()+"_ConstanciaDeIntereses";
+                        file=Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(),name,getActivity(),2,true);
+                    }
+
                 }catch (Exception e){
 
                 }
@@ -104,11 +105,31 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v) {
                 try {
-                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,false);
+                    if(!mViewModel.getCreditInfo().getValue().getDatosGenerales().getRfc().trim().equals("XAXX010101111")){
+                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,false);}
+                    else{
+                        String name=mViewModel.getCredit().getValue().substring(4)+"_"+mViewModel.getYear().getValue()+"_ConstanciaDeIntereses";
+                        file=Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf(),name,getActivity(),2,false);
+                    }
                 } catch (Exception e) {
                 }
                 DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
+            }
+        });
+        binding.xmlDownload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+
+                        String name=mViewModel.getCredit().getValue().substring(4)+"_"+mViewModel.getYear().getValue()+"_ConstanciaDeIntereses";
+                        file=Utils.createPdfFromBase64(mViewModel.getCreditInfo().getValue().getDatoCFDI().getXml(),name,getActivity(),3,false);
+
+                } catch (Exception e) {
+                }
+                DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl XML se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                dialog.show();
+
             }
         });
     }
@@ -147,8 +168,11 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
        binding.setCredit(object);
         binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue().substring(4));
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
-        mViewModel.setCreditInfo(object);
+        if(object.getDatosGenerales().getRfc().trim().equals("XAXX010101111")){
+           binding.xmlDownload.setVisibility(View.VISIBLE);
 
+        }
+        mViewModel.setCreditInfo(object);
         Utils.hideLoadingSkeleton();
 
     }
