@@ -36,7 +36,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishRequestListener<CreditYearInfoResponse> {
-    CreditUseCase creditUseCase= new CreditUseCase();
+    CreditUseCase creditUseCase = new CreditUseCase();
     PdfViewViewModel pdfViewModel;
     private PdfConstanciaDownloadViewModel mViewModel;
     FragmentPdfConstanciaDownloadBinding binding;
@@ -48,28 +48,27 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_pdf_constancia_download, container, false);
-        mViewModel= new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
-        pdfViewModel= new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
+        mViewModel = new ViewModelProvider(getActivity()).get(PdfConstanciaDownloadViewModel.class);
+        pdfViewModel = new ViewModelProvider(getActivity()).get(PdfViewViewModel.class);
         getData();
         setOnClicks();
         return binding.getRoot();
     }
 
     //to  get data from server with teh credit and year
-    public void getData(){
-        if(Utils.isNetworkAvailable(getActivity())){
-            creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()),mViewModel.getCredit().getValue(),mViewModel.getYear().getValue(),PdfConstanciaDownloadFragment.this);
-            Utils.showLoadingSkeleton(binding.rootView,R.layout.skeleton_pdf_constancia_download);
-        }
-        else{
-            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso",getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
+    public void getData() {
+        if (Utils.isNetworkAvailable(getActivity())) {
+            creditUseCase.getInfoCreditYear(Utils.getSharedPreferencesToken(getContext()), mViewModel.getCredit().getValue(), mViewModel.getYear().getValue(), PdfConstanciaDownloadFragment.this);
+            Utils.showLoadingSkeleton(binding.rootView, R.layout.skeleton_pdf_constancia_download);
+        } else {
+            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
             alertdialog.show();
 
         }
 
     }
 
-   //starts skeleton before view
+    //starts skeleton before view
     @Override
     public void onStart() {
         super.onStart();
@@ -77,14 +76,13 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
     }
 
     //setting onclick methods to see or share pdf
-    public void setOnClicks(){
+    public void setOnClicks() {
         binding.dowloadPdf.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                try{
-                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,true);
-                }catch (Exception e){
+            public void onClick(View v) {
+                try {
+                    file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, true);
+                } catch (Exception e) {
 
                 }
 
@@ -96,7 +94,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         binding.sharePdf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.sharePdf(file,getActivity());
+                Utils.sharePdf(file, getActivity());
 
             }
         });
@@ -104,10 +102,10 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
             @Override
             public void onClick(View v) {
                 try {
-                    file= Utils.createPdfFromCanvas(mViewModel,mViewModel.getYear().getValue().toString(),getActivity(),7,false);
+                    file = Utils.createPdfFromCanvas(mViewModel, mViewModel.getYear().getValue().toString(), getActivity(), 7, false);
                 } catch (Exception e) {
                 }
-                DialogInfonavit dialog= new DialogInfonavit(getContext(), getString(R.string.title_error),"Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
             }
         });
@@ -127,6 +125,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
 
         alertdialog.show();
     }
+
     //to manage token expired
     @Override
     public void onTokenExpired() {
@@ -141,13 +140,22 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
         });
         alertdialog.show();
     }
+
     //To manage on Succes request
     @Override
     public void onSuccesRequest(CreditYearInfoResponse object, String token) {
-       binding.setCredit(object);
+        binding.setCredit(object);
         binding.tvNumCreditoImprPdf.setText(mViewModel.getCredit().getValue().substring(4));
         binding.tvAnioImprPdf.setText(mViewModel.getYear().getValue());
         mViewModel.setCreditInfo(object);
+
+        if(object.getDatosGenerales().getRfc().equals("XAXX010101111")){
+            String description = getString(R.string.rfc_generico_constancia, mViewModel.getYear().getValue());
+            binding.infoRFCGeneric.setText(description);
+            binding.infoRFCGeneric.setVisibility(View.VISIBLE);
+        }else{
+            binding.infoRFCGeneric.setVisibility(View.GONE);
+        }
 
         Utils.hideLoadingSkeleton();
 

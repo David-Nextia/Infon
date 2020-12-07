@@ -35,14 +35,15 @@
                 android:layout_marginTop="5dp"
                 android:background="@color/color_blue" />
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/body"
                 android:text="@string/subtitulo_constancia_pdf"
                 android:textAlignment="gravity"
                 android:textSize="12sp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/body"/>
+                android:justificationMode="inter_word"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -198,6 +199,20 @@
                 android:textSize="14sp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/subtitle"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/infoRFCGeneric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/rfc_generico_constancia"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/body"
+            android:textAlignment="gravity"
+            android:textSize="12sp"
+            android:autoLink="web"
+            android:visibility="gone"/>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
