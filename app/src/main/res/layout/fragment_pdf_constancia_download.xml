@@ -152,36 +152,76 @@
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-
-                android:layout_gravity="center"
-                android:layout_marginTop="60dp">
-
-                <TextView
-                    android:id="@+id/dowloadPdf"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/pdfc"
-                    android:layout_gravity="center" />
-
-
-                <TextView
-                    android:id="@+id/tv_imprimir_constancia"
-                    android:layout_width="wrap_content"
+                android:layout_marginTop="60dp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/descarga_tu_archivo"
-                    android:textColor="@color/colorgrayblue"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/subtitle"/>
+                    >
+
+                    <TextView
+                        android:id="@+id/dowloadPdf"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/pdfc"
+                        android:layout_gravity="center" />
+
+
+                    <TextView
+                        android:id="@+id/tv_imprimir_constancia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/descarga_tu_archivo"
+                        android:textColor="@color/colorgrayblue"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:id="@+id/xml_download"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:textColor="@color/colorPrimary"
+                        android:drawableTint="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:background="@drawable/logo_generc"
+                        android:layout_gravity="center" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Descargar XML"
+                        android:textColor="@color/colorgrayblue"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
 
             </LinearLayout>
+
             <ImageView
                 android:visibility="gone"
                 android:layout_width="20dp"
