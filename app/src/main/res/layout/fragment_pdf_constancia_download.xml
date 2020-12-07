@@ -152,6 +152,11 @@
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nonePDF"
+                />
             <LinearLayout
                 android:id="@+id/downloadPanel"
                 android:visibility="visible"
