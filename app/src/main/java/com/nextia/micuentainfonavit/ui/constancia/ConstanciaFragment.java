@@ -155,8 +155,8 @@ public class ConstanciaFragment extends Fragment implements OnFinishRequestListe
             }
         }
         recyclerAdapter.setData(listItemAnio2);
-        yearAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, listanios);
-        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        yearAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, listanios);
+  //      yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        binding.spAniosConstancia.setAdapter(yearAdapter);
         Utils.hideLoadingSkeleton();
         if(listanios.size() > 1){
