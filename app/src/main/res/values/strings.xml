@@ -198,5 +198,15 @@ De manera que estén alineados a la izquierda.</string>
     <string name="header_pay_market1">•El pago mínimo es de $50.00 y en efectivo.</string>
     <string name="header_pay_market2">•Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar.</string>
     <string name="header_pay_market3">•En estos establecimientos no se cobra comisión por este servicio.</string>
+    <string name="rfc_generico_constancia">
+
+        En tu Carta constancia de intereses reales %1$s el campo RFC registrado en nuestra base de datos es erróneo. Solicita tu comprobante de RFC en el módulo de atención SAT que te corresponda y contáctanos cuanto antes.\n\n
+
+        Pide una cita en el portal de internet www.infonavit.org.mx para que acudas al CESI del Infonavit más cercano y solicites que te lo corrijan. A la cita lleva tu identificación oficial y el comprobante del RFC que te entregue el SAT.\n\n
+
+        Contacto Servicio de Administración Tributaria (SAT)
+        http://www.sat.gob.mx/sitio_internet/sitio_aplicaciones/modulos_atencion/
+
+    </string>
 
 </resources>
