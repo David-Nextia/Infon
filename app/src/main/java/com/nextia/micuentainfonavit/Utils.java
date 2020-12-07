@@ -1738,7 +1738,7 @@ public class Utils {
     }
 
     //To create a pfd from Base64 String
-    public static File createPdfFromBase64(String pdfUrlBase64, String name, Activity context, boolean downloads) throws FileNotFoundException {
+    public static File createPdfFromBase64(String pdfUrlBase64, String name, Activity context,int type, boolean downloads) throws FileNotFoundException {
         String myFilePath;
         File myfile;
         try {
@@ -1746,12 +1746,29 @@ public class Utils {
             {
                 myFilePath = context.getExternalFilesDir(null).getAbsolutePath() + "/" + name + ".pdf";}
             else{
+                if(type==1){
                 String myfilepath2=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"MovimientosInfonavit";
                 File myfile2=new File(myfilepath2);
                 if(!myfile2.exists()){
                     myfile2.mkdirs();
                 }
-                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"MovimientosInfonavit"+"/" + name + ".pdf";
+                myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"MovimientosInfonavit"+"/" + name + ".pdf";}
+                else if(type==2){
+                    String myfilepath2=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"ConstanciaInfonavit";
+                    File myfile2=new File(myfilepath2);
+                    if(!myfile2.exists()){
+                        myfile2.mkdirs();
+                    }
+                    myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"ConstanciaInfonavit"+"/" + name + ".pdf";
+                }
+                else{
+                    String myfilepath2=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"ConstanciaInfonavit";
+                    File myfile2=new File(myfilepath2);
+                    if(!myfile2.exists()){
+                        myfile2.mkdirs();
+                    }
+                    myFilePath=Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()+ "/"+"ConstanciaInfonavit"+"/" + name + ".xml";
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
