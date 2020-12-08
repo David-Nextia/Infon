@@ -78,6 +78,7 @@ import static java.security.AccessController.getContext;
 public class Utils {
     //Patterns date string
     public static String PATTERN_YYYYMMDD = "yyyyMMdd";
+    public static String PATTERN_DD_MM_YYYY = "dd-MM-yyyy";
 
     //To get the user data saved on shared preferences
     public static UserResponse getSharedPreferencesUserData(Context context) {

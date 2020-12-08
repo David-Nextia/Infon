@@ -19,6 +19,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/rootView"
+            android:paddingBottom="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -311,7 +312,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/subtitle"
                     android:padding="3dp"
-                    android:text="@{saldo.getFechaPago}"
+                    android:text="@{utils.formatDate(saldo.getFechaPago,utils.PATTERN_DD_MM_YYYY)}"
                     android:textAppearance="@android:style/TextAppearance.Small"
                     android:textStyle="bold"
                     tools:text="..."
