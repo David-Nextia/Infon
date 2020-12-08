@@ -79,8 +79,18 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
                 try {
                     if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
                         if(!mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
-                            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
-                            alertdialog.show();
+                            int yearCompare=Integer.parseInt(mViewModel.getYear().getValue().trim());
+                            if(yearCompare>=2017)
+                            {
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
+                                alertdialog.show();
+
+
+                            }
+                            else{
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés de "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                                alertdialog.show();
+                            }
 
                         }
                         else{
@@ -119,8 +129,18 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
                 try {
                     if(mViewModel.getCreditInfo().getValue().getDatoCFDI().getPdf().trim().equals("")){
                         if(!mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getNumeroInstitucionBancaria().trim().equals("000")){
-                            DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
-                            alertdialog.show();
+                            int yearCompare=Integer.parseInt(mViewModel.getYear().getValue().trim());
+                            if(yearCompare>=2017)
+                            {
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
+                                alertdialog.show();
+
+
+                            }
+                            else{
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés de "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                                alertdialog.show();
+                            }
 
                         }
                         else{
