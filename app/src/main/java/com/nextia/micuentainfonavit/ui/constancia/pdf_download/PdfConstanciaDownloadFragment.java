@@ -82,13 +82,13 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
                             int yearCompare=Integer.parseInt(mViewModel.getYear().getValue().trim());
                             if(yearCompare>=2017)
                             {
-                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim()+"\n\nEntidad financiera: "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
                                 alertdialog.show();
 
 
                             }
                             else{
-                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés de "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", "Su constancia de interés de "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial().trim()+" se encuentra disponible en el portal de Mi Cuenta Infonavit.", DialogInfonavit.ONE_BUTTON_DIALOG);
                                 alertdialog.show();
                             }
 
@@ -132,7 +132,7 @@ public class PdfConstanciaDownloadFragment extends Fragment implements OnFinishR
                             int yearCompare=Integer.parseInt(mViewModel.getYear().getValue().trim());
                             if(yearCompare>=2017)
                             {
-                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
+                                DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", mViewModel.getCreditInfo().getValue().getDatosTecnicos().getDescripcionRespuesta().trim()+"\n\nEntidad financiera: "+mViewModel.getCreditInfo().getValue().getDatosSectorFinanciero().getRazonSocial().trim(), DialogInfonavit.ONE_BUTTON_DIALOG);
                                 alertdialog.show();
 
 
