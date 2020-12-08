@@ -8,18 +8,25 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@drawable/back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/rootView"
-            android:padding="10dp">
+            android:paddingBottom="60dp"
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -27,12 +34,17 @@
                 android:text="@string/constancia_interes_titulo"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 style="@style/TxStyleSubTitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
+
                 android:textColor="@color/color_black" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:background="@color/color_blue" />
 
             <com.codesgood.views.JustifiedTextView
@@ -40,6 +52,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/body"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:text="@string/subtitulo_constancia_pdf"
                 android:textAlignment="gravity"
                 android:textSize="14sp"
@@ -160,6 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
                 android:orientation="horizontal"
+
                 android:weightSum="2">
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -247,6 +262,8 @@
             android:id="@+id/infoRFCGeneric"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_margins"
+            android:layout_marginEnd="@dimen/side_margins"
             android:layout_marginTop="24dp"
             android:text="@string/rfc_generico_constancia"
             android:justificationMode="inter_word"
@@ -259,4 +276,5 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>
