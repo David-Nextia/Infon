@@ -67,18 +67,7 @@ public class RetrofitService {
                 .build();
         return retrofit.create(Repository.class);
     }
-    //apiprod
-    public static Repository getApiProdService(){
-        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL_BASE)
-                //.addConverterFactory(GsonConverterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create(gson))
-                .client(getUnsafeOkHttpClient().addInterceptor(logging).build())
-                .build();
-        return retrofit.create(Repository.class);
-    }
+
 
     //Class to deserealize UserResponse and avoid errors on different responses
     public static  class UserResponseDeserealizer implements JsonDeserializer<UserResponse> {
