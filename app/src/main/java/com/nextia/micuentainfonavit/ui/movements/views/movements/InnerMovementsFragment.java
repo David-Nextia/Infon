@@ -44,6 +44,7 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.MovementsFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
@@ -84,7 +85,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
        if(getActivity()!=null && isAdded())
-       {binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
+       {
+          MovementsFragment.setMovsdisble();
+           binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
         historicreq=false;
         periodsreq=false;
         movsreq=false;
@@ -319,6 +322,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         if(getContext()!=null)
         { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         Utils.hideLoadingSkeleton();
+        MovementsFragment.setMovsEnabled();
         //binding.progressBar2.animate().alpha(0.0f);
         dialog.show();}
 
@@ -564,6 +568,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public void hideSkeleton(){
         if(movsreq && periodsreq && historicreq && mensreq && movsdatareq){
             Utils.hideLoadingSkeleton();
+            MovementsFragment.setMovsEnabled();
         }
     }
 }

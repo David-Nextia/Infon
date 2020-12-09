@@ -6,7 +6,7 @@
     <data>
         <variable
             name="saldo"
-            type="com.nextia.domain.models.saldo_movimientos.TablaPagos1" />
+            type="com.nextia.domain.models.saldo_movimientos.RespuestasDoMovs" />
         <import
             alias="utils"
             type="com.nextia.micuentainfonavit.Utils"/>
@@ -203,7 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:text="@{saldo.tp18PgoMensualidad!=null ? utils.formatDate(saldo.tp18PgoMensualidad, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
+                    android:text="@{saldo.pagosMensualidades.v6FechaActualAls!=null ? utils.formatDate(saldo.pagosMensualidades.v6FechaActualAls, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
                     tools:text="day de month del year" />
 
             </LinearLayout>
@@ -216,7 +216,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:fontFamily="@font/subtitle"
-                android:text="@{saldo.tp14PesPgoMensualidad!=null ? utils.formatMoney(saldo.tp14PesPgoMensualidad.trim()):@string/nonenumber}"
+                android:text="@{saldo.tablaPagos1.tp14PesPgoMensualidad!=null ? utils.formatMoney(saldo.tablaPagos1.tp14PesPgoMensualidad.trim()):@string/nonenumber}"
                 tools:text="$ -"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"
@@ -247,7 +247,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginLeft="8dp"
-                    android:text="@{saldo.tp17PgoCorriente!=null ? utils.formatDate(saldo.tp17PgoCorriente, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
+                    android:text="@{saldo.tablaPagos1.tp17PgoCorriente!=null ? utils.formatDate(saldo.tablaPagos1.tp17PgoCorriente, utils.PATTERN_YYYYMMDD):@string/nonenumber}"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     android:fontFamily="@font/subtitle"
@@ -348,7 +348,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@{saldo.tp11MensPgoCorriente!=null ? saldo.tp11MensPgoCorriente:@string/nonenumber }"
+                        android:text="@{saldo.tablaPagos1.tp11MensPgoCorriente!=null ? saldo.tablaPagos1.tp11MensPgoCorriente:@string/nonenumber }"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/subtitle"
                         tools:text="-"
@@ -386,7 +386,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="@{saldo.tp13PesPgoCorriente!=null ? utils.formatMoney(saldo.tp13PesPgoCorriente.trim()): @string/nonenumber}"
+                        android:text="@{saldo.tablaPagos1.tp13PesPgoCorriente!=null ? utils.formatMoney(saldo.tablaPagos1.tp13PesPgoCorriente.trim()): @string/nonenumber}"
                         style="@style/TxStyleSubTitle"
                         android:fontFamily="@font/subtitle"
                         tools:text="$ -"
