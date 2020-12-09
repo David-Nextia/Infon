@@ -411,6 +411,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             mensualReporturl=((MensualReportResponse)object).getReporte();
             binding.monthlyContainer.setVisibility(View.VISIBLE);
             binding.txtLastPeriod.setText(period);
+            hideSkeleton();
         }
 
         //respuesta movimientos

@@ -85,7 +85,7 @@ public class PayOptionsFragment extends Fragment {
                     binding.setPagosMensualidades(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades());
                     binding.setOpcionesPago(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago());
                     if(!saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getOpcionesPago().getV13SdoliqpesProymesCondesc().trim().equals("")){
-                        binding.sectionDebtAmountDiscount.setVisibility(View.VISIBLE);
+                        //binding.sectionDebtAmountDiscount.setVisibility(View.VISIBLE);
                     }else{
                         binding.sectionDebtAmountDiscount.setVisibility(View.GONE);
                     }
