@@ -98,17 +98,7 @@
 
         </KeyFrameSet>
     </Transition>
-    <Transition
-        motion:duration="500"
-        motion:constraintSetEnd="@+id/hidetop"
-        motion:constraintSetStart="@id/end"
-        >
-    </Transition>
-    <Transition
-        motion:duration="500"
-        motion:constraintSetEnd="@+id/showtop"
-        motion:constraintSetStart="@id/hidetop" >
-    </Transition>
+
     <Transition
         motion:duration="500"
         motion:constraintSetEnd="@+id/showtop"
