@@ -86,10 +86,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                         WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
                 if(isStarted)
                 {isAnim=true;}
-              // Log.d("probar",String.valueOf(i1));
-                Log.d("probar",String.valueOf(i1));
-                Log.d("probar","showtop:"+String.valueOf(R.id.showtop));
-                Log.d("probar","hidetop:"+String.valueOf(R.id.hidetop));
+
 
 
             }

@@ -44,10 +44,14 @@ public class RetrofitService {
 
     //To create the repository with the apiService
     public static Repository getApiService(){
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        OkHttpClient client =getUnsafeOkHttpClient().addInterceptor(logging).build();
+        client.retryOnConnectionFailure();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
+
                 //.addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getUnsafeOkHttpClient().addInterceptor(logging).build())
