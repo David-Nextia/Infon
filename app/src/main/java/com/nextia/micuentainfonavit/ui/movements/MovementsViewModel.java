@@ -68,4 +68,14 @@ public class MovementsViewModel extends ViewModel implements OnFinishRequestList
 
 
     }
+
+    public void cancelMovs(){
+
+        saldos.cancelMovs();
+
+    }
+
+    public void reinitSaldos(){
+        saldos.reinit();
+    }
 }

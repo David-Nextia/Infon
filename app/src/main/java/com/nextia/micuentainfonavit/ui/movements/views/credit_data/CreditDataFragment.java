@@ -51,6 +51,7 @@ public class CreditDataFragment extends Fragment {
     FragmentCreditDataBinding binding;
     private View rootView;
     Spinner spinnerCredit;
+
     private MovementsViewModel viewModel;
 
     //creating view, and instance it
@@ -60,6 +61,7 @@ public class CreditDataFragment extends Fragment {
         spinnerCredit = binding.spCreditType;
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         viewModel.setInit(false);
+        //viewModel.reinitSaldos();
         rootView = binding.rootView;
         setSpinner();
         return binding.getRoot();
@@ -134,7 +136,10 @@ public class CreditDataFragment extends Fragment {
 
                 }else {
                     if(viewModel.getInit().getValue())
-                    {dialogError();}
+                    {
+                        dialogError();
+
+                    }
                 }
             }
         });
@@ -183,6 +188,7 @@ public class CreditDataFragment extends Fragment {
 
                 if(Utils.isNetworkAvailable(getActivity())){
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_credit_data);
+                    viewModel.cancelMovs();
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }
                 else{
@@ -249,5 +255,12 @@ public class CreditDataFragment extends Fragment {
         String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
         binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
         blurView(credit1,liquid1);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+      //  viewModel.cancelMovs();
+
     }
 }

@@ -22,6 +22,7 @@ public class DataBaseFoundation<T> {
        fun.enqueue(new Callback<T>() {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
+
                 if(response.code()==401){
                     listener.onTokenExpired();
                 }
@@ -57,7 +58,8 @@ public class DataBaseFoundation<T> {
             }
             @Override
             public void onFailure(Call<T> call, Throwable t) {
-                listener.onFailureRequest(t.getMessage());
+                if(!call.isCanceled())
+                { listener.onFailureRequest(t.getMessage());}
 
             }
         });

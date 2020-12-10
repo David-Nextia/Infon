@@ -67,6 +67,7 @@ public class PayOptionsFragment extends Fragment {
         rootView = binding.rootView;
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         viewModel.setInit(false);
+
         setSpinner();
         setOnClicks();
         return binding.getRoot();
@@ -195,6 +196,7 @@ public class PayOptionsFragment extends Fragment {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                // if (position != 0) {
                 if(Utils.isNetworkAvailable(getActivity())){
+                    viewModel.cancelMovs();
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_pay_options);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }
@@ -262,5 +264,12 @@ public class PayOptionsFragment extends Fragment {
         String liquid1="Tipo de liquidación: \n"+(" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV3TipoLiquidacion()).trim();
         binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
         blurView(credit1,liquid1);
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+        //viewModel.cancelMovs();
+
     }
 }

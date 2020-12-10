@@ -75,6 +75,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     boolean historicreq,periodsreq,movsreq,mensreq,movsdatareq;
     String token1="";
     boolean started=false;
+    boolean onView=true;
     File historic, mensual,movs;
     String mensualReporturl, movsReporturl;
     String credit;
@@ -98,6 +99,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         rootView = binding.rootView;
         //binding.progressBar2.animate().alpha(0.0f);
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
+       // viewModel.reinitSaldos();
         setSpinner();
         setOnclicks();
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
@@ -183,6 +185,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 if (Utils.isNetworkAvailable(getActivity())) {
 
                     // binding.progressBar2.animate().alpha(1.0f);
+                    viewModel.cancelMovs();
                     credit=parent.getItemAtPosition(position).toString();
                     token1=Utils.getSharedPreferencesToken(getContext());
                     creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
@@ -319,12 +322,17 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle fail response of server
     @Override
     public void onFailureRequest(String message) {
+
         if(getContext()!=null)
-        { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
+
+        { DialogInfonavit dialog = new DialogInfonavit(getContext(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         Utils.hideLoadingSkeleton();
         MovementsFragment.setMovsEnabled();
         //binding.progressBar2.animate().alpha(0.0f);
-        dialog.show();}
+            if(onView)
+            {dialog.show();}
+
+        }
 
     }
 
@@ -570,5 +578,25 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             Utils.hideLoadingSkeleton();
             MovementsFragment.setMovsEnabled();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        onView=false;
+        MovementsFragment.setMovsEnabled();
+
+        creditUseCase.cancelMovs();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        creditUseCase.cancelMovs();
     }
 }

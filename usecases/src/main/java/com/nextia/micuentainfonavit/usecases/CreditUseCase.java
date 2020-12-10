@@ -130,5 +130,16 @@ public class CreditUseCase {
     }
 
 
+    public void cancelMovs(){
+
+        database.cancelMovs();
+
+    }
+    public void reinitDatabase(){
+        database = new Database();
+
+    }
+
+
 
 }
