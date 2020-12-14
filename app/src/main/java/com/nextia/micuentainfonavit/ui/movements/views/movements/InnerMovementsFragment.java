@@ -79,7 +79,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     boolean onView=true;
     File historic, mensual,movs;
     String mensualReporturl, movsReporturl;
-    String credit;
+    String credit="";
     HistoricResponse object_final;
     private MovementsViewModel viewModel;
     //creating view, and instance it
@@ -186,9 +186,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 if (Utils.isNetworkAvailable(getActivity())) {
 
                     // binding.progressBar2.animate().alpha(1.0f);
-                    viewModel.cancelMovs();
-                    credit=parent.getItemAtPosition(position).toString();
                     token1=Utils.getSharedPreferencesToken(getContext());
+                    credit=parent.getItemAtPosition(position).toString();
                     creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     creditUseCase.getReportMovs(token1,credit,"",InnerMovementsFragment.this);
                     creditUseCase.getMovsData(token1,credit,InnerMovementsFragment.this);
@@ -196,6 +195,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                     binding.movementsContainer.setVisibility(View.GONE);
+
 
                 } else {
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
@@ -485,8 +485,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     return false;
                 }
             });
-                setListViewHeight(binding.listMovements, -1,false);
-                started=true;
+
+              setListViewHeight(binding.listMovements, -1,false);
+
+
+
                 hideSkeleton();
 
 
@@ -531,7 +534,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             if (height < 10)
                 height = 200;
             params.height = height + 30;
+            if(!started)
+            {
             expandedListHeight=params.height;
+            started=true;
+            }
         }
         else{
             params.height=expandedListHeight;
