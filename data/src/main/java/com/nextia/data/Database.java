@@ -29,6 +29,7 @@ import com.nextia.domain.models.user.UserBody;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -77,7 +78,11 @@ public class Database {
             }
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-                listener.onFailureRequest(t.getMessage());
+                if(t instanceof SocketTimeoutException){
+                    String message = "Por favor verifica que tu conexión a internet.";
+                    listener.onFailureRequest(message);
+                }else{
+                listener.onFailureRequest(t.getMessage());}
 
             }
         });

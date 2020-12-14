@@ -62,6 +62,10 @@ public class DataBaseFoundation<T> {
             public void onFailure(Call<T> call, Throwable t) {
                 if(!call.isCanceled())
                 { listener.onFailureRequest(t.getMessage());}
+                if(t instanceof SocketTimeoutException){
+                    String message = "Por favor verifica tu conexión a internet.";
+                    listener.onFailureRequest(message);
+                }
 
 
             }

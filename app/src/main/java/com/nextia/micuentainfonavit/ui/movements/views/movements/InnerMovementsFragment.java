@@ -72,6 +72,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     NavController navController;
     PdfViewViewModel pdfViewModel;
     String period;
+    boolean isTokenShowed=false;
     boolean historicreq,periodsreq,movsreq,mensreq,movsdatareq;
     String token1="";
     boolean started=false;
@@ -349,7 +350,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
             }
         });
-        alertdialog.show();
+
+        if(!isTokenShowed){
+            alertdialog.show();
+            isTokenShowed=true;
+        }
+
     }
 
     //handle success response of server

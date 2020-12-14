@@ -20,6 +20,7 @@ import com.nextia.domain.models.user.UserResponse;
 import java.lang.reflect.Type;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -48,6 +49,7 @@ public class RetrofitService {
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         OkHttpClient client =getUnsafeOkHttpClient().addInterceptor(logging).build();
         client.retryOnConnectionFailure();
+
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
@@ -146,6 +148,7 @@ public class RetrofitService {
                     return true;
                 }
             });
+            builder.readTimeout(60, TimeUnit.SECONDS);
             return builder;
         } catch (Exception e) {
             throw new RuntimeException(e);
