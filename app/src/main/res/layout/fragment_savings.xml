@@ -23,20 +23,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:id="@+id/view5"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginStart="@dimen/side_margins"
-                android:layout_marginEnd="@dimen/side_margins"
-                android:layout_weight="50"
-                android:background="@color/colorgrayblue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/viewpager" />
 
             <TextView
                 android:id="@+id/txtAportacion"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -61,6 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Última aportación por:"
+                android:visibility="gone"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 android:fontFamily="@font/subtitle"
@@ -78,6 +69,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/subtitle"
                 android:gravity="center"
+                android:visibility="gone"
                 android:padding="3dp"
                 android:paddingRight="3dp"
                 android:text="@{saldo.getNombreEmpresa}"
@@ -95,6 +87,7 @@
             <TextView
                 android:id="@+id/contribution_company2"
                 android:layout_width="match_parent"
+                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
@@ -303,6 +296,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/subtitle"
                     android:padding="3dp"
+                    android:visibility="gone"
                     android:text="@string/contribution_ultima_aportacion"
                     android:textAppearance="@android:style/TextAppearance.Small" />
 
@@ -311,6 +305,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/subtitle"
+                    android:visibility="gone"
                     android:padding="3dp"
                     android:text="@{utils.formatDate(saldo.getFechaPago,utils.PATTERN_DD_MM_YYYY)}"
                     android:textAppearance="@android:style/TextAppearance.Small"
