@@ -163,6 +163,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.textDownloadMensual.setOnClickListener(null);
                     binding.textDownloadHistoric.setOnClickListener(null);
                     binding.lnrTypeLinear.setVisibility(View.GONE);
+                    binding.spCreditType.setEnabled(false);
+                    binding.listMovements.setVisibility(View.GONE);
                 }}
             }
         });

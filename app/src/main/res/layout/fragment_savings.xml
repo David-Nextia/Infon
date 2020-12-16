@@ -133,7 +133,7 @@
                 app:tabBackground="@drawable/tab_background"
                 app:tabSelectedTextColor="@color/color_white"
                 app:tabTextAppearance="@style/AppTabTextAppearance"
-                app:tabTextColor="@color/color_blue" />
+                app:tabTextColor="@color/color_black" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -211,6 +211,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="0dp"
                 android:fontFamily="@font/subtitle"
+
                 android:text="@string/savings_ahorro"
                 android:textAlignment="center"
                 android:layout_marginBottom="15dp"
@@ -218,7 +219,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/color_black"
                 android:layout_marginStart="@dimen/side_margins"
                 android:layout_marginEnd="@dimen/side_margins"/>
 

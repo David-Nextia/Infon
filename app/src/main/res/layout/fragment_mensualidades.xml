@@ -173,6 +173,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/pago_de_mi_mensualidad"
                 android:layout_gravity="center"
+                android:textColor="@color/color_black"
                 android:layout_marginTop="15dp"
                 style="@style/TxStyleSubSubTitle"
                 android:fontFamily="@font/subtitle"

@@ -123,6 +123,7 @@ public class MensualidadesFragment extends Fragment {
                            }
                        });
                        binding.lnrTypeLinear.setVisibility(View.GONE);
+                       binding.spCreditType.setEnabled(false);
                    }
 
                     binding.imgMoreInfo.setOnClickListener(view-> {

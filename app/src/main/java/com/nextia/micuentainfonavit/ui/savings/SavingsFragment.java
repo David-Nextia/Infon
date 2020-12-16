@@ -69,9 +69,9 @@ public class SavingsFragment extends Fragment {
             public void onChanged(SaldoResponse saldoResponse) {
                 if(saldoResponse != null && validateField(saldoResponse)) {
                     if(adapterViewpage.getCount() == 0) {
-                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoAnterior()), " Fondo de ahorro", "De 1972 al 28 febrero 1992"), "Año 1972");
-                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR92()), "Subcuenta de vivienda SAR", "Del 01 marzo 1992 al 30 junio 1997"), "Año 1992");
-                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR97()), " Subcuenta de vivienda", "Del 1 julio 1997 a la actualidad"), "Año 1997");
+                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoAnterior()), " Fondo de ahorro 1972", "De 1972 al 28 febrero 1992"), "Año 1972");
+                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR92()), "Subcuenta de Vivienda SAR 1992", "Del 01 marzo 1992 al 30 junio 1997"), "Año 1992");
+                        adapterViewpage.addFragment(ViewPageFragment.getIntance(Utils.formatMoney(saldoResponse.getSaldoSAR97()), " Subcuenta de Vivienda 1997", "Del 01 julio 1997 a la actualidad"), "Año 1997");
                         adapterViewpage.notifyDataSetChanged();
                     }
                     binding.viewpager.setAdapter(adapterViewpage);

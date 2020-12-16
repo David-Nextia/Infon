@@ -113,6 +113,7 @@ public class PayOptionsFragment extends Fragment {
                         binding.lyUsa.setOnClickListener(null);
                         binding.lyMarket.setOnClickListener(null);
                         binding.lyBank.setOnClickListener(null);
+                        binding.spCreditType.setEnabled(false);
                     }
                     binding.imgMoreInfo.setOnClickListener(view-> {
                         if(binding.prorroga.getVisibility() == View.VISIBLE) {

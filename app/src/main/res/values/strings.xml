@@ -50,7 +50,7 @@
     <string name="menu_datos_credito">Datos de mi crédito</string>
 
     <!--Savings -->
-    <string name="savings_title">Este es tu ahorro</string>
+    <string name="savings_title">Éste es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
     <!--    tabs-->
@@ -178,7 +178,7 @@
     <string name="soriana_commers">Soriana Express\nSoriana Hiper\nSoriana Mercado\nSoriana Súper\nBodega Comercial Mexicana\nCity Club\nMega\nAlprecio</string>
     <string name="chedraui_commers">Almacenes Chedraui\nSelecto Chedraui\nSúper City\nSúperche\nSúper Chedraui</string>
     <string name="la_comer">La Comer</string>
-    <string name="lacomer_commers">Fresko<br/>City Market\nLa Comer\nSumesa</string>
+    <string name="lacomer_commers">Fresko\nCity Market\nLa Comer\nSumesa</string>
     <string name="elektra">Elektra</string>
     <string name="elektra_commers">Banco Azteca\nFarmacias del Ahorro\nModatelas\nPrestaprenda\nTiendas Neto</string>
     <string name="famsa_muebleros">Famsa Muebleros</string>

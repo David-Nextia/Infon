@@ -11,6 +11,7 @@
         android:layout_weight="1"
         android:layout_gravity="center"
         android:gravity="center"
+        android:fontFamily="@font/body"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:background="@color/expandable_background"
@@ -24,6 +25,7 @@
 
     <TextView
         android:id="@+id/title"
+        android:fontFamily="@font/body"
         android:layout_weight="2"
         android:layout_gravity="center"
         android:gravity="center"
@@ -42,6 +44,7 @@
 
     <TextView
         android:id="@+id/description"
+        android:fontFamily="@font/body"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_gravity="center"
