@@ -284,8 +284,8 @@
                     android:layout_marginEnd="@dimen/side_margins">
 
                     <TextView
-                        android:layout_width="8dp"
-                        android:layout_height="6dp"
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/ic_baseline_check_circle_outline_24"
                         android:backgroundTint="@color/colorPrimary"

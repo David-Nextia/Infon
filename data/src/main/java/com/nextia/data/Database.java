@@ -29,6 +29,7 @@ import com.nextia.domain.models.user.UserBody;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.SocketTimeoutException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -38,7 +39,12 @@ import retrofit2.Response;
 public class Database {
     public static final String AUTH="Basic c2VydmljaW9zd2ViOnNhcHBpMjAxOA==";
 //  = "Basic "+ Base64.getEncoder().encodeToString("serviciosweb:sappi2018".getBytes());
-
+    Call<HistoricResponse> getInfoCreditHistoric;
+    Call<SaldoMovimientosResponse> getSaldoMovimientos;
+    Call<PeriodResponse> getperiodosDisponibles;
+    Call<MensualReportResponse> getMensualReport;
+    Call<ReportMovsResponse> getReportMovs;
+    Call<MovsResponse> getReportMovs2;
     //To login the user and get the UserResponse
     public void doLogin(UserBody user, final OnFinishRequestListener<UserResponse> listener){
         Call<UserResponse> doLoginJS =RetrofitService.getApiLoginService().logInMethod(user);
@@ -72,7 +78,11 @@ public class Database {
             }
             @Override
             public void onFailure(Call<UserResponse> call, Throwable t) {
-                listener.onFailureRequest(t.getMessage());
+                if(t instanceof SocketTimeoutException){
+                    String message = "Por favor verifica que tu conexión a internet.";
+                    listener.onFailureRequest(message);
+                }else{
+                listener.onFailureRequest(t.getMessage());}
 
             }
         });
@@ -104,7 +114,7 @@ public class Database {
     //To get the urlBase64 of the credit
     public void getCredifInfoHistoric(CreditInfoBody body, String token, final OnFinishRequestListener<HistoricResponse> listener){
         DataBaseFoundation database= new DataBaseFoundation<CreditYearInfoBody>();
-        Call<HistoricResponse> getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, token);
+        getInfoCreditHistoric =RetrofitService.getApiService().getCreditInfoHistoric(body, token);
         database.getData(getInfoCreditHistoric,listener);
     }
 
@@ -118,7 +128,7 @@ public class Database {
     //To get balances and movements
     public void getSaldosMovimientos(SaldoMovimientosBody body, String token, final OnFinishRequestListener<SaldoResponse> listener) {
         DataBaseFoundation database = new DataBaseFoundation<SaldoBody>();
-        Call<SaldoMovimientosResponse> getSaldoMovimientos = RetrofitService.getApiService().getSaldoMovimientos(body, token);
+       getSaldoMovimientos = RetrofitService.getApiService().getSaldoMovimientos(body, token);
         database.getData(getSaldoMovimientos, listener);
     }
 
@@ -126,29 +136,61 @@ public class Database {
     //To get periods
     public void getPeriodosDisponibles(creditBody body, String token, final OnFinishRequestListener<PeriodResponse> listener) {
         DataBaseFoundation database = new DataBaseFoundation<creditBody>();
-        Call<PeriodResponse> getperiodosDisponibles = RetrofitService.getApiService().getperiodosDisponibles(body,token);
+        getperiodosDisponibles = RetrofitService.getApiService().getperiodosDisponibles(body,token);
         database.getData(getperiodosDisponibles, listener);
     }
 
     //To get mensual report
     public void getMensualReport(MensualReportBody body, String token, final OnFinishRequestListener<MensualReportResponse> listener) {
         DataBaseFoundation database = new DataBaseFoundation<MensualReportBody>();
-        Call<MensualReportResponse> getMensualReport = RetrofitService.getApiService().getReporteMensual(body,token);
+        getMensualReport = RetrofitService.getApiService().getReporteMensual(body,token);
         database.getData(getMensualReport, listener);
     }
 
     //To get period movs report
     public void getReportMovs(ReportMovsBody body, String token, final OnFinishRequestListener<ReportMovsResponse> listener) {
         DataBaseFoundation database = new DataBaseFoundation<ReportMovsBody>();
-        Call<ReportMovsResponse> getReportMovs = RetrofitService.getApiService().getReporteMovs(body,token);
+        getReportMovs = RetrofitService.getApiService().getReporteMovs(body,token);
         database.getData(getReportMovs, listener);
     }
 
     //To get period movs data
     public void getDataMovs(MovsBody body, String token, final OnFinishRequestListener<MovsResponse> listener) {
         DataBaseFoundation database = new DataBaseFoundation<MovsBody>();
-        Call<MovsResponse> getReportMovs = RetrofitService.getApiService().getMovsData(body,token);
-        database.getData(getReportMovs, listener);
+        getReportMovs2 = RetrofitService.getApiService().getMovsData(body,token);
+        database.getData(getReportMovs2, listener);
+    }
+
+    public  void cancelMovs(){
+
+        if(getInfoCreditHistoric!=null)
+        {
+            getInfoCreditHistoric.cancel();
+        }
+        if( getSaldoMovimientos!=null){
+            getSaldoMovimientos.cancel();
+        }
+        if(getperiodosDisponibles!=null)
+        {
+            getperiodosDisponibles.cancel();
+        }
+        if(getMensualReport!=null)
+        {
+            getMensualReport.cancel();
+        }
+        if(getReportMovs!=null)
+        {
+            getReportMovs.cancel();
+        }
+        if(getReportMovs2!=null){
+            getReportMovs2.cancel();
+        }
+
+
+
+
+
+
     }
 
 }

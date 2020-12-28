@@ -8,18 +8,25 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@drawable/back">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:id="@+id/rootView"
-            android:padding="10dp">
+            android:paddingBottom="60dp"
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -27,22 +34,30 @@
                 android:text="@string/constancia_interes_titulo"
                 android:textAppearance="@android:style/TextAppearance.Large"
                 style="@style/TxStyleSubTitle"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
+
                 android:textColor="@color/color_black" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:background="@color/color_blue" />
 
-            <TextView
+            <com.codesgood.views.JustifiedTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/body"
+                android:layout_marginStart="@dimen/side_margins"
+                android:layout_marginEnd="@dimen/side_margins"
                 android:text="@string/subtitulo_constancia_pdf"
                 android:textAlignment="gravity"
-                android:textSize="12sp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/body"/>
+                android:textSize="14sp"
+                android:justificationMode="inter_word"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -58,7 +73,7 @@
                     android:layout_weight="1"
                     android:text="Número de crédito "
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/subtitle"/>
 
                 <TextView
@@ -67,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/body"
-                    android:textSize="12sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -84,7 +99,7 @@
                     android:layout_weight="1"
                     android:text="Año fiscal"
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/subtitle"/>
 
                 <TextView
@@ -93,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text=""
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
@@ -111,7 +126,7 @@
                     android:layout_weight="1"
                     android:text="Nombre del acreditado"
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/subtitle"/>
 
                 <TextView
@@ -120,7 +135,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{credit.datosGenerales.nombre}"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
@@ -138,7 +153,7 @@
                     android:layout_weight="1"
                     android:text="R.F.C."
                     android:layout_marginEnd="15dp"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/subtitle"/>
 
                 <TextView
@@ -147,40 +162,84 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@{credit.datosGenerales.rfc}"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     android:fontFamily="@font/body"/>
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/downloadPanel"
+                android:visibility="visible"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
 
-                android:layout_gravity="center"
-                android:layout_marginTop="60dp">
-
-                <TextView
-                    android:id="@+id/dowloadPdf"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/pdfc"
-                    android:layout_gravity="center" />
-
-
-                <TextView
-                    android:id="@+id/tv_imprimir_constancia"
-                    android:layout_width="wrap_content"
+                android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/descarga_tu_archivo"
-                    android:textColor="@color/colorgrayblue"
-                    android:textStyle="bold"
-                    android:textSize="14sp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:fontFamily="@font/subtitle"/>
+                    >
+
+                    <TextView
+                        android:id="@+id/dowloadPdf"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/pdfc"
+                        android:layout_gravity="center" />
+
+
+                    <TextView
+                        android:id="@+id/tv_imprimir_constancia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/descarga_tu_archivo"
+                        android:textColor="@color/colorgrayblue"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:id="@+id/xml_download"
+                    android:layout_gravity="center"
+                    >
+
+                    <TextView
+                        android:layout_width="40dp"
+                        android:layout_height="50dp"
+                        android:textColor="@color/colorPrimary"
+                        android:backgroundTint="@color/colorPrimary"
+
+                        android:background="@drawable/logo_generc"
+                        android:layout_gravity="center" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Descargar XML"
+                        android:textColor="@color/colorgrayblue"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/subtitle"/>
+
+                </LinearLayout>
 
             </LinearLayout>
+
             <ImageView
                 android:visibility="gone"
                 android:layout_width="20dp"
@@ -198,7 +257,24 @@
                 android:textSize="14sp"
                 android:layout_gravity="center"
                 android:fontFamily="@font/subtitle"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/infoRFCGeneric"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_margins"
+            android:layout_marginEnd="@dimen/side_margins"
+            android:layout_marginTop="24dp"
+            android:text="@string/rfc_generico_constancia"
+            android:justificationMode="inter_word"
+            android:fontFamily="@font/body"
+            android:textAlignment="gravity"
+            android:textSize="14sp"
+            android:autoLink="web"
+            android:visibility="gone"/>
+
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

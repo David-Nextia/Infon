@@ -5,6 +5,7 @@ package com.nextia.micuentainfonavit.ui.movements;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -27,9 +28,11 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nextia.micuentainfonavit.MainActivity;
 import com.nextia.micuentainfonavit.R;
+import com.nextia.micuentainfonavit.Utils;
+
 public class MovementsFragment extends Fragment {
 OnContactSelected mOnContactSelected;
-
+    public static BottomNavigationView navView;
     //creating view
     public View onCreateView(@NonNull LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_movements, container, false);
@@ -47,7 +50,7 @@ OnContactSelected mOnContactSelected;
                 .build();
         ((MainActivity)getActivity()).disablemenu();
             NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_movements);
-            BottomNavigationView navView = view.findViewById(R.id.navbarmovements);
+             navView=view.findViewById(R.id.navbarmovements);
             NavigationUI.setupWithNavController(navView, navController);
 
 
@@ -62,5 +65,16 @@ OnContactSelected mOnContactSelected;
     public void onDestroyView() {
         super.onDestroyView();
         ((MainActivity)getActivity()).enablemenu();
+    }
+
+    public static void  setMovsdisble(){
+
+        navView.getMenu().getItem(2).setEnabled(false);
+
+    }
+    public static void  setMovsEnabled(){
+
+        navView.getMenu().getItem(2).setEnabled(true);
+
     }
 }

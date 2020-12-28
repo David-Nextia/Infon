@@ -50,7 +50,7 @@
     <string name="menu_datos_credito">Datos de mi crédito</string>
 
     <!--Savings -->
-    <string name="savings_title">Este es tu ahorro</string>
+    <string name="savings_title">Éste es tu ahorro</string>
     <string name="savings_ahorro">Ahorro total:</string>
     <string name="savings_description">Tu ahorro en el 2019 genera el 7.32% de rendimiento nominal anual</string>
     <!--    tabs-->
@@ -178,7 +178,7 @@
     <string name="soriana_commers">Soriana Express\nSoriana Hiper\nSoriana Mercado\nSoriana Súper\nBodega Comercial Mexicana\nCity Club\nMega\nAlprecio</string>
     <string name="chedraui_commers">Almacenes Chedraui\nSelecto Chedraui\nSúper City\nSúperche\nSúper Chedraui</string>
     <string name="la_comer">La Comer</string>
-    <string name="lacomer_commers">Fresko<br/>City Market\nLa Comer\nSumesa</string>
+    <string name="lacomer_commers">Fresko\nCity Market\nLa Comer\nSumesa</string>
     <string name="elektra">Elektra</string>
     <string name="elektra_commers">Banco Azteca\nFarmacias del Ahorro\nModatelas\nPrestaprenda\nTiendas Neto</string>
     <string name="famsa_muebleros">Famsa Muebleros</string>
@@ -198,5 +198,15 @@ De manera que estén alineados a la izquierda.</string>
     <string name="header_pay_market1">•El pago mínimo es de $50.00 y en efectivo.</string>
     <string name="header_pay_market2">•Sólo dale al cajero tu número de crédito o muestra tu estado de cuenta y dile cuánto vas a pagar.</string>
     <string name="header_pay_market3">•En estos establecimientos no se cobra comisión por este servicio.</string>
+    <string name="rfc_generico_constancia">
+
+        En tu Carta constancia de intereses reales %1$s el campo RFC registrado en nuestra base de datos es erróneo. Solicita tu comprobante de RFC en el módulo de atención SAT que te corresponda y contáctanos cuanto antes.\n\n
+
+        Pide una cita en el portal de internet www.infonavit.org.mx para que acudas al CESI del Infonavit más cercano y solicites que te lo corrijan. A la cita lleva tu identificación oficial y el comprobante del RFC que te entregue el SAT.\n\n
+
+        Contacto Servicio de Administración Tributaria (SAT)
+        http://www.sat.gob.mx/sitio_internet/sitio_aplicaciones/modulos_atencion/
+
+    </string>
 
 </resources>

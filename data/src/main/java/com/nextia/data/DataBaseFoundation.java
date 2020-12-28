@@ -8,6 +8,8 @@ import com.nextia.domain.models.aviso_suspension.AvisosPDFResponse;
 import com.nextia.domain.models.credit_year_info.CreditYearInfoResponse;
 import com.nextia.domain.models.reports.HistoricResponse;
 
+import java.net.SocketTimeoutException;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -22,6 +24,7 @@ public class DataBaseFoundation<T> {
        fun.enqueue(new Callback<T>() {
             @Override
             public void onResponse(Call<T> call, Response<T> response) {
+
                 if(response.code()==401){
                     listener.onTokenExpired();
                 }
@@ -57,7 +60,13 @@ public class DataBaseFoundation<T> {
             }
             @Override
             public void onFailure(Call<T> call, Throwable t) {
-                listener.onFailureRequest(t.getMessage());
+                if(!call.isCanceled())
+                { listener.onFailureRequest(t.getMessage());}
+                if(t instanceof SocketTimeoutException){
+                    String message = "Por favor verifica tu conexión a internet.";
+                    listener.onFailureRequest(message);
+                }
+
 
             }
         });

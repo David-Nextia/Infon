@@ -21,4 +21,16 @@ public class SaldosUseCase {
         database.getSaldosMovimientos(saldo, token, listener);
     }
 
+    public void cancelMovs(){
+
+        database.cancelMovs();
+
+    }
+    public void reinit(){
+
+        database=null;
+        database = new Database();
+
+    }
+
 }

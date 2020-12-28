@@ -20,6 +20,7 @@ import com.nextia.domain.models.user.UserResponse;
 import java.lang.reflect.Type;
 import java.security.cert.CertificateException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
@@ -37,15 +38,22 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitService {
 
     private static final String URL_BASE="https://serviciosweb.infonavit.org.mx:8892";
+    private static final String URL_BASE_PROD="https://serviciosweb.infonavit.org.mx:9051";
     private static final String URL_BASE_LOGIN="https://serviciosweb.infonavit.org.mx:8893";
+    private static final String URL_BASE_LOGIN_PROD="https://serviciosweb.infonavit.org.mx:8893";
     static Gson gson = new GsonBuilder().registerTypeAdapter(UserResponse.class, new UserResponseDeserealizer()).create();
 
     //To create the repository with the apiService
     public static Repository getApiService(){
+
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        OkHttpClient client =getUnsafeOkHttpClient().addInterceptor(logging).build();
+        client.retryOnConnectionFailure();
+
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL_BASE)
+
                 //.addConverterFactory(GsonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getUnsafeOkHttpClient().addInterceptor(logging).build())
@@ -65,6 +73,7 @@ public class RetrofitService {
                 .build();
         return retrofit.create(Repository.class);
     }
+
 
     //Class to deserealize UserResponse and avoid errors on different responses
     public static  class UserResponseDeserealizer implements JsonDeserializer<UserResponse> {
@@ -139,6 +148,7 @@ public class RetrofitService {
                     return true;
                 }
             });
+            builder.readTimeout(60, TimeUnit.SECONDS);
             return builder;
         } catch (Exception e) {
             throw new RuntimeException(e);

@@ -9,14 +9,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.transition.Transition;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -43,6 +47,7 @@ import com.nextia.micuentainfonavit.usecases.UserUseCase;
 public class LoginActivity extends AppCompatActivity implements OnFinishRequestListener<UserResponse> {
     UserUseCase user;
     Switch rememberUser;
+    Transition showkeyboard;
     View auxView,email_view;
     ConstraintLayout layout,layout2;
     LinearLayout form;
@@ -51,12 +56,15 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     TextView aviso, title, register,registerlogin;
     ConstraintSet set;
     Animation anim;
+    boolean isAnim=false;
     ProgressBar progress;
     MotionLayout motionLayoutLogin;
     ImageView emailClear,passwordClear,redLogo,whiteLogo;
     TextView passwordMessage;
     Boolean hasShowedKeyboard=false, LogoIntercepted=false;
     int screenHeight;
+    boolean transFinished;
+    boolean isStarted=false;
     View view_email,view_password;
     //location to determine visibility's description view
     int[] registerLocation, formLocation;
@@ -74,6 +82,12 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
         motionLayoutLogin.setTransitionListener(new MotionLayout.TransitionListener() {
             @Override
             public void onTransitionStarted(MotionLayout motionLayout, int i, int i1) {
+                getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+                        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                if(isStarted)
+                {isAnim=true;}
+
+
 
             }
 
@@ -84,7 +98,17 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
 
             @Override
             public void onTransitionCompleted(MotionLayout motionLayout, int i) {
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+
+                        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+                        isAnim=false;
+                        if(!isStarted){
+                            motionLayoutLogin.transitionToState(R.id.showtop);
+                            isStarted=true;
+                        }
+
+
+
+
             }
 
             @Override
@@ -248,8 +272,9 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
     public void setOffKeyboardView() {
         if(hasShowedKeyboard)
         {
-            motionLayoutLogin.transitionToState(R.id.showtop);
 
+            motionLayoutLogin.transitionToState(R.id.showtop);
+            Log.d("test","entro");
             redLogo.animate().setDuration(1000).alpha(0);
             whiteLogo.setVisibility(View.VISIBLE);
             whiteLogo.animate().setDuration(1000).alpha(1);
@@ -338,6 +363,7 @@ public class LoginActivity extends AppCompatActivity implements OnFinishRequestL
                 return false;
             }
         });
+
 
         email.addTextChangedListener(new TextWatcher() {
             @Override

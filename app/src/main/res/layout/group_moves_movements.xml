@@ -10,6 +10,7 @@
 
     <TextView
         android:id="@+id/fecha"
+        android:fontFamily="@font/body"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:gravity="center"
@@ -29,6 +30,7 @@
     <TextView
 
         android:id="@+id/pagoRegular"
+        android:fontFamily="@font/body"
         android:layout_weight="2"
         android:layout_gravity="center"
         android:gravity="center"
@@ -45,6 +47,7 @@
 
     <TextView
         android:id="@+id/montoTransaccion"
+        android:fontFamily="@font/body"
         android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_gravity="center"

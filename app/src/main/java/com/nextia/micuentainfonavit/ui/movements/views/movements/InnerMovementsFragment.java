@@ -44,6 +44,7 @@ import com.nextia.micuentainfonavit.R;
 import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentInnerMovementsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.MovementsFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
@@ -71,12 +72,14 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     NavController navController;
     PdfViewViewModel pdfViewModel;
     String period;
+    boolean isTokenShowed=false;
     boolean historicreq,periodsreq,movsreq,mensreq,movsdatareq;
     String token1="";
     boolean started=false;
+    boolean onView=true;
     File historic, mensual,movs;
     String mensualReporturl, movsReporturl;
-    String credit;
+    String credit="";
     HistoricResponse object_final;
     private MovementsViewModel viewModel;
     //creating view, and instance it
@@ -84,7 +87,9 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
        if(getActivity()!=null && isAdded())
-       {binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
+       {
+          MovementsFragment.setMovsdisble();
+           binding = DataBindingUtil.inflate(inflater, R.layout.fragment_inner_movements, container, false);
         historicreq=false;
         periodsreq=false;
         movsreq=false;
@@ -95,6 +100,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
         rootView = binding.rootView;
         //binding.progressBar2.animate().alpha(0.0f);
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
+       // viewModel.reinitSaldos();
         setSpinner();
         setOnclicks();
         viewModel.getSaldosMovimientos().observe(getViewLifecycleOwner(), new Observer<SaldoMovimientosResponse>() {
@@ -157,6 +163,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     binding.textDownloadMensual.setOnClickListener(null);
                     binding.textDownloadHistoric.setOnClickListener(null);
                     binding.lnrTypeLinear.setVisibility(View.GONE);
+                    binding.spCreditType.setEnabled(false);
+                    binding.listMovements.setVisibility(View.GONE);
                 }}
             }
         });
@@ -180,8 +188,8 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 if (Utils.isNetworkAvailable(getActivity())) {
 
                     // binding.progressBar2.animate().alpha(1.0f);
-                    credit=parent.getItemAtPosition(position).toString();
                     token1=Utils.getSharedPreferencesToken(getContext());
+                    credit=parent.getItemAtPosition(position).toString();
                     creditUseCase.getInfoCreditHistoric(token1, parent.getItemAtPosition(position).toString(), InnerMovementsFragment.this);
                     creditUseCase.getReportMovs(token1,credit,"",InnerMovementsFragment.this);
                     creditUseCase.getMovsData(token1,credit,InnerMovementsFragment.this);
@@ -189,6 +197,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_inner_movements);
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                     binding.movementsContainer.setVisibility(View.GONE);
+
 
                 } else {
                     DialogInfonavit alertdialog = new DialogInfonavit(getActivity(), "Aviso", getString(R.string.no_internet), DialogInfonavit.ONE_BUTTON_DIALOG);
@@ -219,7 +228,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             public void onClick(View v) {
 
                 try {
-                    mensual= Utils.createPdfFromBase64(object_final.getReporte(), "mensual_"+credit, getActivity(), true);
+                    mensual= Utils.createPdfFromBase64(object_final.getReporte(), "mensual_"+credit, getActivity(),1, true);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -235,7 +244,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             public void onClick(View v) {
 
                 try {
-                    historic = Utils.createPdfFromBase64(mensualReporturl, "historic_"+credit, getActivity(), true);
+                    historic = Utils.createPdfFromBase64(mensualReporturl, "historic_"+credit, getActivity(),1, true);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -260,7 +269,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             @Override
             public void onClick(View v) {
                 try {
-                    movs = Utils.createPdfFromBase64(movsReporturl, "movs_"+credit, getActivity(), true);
+                    movs = Utils.createPdfFromBase64(movsReporturl, "movs_"+credit, getActivity(),1, true);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -276,7 +285,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    movs= Utils.createPdfFromBase64(movsReporturl, "EstadoCuentaMovimientos_"+credit, getActivity(), false);
+                    movs= Utils.createPdfFromBase64(movsReporturl, "EstadoCuentaMovimientos_"+credit, getActivity(),1, false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -290,7 +299,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "EstadoCuentaHistorico_"+credit, getActivity(), false);
+                    historic = Utils.createPdfFromBase64(object_final.getReporte(), "EstadoCuentaHistorico_"+credit, getActivity(),1, false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -304,7 +313,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                 DialogInfonavit dialog = new DialogInfonavit(getContext(), getString(R.string.title_error), "Descarga exitosa:\nEl documento se ha guardado en tu carpeta de descargas.", DialogInfonavit.ONE_BUTTON_DIALOG);
                 dialog.show();
                 try {
-                    mensual= Utils.createPdfFromBase64(mensualReporturl, "EstadoCuentaMensual_"+credit, getActivity(), false);
+                    mensual= Utils.createPdfFromBase64(mensualReporturl, "EstadoCuentaMensual_"+credit, getActivity(),1, false);
 
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -316,11 +325,17 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     //handle fail response of server
     @Override
     public void onFailureRequest(String message) {
+
         if(getContext()!=null)
-        { DialogInfonavit dialog = new DialogInfonavit(getActivity(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
+
+        { DialogInfonavit dialog = new DialogInfonavit(getContext(),"Aviso", message, DialogInfonavit.ONE_BUTTON_DIALOG);
         Utils.hideLoadingSkeleton();
+        MovementsFragment.setMovsEnabled();
         //binding.progressBar2.animate().alpha(0.0f);
-        dialog.show();}
+            if(onView)
+            {dialog.show();}
+
+        }
 
     }
 
@@ -337,7 +352,12 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
 
             }
         });
-        alertdialog.show();
+
+        if(!isTokenShowed){
+            alertdialog.show();
+            isTokenShowed=true;
+        }
+
     }
 
     //handle success response of server
@@ -411,6 +431,7 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             mensualReporturl=((MensualReportResponse)object).getReporte();
             binding.monthlyContainer.setVisibility(View.VISIBLE);
             binding.txtLastPeriod.setText(period);
+            hideSkeleton();
         }
 
         //respuesta movimientos
@@ -466,8 +487,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
                     return false;
                 }
             });
-                setListViewHeight(binding.listMovements, -1,false);
-                started=true;
+
+              setListViewHeight(binding.listMovements, -1,false);
+
+
+
                 hideSkeleton();
 
 
@@ -512,7 +536,11 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
             if (height < 10)
                 height = 200;
             params.height = height + 30;
+            if(!started)
+            {
             expandedListHeight=params.height;
+            started=true;
+            }
         }
         else{
             params.height=expandedListHeight;
@@ -563,6 +591,27 @@ public class InnerMovementsFragment extends Fragment implements OnFinishRequestL
     public void hideSkeleton(){
         if(movsreq && periodsreq && historicreq && mensreq && movsdatareq){
             Utils.hideLoadingSkeleton();
+            MovementsFragment.setMovsEnabled();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        onView=false;
+        MovementsFragment.setMovsEnabled();
+
+        creditUseCase.cancelMovs();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        creditUseCase.cancelMovs();
     }
 }

@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -103,7 +104,7 @@ public class MessageConfig {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            spf = new SimpleDateFormat("dd.MM.yyyy");
+            spf = new SimpleDateFormat("dd MMMM yyyy", new Locale("es", "ES"));
             value = spf.format(newDate);
         }
 

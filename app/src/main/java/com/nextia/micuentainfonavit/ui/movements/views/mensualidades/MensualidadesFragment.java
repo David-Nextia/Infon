@@ -41,6 +41,7 @@ import com.nextia.micuentainfonavit.Utils;
 import com.nextia.micuentainfonavit.databinding.FragmentMensualidadesBinding;
 import com.nextia.micuentainfonavit.databinding.FragmentSavingsBinding;
 import com.nextia.micuentainfonavit.foundations.DialogInfonavit;
+import com.nextia.micuentainfonavit.ui.movements.MovementsFragment;
 import com.nextia.micuentainfonavit.ui.movements.MovementsViewModel;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.MessageConfig;
 import com.nextia.micuentainfonavit.ui.movements.logic_views.ViewsConfig;
@@ -75,6 +76,7 @@ public class MensualidadesFragment extends Fragment {
         spinnerCredit = binding.spCreditType;
         viewModel = new ViewModelProvider(getActivity()).get(MovementsViewModel.class);
         viewModel.setInit(false);
+        //viewModel.reinitSaldos();
         setSpinner();
         return binding.getRoot();
     }
@@ -90,7 +92,7 @@ public class MensualidadesFragment extends Fragment {
                 String type="";
                 String messagesTypeCredit = "";
                 if(saldoMovimientosResponse != null && saldoMovimientosResponse.getReturnData() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs() != null && saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1() != null){
-                    binding.setSaldo(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getTablaPagos1());
+                    binding.setSaldo(saldoMovimientosResponse.getReturnData().getRespuestasDoMovs());
                     Utils.hideLoadingSkeleton();
                     try{
                         type= saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV1TipoCredito()+" "+saldoMovimientosResponse.getReturnData().getRespuestasDoMovs().getPagosMensualidades().getV10TipoCreditoFam();
@@ -121,6 +123,7 @@ public class MensualidadesFragment extends Fragment {
                            }
                        });
                        binding.lnrTypeLinear.setVisibility(View.GONE);
+                       binding.spCreditType.setEnabled(false);
                    }
 
                     binding.imgMoreInfo.setOnClickListener(view-> {
@@ -197,6 +200,7 @@ public class MensualidadesFragment extends Fragment {
 //                if (position != 0) {
                 if(Utils.isNetworkAvailable(getActivity())){
                     Utils.showLoadingSkeleton(rootView, R.layout.skeleton_mensualidades);
+                    viewModel.cancelMovs();
                     viewModel.getMovements(getContext(), parent.getItemAtPosition(position).toString());
                 }
                 else{
@@ -265,4 +269,12 @@ public class MensualidadesFragment extends Fragment {
         binding.info.setText(  viewModel.getConfig().getValue().getMensaje());
         blurView(credit1,liquid1);
     }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+
+
+
+    }
 }
+
